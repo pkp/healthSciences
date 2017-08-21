@@ -13,7 +13,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutThisPublishingSystem"}
 
-<div class="page page_about_publishing_system">
+<div>
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutThisPublishingSystem"}
 
 	<p>

@@ -32,13 +32,13 @@
 	{load_header context="frontend" headers=$headers}
 	{load_stylesheet context="frontend" stylesheets=$stylesheets}
 </head>
-<body class="pkp_page_{$requestedPage|escape} pkp_op_{$requestedOp|escape}">
+<body>
 
 	{* Header wrapper *}
-	<header class="header_view">
+	<header>
 
-		<a href="{$parentUrl}" class="return">
-			<span class="pkp_screen_reader">
+		<a href="{$parentUrl}">
+			<span>
 				{if $parent instanceOf Issue}
 					{translate key="issue.return"}
 				{else}
@@ -47,22 +47,22 @@
 			</span>
 		</a>
 
-		<a href="{$parentUrl}" class="title">
+		<a href="{$parentUrl}">
 			{$pdfTitle}
 		</a>
 
-		<a href="{url page="issue" op="download" path=$parentId|to_array:$galley->getBestGalleyId()}" class="download" download>
-			<span class="label">
+		<a href="{url page="issue" op="download" path=$parentId|to_array:$galley->getBestGalleyId()}" download>
+			<span>
 				{translate key="common.download"}
 			</span>
-			<span class="pkp_screen_reader">
+			<span>
 				{translate key="common.downloadPdf"}
 			</span>
 		</a>
 
 	</header>
 
-	<iframe class="pdf" src="{url page="issue" op="download" path=$parentId|to_array:$galley->getBestGalleyId()}"></iframe>
+	<iframe></iframe>
 
 	{call_hook name="Templates::Common::Footer::PageFooter"}
 

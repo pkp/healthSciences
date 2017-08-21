@@ -15,7 +15,7 @@
  * @uses $publishedArticles array Lists of articles published in this issue
  *   sorted by section.
  *}
-<div class="obj_issue_toc">
+<div>
 
 	{* Indicate if this is only a preview *}
 	{if !$issue->getPublished()}
@@ -23,19 +23,19 @@
 	{/if}
 
 	{* Issue introduction area above articles *}
-	<div class="heading">
+	<div>
 
 		{* Issue cover image *}
 		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 		{if $issueCover}
-			<a class="cover" href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+			<a>
 				<img src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 			</a>
 		{/if}
 
 		{* Description *}
 		{if $issue->hasDescription()}
-			<div class="description">
+			<div>
 				{$issue->getLocalizedDescription()|strip_unsafe_html}
 			</div>
 		{/if}
@@ -49,11 +49,11 @@
 			{/if}
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-					<span class="type">
+				<div>
+					<span>
 						{$pubIdPlugin->getPubIdDisplayType()|escape}:
 					</span>
-					<span class="id">
+					<span>
 						{if $doiUrl}
 							<a href="{$doiUrl|escape}">
 								{$doiUrl}
@@ -68,11 +68,11 @@
 
 		{* Published date *}
 		{if $issue->getDatePublished()}
-			<div class="published">
-				<span class="label">
+			<div>
+				<span>
 					{translate key="submissions.published"}:
 				</span>
-				<span class="value">
+				<span>
 					{$issue->getDatePublished()|date_format:$dateFormatShort}
 				</span>
 			</div>
@@ -81,11 +81,11 @@
 
 	{* Full-issue galleys *}
 	{if $issueGalleys && $hasAccess}
-		<div class="galleys">
+		<div>
 			<h2>
 				{translate key="issue.fullIssue"}
 			</h2>
-			<ul class="galleys_links">
+			<ul>
 				{foreach from=$issueGalleys item=galley}
 					<li>
 						{include file="frontend/objects/galley_link.tpl" parent=$issue}
@@ -96,16 +96,16 @@
 	{/if}
 
 	{* Articles *}
-	<div class="sections">
+	<div>
 	{foreach name=sections from=$publishedArticles item=section}
-		<div class="section">
+		<div>
 		{if $section.articles}
 			{if $section.title}
 				<h2>
 					{$section.title|escape}
 				</h2>
 			{/if}
-			<ul class="articles">
+			<ul>
 				{foreach from=$section.articles item=article}
 					<li>
 						{include file="frontend/objects/article_summary.tpl"}

@@ -17,30 +17,30 @@
  * consists of the following:
  *
  * <!-- Wrapper class which provides proper spacing between components -->
- * <div class="item">
+ * <div>
  *     <!-- Title/value combination -->
- *     <div class="label">Abstract</div>
- *     <div class="value">Value</div>
+ *     <div>Abstract</div>
+ *     <div>Value</div>
  * </div>
  *
  * All styling should be applied by class name, so that titles may use heading
  * elements (eg, <h3>) or any element required.
  *
  * <!-- Example: component with multiple title/value combinations -->
- * <div class="item">
- *     <div class="sub_item">
- *         <div class="label">DOI</div>
- *         <div class="value">12345678</div>
+ * <div>
+ *     <div>
+ *         <div>DOI</div>
+ *         <div>12345678</div>
  *     </div>
- *     <div class="sub_item">
- *         <div class="label">Published Date</div>
- *         <div class="value">2015-01-01</div>
+ *     <div>
+ *         <div>Published Date</div>
+ *         <div>2015-01-01</div>
  *     </div>
  * </div>
  *
  * <!-- Example: component with no title -->
- * <div class="item">
- *     <div class="value">Whatever you'd like</div>
+ * <div>
+ *     <div>Whatever you'd like</div>
  * </div>
  *
  * Core components are produced manually below, but can also be added via
@@ -63,34 +63,34 @@
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
-<article class="obj_article_details">
-	<h1 class="page_title">
+<article>
+	<h1>
 		{$article->getLocalizedTitle()|escape}
 	</h1>
 
 	{if $article->getLocalizedSubtitle()}
-		<h2 class="subtitle">
+		<h2>
 			{$article->getLocalizedSubtitle()|escape}
 		</h2>
 	{/if}
 
-	<div class="row">
-		<div class="main_entry">
+	<div>
+		<div>
 
 			{if $article->getAuthors()}
-				<ul class="item authors">
+				<ul>
 					{foreach from=$article->getAuthors() item=author}
 						<li>
-							<span class="name">
+							<span>
 								{$author->getFullName()|escape}
 							</span>
 							{if $author->getLocalizedAffiliation()}
-								<span class="affiliation">
+								<span>
 									{$author->getLocalizedAffiliation()|escape}
 								</span>
 							{/if}
 							{if $author->getOrcid()}
-								<span class="orcid">
+								<span>
 									{$orcidIcon}
 									<a href="{$author->getOrcid()|escape}" target="_blank">
 										{$author->getOrcid()|escape}
@@ -114,11 +114,11 @@
 				{/if}
 				{if $pubId}
 					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<div class="item doi">
-						<span class="label">
+					<div>
+						<span>
 							{translate key="plugins.pubIds.doi.readerDisplayName"}
 						</span>
-						<span class="value">
+						<span>
 							<a href="{$doiUrl}">
 								{$doiUrl}
 							</a>
@@ -129,8 +129,8 @@
 
 			{* Abstract *}
 			{if $article->getLocalizedAbstract()}
-				<div class="item abstract">
-					<h3 class="label">{translate key="article.abstract"}</h3>
+				<div>
+					<h3}</h3>
 					{$article->getLocalizedAbstract()|strip_unsafe_html|nl2br}
 				</div>
 			{/if}
@@ -145,8 +145,8 @@
 				{/if}
 			{/foreach}
 			{if $hasBiographies}
-				<div class="item author_bios">
-					<h3 class="label">
+				<div>
+					<h3>
 						{if $hasBiographies > 1}
 							{translate key="submission.authorBiographies"}
 						{else}
@@ -155,17 +155,17 @@
 					</h3>
 					{foreach from=$article->getAuthors() item=author}
 						{if $author->getLocalizedBiography()}
-							<div class="sub_item">
-								<div class="label">
+							<div>
+								<div>
 									{if $author->getLocalizedAffiliation()}
 										{capture assign="authorName"}{$author->getFullName()|escape}{/capture}
-										{capture assign="authorAffiliation"}<span class="affiliation">{$author->getLocalizedAffiliation()|escape}</span>{/capture}
+										{capture assign="authorAffiliation"}<span>{$author->getLocalizedAffiliation()|escape}</span>{/capture}
 										{translate key="submission.authorWithAffiliation" name=$authorName affiliation=$authorAffiliation}
 									{else}
 										{$author->getFullName()|escape}
 									{/if}
 								</div>
-								<div class="value">
+								<div>
 									{$author->getLocalizedBiography()|strip_unsafe_html}
 								</div>
 							</div>
@@ -176,11 +176,11 @@
 
 			{* References *}
 			{if $article->getCitations()}
-				<div class="item references">
-					<h3 class="label">
+				<div>
+					<h3>
 						{translate key="submission.citations"}
 					</h3>
-					<div class="value">
+					<div>
 						{$article->getCitations()|nl2br}
 					</div>
 				</div>
@@ -188,12 +188,12 @@
 
 		</div><!-- .main_entry -->
 
-		<div class="entry_details">
+		<div>
 
 			{* Article/Issue cover image *}
 			{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
-				<div class="item cover_image">
-					<div class="sub_item">
+				<div>
+					<div>
 						{if $article->getLocalizedCoverImage()}
 							<img src="{$article->getLocalizedCoverImageUrl()|escape}"{if $article->getLocalizedCoverImageAltText()} alt="{$article->getLocalizedCoverImageAltText()|escape}"{/if}>
 						{else}
@@ -208,8 +208,8 @@
 			{* Article Galleys *}
 			{assign var=galleys value=$article->getGalleys()}
 			{if $galleys}
-				<div class="item galleys">
-					<ul class="value galleys_links">
+				<div>
+					<ul>
 						{foreach from=$galleys item=galley}
 							<li>
 								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley}
@@ -220,11 +220,11 @@
 			{/if}
 
 			{if $article->getDatePublished()}
-				<div class="item published">
-					<div class="label">
+				<div>
+					<div>
 						{translate key="submissions.published"}
 					</div>
-					<div class="value">
+					<div>
 						{$article->getDatePublished()|date_format:$dateFormatShort}
 					</div>
 				</div>
@@ -232,14 +232,14 @@
 
 			{* Citation formats *}
 			{if $citationPlugins|@count}
-				<div class="item citation_formats">
+				<div>
 					{* Output the first citation format *}
 					{foreach from=$citationPlugins name="citationPlugins" item="citationPlugin"}
-						<div class="sub_item citation_display">
-							<div class="label">
+						<div>
+							<div>
 								{translate key="submission.howToCite"}
 							</div>
-							<div id="citationOutput" class="value">
+							<div id="citationOutput">
 								{$citationPlugin->fetchCitation($article, $issue, $currentContext)}
 							</div>
 						</div>
@@ -247,14 +247,14 @@
 					{/foreach}
 
 					{* Output list of all citation formats *}
-					<div class="sub_item citation_format_options">
-						<div class="label">
+					<div>
+						<div>
 							{translate key="submission.howToCite.citationFormats"}
 						</div>
-						<div class="value">
+						<div>
 							<ul>
 								{foreach from=$citationPlugins name="citationPlugins" item="citationPlugin"}
-									<li class="{$citationPlugin->getName()|escape}{if $smarty.foreach.citationPlugins.iteration == 1} current{/if}">
+									<li>
 										{capture assign="citationUrl"}{url page="article" op="cite" path=$article->getBestArticleId()}/{$citationPlugin->getName()|escape}{/capture}
 										<a href="{$citationUrl}"{if !$citationPlugin->isDownloadable()} data-load-citation="true"{/if} target="_blank">{$citationPlugin->getCitationFormatName()|escape}</a>
 									</li>
@@ -266,24 +266,24 @@
 			{/if}
 
 			{* Issue article appears in *}
-			<div class="item issue">
-				<div class="sub_item">
-					<div class="label">
+			<div>
+				<div>
+					<div>
 						{translate key="issue.issue"}
 					</div>
-					<div class="value">
-						<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
+					<div>
+						<a>
 							{$issue->getIssueIdentification()}
 						</a>
 					</div>
 				</div>
 
 				{if $section}
-					<div class="sub_item">
-						<div class="label">
+					<div>
+						<div>
 							{translate key="section.section"}
 						</div>
-						<div class="value">
+						<div>
 							{$section->getLocalizedTitle()|escape}
 						</div>
 					</div>
@@ -295,11 +295,11 @@
 
 			{* Article Subject *}
 			{if $article->getLocalizedSubject()}
-				<div class="item subject">
-					<h3 class="label">
+				<div>
+					<h3>
 						{translate key="article.subject"}
 					</h3>
-					<div class="value">
+					<div>
 						{$article->getLocalizedSubject()|escape}
 					</div>
 				</div>
@@ -316,11 +316,11 @@
 					{assign var=pubId value=$pubIdPlugin->getPubId($article)}{* Preview pubId *}
 				{/if}
 				{if $pubId}
-					<div class="item pubid">
-						<div class="label">
+					<div>
+						<div>
 							{$pubIdPlugin->getPubIdDisplayType()|escape}
 						</div>
-						<div class="value">
+						<div>
 							{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 								<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
 									{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
@@ -335,12 +335,12 @@
 
 			{* Licensing info *}
 			{if $copyright || $licenseUrl}
-				<div class="item copyright">
+				<div>
 					{if $licenseUrl}
 						{if $ccLicenseBadge}
 							{$ccLicenseBadge}
 						{else}
-							<a href="{$licenseUrl|escape}" class="copyright">
+							<a href="{$licenseUrl|escape}">
 								{if $copyrightHolder}
 									{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
 								{else}

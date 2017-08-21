@@ -15,7 +15,7 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$issueIdentification}
 
-<div class="page page_issue">
+<div>
 
 	{* Display a message if no current issue exists *}
 	{if !$issue}

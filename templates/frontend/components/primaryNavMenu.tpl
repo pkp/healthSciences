@@ -7,7 +7,7 @@
  *
  * Primary navigation menu list for OJS
  *}
-<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
+<ul id="navigationPrimary">
 
 	{if $enableAnnouncements}
 		<li>

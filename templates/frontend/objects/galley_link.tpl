@@ -49,11 +49,11 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="obj_galley_link {$type}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId()}">
+<a>
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
-		<span class="pkp_screen_reader">
+		<span>
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
 			{else}

@@ -18,7 +18,7 @@
 {/capture}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$pageTitle}
 
-<div class="page page_issue_archive">
+<div>
 	{include file="frontend/components/breadcrumbs.tpl" currentTitle=$pageTitle}
 
 	{* No issues have been published *}
@@ -27,7 +27,7 @@
 
 	{* List issues *}
 	{else}
-		<ul class="issues_archive">
+		<ul>
 			{iterate from=issues item=issue}
 				<li>
 					{include file="frontend/objects/issue_summary.tpl"}
@@ -36,7 +36,7 @@
 		</ul>
 
 		{if $issues->getPageCount() > 0}
-			<div class="cmp_pagination">
+			<div>
 				{page_info iterator=$issues}
 				{page_links anchor="issues" name="issues" iterator=$issues}
 			</div>

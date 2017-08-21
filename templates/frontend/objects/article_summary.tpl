@@ -18,38 +18,38 @@
 	{assign var="showAuthor" value=true}
 {/if}
 
-<div class="obj_article_summary">
+<div>
 	{if $article->getLocalizedCoverImage()}
-		<div class="cover">
-			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="file">
+		<div>
+			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
 				<img src="{$article->getLocalizedCoverImageUrl()|escape}"{if $article->getLocalizedCoverImageAltText() != ''} alt="{$article->getLocalizedCoverImageAltText()|escape}"{else} alt="{translate key="article.coverPage.altText"}"{/if}>
 			</a>
 		</div>
 	{/if}
 
-	<div class="title">
+	<div>
 		<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
 			{$article->getLocalizedTitle()|strip_unsafe_html}
 		</a>
 	</div>
 
 	{if $showAuthor || $article->getPages() || ($article->getDatePublished() && $showDatePublished)}
-	<div class="meta">
+	<div>
 		{if $showAuthor}
-		<div class="authors">
+		<div>
 			{$article->getAuthorString()}
 		</div>
 		{/if}
 
 		{* Page numbers for this article *}
 		{if $article->getPages()}
-			<div class="pages">
+			<div>
 				{$article->getPages()|escape}
 			</div>
 		{/if}
 
 		{if $showDatePublished && $article->getDatePublished()}
-			<div class="published">
+			<div>
 				{$article->getDatePublished()|date_format:$dateFormatShort}
 			</div>
 		{/if}
@@ -58,7 +58,7 @@
 	{/if}
 
 	{if $hasAccess}
-		<ul class="galleys_links">
+		<ul>
 			{foreach from=$article->getGalleys() item=galley}
 				<li>
 					{assign var="hasArticleAccess" value=$hasAccess}

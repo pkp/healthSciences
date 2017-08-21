@@ -18,55 +18,55 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
-<div class="page page_search">
+<div>
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"}
 
-	<form class="cmp_form" method="post" action="{url op="search"}">
+	<form>
 		{csrf}
 
 		{* Repeat the label text just so that screen readers have a clear
 		   label/input relationship *}
-		<div class="search_input">
-			<label class="pkp_screen_reader" for="query">
+		<div>
+			<label>
 				{translate key="search.searchFor"}
 			</label>
-			<input type="text" id="query" name="query" value="{$query|escape}" class="query" placeholder="{translate|escape key="common.search"}">
+			<input type="text" id="query" name="query" value="{$query|escape}">
 		</div>
 
-		<fieldset class="search_advanced">
+		<fieldset>
 			<legend>
 				{translate key="search.advancedFilters"}
 			</legend>
-			<div class="date_range">
-				<div class="from">
-					<label class="label">
+			<div>
+				<div>
+					<label>
 						{translate key="search.dateFrom"}
 					</label>
 					{html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
 				</div>
-				<div class="to">
-					<label class="label">
+				<div>
+					<label>
 						{translate key="search.dateTo"}
 					</label>
 					{html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
 				</div>
 			</div>
-			<div class="author">
-				<label class="label" for="authors">
+			<div>
+				<label>
 					{translate key="search.author"}
 				</label>
 				<input type="text" for="authors" name="authors" value="{$authors}">
 			</div>
 		</fieldset>
 
-		<div class="submit">
-			<button class="submit" type="submit">{translate key="common.search"}</button>
+		<div>
+			<button}</button>
 		</div>
 	</form>
 
 	{* Search results, finally! *}
-	<div class="search_results">
+	<div>
 		{iterate from=results item=result}
 			{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle journal=$result.journal showDatePublished=true}
 		{/iterate}
@@ -82,7 +82,7 @@
 
 	{* Results pagination *}
 	{else}
-		<div class="cmp_pagination">
+		<div>
 			{page_info iterator=$results}
 			{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors title=$title abstract=$abstract galleyFullText=$galleyFullText discipline=$discipline subject=$subject type=$type coverage=$coverage indexTerms=$indexTerms dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear orderBy=$orderBy orderDir=$orderDir}
 		</div>

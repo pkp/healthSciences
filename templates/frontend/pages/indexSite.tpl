@@ -10,15 +10,15 @@
  *}
 {include file="frontend/components/header.tpl"}
 
-<div class="page_index_site">
+<div>
 
 	{if $about}
-		<div class="about_site">
+		<div>
 			{$about|nl2br}
 		</div>
 	{/if}
 
-	<div class="journals">
+	<div>
 		<h2>
 			{translate key="journal.journals"}
 		</h2>
@@ -30,34 +30,34 @@
 					{capture assign="url"}{url journal=$journal->getPath()}{/capture}
 					{assign var="thumb" value=$journal->getLocalizedSetting('journalThumbnail')}
 					{assign var="description" value=$journal->getLocalizedDescription()}
-					<li{if $thumb} class="has_thumb"{/if}>
+					<li{if $thumb}{/if}>
 						{if $thumb}
 							{assign var="altText" value=$journal->getLocalizedSetting('journalThumbnailAltText')}
-							<div class="thumb">
+							<div>
 								<a href="{$url|escape}">
 									<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $altText} alt="{$altText|escape}"{/if}>
 								</a>
 							</div>
 						{/if}
 
-						<div class="body">
+						<div>
 							<h3>
 								<a href="{$url|escape}" rel="bookmark">
 									{$journal->getLocalizedName()}
 								</a>
 							</h3>
 							{if $description}
-								<div class="description">
+								<div>
 									{$description|nl2br}
 								</div>
 							{/if}
-							<ul class="links">
-								<li class="view">
+							<ul>
+								<li>
 									<a href="{$url|escape}">
 										{translate key="site.journalView"}
 									</a>
 								</li>
-								<li class="current">
+								<li>
 									<a href="{url|escape journal=$journal->getPath() page="issue" op="current"}">
 										{translate key="site.journalCurrent"}
 									</a>
@@ -69,7 +69,7 @@
 			</ul>
 
 			{if $journals->getPageCount() > 0}
-				<div class="cmp_pagination">
+				<div>
 					{page_info iterator=$journals}
 					{page_links anchor="journals" name="journals" iterator=$journals}
 				</div>
