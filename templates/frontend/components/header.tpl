@@ -42,78 +42,65 @@
 	<div>
 
 		{* Header *}
-		<header>
-			<div>
+		<header class="container-fluid main-header">
+			<div class="container">
 
-				<div>
-          {* Mobile hamburger menu *}
-          <button type="button">
-            <span>Toggle navigation</span>
-            <span></span>
-            <span></span>
-            <span></span>
+        {* Login / register menu *}
+        <nav class="navbar navbar-expand-lg login-menu" aria-label="{translate|escape key="common.navigation.user"}">
+          <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
+            {include file="frontend/components/loginMenu.tpl"}
+          </div>
+        </nav>
+
+        <div class="navbar-logo">
+          {* Logo or site title. Only use <h1> heading on the homepage.
+             Otherwise that should go to the page title. *}
+          {if $requestedOp == 'index'}
+            <h1>
+          {else}
+            <div>
+          {/if}
+            {if $currentJournal && $multipleContexts}
+              {url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
+            {else}
+              {url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
+            {/if}
+            {if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+              <a href="{$homeUrl}">
+                <img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
+              </a>
+            {elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+              <a href="{$homeUrl}">{$displayPageHeaderTitle}</a>
+            {elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
+              <a href="{$homeUrl}">
+                <img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
+              </a>
+            {else}
+              <a href="{$homeUrl}">
+                <img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
+              </a>
+            {/if}
+          {if $requestedOp == 'index'}
+            </h1>
+          {else}
+            </div>
+          {/if}
+        </div>
+
+        {* Main navigation *}
+        <nav class="navbar navbar-expand-lg">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-					{* Logo or site title. Only use <h1> heading on the homepage.
-					   Otherwise that should go to the page title. *}
-					{if $requestedOp == 'index'}
-						<h1>
-					{else}
-						<div>
-					{/if}
-						{if $currentJournal && $multipleContexts}
-							{url|assign:"homeUrl" journal="index" router=$smarty.const.ROUTE_PAGE}
-						{else}
-							{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-						{/if}
-						{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-							<a href="{$homeUrl}">
-								<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" width="{$displayPageHeaderLogo.width|escape}" height="{$displayPageHeaderLogo.height|escape}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if} />
-							</a>
-						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
-							<a href="{$homeUrl}">{$displayPageHeaderTitle}</a>
-						{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-							<a href="{$homeUrl}">
-								<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}" width="{$displayPageHeaderTitle.width|escape}" height="{$displayPageHeaderTitle.height|escape}" />
-							</a>
-						{else}
-							<a href="{$homeUrl}">
-								<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180" height="90" />
-							</a>
-						{/if}
-					{if $requestedOp == 'index'}
-						</h1>
-					{else}
-						</div>
-					{/if}
-				</div>
 
-				{* Primary site navigation *}
-				<script type="text/javascript">
-					// Attach the JS file tab handler.
-					$(function() {ldelim}
-						$('#navigationPrimary').pkpHandler(
-							'$.pkp.controllers.MenuHandler');
-					{rdelim});
-				</script>
-				<nav>
-					<div>
+          <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
+            {* Primary navigation menu for current applicatioàn *}
+            {include file="frontend/components/primaryNavMenu.tpl"}
+          </div>
+        </nav>
 
-						{* Primary navigation menu for current application *}
-						{include file="frontend/components/primaryNavMenu.tpl"}
-
-						{* Search form *}
-						{if !$noContextsConfigured}
-							{include file="frontend/components/searchForm_simple.tpl"}
-						{/if}
-					</div>
-				</nav>
-
-				{* User-specific login, settings and task management *}
-				{url|assign:fetchHeaderUrl router=$smarty.const.ROUTE_COMPONENT component="page.PageHandler" op="userNav" escape=false}
-				{load_url_in_div url=$fetchHeaderUrl}
-
-			</div><!-- .pkp_head_wrapper -->
-		</header><!-- .pkp_structure_head -->
+			</div>
+		</header>
 
 		{* Wrapper for page content and sidebars *}
 		{if $isFullWidth}

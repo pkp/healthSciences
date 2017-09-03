@@ -12,7 +12,7 @@
  * @uses $message string The notification message
  * @uses $messageKey string Optional translation key to generate the message
  *}
-<div>
+<div style="outline: 5px solid rgba(255, 0, 0, 0.25); border: 5px dotted rgba(0, 0, 255, 0.25); background: rgba(0, 0, 0, 0.25) !important; ">
 	{if $messageKey}
 		{translate key=$messageKey}
 	{else}

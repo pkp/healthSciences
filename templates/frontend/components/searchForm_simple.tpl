@@ -20,8 +20,6 @@
 			<a href="{url page="search" op="search"}">
 				{translate key="common.search"}
 			</a>
-			<a href="#"></a>
-			<span></span>
 		</div>
 </form>
 {/if}
