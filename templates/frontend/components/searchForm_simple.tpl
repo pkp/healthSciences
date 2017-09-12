@@ -12,7 +12,7 @@
 {if !$currentJournal || $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
 	<form>
 		{csrf}
-		<input name="query" value="{$searchQuery|escape}" type="text" aria-label="{translate|escape key="common.searchQuery"}">
+		<input name="query" value="{$searchQuery|escape}" type="text" aria-label="{translate|escape key="common.searchQuery"}" placeholder="{translate|escape key="common.searchQuery"}">
 		<button type="submit">
 			{translate key="common.search"}
 		</button>

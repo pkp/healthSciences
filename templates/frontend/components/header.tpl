@@ -42,15 +42,7 @@
 	<div>
 
 		{* Header *}
-		<header class="container-fluid main-header">
-			<div class="container">
-
-        {* Login / register menu *}
-        <nav class="navbar navbar-expand-lg login-menu" aria-label="{translate|escape key="common.navigation.user"}">
-          <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
-            {include file="frontend/components/loginMenu.tpl"}
-          </div>
-        </nav>
+		<header class="main-header">
 
         <div class="navbar-logo">
           {* Logo or site title. Only use <h1> heading on the homepage.
@@ -90,16 +82,19 @@
         {* Main navigation *}
         <nav class="navbar navbar-expand-lg">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            Menu
           </button>
 
           <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
-            {* Primary navigation menu for current applicatioàn *}
-            {include file="frontend/components/primaryNavMenu.tpl"}
+            <ul class="navbar-nav">
+              {* Primary navigation menu for current application *}
+              {include file="frontend/components/primaryNavMenu.tpl"}
+              {* Login / register menu *}
+              {include file="frontend/components/loginMenu.tpl"}
+            </ul>
           </div>
         </nav>
 
-			</div>
 		</header>
 
 		{* Wrapper for page content and sidebars *}
