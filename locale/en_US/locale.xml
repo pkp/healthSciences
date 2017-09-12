@@ -2,11 +2,16 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/themes/default-child/locale/en_US/locale.xml
+  * plugins/themes/ojs-health-sciences/locale/en_US/locale.xml
   *
-  * Copyright (c) 2014-2016 Simon Fraser University Library
-  * Copyright (c) 2003-2016 John Willinsky
+  * Copyright (c) 2014-2017 Simon Fraser University Library
+  * Copyright (c) 2003-2017 John Willinsky
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
   -->
+
+<locale name="en_US" full_name="U.S. English">
+	<message key="plugins.themes.ojsHealthSciences.name">Health Sciences Theme</message>
+	<message key="plugins.themes.ojsHealthSciences.description">An OJS theme built with a focus on health sciences journals.</message>
+</locale>

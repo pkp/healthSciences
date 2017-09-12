@@ -29,7 +29,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
        * @return string
        */
       function getDisplayName() {
-          return 'Health Sciences Theme';
+          return __('plugins.themes.ojsHealthSciences.name');
       }
 
       /**
@@ -37,6 +37,6 @@ class HealthSciencesThemePlugin extends ThemePlugin {
        * @return string
        */
       function getDescription() {
-          return 'An OJS theme built with a focus on health sciences journals.';
+          return __('plugins.themes.ojsHealthSciences.description');
       }
   }
