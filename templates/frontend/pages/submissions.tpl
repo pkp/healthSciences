@@ -16,8 +16,9 @@
   <div class="row justify-content-md-center">
     <div class="col-md-6">
 
-      <div>{$currentContext->getLocalizedName()}</div>
-      <h1>{translate key="about.submissions"}</h1>
+      <h1>
+        <span class="label">{$currentContext->getLocalizedName()}</span>
+        {translate key="about.submissions"}</h1>
       <hr>
 
     	{* Login/register prompt *}

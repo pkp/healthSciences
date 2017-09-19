@@ -16,8 +16,9 @@
     <div class="col-md-6">
     	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
 
-      <div>{$currentContext->getLocalizedName()}</div>
-      <h1>{translate key="announcement.announcements"}</h1>
+      <h1>
+        <span class="label">{$currentContext->getLocalizedName()}</span>
+        {translate key="announcement.announcements"}</h1>
       <hr>
 
       {$announcementsIntroduction}

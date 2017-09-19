@@ -23,11 +23,14 @@
 <div class="container">
   <div class="row justify-content-md-center">
     <div class="col-md-6">
-      
+
       {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="contact" sectionTitleKey="about.contact"}
 
-      <div>{$currentContext->getLocalizedName()}</div>
-      <h1>{translate key="about.submissions"}</h1>
+      <h1>
+        <span class="label">{$currentContext->getLocalizedName()}</span>
+        {translate key="about.contact"}
+      </h1>
+
       <hr>
   		{if $mailingAddress}
   			<div class="address">

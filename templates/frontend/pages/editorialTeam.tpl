@@ -16,8 +16,9 @@
     <div class="col-md-6">
       {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
 
-      <div>{$currentContext->getLocalizedName()}</div>
-      <h1>{translate key="about.editorialTeam"}</h1>
+      <h1>
+        <span class="label">{$currentContext->getLocalizedName()}</span>
+        {translate key="about.editorialTeam"}</h1>
       <hr>
 
       {$currentContext->getLocalizedSetting('masthead')}
