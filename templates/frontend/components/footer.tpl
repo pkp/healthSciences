@@ -37,10 +37,7 @@
 
 		<div>
 			<a href="{url page="about" op="aboutThisPublishingSystem"}">
-				<img alt="{translate key=$packageKey}" src="{$baseUrl}/{$brandImage}">
-			</a>
-			<a href="{$pkpLink}">
-				<img alt="{translate key="common.publicKnowledgeProject"}" src="{$baseUrl}/lib/pkp/templates/images/pkp_brand.png">
+				<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
 			</a>
 		</div>
 	</div>
