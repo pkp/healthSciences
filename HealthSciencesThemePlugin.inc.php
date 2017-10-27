@@ -21,7 +21,33 @@ class HealthSciencesThemePlugin extends ThemePlugin {
        * @return null
        */
       public function init() {
+
+          // Load fonts
+          $this->addStyle(
+            'fonts',
+            'https://fonts.googleapis.com/css?family=Droid+Serif:200,200i,400,400i|Fira+Sans:300,300i,400,400i,700,700i',
+            array('baseUrl' => '')
+          );
+
+          // Load main stylesheet
           $this->addStyle('stylesheet', 'styles/index.less');
+
+          // Load JS libraries
+          $this->addScript(
+            'jquery',
+            'https://code.jquery.com/jquery-3.2.1.slim.min.js',
+            array('baseUrl' => '')
+          );
+          $this->addScript(
+            'popper',
+            'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js',
+            array('baseUrl' => '')
+          );
+          $this->addScript(
+            'bootstrap',
+            'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js',
+            array('baseUrl' => '')
+          );
       }
 
       /**
