@@ -70,12 +70,8 @@
           </button>
 
           <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
-            <ul class="navbar-nav">
-              {* Primary navigation menu for current application *}
-              {include file="frontend/components/primaryNavMenu.tpl"}
-              {* Login / register menu *}
-              {include file="frontend/components/loginMenu.tpl"}
-            </ul>
+						{load_menu name="primary" ulClass="navbar-nav" liClass="nav-item"}
+						{load_menu name="user" ulClass="navbar-nav" liClass="nav-item"}
           </div>
         </nav>
 

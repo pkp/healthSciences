@@ -48,6 +48,9 @@ class HealthSciencesThemePlugin extends ThemePlugin {
             'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js',
             array('baseUrl' => '')
           );
+
+          // Add navigation menu areas for this theme
+      		$this->addMenuArea(array('primary', 'user'));
       }
 
       /**
