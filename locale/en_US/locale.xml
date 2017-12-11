@@ -14,4 +14,6 @@
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.themes.healthSciences.name">Health Sciences Theme</message>
 	<message key="plugins.themes.healthSciences.description">An OJS theme built with a focus on health sciences journals.</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Primary Color</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Select the primary color for your journal brand.</message>
 </locale>

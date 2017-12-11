@@ -22,6 +22,23 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 	 */
 	public function init() {
 
+		// Add theme options
+		$this->addOption('baseColour', 'colour', array(
+			'label' => 'plugins.themes.healthSciences.option.colour.label',
+			'description' => 'plugins.themes.healthSciences.option.colour.description',
+			'default' => '#10BECA',
+		));
+
+		// Update colour based on theme option
+		$additionalLessVariables = [];
+		if ($this->getOption('baseColour') !== '#10BECA') {
+			$additionalLessVariables[] = '@primary:' . $this->getOption('baseColour') . ';';
+			if (!$this->isColourDark($this->getOption('baseColour'))) {
+				$additionalLessVariables[] = '@primary-light: desaturate(lighten(@primary, 41%), 15%);';
+				$additionalLessVariables[] = '@primary-text: darken(@primary, 15%);';
+			}
+		}
+
 		// Load dependencies from CDN
 		if (Config::getVar('general', 'enable_cdn')) {
 			$this->addStyle(
@@ -60,6 +77,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Load theme stylesheet
 		$this->addStyle('stylesheet', 'styles/index.less');
+		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));
