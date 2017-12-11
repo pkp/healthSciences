@@ -2,7 +2,7 @@
 <!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
 
 <!--
-  * plugins/themes/ojs-health-sciences/version.xml
+  * plugins/themes/healthSciences/version.xml
   *
   * Copyright (c) 2014-2017 Simon Fraser University Library
   * Copyright (c) 2003-2017 John Willinsky
@@ -13,7 +13,7 @@
 
 <version>
 	<!-- The application should match the theme folder to ensure it is unique -->
-	<application>ojs-health-sciences</application>
+	<application>healthSciences</application>
 
 	<!-- The type should always be `plugins.themes` -->
 	<type>plugins.themes</type>

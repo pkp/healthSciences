@@ -1,14 +1,14 @@
 <?php
 
 /**
- * @file plugins/themes/ojs-health-sciences/HealthSciencesThemePlugin.inc.php
+ * @file plugins/themes/healthSciences/HealthSciencesThemePlugin.inc.php
  *
  * Copyright (c) 2014-2017 Simon Fraser University Library
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HealthSciencesThemePlugin
- * @ingroup plugins_themes_ojs-health-sciences
+ * @ingroup plugins_themes_healthSciences
  *
  * @brief Health Sciences theme
  */
@@ -16,56 +16,68 @@
 import('lib.pkp.classes.plugins.ThemePlugin');
 class HealthSciencesThemePlugin extends ThemePlugin {
 
-      /**
-       * Load the custom styles for our theme
-       * @return null
-       */
-      public function init() {
+	/**
+	 * Load the custom styles for our theme
+	 * @return null
+	 */
+	public function init() {
 
-          // Load fonts
-          $this->addStyle(
-            'fonts',
-            'https://fonts.googleapis.com/css?family=Droid+Serif:200,200i,400,400i|Fira+Sans:300,300i,400,400i,700,700i',
-            array('baseUrl' => '')
-          );
+		// Load dependencies from CDN
+		if (Config::getVar('general', 'enable_cdn')) {
+			$this->addStyle(
+				'fonts',
+				'https://fonts.googleapis.com/css?family=Droid+Serif:200,200i,400,400i|Fira+Sans:300,300i,400,400i,700,700i',
+				array('baseUrl' => '')
+			);
+			$this->addStyle(
+				'bootstrap',
+				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css',
+				array('baseUrl' => '')
+			);
+			$this->addScript(
+				'jquery',
+				'https://code.jquery.com/jquery-3.2.1.slim.min.js',
+				array('baseUrl' => '')
+			);
+			$this->addScript(
+				'popper',
+				'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js',
+				array('baseUrl' => '')
+			);
+			$this->addScript(
+				'bootstrap',
+				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js',
+				array('baseUrl' => '')
+			);
 
-          // Load main stylesheet
-          $this->addStyle('stylesheet', 'styles/index.less');
+		// Load local copies of dependencies if CDNs are not allowed
+		} else {
+			$this->addStyle('bootstrap', 'lib/bootstrap.min.css');
+			$this->addScript('jquery', 'lib/jquery-3.2.1.slim.min.js');
+			$this->addScript('popper', 'lib/popper.min.js');
+			$this->addScript('bootstrap', 'lib/bootstrap.min.js');
+		}
 
-          // Load JS libraries
-          $this->addScript(
-            'jquery',
-            'https://code.jquery.com/jquery-3.2.1.slim.min.js',
-            array('baseUrl' => '')
-          );
-          $this->addScript(
-            'popper',
-            'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js',
-            array('baseUrl' => '')
-          );
-          $this->addScript(
-            'bootstrap',
-            'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js',
-            array('baseUrl' => '')
-          );
+		// Load theme stylesheet
+		$this->addStyle('stylesheet', 'styles/index.less');
 
-          // Add navigation menu areas for this theme
-      		$this->addMenuArea(array('primary', 'user'));
-      }
+		// Add navigation menu areas for this theme
+		$this->addMenuArea(array('primary', 'user'));
+	}
 
-      /**
-       * Get the display name of this theme
-       * @return string
-       */
-      function getDisplayName() {
-          return __('plugins.themes.ojsHealthSciences.name');
-      }
+	/**
+	 * Get the display name of this theme
+	 * @return string
+	 */
+	function getDisplayName() {
+			return __('plugins.themes.healthSciences.name');
+	}
 
-      /**
-       * Get the description of this plugin
-       * @return string
-       */
-      function getDescription() {
-          return __('plugins.themes.ojsHealthSciences.description');
-      }
-  }
+	/**
+	 * Get the description of this plugin
+	 * @return string
+	 */
+	function getDescription() {
+			return __('plugins.themes.healthSciences.description');
+	}
+}
