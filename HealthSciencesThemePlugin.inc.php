@@ -81,13 +81,16 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));
+
+		// Get extra data for templates
+		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
 	}
 
 	/**
 	 * Get the display name of this theme
 	 * @return string
 	 */
-	function getDisplayName() {
+	public function getDisplayName() {
 			return __('plugins.themes.healthSciences.name');
 	}
 
@@ -95,7 +98,34 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 	 * Get the description of this plugin
 	 * @return string
 	 */
-	function getDescription() {
+	public function getDescription() {
 			return __('plugins.themes.healthSciences.description');
+	}
+
+	/**
+	 * Load custom data for templates
+	 *
+	 * @param string $hookName
+	 * @param array $args [
+	 *		@option TemplateManager
+	 *		@option string Template file requested
+	 *		@option string
+	 *		@option string
+	 *		@option string output HTML
+	 * ]
+	 */
+	public function loadTemplateData($hookName, $args) {
+		$templateMgr = $args[0];
+		$request = Application::getRequest();
+		$context = $request->getContext();
+
+		if (!defined('SESSION_DISABLE_INIT')) {
+			if ($context) {
+				$locales = $context->getSupportedLocaleNames();
+			} else {
+				$locales = $request->getSite()->getSupportedLocaleNames();
+			}
+			$templateMgr->assign('languageToggleLocales', $locales);
+		}
 	}
 }

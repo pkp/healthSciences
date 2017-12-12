@@ -1,0 +1,31 @@
+.btn {
+	padding: 0.5em 1em;
+	border-radius: 0;
+	border: 1px solid @mid-grey;
+	background: transparent;
+	font-family: @font-sans;
+	font-size: 18px;
+	font-weight: 300;
+	color: @dark-grey;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		color: @primary;
+		border-color: @primary;
+	}
+}
+
+.btn-primary {
+	background: @primary;
+	border-color: @primary;
+	color: #fff;
+
+	&:hover,
+	&:focus {
+		background: @primary-light;
+		border-color: @primary-light;
+		color: @dark-grey;
+	}
+}

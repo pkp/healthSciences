@@ -36,7 +36,7 @@
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
 				{if $hasChildren}
-					<div class="dropdown-menu" aria-labelledby="{'navMenuDropdown'|concat:$field}">
+					<div class="dropdown-menu{if $id === 'userNav'} dropdown-menu-right{/if}" aria-labelledby="{'navMenuDropdown'|concat:$field}">
 						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 								<a class="dropdown-item" href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
