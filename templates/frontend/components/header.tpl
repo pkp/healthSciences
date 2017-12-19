@@ -23,9 +23,9 @@
 {* Logo or site title. Only use <h1> heading on the homepage.
 	 Otherwise that should go to the page title. *}
 {if $requestedOp == 'index'}
-	{assign var="logoTag" value="h1"}
+	{assign var="siteNameTag" value="h1"}
 {else}
-	{assign var="logoTag" value="div"}
+	{assign var="siteNameTag" value="div"}
 {/if}
 
 {* Determine whether to show a logo of site title *}
@@ -37,7 +37,7 @@
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
 		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}">
 	{else}
-		<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" title="{$applicationName|escape}">
+		<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}">
 	{/if}
 {/strip}{/capture}
 
@@ -51,10 +51,10 @@
 		<header class="main-header">
 			<div class="container">
 
+				<{$siteNameTag} class="sr-only">{$pageTitleTranslated}</{$siteNameTag}>
+
 	      <div class="navbar-logo">
-	        <{$logoTag}>
-						<a href="{$homeUrl}">{$brand}</a>
-	        </{$logoTag}>
+					<a href="{$homeUrl}">{$brand}</a>
 	      </div>
 
 	      {* Main navigation *}
