@@ -1,0 +1,49 @@
+.site-footer-sidebar {
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+	padding-bottom: 2rem;
+	margin-bottom: 2rem;
+}
+
+.pkp_block {
+
+	+ .pkp_block {
+		margin-top: 3rem;
+	}
+
+	.title {
+		display: block;
+		margin-bottom: 0.5em;
+		font-size: 24px;
+	}
+}
+
+.block_make_submission .block_make_submission_link {
+	.btn;
+	.btn-light;
+}
+
+.block_information ul,
+.block_language ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+@media (min-width: 992px) {
+
+	.site-footer-sidebar {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.pkp_block {
+		display: block;
+		width: 300px;
+		padding: 1rem;
+
+			+ .pkp_block {
+				margin-top: 0;
+			}
+	}
+}

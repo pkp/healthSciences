@@ -7,6 +7,7 @@
 	font-size: 18px;
 	font-weight: 300;
 	color: @dark-grey;
+	text-decoration: none;
 	cursor: pointer;
 
 	&:hover,
@@ -14,6 +15,7 @@
 		box-shadow: none;
 		color: @primary;
 		border-color: @primary;
+		text-decoration: none;
 	}
 }
 
@@ -26,6 +28,17 @@
 	&:focus {
 		background: @primary-light;
 		border-color: @primary-light;
+		color: @dark-grey;
+	}
+}
+
+.btn-light {
+	border-color: @light-grey;
+	color: @light-grey;
+
+	&:hover,
+	&:focus {
+		background: @light-grey;
 		color: @dark-grey;
 	}
 }

@@ -6,13 +6,13 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Common site frontend footer.
- *
- * @uses $isFullWidth bool Should this page be displayed without sidebars? This
- *       represents a page-level override, and doesn't indicate whether or not
- *       sidebars have been configured for thesite.
  *}
 <footer class="site-footer">
-	<div class="container">
+	<div class="container site-footer-sidebar" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+			{call_hook name="Templates::Common::Sidebar"}
+		</div>
+	</div>
+	<div class="container site-footer-content">
 		<div class="row">
 			{if $pageFooter}
 				<div class="col-md site-footer-content align-self-center">
