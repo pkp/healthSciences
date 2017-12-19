@@ -11,20 +11,22 @@
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
  *}
-<footer>
+<footer class="site-footer">
+	<div class="container">
+		<div class="row">
+			{if $pageFooter}
+				<div class="col-md site-footer-content align-self-center">
+					{$pageFooter}
+				</div>
+			{/if}
 
-	{if $pageFooter}
-		<div>
-			{$pageFooter}
+			<div class="col-md col-md-2 align-self-center text-right">
+				<a href="{url page="about" op="aboutThisPublishingSystem"}">
+					<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
+				</a>
+			</div>
 		</div>
-	{/if}
-
-	<div>
-		<a href="{url page="about" op="aboutThisPublishingSystem"}">
-			<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/{$brandImage}">
-		</a>
 	</div>
-
 </footer><!-- pkp_structure_footer_wrapper -->
 
 {load_script context="frontend" scripts=$scripts}

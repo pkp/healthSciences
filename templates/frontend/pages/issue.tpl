@@ -23,6 +23,34 @@
 
 	{* Display an issue with the Table of Contents *}
 	{else}
+
+		{* Indicate if this is only a preview *}
+		{if !$issue->getPublished()}
+			{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
+		{/if}
+
+		{* PUb IDs (eg - DOI) *}
+		{foreach from=$pubIdPlugins item=pubIdPlugin}
+			{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
+			{if $pubId}
+				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
+					<span class="type">
+						{$pubIdPlugin->getPubIdDisplayType()|escape}:
+					</span>
+					<span class="id">
+						{if $doiUrl}
+							<a href="{$doiUrl|escape}">
+								{$doiUrl}
+							</a>
+						{else}
+							{$pubId}
+						{/if}
+					</span>
+				</div>
+			{/if}
+		{/foreach}
+
 		{include file="frontend/objects/issue_toc.tpl"}
 	{/if}
 </div>

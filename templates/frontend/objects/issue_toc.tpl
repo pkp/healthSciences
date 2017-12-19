@@ -14,106 +14,21 @@
  * @uses $hasAccess bool Can this user access galleys for this context?
  * @uses $publishedArticles array Lists of articles published in this issue
  *   sorted by section.
+ * @uses $primaryGenreIds array List of file genre ids for primary file types
+ * @uses $sectionHeading string Tag to use (h2, h3, etc) for section headings
  *}
-<div>
+<div class="issue-toc">
 
-	{* Indicate if this is only a preview *}
-	{if !$issue->getPublished()}
-		{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
-	{/if}
-
-	{* Issue introduction area above articles *}
-	<div>
-
-		{* Issue cover image *}
-		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
-		{if $issueCover}
-			<a>
-				<img src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
-			</a>
-		{/if}
-
-		{* Description *}
-		{if $issue->hasDescription()}
-			<div>
-				{$issue->getLocalizedDescription()|strip_unsafe_html}
-			</div>
-		{/if}
-
-		{* PUb IDs (eg - DOI) *}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{if $issue->getPublished()}
-				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
-			{else}
-				{assign var=pubId value=$pubIdPlugin->getPubId($issue)}{* Preview pubId *}
-			{/if}
-			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div>
-					<span>
-						{$pubIdPlugin->getPubIdDisplayType()|escape}:
-					</span>
-					<span>
-						{if $doiUrl}
-							<a href="{$doiUrl|escape}">
-								{$doiUrl}
-							</a>
-						{else}
-							{$pubId}
-						{/if}
-					</span>
-				</div>
-			{/if}
-		{/foreach}
-
-		{* Published date *}
-		{if $issue->getDatePublished()}
-			<div>
-				<span>
-					{translate key="submissions.published"}:
-				</span>
-				<span>
-					{$issue->getDatePublished()|date_format:$dateFormatShort}
-				</span>
-			</div>
-		{/if}
-	</div>
-
-	{* Full-issue galleys *}
-	{if $issueGalleys && $hasAccess}
-		<div>
-			<h2>
-				{translate key="issue.fullIssue"}
-			</h2>
-			<ul>
-				{foreach from=$issueGalleys item=galley}
-					<li>
-						{include file="frontend/objects/galley_link.tpl" parent=$issue}
-					</li>
-				{/foreach}
-			</ul>
-		</div>
-	{/if}
-
-	{* Articles *}
-	<div>
 	{foreach name=sections from=$publishedArticles item=section}
-		<div>
-		{if $section.articles}
-			{if $section.title}
-				<h2>
-					{$section.title|escape}
-				</h2>
-			{/if}
-			<ul>
+		<div class="issue-toc-section">
+			{if $section.articles}
+				{if $section.title}
+					<{$sectionHeading} class="issue-toc-section-title">{$section.title|escape}</{$sectionHeading}>
+				{/if}
 				{foreach from=$section.articles item=article}
-					<li>
-						{include file="frontend/objects/article_summary.tpl"}
-					</li>
+					{include file="frontend/objects/article_summary.tpl"}
 				{/foreach}
-			</ul>
-		{/if}
+			{/if}
 		</div>
 	{/foreach}
-	</div><!-- .sections -->
 </div>

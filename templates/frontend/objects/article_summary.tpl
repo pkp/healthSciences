@@ -11,6 +11,8 @@
  * @uses $hasAccess bool Can this user access galleys for this context? The
  *       context may be an issue or an article
  * @uses $showDatePublished bool Show the date this article was published?
+ * @uses $hideGalleys bool Hide the article galleys for this article?
+ * @uses $primaryGenreIds array List of file genre ids for primary file types
  *}
 {assign var=articlePath value=$article->getBestArticleId()}
 
@@ -18,57 +20,49 @@
 	{assign var="showAuthor" value=true}
 {/if}
 
-<div>
-	{if $article->getLocalizedCoverImage()}
-		<div>
-			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
-				<img src="{$article->getLocalizedCoverImageUrl()|escape}"{if $article->getLocalizedCoverImageAltText() != ''} alt="{$article->getLocalizedCoverImageAltText()|escape}"{else} alt="{translate key="article.coverPage.altText"}"{/if}>
-			</a>
+<div class="article-summary">
+
+	{if $showAuthor && $article->getPages()}
+		<div class="row">
+			<div class="col">
+				<div class="article-summary-authors">{$article->getAuthorString()}</div>
+			</div>
+			<div class="col-3 col-md-2 col-lg-1">
+				<div class="article-summary-pages text-right">
+					{$article->getPages()|escape}
+				</div>
+			</div>
+		</div>
+	{elseif $showAuthor}
+		<div class="article-summary-authors">{$article->getAuthorString()}</div>
+	{elseif $article->getPages()}
+		<div class="article-summary-pages">
+			{$article->getPages()|escape}
 		</div>
 	{/if}
 
-	<div>
+	<div class="article-summary-title">
 		<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
 			{$article->getLocalizedTitle()|strip_unsafe_html}
 		</a>
 	</div>
 
-	{if $showAuthor || $article->getPages() || ($article->getDatePublished() && $showDatePublished)}
-	<div>
-		{if $showAuthor}
+	{if $showDatePublished && $article->getDatePublished()}
 		<div>
-			{$article->getAuthorString()}
+			{$article->getDatePublished()|date_format:$dateFormatLong}
 		</div>
-		{/if}
-
-		{* Page numbers for this article *}
-		{if $article->getPages()}
-			<div>
-				{$article->getPages()|escape}
-			</div>
-		{/if}
-
-		{if $showDatePublished && $article->getDatePublished()}
-			<div>
-				{$article->getDatePublished()|date_format:$dateFormatShort}
-			</div>
-		{/if}
-
-	</div>
 	{/if}
 
-	{if $hasAccess}
-		<ul>
+	{if !$hideGalleys}
+		<div class="article-summary-galleys">
 			{foreach from=$article->getGalleys() item=galley}
-				<li>
-					{assign var="hasArticleAccess" value=$hasAccess}
-					{if ($article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN)}
-						{assign var="hasArticleAccess" value=1}
-					{/if}
-					{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
-				</li>
+				{assign var="hasArticleAccess" value=$hasAccess}
+				{if ($article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN)}
+					{assign var="hasArticleAccess" value=1}
+				{/if}
+				{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess isSupplementary=true}
 			{/foreach}
-		</ul>
+		</div>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}

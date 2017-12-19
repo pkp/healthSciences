@@ -125,7 +125,10 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			} else {
 				$locales = $request->getSite()->getSupportedLocaleNames();
 			}
-			$templateMgr->assign('languageToggleLocales', $locales);
+			$templateMgr->assign(array(
+				'languageToggleLocales' => $locales,
+				'brandImage' => 'templates/images/ojs_brand_white.png',
+			));
 		}
 	}
 }

@@ -12,6 +12,7 @@
  * @uses $parent Issue|Article Object which these galleys are attached to
  * @uses $hasAccess bool Can this user access galleys for this context?
  * @uses $restrictOnlyPdf bool Is access only restricted to PDF galleys?
+ * @uses $isSupplementary bool Is this a supplementary file?
  * @uses $purchaseArticleEnabled bool Can this article be purchased?
  * @uses $currentJournal Journal The current journal context
  * @uses $journalOverride Journal An optional argument to override the current
@@ -49,11 +50,11 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a>
+<a class="btn{if !$isSupplementary} btn-primary{/if}" href="{url page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId()}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
-		<span>
+		<span class="sr-only">
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
 			{else}

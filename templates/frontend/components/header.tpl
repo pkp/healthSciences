@@ -6,10 +6,6 @@
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Common frontend site header.
- *
- * @uses $isFullWidth bool Should this page be displayed without sidebars? This
- *       represents a page-level override, and doesn't indicate whether or not
- *       sidebars have been configured for thesite.
  *}
 
 {* Determine whether a logo or title string is being displayed *}
