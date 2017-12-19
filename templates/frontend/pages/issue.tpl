@@ -15,43 +15,90 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$issueIdentification}
 
-<div>
+<div class="container page-issue">
 
 	{* Display a message if no current issue exists *}
 	{if !$issue}
-		{include file="frontend/components/notification.tpl" type="warning" messageKey="current.noCurrentIssueDesc"}
+		{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
 
 	{* Display an issue with the Table of Contents *}
 	{else}
 
 		{* Indicate if this is only a preview *}
 		{if !$issue->getPublished()}
-			{include file="frontend/components/notification.tpl" type="warning" messageKey="editor.issues.preview"}
+			{include file="frontend/components/notification.tpl" messageKey="editor.issues.preview"}
 		{/if}
 
-		{* PUb IDs (eg - DOI) *}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
-			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="pub_id {$pubIdPlugin->getPubIdType()|escape}">
-					<span class="type">
-						{$pubIdPlugin->getPubIdDisplayType()|escape}:
-					</span>
-					<span class="id">
-						{if $doiUrl}
+		<div class="page-issue-header">
+			<h1>{$issue->getIssueSeries()}</h1>
+			<div class="page-issue-date">
+				{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
+			</div>
+
+			{* PUb IDs (eg - DOI) *}
+			{foreach from=$pubIdPlugins item=pubIdPlugin}
+				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
+				{if $pubId}
+					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					{if $doiUrl}
+						{capture assign="pubId"}
 							<a href="{$doiUrl|escape}">
 								{$doiUrl}
 							</a>
-						{else}
+						{/capture}
+					{/if}
+					<div class="page-issue-doi">
+						{if $pubIdPlugin->getPubIdType() == 'doi'}
 							{$pubId}
+						{else}
+							{translate key="plugins.themes.healthSciences.issuePubId" pubIdType=$pubIdPlugin->getPubIdDisplayType()|escape pubId=$pubId}
 						{/if}
-					</span>
+					</div>
+				{/if}
+			{/foreach}
+		</div>
+
+		<div class="row justify-content-center page-issue-details">
+			<div class="col-lg-9">
+				<div class="page-issue-description-wrapper">
+					{if $issue->hasDescription()}
+						<div class="page-issue-description">
+							<div class="h2">
+								{if $issue->getLocalizedTitle()}
+									{$issue->getLocalizedTitle()}
+								{else}
+									{translate key="plugins.themes.healthSciences.issueDescription"}
+								{/if}
+							</div>
+							{$issue->getLocalizedDescription()|strip_unsafe_html}
+						</div>
+					{/if}
+					{if $issueGalleys}
+						<div class="page-issue-galleys">
+							<div class="h3">
+								{translate key="issue.fullIssue"}
+							</div>
+							{foreach from=$issueGalleys item=galley}
+								{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+							{/foreach}
+						</div>
+					{/if}
+				</div>
+			</div>
+			{if $issue->getLocalizedCoverImageUrl()}
+				<div class="col-lg-3">
+					<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+						<img class="img-fluid page-issue-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+					</a>
 				</div>
 			{/if}
-		{/foreach}
+		</div><!-- .row -->
 
-		{include file="frontend/objects/issue_toc.tpl"}
+		<div class="row">
+			<div class="col-12 col-lg-9">
+				{include file="frontend/objects/issue_toc.tpl" sectionHeading="h2"}
+			</div>
+		</div>
 	{/if}
 </div>
 

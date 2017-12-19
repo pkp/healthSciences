@@ -22,4 +22,5 @@
 	<message key="plugins.themes.healthSciences.currentIssueOf">Current Issue of {$journal}</message>
 	<message key="plugins.themes.healthSciences.currentIssuePublished">Published {$date}</message>
 	<message key="plugins.themes.healthSciences.issueDescription">Issue Description</message>
+	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
 </locale>

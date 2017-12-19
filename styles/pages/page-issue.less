@@ -1,0 +1,60 @@
+.page-issue {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.page-issue-details {
+	margin-top: 3rem;
+}
+
+.page-issue-date {
+	margin-top: 2rem;
+}
+
+.page-issue-doi {
+	margin-top: 1rem;
+	font-size: 16px;
+}
+
+.page-issue-description + .page-issue-galleys,
+.page-issue-cover {
+	margin-top: 3rem;
+}
+
+.page-issue-cover {
+	display: block;
+	max-width: 210px;
+	max-height: 315px;
+}
+
+@media (min-width: 992px) {
+
+	.page-issue-header {
+		text-align: center;
+
+		h1 {
+			font-size: 48px;
+		}
+	}
+
+	.page-issue-description-wrapper {
+		padding: 3rem;
+		background: @light-grey;
+	}
+
+	.page-issue-cover {
+		margin-top: 0;
+	}
+
+	.page-issue-date,
+	.page-issue-doi,
+	.page-issue-doi a {
+		font-size: 14px;
+		color: @mid-grey;
+	}
+
+	.page-issue-date,
+	.page-issue-doi {
+		margin-top: 1rem;
+	}
+}
