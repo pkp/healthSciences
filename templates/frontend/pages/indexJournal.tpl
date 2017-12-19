@@ -92,8 +92,8 @@
 
 	{* Additional Homepage Content *}
 	{if $additionalHomeContent}
-		<div class="homepage-additional-content">
-			{$additionalHomeContent}
+		<div class="row justify-content-center homepage-additional-content">
+			<div class="col-lg-9">{$additionalHomeContent}</div>
 		</div>
 	{/if}
 </div><!-- .container -->
