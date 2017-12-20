@@ -8,35 +8,26 @@
  * @brief View of an Issue which displays a summary for use in lists
  *
  * @uses $issue Issue The issue
+ * @uses $heading string The HTML tag to use for each issue title.
  *}
-{if $issue->getShowTitle()}
-{assign var=issueTitle value=$issue->getLocalizedTitle()}
-{/if}
-{assign var=issueSeries value=$issue->getIssueSeries()}
-{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 
-<div>
-
-	{if $issueCover}
-		<a>
-			<img src="{$issueCover|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+<div class="card issue-summary">
+	{if $issue->getLocalizedCoverImageUrl()}
+		<a href="{url op="view" path=$issue->getBestIssueId()}">
+			<img class="card-img-top issue-summary-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
 		</a>
 	{/if}
-
-	<a>
-		{if $issueTitle}
-			{$issueTitle|escape}
-		{else}
-			{$issueSeries|escape}
+	<div class="card-body">
+		<{$heading} class="card-title issue-summary-series">
+			<a href="{url op="view" path=$issue->getBestIssueId()}">
+				{$issue->getIssueSeries()|escape}
+			</a>
+		</{$heading}>
+		{if $issue->getShowTitle() && $issue->getLocalizedTitle()}
+			<div class="card-text">
+				<p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
+				<p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
+			</div>
 		{/if}
-	</a>
-	{if $issueTitle && $issueSeries}
-		<div>
-			{$issueSeries|escape}
-		</div>
-	{/if}
-
-	<div>
-		{$issue->getLocalizedDescription()|strip_unsafe_html}
 	</div>
-</div><!-- .obj_issue_summary -->
+</div>

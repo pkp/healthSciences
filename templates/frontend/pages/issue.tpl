@@ -19,17 +19,19 @@
 
 	{* Display a message if no current issue exists *}
 	{if !$issue}
-		{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
+		<div class="page-header page-issue-header">
+			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
+		</div>
 
 	{* Display an issue with the Table of Contents *}
 	{else}
+		<div class="page-header page-issue-header">
 
 		{* Indicate if this is only a preview *}
 		{if !$issue->getPublished()}
 			{include file="frontend/components/notification.tpl" messageKey="editor.issues.preview"}
 		{/if}
 
-		<div class="page-issue-header">
 			<h1>{$issue->getIssueSeries()}</h1>
 			<div class="page-issue-date">
 				{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}

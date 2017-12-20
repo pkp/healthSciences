@@ -1,0 +1,30 @@
+.page-link {
+	color: @primary;
+
+	&:hover,
+	&:focus {
+		background: @primary;
+		color: #fff;
+	}
+}
+
+.page-item.active .page-link {
+	background: transparent;
+	border-color: #ddd;
+	color: @dark-grey;
+
+	&:hover,
+	&:focus {
+		background: transparent;
+		border-color: #ddd;
+		color: @dark-grey;
+	}
+}
+
+@media (min-width: 768px) {
+
+	.page-item.active .page-link {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
