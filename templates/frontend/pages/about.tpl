@@ -12,20 +12,18 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutContext"}
 
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-md-6">
-    	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
-
-      <h1>
-        <span class="label">{$currentContext->getLocalizedName()}</span>
-        {translate key="about.aboutContext"}
-      </h1>
-      <hr>
-
-    	{$currentContext->getLocalizedSetting('about')}
-    </div>
-  </div>
+<div class="container page-about">
+	<div class="page-header">
+		<h1>{translate key="about.aboutContext"}</h1>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-md-8">
+			<div class="page-content">
+				{$currentContext->getLocalizedSetting('about')}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.aboutContext"}
+			</div>
+		</div>
+	</div>
 </div>
 
 {include file="frontend/components/footer.tpl"}

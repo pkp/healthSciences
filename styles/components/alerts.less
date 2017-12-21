@@ -1,8 +1,31 @@
 .alert {
 	border-radius: 0;
+
+	.form-error-list {
+		font-size: 16px;
+	}
 }
 
 .alert-primary {
 	background: @primary;
 	color: #fff;
+
+	a,
+	a:hover,
+	a:focus {
+		color: #fff;
+		text-decoration: underline;
+	}
+}
+
+.alert-danger {
+	background: @warning;
+	color: #fff;
+
+	a,
+	a:hover,
+	a:focus {
+		color: #fff;
+		text-decoration: underline;
+	}
 }

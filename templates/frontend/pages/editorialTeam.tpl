@@ -11,19 +11,18 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.editorialTeam"}
 
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-md-6">
-      {include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
-
-      <h1>
-        <span class="label">{$currentContext->getLocalizedName()}</span>
-        {translate key="about.editorialTeam"}</h1>
-      <hr>
-
-      {$currentContext->getLocalizedSetting('masthead')}
-    </div>
-  </div>
+<div class="container page-editorial-team">
+	<div class="page-header">
+		<h1>{translate key="about.editorialTeam"}</h1>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-md-8">
+			<div class="page-content">
+				{$currentContext->getLocalizedSetting('editorialTeam')}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="about.editorialTeam"}
+			</div>
+		</div>
+	</div>
 </div>
 
 {include file="frontend/components/footer.tpl"}

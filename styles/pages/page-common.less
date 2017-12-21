@@ -1,0 +1,38 @@
+.page-header {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.page-content {
+	border-top: 1px solid @faded-grey;
+	padding-top: 3rem;
+	font-size: 20px;
+	line-height: 30px;
+
+	p:not(:first-child) {
+		margin-top: 1.5rem;
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 2em;
+	}
+
+	h2 .btn-edit-link {
+		border: none;
+	}
+}
+
+@media (min-width: 992px) {
+
+	.page-header {
+		text-align: center;
+
+		h1 {
+			font-size: 48px;
+		}
+	}
+}

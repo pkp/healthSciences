@@ -13,19 +13,24 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutThisPublishingSystem"}
 
-<div>
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutThisPublishingSystem"}
-
-	<p>
-		{if $currentJournal}
-			{translate key="about.aboutOJSJournal" ojsVersion=$appVersion}
-		{else}
-			{translate key="about.aboutOJSSite" ojsVersion=$appVersion}
-		{/if}
-	</p>
-
-	<img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
-
-</div><!-- .page -->
+<div class="container page-about-publishing-system">
+	<div class="page-header">
+		<h1>{translate key="about.aboutThisPublishingSystem"}</h1>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-md-8">
+			<div class="page-content">
+				<p>
+					{if $currentJournal}
+						{translate key="about.aboutOJSJournal" ojsVersion=$appVersion}
+					{else}
+						{translate key="about.aboutOJSSite" ojsVersion=$appVersion}
+					{/if}
+				</p>
+				<img src="{$baseUrl}/{$pubProcessFile}" alt="{translate key="about.aboutThisPublishingSystem.altText"}">
+			</div>
+		</div>
+	</div>
+</div>
 
 {include file="frontend/components/footer.tpl"}
