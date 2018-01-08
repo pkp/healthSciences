@@ -14,11 +14,13 @@
 	{assign var="showingLogo" value=false}
 {/if}
 
-{if $currentJournal && $multipleContexts}
-	{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-{else}
-	{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
-{/if}
+{capture assign="homeUrl"}
+	{if $currentJournal && $multipleContexts}
+		{url page="index" router=$smarty.const.ROUTE_PAGE}
+	{else}
+		{url context="index" router=$smarty.const.ROUTE_PAGE}
+	{/if}
+{/capture}
 
 {* Logo or site title. Only use <h1> heading on the homepage.
 	 Otherwise that should go to the page title. *}
@@ -43,7 +45,7 @@
 
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
+{if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
 <body>
 

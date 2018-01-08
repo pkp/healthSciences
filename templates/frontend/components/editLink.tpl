@@ -19,7 +19,7 @@
 
 	{* Render the $sectionTitle if we only have a translation key *}
 	{if $sectionTitleKey}
-		{translate|assign:'sectionTitle' key=$sectionTitleKey}
+		{capture assign="sectionTitle"}{translate key=$sectionTitleKey}{/capture}
 	{/if}
 
 	<a class="btn btn-edit-link" href="{url page=$page op=$op path=$path anchor=$anchor}">

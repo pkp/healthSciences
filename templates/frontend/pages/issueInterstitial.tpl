@@ -14,13 +14,15 @@
  *}
 
 {* Get the Id of the parent object *}
+{capture assign="parentUrl"}
 {if $parent instanceOf Issue}
 	{assign var="parentId" value=$parent->getBestIssueId()}
-	{url|assign:"parentUrl" op="view" path=$parentId}
+	{url op="view" path=$parentId}
 {else}
 	{assign var="parentId" value=$parent->getBestArticleId()}
-	{url|assign:"parentUrl" page="article" op="view" path=$parentId}
+	{url page="article" op="view" path=$parentId}
 {/if}
+{/capture}
 
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
