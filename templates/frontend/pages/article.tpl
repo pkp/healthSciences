@@ -14,12 +14,8 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$article->getLocalizedTitle()|escape}
 
-<div>
-	{* Show article overview *}
+<div class="container page-article">
 	{include file="frontend/objects/article_details.tpl"}
-
-	{call_hook name="Templates::Article::Footer::PageFooter"}
-
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

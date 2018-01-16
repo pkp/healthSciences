@@ -1,0 +1,156 @@
+.article-details-issue-identifier {
+	margin-bottom: 0.5em;
+	font-family: @font-serif;
+	color: @mid-grey;
+
+	a {
+		text-decoration: none;
+		color: @mid-grey;
+
+		&:hover,
+		&:focus {
+			color: @mid-grey;
+		}
+	}
+}
+
+.article-details h1 {
+	font-size: 2rem;
+}
+
+.article-details-issue-section,
+.article-details-doi,
+.article-details-published {
+	margin-top: 1em;
+	font-size: 0.9rem;
+	line-height: 1.6em;
+	color: @mid-grey;
+}
+
+.article-details-issue-section {
+	text-transform: uppercase;
+}
+
+.article-details-block,
+.article-details .item {
+	margin-bottom: 3rem;
+}
+
+.article-details-heading,
+.article-details .item > .label {
+	font-size: 1.5rem;
+	color: @mid-grey;
+}
+
+.article-details-cover {
+	max-width: 210px;
+}
+
+.article-details-author {
+	margin-bottom: 1rem;
+}
+
+.article-details-author-affiliation {
+	font-size: 0.9rem;
+	color: @mid-grey;
+}
+
+.article-details-author-orcid {
+	font-size: 0.8rem;
+
+	a {
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: @mid-grey;
+		}
+	}
+}
+
+.article-details-bio-toggle {
+	padding: 0;
+	font-size: 0.9rem;
+	color: @primary;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		color: @mid-grey;
+	}
+}
+
+.article-details-galley:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+.article-details-how-to-cite-citation {
+	margin-bottom: 0.5rem;
+	font-size: 0.9rem
+}
+
+.article-details-license {
+	font-size: 0.9rem;
+}
+
+.article-details-galleys-top,
+.article-details-galleys-btm {
+	display: none;
+}
+
+.article-details-abstract {
+	line-height: 1.8em;
+}
+
+@media (min-width: 992px) {
+
+	.article-details-issue-identifier {
+		margin-bottom: 1em;
+		font-size: 1.1em;
+		line-height: 1.6em;
+	}
+
+	.article-details h1 {
+		font-size: 2.5rem;
+	}
+
+	.article-details-main {
+		padding: 3rem 6rem;
+		background: @light-grey;
+
+		.article-details-heading,
+		.item > .label {
+			margin-bottom: 1rem;
+			font-size: 2rem;
+			color: @dark-grey;
+		}
+
+		.article-details-block:last-child,
+		.item:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.article-details-galleys-top,
+	.article-details-galleys-btm {
+		display: block;
+	}
+
+	.article-details-galleys-sidebar {
+		display: none;
+	}
+
+	.article-details-galley {
+		display: inline-block;
+	}
+
+	.article-details-galley:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	.article-details-references-value {
+		font-size: 0.9rem;
+	}
+}

@@ -29,6 +29,13 @@
 	</div>
 </footer><!-- pkp_structure_footer_wrapper -->
 
+{* Load author biography modals if they exist *}
+{if $smarty.capture.authorBiographyModals|@count}
+	{foreach from=$smarty.capture.authorBiographyModals item="modal"}
+		{$modal}
+	{/foreach}
+{/if}
+
 {load_script context="frontend" scripts=$scripts}
 
 {call_hook name="Templates::Common::Footer::PageFooter"}
