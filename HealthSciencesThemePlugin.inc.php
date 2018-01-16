@@ -53,7 +53,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			);
 			$this->addScript(
 				'jquery',
-				'https://code.jquery.com/jquery-3.2.1.slim.min.js',
+				'https://code.jquery.com/jquery-3.2.1.min.js',
 				array('baseUrl' => '')
 			);
 			$this->addScript(
