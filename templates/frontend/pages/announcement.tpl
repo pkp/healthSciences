@@ -11,14 +11,24 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()}
 
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-md-6">
-
-      {include file="frontend/objects/announcement_full.tpl"}
-
+<article class="container page-announcement">
+	<div class="page-header">
+    <div class="announcement-date">
+      {$announcement->getDatePosted()|date_format:$dateFormatLong}
     </div>
-  </div>
-</div>
+		<h1>{$announcement->getLocalizedTitle()}</h1>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-md-8">
+			<article class="page-content">
+    		{if $announcement->getLocalizedDescription()}
+    			{$announcement->getLocalizedDescription()|strip_unsafe_html}
+    		{else}
+    			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+    		{/if}
+			</article>
+		</div>
+	</div>
+</article>
 
 {include file="frontend/components/footer.tpl"}

@@ -5,27 +5,28 @@
  * Copyright (c) 2003-2017 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @brief Display the page to view the latest announcements
+ * @brief Display the page to view a journal's or press's description, contact
+ *  details, policies and more.
  *
- * @uses $announcements array List of announcements
+ * @uses $currentContext Journal|Press The current journal or press
  *}
 {include file="frontend/components/header.tpl" pageTitle="announcement.announcements"}
 
-<div class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-md-6">
-    	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
-
-      <h1>
-        <span class="label">{$currentContext->getLocalizedName()}</span>
-        {translate key="announcement.announcements"}</h1>
-      <hr>
-
-      {$announcementsIntroduction}
-
-    	{include file="frontend/components/announcements.tpl"}
-    </div>
-  </div>
+<div class="container page-announcement">
+	<div class="page-header">
+		<h1>{translate key="announcement.announcements"}</h1>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-md-8">
+			<div class="page-content">
+        {$announcementsIntroduction}
+        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="announcements" sectionTitleKey="announcement.announcements"}
+      	{foreach from=$announcements item=announcement}
+    			{include file="frontend/objects/announcement_summary.tpl"}
+      	{/foreach}
+			</div>
+		</div>
+	</div>
 </div>
 
 {include file="frontend/components/footer.tpl"}
