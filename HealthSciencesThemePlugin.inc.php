@@ -48,7 +48,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			);
 			$this->addStyle(
 				'bootstrap',
-				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css',
+				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css',
 				array('baseUrl' => '')
 			);
 			$this->addScript(
@@ -63,7 +63,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			);
 			$this->addScript(
 				'bootstrap',
-				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js',
+				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js',
 				array('baseUrl' => '')
 			);
 
