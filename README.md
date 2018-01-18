@@ -4,7 +4,7 @@ An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health 
 
 Current version: Alpha1 (unreleased)
 
-This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/).
+This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/).
 
 ## Installation
 
