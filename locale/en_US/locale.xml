@@ -25,4 +25,9 @@
 	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
 
 	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
+
+	<message key="plugins.themes.healthSciences.register.haveAccount">Already have an account?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Login here</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">No account?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Register here</message>
 </locale>

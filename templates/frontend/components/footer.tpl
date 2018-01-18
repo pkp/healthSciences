@@ -36,6 +36,20 @@
 	{/foreach}
 {/if}
 
+{* Login modal *}
+<div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				{include file="frontend/components/loginForm.tpl"}
+      </div>
+    </div>
+  </div>
+</div>
+
 {load_script context="frontend" scripts=$scripts}
 
 {call_hook name="Templates::Common::Footer::PageFooter"}

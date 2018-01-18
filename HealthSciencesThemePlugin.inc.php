@@ -75,9 +75,10 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			$this->addScript('bootstrap', 'lib/bootstrap.min.js');
 		}
 
-		// Load theme stylesheet
+		// Load theme stylesheet and script
 		$this->addStyle('stylesheet', 'styles/index.less');
 		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
+		$this->addScript('main', 'js/main.js');
 
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));

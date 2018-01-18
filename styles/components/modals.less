@@ -1,0 +1,56 @@
+.modal-dialog {
+	max-width: 540px;
+}
+
+.modal-content {
+	border-radius: 0;
+	background: @primary;
+	color: rgba(255,255,255,0.9);
+
+	.close {
+		color: rgba(255,255,255,0.9);
+		text-shadow: none;
+		opacity: 1;
+	}
+
+	a {
+		color: rgba(255,255,255,0.9);
+		text-decoration: underline;
+
+		&:hover,
+		&:focus {
+			color: #fff;
+		}
+	}
+
+	.btn-primary {
+		.btn-primary-bg;
+	}
+
+	.btn-link {
+		color: rgba(255,255,255,0.9);
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: #fff;
+			border-color: #fff;
+		}
+	}
+
+	.form-control {
+	  background: transparent;
+	  border-color: rgba(255,255,255,0.9);
+		color: rgba(255,255,255,0.9);
+	}
+
+	@media (min-width: 992px) {
+		padding: 4rem;
+
+		.close {
+			position: absolute;
+			top: -2.5rem;
+			right: -2rem;
+		}
+	}
+}

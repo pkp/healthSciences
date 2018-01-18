@@ -23,7 +23,7 @@
 			{if !empty($navigationMenuItemAssignment->children)}
 				{assign var="hasChildren" value=true}
 			{/if}
-			<li class="{$liClass|escape}{if $hasChildren} dropdown{/if}">
+			<li class="{$liClass|escape} {$navigationMenuItemAssignment->navigationMenuItem->getType()|lower}{if $hasChildren} dropdown{/if}">
 				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}"
 					class="nav-link{if $hasChildren} dropdown-toggle{/if}"
 					{if $hasChildren}
