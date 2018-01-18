@@ -1,0 +1,29 @@
+.page-section {
+
+	.section-description {
+		margin-bottom: 4rem;
+	}
+
+	@media (min-width: 992px) {
+
+		// When a section description exists
+		.col-lg-4 + .col-lg-8 {
+
+			.page-content {
+				padding-top: 0;
+				border-top: 0;
+
+				.article-summary:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+
+		.section-description {
+			padding: 2rem;
+			background: @light-grey;
+			font-size: 1rem;
+			line-height: 2;
+		}
+	}
+}
