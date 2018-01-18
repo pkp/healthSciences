@@ -18,75 +18,82 @@
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
-<div>
-
-	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.search"}
-
-	<form>
-		{csrf}
-
-		{* Repeat the label text just so that screen readers have a clear
-		   label/input relationship *}
-		<div>
-			<label>
-				{translate key="search.searchFor"}
-			</label>
-			<input type="text" id="query" name="query" value="{$query|escape}">
-		</div>
-
-		<fieldset>
-			<legend>
-				{translate key="search.advancedFilters"}
-			</legend>
-			<div>
-				<div>
-					<label>
-						{translate key="search.dateFrom"}
-					</label>
-					{html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
-				</div>
-				<div>
-					<label>
-						{translate key="search.dateTo"}
-					</label>
-					{html_select_date prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
-				</div>
-			</div>
-			<div>
-				<label>
-					{translate key="search.author"}
-				</label>
-				<input type="text" for="authors" name="authors" value="{$authors}">
-			</div>
-		</fieldset>
-
-		<div>
-			<button}</button>
-		</div>
-	</form>
-
-	{* Search results, finally! *}
-	<div>
-		{iterate from=results item=result}
-			{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle journal=$result.journal showDatePublished=true}
-		{/iterate}
+<div class="container page-search">
+	<div class="page-header">
+		<h1>
+			{if $query}
+				{translate key="plugins.themes.healthSciences.search.resultsFor" query=$query}
+			{elseif $authors}
+				{translate key="plugins.themes.healthSciences.search.resultsFor" query=$authors}
+			{else}
+				{translate key="common.search"}
+			{/if}
+		</h1>
 	</div>
+	<div class="row justify-content-lg-center">
+		<div class="col-lg-8 search-col-results">
+			<div class="search-results">
 
-	{* No results found *}
-	{if $results->wasEmpty()}
-		{if $error}
-			{include file="frontend/components/notification.tpl" type="error" message=$error|escape}
-		{else}
-			{include file="frontend/components/notification.tpl" type="notice" messageKey="search.noResults"}
-		{/if}
+				{* No results found *}
+				{if $results->wasEmpty()}
+					{if $error}
+						<div class="alert alert-danger" role="alert">{$error|escape}</div>
+					{else}
+						<div class="alert alert-info" role="alert">{translate key="search.noResults"}</div>
+					{/if}
 
-	{* Results pagination *}
-	{else}
-		<div>
-			{page_info iterator=$results}
-			{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors title=$title abstract=$abstract galleyFullText=$galleyFullText discipline=$discipline subject=$subject type=$type coverage=$coverage indexTerms=$indexTerms dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear orderBy=$orderBy orderDir=$orderDir}
+				{* Results pagination *}
+				{else}
+					{iterate from=results item=result}
+						{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle journal=$result.journal showDatePublished=true hideGalleys=true}
+					{/iterate}
+					<div class="pagination">
+						{page_info iterator=$results}
+						{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors title=$title abstract=$abstract galleyFullText=$galleyFullText discipline=$discipline subject=$subject type=$type coverage=$coverage indexTerms=$indexTerms dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear orderBy=$orderBy orderDir=$orderDir}
+					</div>
+				{/if}
+			</div>
 		</div>
-	{/if}
-</div><!-- .page -->
+		<div class="col-lg-4 search-col-filters">
+			<div class="search-filters">
+				<h2>{translate key="plugins.themes.healthSciences.search.params"}</h2>
+				<form class="form-search" method="post" action="{url op="search"}">
+					{csrf}
+					<div class="form-group form-group-query">
+						<label for="query">
+							{translate key="common.searchQuery"}
+						</label>
+						<input type="text" class="form-control" id="query" name="query" value="{$query|escape}">
+					</div>
+					<div class="form-group form-group-authors">
+						<label for="authors">
+							{translate key="search.author"}
+						</label>
+						<input type="text" class="form-control" id"authors" name="authors" value="{$authors}">
+					</div>
+					<div class="form-group form-group-date-from">
+						<label for="dateFromYear">
+							{translate key="search.dateFrom"}
+						</label>
+						<div class="form-control-date">
+							{html_select_date class="form-control" prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+						</div>
+					</div>
+					<div class="form-group form-group-date-to">
+						<label for="dateToYear">
+							{translate key="search.dateTo"}
+						</label>
+						<div class="form-control-date">
+							{html_select_date class="form-control" prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+						</div>
+					</div>
+					<div class="form-group form-group-buttons">
+						<button class="btn btn-primary" type="submit">{translate key="common.search"}</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
 {include file="frontend/components/footer.tpl"}

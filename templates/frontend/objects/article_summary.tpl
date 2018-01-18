@@ -48,7 +48,7 @@
 	</div>
 
 	{if $showDatePublished && $article->getDatePublished()}
-		<div>
+		<div class="article-summary-date">
 			{$article->getDatePublished()|date_format:$dateFormatLong}
 		</div>
 	{/if}

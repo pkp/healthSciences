@@ -1,0 +1,49 @@
+.search-filters {
+	padding: 1rem;
+	background: @light-grey;
+
+	h2 {
+		margin-bottom: 2rem;
+		font-size: 1.5rem;
+		line-height: 1.6rem;
+		color: @mid-grey;
+	}
+
+	label {
+		font-size: 0.9rem;
+		color: @mid-grey;
+	}
+
+	.form-control {
+		background: transparent;
+	}
+
+	.form-control-date {
+		display: flex;
+		justify-content: space-between;
+
+		> select {
+
+			&:first-child {
+				max-width: 6em;
+			}
+
+			&:nth-child(2) {
+				margin-left: 0.5em;
+				margin-right: 0.5em;
+			}
+
+			&:last-child {
+				max-width: 4em;
+			}
+		}
+	}
+
+	.form-group-buttons {
+		margin-bottom: 0;
+	}
+
+	@media (min-width: 992px) {
+		padding: 2rem;
+	}
+}

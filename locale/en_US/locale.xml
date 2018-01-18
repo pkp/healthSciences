@@ -30,4 +30,7 @@
 	<message key="plugins.themes.healthSciences.register.loginHere">Login here</message>
 	<message key="plugins.themes.healthSciences.register.noAccount">No account?</message>
 	<message key="plugins.themes.healthSciences.register.registerHere">Register here</message>
+
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Search Results for <em>{$query}</em>]]></message>
+	<message key="plugins.themes.healthSciences.search.params">Search Parameters</message>
 </locale>
