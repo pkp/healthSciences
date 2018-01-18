@@ -13,7 +13,7 @@ You can install the latest stable release by going to the **Settings > Websites 
 If you'd like to use unreleased packages, you can clone this repository or follow these steps:
 
 1. Download the [latest release](https://github.com/pkp/healthSciences/releases).
-2. Unpack the .zip file and move the `healthSciences` directory to your OJS installation at `/plugins/themes/healthSciences`.
+2. Unpack the .tar.gz file and move the `healthSciences` directory to your OJS installation at `/plugins/themes/healthSciences`.
 3. Login to the admin area of your OJS website. Browse to the Settings > Website > Plugins page and enable the Health Sciences theme.
 4. Browse to the Settings > Website > Appearance page and select Health Sciences from the theme option and save your change.
 
