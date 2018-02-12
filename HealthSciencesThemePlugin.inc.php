@@ -69,10 +69,10 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Load local copies of dependencies if CDNs are not allowed
 		} else {
-			$this->addStyle('bootstrap', 'lib/bootstrap.min.css');
-			$this->addScript('jquery', 'lib/jquery-3.2.1.slim.min.js');
-			$this->addScript('popper', 'lib/popper.min.js');
-			$this->addScript('bootstrap', 'lib/bootstrap.min.js');
+			$this->addStyle('bootstrap', 'libs/bootstrap.min.css');
+			$this->addScript('jquery', 'libs/jquery-3.2.1.slim.min.js');
+			$this->addScript('popper', 'libs/popper.min.js');
+			$this->addScript('bootstrap', 'libs/bootstrap.min.js');
 		}
 
 		// Load theme stylesheet and script
