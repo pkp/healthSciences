@@ -37,7 +37,7 @@
 					{translate key="common.required"}
 				</span>
 			</label>
-			<input type="text" class="form-control" name="password" id="password" value="{$password|escape}" maxlength="32" required>
+			<input type="password" class="form-control" name="password" id="password" value="{$password|escape}" maxlength="32" required>
 		</div>
     <div class="row">
       <div class="col-md-6">

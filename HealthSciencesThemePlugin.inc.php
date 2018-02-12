@@ -121,13 +121,23 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$context = $request->getContext();
 
 		if (!defined('SESSION_DISABLE_INIT')) {
+
+			// Get possible locales
 			if ($context) {
 				$locales = $context->getSupportedLocaleNames();
 			} else {
 				$locales = $request->getSite()->getSupportedLocaleNames();
 			}
+
+			// Load login form
+			$loginUrl = $request->url(null, 'login', 'signIn');
+			if (Config::getVar('security', 'force_login_ssl')) {
+				$loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
+			}
+
 			$templateMgr->assign(array(
 				'languageToggleLocales' => $locales,
+				'loginUrl' => $loginUrl,
 				'brandImage' => 'templates/images/ojs_brand_white.png',
 			));
 		}
