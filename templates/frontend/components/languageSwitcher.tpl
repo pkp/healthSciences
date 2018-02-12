@@ -1,5 +1,5 @@
 {**
- * lib/pkp/templates/frontend/components/languageSwitcher.tpl
+ * templates/frontend/components/languageSwitcher.tpl
  *
  * Copyright (c) 2014-2016 Simon Fraser University
  * Copyright (c) 2003-2016 John Willinsky
