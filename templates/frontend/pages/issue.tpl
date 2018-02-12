@@ -61,32 +61,34 @@
 		</div>
 
 		<div class="row justify-content-center page-issue-details">
-			<div class="col-lg-9">
-				<div class="page-issue-description-wrapper">
-					{if $issue->hasDescription()}
-						<div class="page-issue-description">
-							<div class="h2">
-								{if $issue->getLocalizedTitle()}
-									{$issue->getLocalizedTitle()}
-								{else}
-									{translate key="plugins.themes.healthSciences.issueDescription"}
-								{/if}
+			{if $issueGalleys || $issue->hasDescription() || $issue->getLocalizedTitle()}
+				<div class="col-lg-9">
+					<div class="page-issue-description-wrapper">
+						{if $issue->hasDescription() || $issue->getLocalizedTitle()}
+							<div class="page-issue-description">
+								<div class="h2">
+									{if $issue->getLocalizedTitle()}
+										{$issue->getLocalizedTitle()}
+									{else}
+										{translate key="plugins.themes.healthSciences.issueDescription"}
+									{/if}
+								</div>
+								{$issue->getLocalizedDescription()|strip_unsafe_html}
 							</div>
-							{$issue->getLocalizedDescription()|strip_unsafe_html}
-						</div>
-					{/if}
-					{if $issueGalleys}
-						<div class="page-issue-galleys">
-							<div class="h3">
-								{translate key="issue.fullIssue"}
+						{/if}
+						{if $issueGalleys}
+							<div class="page-issue-galleys">
+								<div class="h3">
+									{translate key="issue.fullIssue"}
+								</div>
+								{foreach from=$issueGalleys item=galley}
+									{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+								{/foreach}
 							</div>
-							{foreach from=$issueGalleys item=galley}
-								{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-							{/foreach}
-						</div>
-					{/if}
+						{/if}
+					</div>
 				</div>
-			</div>
+			{/if}
 			{if $issue->getLocalizedCoverImageUrl()}
 				<div class="col-lg-3">
 					<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
