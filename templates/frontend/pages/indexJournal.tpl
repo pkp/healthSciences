@@ -28,8 +28,7 @@
 
 	{if $issue}
 		<h2 class="h5 homepage-issue-current">
-			{capture assign="journalTitleWithSpan"}<span>{$currentContext->getLocalizedName()}</span>{/capture}
-			{translate key="plugins.themes.healthSciences.currentIssueOf" journal=$journalTitleWithSpan}
+			{translate key="journal.currentIssue"}
 		</h2>
 		<div class="h1 homepage-issue-identifier">
 			{$issue->getIssueSeries()}

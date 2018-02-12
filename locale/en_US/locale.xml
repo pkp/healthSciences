@@ -19,7 +19,6 @@
 
 	<message key="plugins.themes.healthSciences.nav.toggle">Toggle Navigation</message>
 	<message key="plugins.themes.healthSciences.language.toggle">Change the language. The current language is:</message>
-	<message key="plugins.themes.healthSciences.currentIssueOf">Current Issue of {$journal}</message>
 	<message key="plugins.themes.healthSciences.currentIssuePublished">Published {$date}</message>
 	<message key="plugins.themes.healthSciences.issueDescription">Issue Description</message>
 	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
