@@ -11,7 +11,7 @@
  * @uses $languageToggleLocales array All supported locales
  * @uses $id string A unique ID for this language toggle
  *}
-{if $languageToggleLocales}
+{if $languageToggleLocales && $languageToggleLocales|@count > 1}
 	<div id="{$id|escape}" class="dropdown language-toggle">
 		<button class="btn dropdown-toggle" type="button" id="languageToggleMenu{$id|escape}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="sr-only">{translate key="plugins.themes.healthSciences.language.toggle"}</span>
