@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: Alpha1 (unreleased)
+Current version: Beta (unreleased)
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/).
 
@@ -19,13 +19,20 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Version Compatibility
 
-The alpha version is only compatible with the latest `master` branch of OJS, and is expected to be released alongside 3.1.1.
+The beta version is only compatible with the latest `master` branch of OJS, and is expected to be released alongside 3.1.1.
 
 ## Contribution
 
 This theme was designed by Sophy Ouch (@sssoz) and built by Nate Wright (@NateWr) using [Bootstrap4](https://getbootstrap.com/).
 
 ## Changelog
+
+**Beta** (2018-02-13)
+* Fix: Plugin can't be installed through plugin upload tool (#2)
+* Fix: Issue description box appears when no description exists (#3)
+* Fix: Language selector appears when no other languages exist (#4)
+* Fix: Login form in modal doesn't work (#6, #7)
+* Add: HTML/PDF galley views (#1)
 
 **Alpha1** (2018-01-18)
 * Initial release for testing
