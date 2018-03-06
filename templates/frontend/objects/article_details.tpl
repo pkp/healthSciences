@@ -36,7 +36,16 @@
 		<div class="article-details-issue-identifier">
 			<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>
 		</div>
-		<h1>{$article->getLocalizedTitle()|escape}</h1>
+		<h1>
+			{$article->getLocalizedTitle()|escape}
+
+			{if $article->getLocalizedSubtitle()}
+				<span class="article-details-subtitle">
+					{$article->getLocalizedSubtitle()|escape}
+				</span>
+			{/if}
+		</h1>
+
 		{if $section}
 			<div class="article-details-issue-section">{$section->getLocalizedTitle()|escape}</div>
 		{/if}
