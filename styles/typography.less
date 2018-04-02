@@ -1,7 +1,7 @@
 body {
   font-family: @font-sans;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   color: @dark-grey;
 }
 
@@ -18,3 +18,40 @@ a {
     color: @primary;
   }
 }
+
+/* Font-size for pages' h1 header; overwriting Bootstrap */
+
+div.page-header h1 {
+  font-size: @page-header-size;
+}
+
+@media (min-width: 992px) {
+  div.page-header h1 {
+    font-size: @page-header-size + @page-header-size/10;
+  }
+}
+
+/* Font-size for buttons; overwriting Bootstrap */
+a.btn {
+  font-size: @link-size;
+}
+
+/* Font-size for page content paragraphs */
+.page-content p {
+  font-size: 1.1rem;
+}
+
+/* Styling font-size for all headers;
+ * every next `h*` element will be smaller then previous in order
+ */
+
+.headerSize(@h_count) when (@h_count < 7) {
+  div.container h@{h_count}, div.container div.h@{h_count} {
+    font-size: (@page-header-size - (@page-header-size/10*@h_count) + @page-header-size/10);
+  }
+  .headerSize(@h_count + 1);
+}
+.headerSize(1);
+
+
+
