@@ -19,24 +19,24 @@ a {
   }
 }
 
-/* Font-size for pages' h1 header; overwriting Bootstrap */
+// Font-size for pages' h1 header; overwriting Bootstrap
 
-div.page-header h1 {
+.page-header h1 {
   font-size: @page-header-size;
 }
 
 @media (min-width: 992px) {
-  div.page-header h1 {
+  .page-header h1 {
     font-size: @page-header-size + @page-header-size/10;
   }
 }
 
-/* Font-size for buttons; overwriting Bootstrap */
-a.btn {
+// Font-size for buttons; overwriting Bootstrap
+.btn.btn {
   font-size: @link-size;
 }
 
-/* Font-size for page content paragraphs */
+// Font-size for page content paragraphs
 .page-content p {
   font-size: 1.1rem;
 }
@@ -51,6 +51,7 @@ a.btn {
   }
   .headerSize(@h_count + 1);
 }
+
 .headerSize(1);
 
 
