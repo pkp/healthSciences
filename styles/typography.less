@@ -15,7 +15,7 @@ a {
 
   &:hover,
   &:focus {
-    color: @primary;
+	color: @primary;
   }
 }
 
@@ -35,7 +35,7 @@ a {
 
 .headerSize(@h_count) when (@h_count < 7) {
   div.container h@{h_count}, div.container div.h@{h_count} {
-    font-size: (@page-header-size - (@page-header-size/10*@h_count) + @page-header-size/10);
+	font-size: (@page-header-size - (@page-header-size/10*@h_count) + @page-header-size/10);
   }
   .headerSize(@h_count + 1);
 }
