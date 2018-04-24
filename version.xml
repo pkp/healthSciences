@@ -26,7 +26,7 @@
 	<release>1.0.0.0</release>
 
 	<!-- The date of the latest version -->
-	<date>2017-08-07</date>
+	<date>2018-04-24</date>
 
 	<!-- This should always be 0 -->
 	<lazy-load>0</lazy-load>
