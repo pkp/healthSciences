@@ -45,35 +45,37 @@
 					</a>
 				</div>
 			{/if}
-			<div class="col-lg-9">
-				<div class="homepage-issue-description-wrapper">
-					{if $issue->hasDescription()}
-						<div class="homepage-issue-description">
-							<div class="h2">
-								{if $issue->getLocalizedTitle()}
-									{$issue->getLocalizedTitle()}
-								{else}
-									{translate key="plugins.themes.healthSciences.issueDescription"}
-								{/if}
+			{if $issue->hasDescription() || $issueGalleys}
+				<div class="col-lg-9">
+					<div class="homepage-issue-description-wrapper">
+						{if $issue->hasDescription()}
+							<div class="homepage-issue-description">
+								<div class="h2">
+									{if $issue->getLocalizedTitle()}
+										{$issue->getLocalizedTitle()}
+									{else}
+										{translate key="plugins.themes.healthSciences.issueDescription"}
+									{/if}
+								</div>
+								{$issue->getLocalizedDescription()|strip_unsafe_html}
+								<div class="homepage-issue-description-more">
+									<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">{translate key="common.more"}</a>
+								</div>
 							</div>
-							{$issue->getLocalizedDescription()|strip_unsafe_html}
-							<div class="homepage-issue-description-more">
-								<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">{translate key="common.more"}</a>
+						{/if}
+						{if $issueGalleys}
+							<div class="homepage-issue-galleys">
+								<div class="h3">
+									{translate key="issue.fullIssue"}
+								</div>
+								{foreach from=$issueGalleys item=galley}
+									{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+								{/foreach}
 							</div>
-						</div>
-					{/if}
-					{if $issueGalleys}
-						<div class="homepage-issue-galleys">
-							<div class="h3">
-								{translate key="issue.fullIssue"}
-							</div>
-							{foreach from=$issueGalleys item=galley}
-								{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-							{/foreach}
-						</div>
-					{/if}
+						{/if}
+					</div>
 				</div>
-			</div>
+			{/if}
 		</div>
 
 		<div class="row justify-content-center">

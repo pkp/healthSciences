@@ -1,0 +1,36 @@
+p, h1, h2, h3, h4, h5, h6 {
+	font-family: 'PT Serif', serif;
+	line-height: 1.6;
+}
+
+p {
+	font-size: 18px;
+}
+
+@media (min-width: 1200px) {
+	body {
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	body {
+		padding-left: 12%;
+		padding-right: 12%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	body {
+		padding-left: 7%;
+		padding-right: 7%;
+	}
+}
+
+@media (max-width: 767px) and (max-width: 767px) {
+	body {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
