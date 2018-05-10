@@ -37,48 +37,53 @@
 			{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
 		</div>
 
-		<div class="row justify-content-center homepage-issue-header">
-			{if $issue->getLocalizedCoverImageUrl()}
-				<div class="col-lg-3">
-					<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
-						<img class="img-fluid homepage-issue-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
-					</a>
-				</div>
-			{/if}
-			{if $issue->hasDescription() || $issueGalleys}
-				<div class="col-lg-9">
-					<div class="homepage-issue-description-wrapper">
-						{if $issue->hasDescription()}
-							<div class="homepage-issue-description">
-								<div class="h2">
-									{if $issue->getLocalizedTitle()}
-										{$issue->getLocalizedTitle()}
-									{else}
-										{translate key="plugins.themes.healthSciences.issueDescription"}
-									{/if}
-								</div>
-								{$issue->getLocalizedDescription()|strip_unsafe_html}
-								<div class="homepage-issue-description-more">
-									<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">{translate key="common.more"}</a>
-								</div>
-							</div>
-						{/if}
-						{if $issueGalleys}
-							<div class="homepage-issue-galleys">
-								<div class="h3">
-									{translate key="issue.fullIssue"}
-								</div>
-								{foreach from=$issueGalleys item=galley}
-									{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-								{/foreach}
-							</div>
-						{/if}
+		{* make the entire block conditional if there aren't any additional issue data *}
+		{if  $issue->getLocalizedCoverImageUrl() || $issue->hasDescription() || $issueGalleys}
+			<div class="row justify-content-center homepage-issue-header">
+				{if $issue->getLocalizedCoverImageUrl()}
+					<div class="col-lg-3">
+						<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">
+							<img class="img-fluid homepage-issue-cover" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText() != ''} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+						</a>
 					</div>
-				</div>
-			{/if}
-		</div>
+				{/if}
+				{if $issue->hasDescription() || $issueGalleys}
+					<div class="col-lg-9">
+						<div class="homepage-issue-description-wrapper">
+							{if $issue->hasDescription()}
+								<div class="homepage-issue-description">
+									<div class="h2">
+										{if $issue->getLocalizedTitle()}
+											{$issue->getLocalizedTitle()}
+										{else}
+											{translate key="plugins.themes.healthSciences.issueDescription"}
+										{/if}
+									</div>
+									{$issue->getLocalizedDescription()|strip_unsafe_html}
+									<div class="homepage-issue-description-more">
+										<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">{translate key="common.more"}</a>
+									</div>
+								</div>
+							{/if}
+							{if $issueGalleys}
+								<div class="homepage-issue-galleys">
+									<div class="h3">
+										{translate key="issue.fullIssue"}
+									</div>
+									{foreach from=$issueGalleys item=galley}
+										{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+									{/foreach}
+								</div>
+							{/if}
+						</div>
+					</div>
+				{/if}
+			</div>
+			{else}
+			{assign var=withoutIssueData value=true}
+		{/if}
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-center{if $withoutIssueData} issue-with-margin{/if}">
 			<div class="col-12 col-lg-9">
 				{include file="frontend/objects/issue_toc.tpl" sectionHeading="h3"}
 			</div>
