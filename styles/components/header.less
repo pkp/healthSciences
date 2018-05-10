@@ -168,7 +168,7 @@
 
 		.nav-link,
 		.dropdown-item {
-			padding: 1rem;
+			padding: 0.5rem;
 			line-height: 1.5rem;
 			text-transform: uppercase;
 			vertical-align: middle;
@@ -197,6 +197,7 @@
 
 		.dropdown-menu.show {
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: space-around;
 			align-content: center;
 			position: absolute;
@@ -210,9 +211,10 @@
 		}
 
 		.dropdown-item {
-			font-size: 20px;
+			font-size: 17px;
 			color: #fff;
 			text-align: center;
+			width: initial;
 
 			&:focus,
 			&:hover {
