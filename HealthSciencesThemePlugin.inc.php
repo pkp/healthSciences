@@ -51,6 +51,11 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 				'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css',
 				array('baseUrl' => '')
 			);
+			$this->addStyle(
+				'fontawesome',
+				'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css',
+				array('baseUrl' => '')
+			);
 			$this->addScript(
 				'jquery',
 				'https://code.jquery.com/jquery-3.2.1.min.js',
