@@ -12,28 +12,26 @@
 {capture assign="pageTitleTranslated"}{translate key="article.pageTitle" title=$title}{/capture}
 {include file="frontend/components/headerHead.tpl" pageTitleTranslated=$pageTitleTranslated}
 <body class="page-view-pdf">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<a href="{$parentUrl}" class="btn btn-text">
-					←
-					<span class="sr-only">
-						{if $parent instanceOf Issue}
-							{translate key="issue.return"}
-						{else}
-							{translate key="article.return"}
-						{/if}
-					</span>
-					{$title}
-				</a>
-			</div>
-			<div class="col-4 text-right">
-				<a href="{$pdfUrl}" class="btn" download>
-					<span class="label">
-						{translate key="common.download"}
-					</span>
-				</a>
-			</div>
+	<div class="pdf-header">
+		<div class="pdf-return-article">
+			<a href="{$parentUrl}" class="btn btn-text">
+				←
+				<span class="sr-only">
+					{if $parent instanceOf Issue}
+						{translate key="issue.return"}
+					{else}
+						{translate key="article.return"}
+					{/if}
+				</span>
+				{$title}
+			</a>
+		</div>
+		<div class="pdf-download-button">
+			<a href="{$pdfUrl}" class="btn" download>
+				<span class="label">
+					{translate key="common.download"}
+				</span>
+			</a>
 		</div>
 	</div>
 
