@@ -170,3 +170,23 @@
 		font-size: 0.9rem;
 	}
 }
+
+@media (max-width: 991px) {
+	.article-details-galley {
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-right: 0.3rem;
+		}
+	}
+
+	.article-details-keywords-value {
+		& br {
+			display: none;
+		}
+
+		& span:not(:last-child):after {
+			content: ", ";
+		}
+	}
+}
