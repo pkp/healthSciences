@@ -265,26 +265,6 @@
 					{/if}
 				{/foreach}
 
-				{* Licensing info *}
-				{if $copyright || $licenseUrl}
-					<div class="article-details-block article-details-license">
-						{if $licenseUrl}
-							{if $ccLicenseBadge}
-								{$ccLicenseBadge}
-							{else}
-								<a href="{$licenseUrl|escape}" class="copyright">
-									{if $copyrightHolder}
-										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
-									{else}
-										{translate key="submission.license"}
-									{/if}
-								</a>
-							{/if}
-						{/if}
-						{$copyright}
-					</div>
-				{/if}
-
 				{call_hook name="Templates::Article::Details"}
 			</div>
 		</div>
@@ -336,6 +316,26 @@
 								{$article->getCitations()|nl2br}
 							{/if}
 						</div>
+					</div>
+				{/if}
+
+				{* Licensing info *}
+				{if $copyright || $licenseUrl}
+					<div class="article-details-block article-details-license">
+						{if $licenseUrl}
+							{if $ccLicenseBadge}
+								{$ccLicenseBadge}
+							{else}
+								<a href="{$licenseUrl|escape}" class="copyright">
+									{if $copyrightHolder}
+										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
+									{else}
+										{translate key="submission.license"}
+									{/if}
+								</a>
+							{/if}
+						{/if}
+						{$copyright}
 					</div>
 				{/if}
 
