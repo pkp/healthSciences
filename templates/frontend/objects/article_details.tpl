@@ -194,7 +194,7 @@
 						<div class="article-details-keywords-value">
 							{foreach from=$keywords item=keyword}
 								{foreach name=keywords from=$keyword item=keywordItem}
-									{$keywordItem|escape}{if !$smarty.foreach.keywords.last}<br>{/if}
+									<span>{$keywordItem|escape}</span>{if !$smarty.foreach.keywords.last}<br>{/if}
 								{/foreach}
 							{/foreach}
 						</div>
