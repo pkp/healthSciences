@@ -10,12 +10,24 @@
  */
 .page-view-pdf {
 	background: @light-grey;
+}
 
-	.container {
-		position: relative;
-		z-index: 2;
-		padding-top: 8px;
-	}
+.pdf-header {
+	display: flex;
+	justify-content: space-around;
+	position: relative;
+	z-index: 3;
+	padding-top: 10px;
+}
+
+.pdf-return-article {
+	max-width: 70%;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.pdf-download-button {
+	max-width: 30%;
 }
 
 .pdf-frame {
