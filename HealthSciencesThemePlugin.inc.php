@@ -93,9 +93,6 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Check if CSS embedded to the HTML galley
 		HookRegistry::register('TemplateManager::display', array($this, 'hasEmbeddedCSS'));
-
-		// Check if article's title contains special punctuational symbols in order to subtitle's semicolon being fit
-		HookRegistry::register('TemplateManager::display', array($this, 'hasCharsInArticleTitle'));
 	}
 
 	/**
@@ -190,27 +187,5 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			'boolEmbeddedCss' => $boolEmbeddedCss,
 			'themePath' => $request->getBaseUrl() . "/" . $this->getPluginPath(),
 		));
-	}
-
-
-	// Check whether article's title has a punctuational symbol at the end
-
-	public function hasCharsInArticleTitle ($hookName, $args) {
-		$templateMgr = $args[0];
-		$template = $args[1];
-
-		// Retun false if not an article page
-		if ($template != 'frontend/pages/article.tpl') return false;
-
-		$articleArrays = $templateMgr->get_template_vars('article');
-
-		$hasPunctuation = false;
-
-		$title = $articleArrays->getLocalizedTitle();
-		if (preg_match('/\p{P}$/', trim($title))) {
-			$hasPunctuation = true;
-		}
-
-		$templateMgr->assign('hasPunctuation', $hasPunctuation);
 	}
 }
