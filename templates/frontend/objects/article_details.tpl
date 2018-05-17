@@ -36,15 +36,23 @@
 		<div class="article-details-issue-identifier">
 			<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>
 		</div>
+		{strip}
 			<h1>
-				{$article->getLocalizedTitle()|escape}{strip}
-				{/strip}{if $article->getLocalizedSubtitle()}{if !$hasPunctuation}:{/if}
+				{$article->getLocalizedTitle()|escape}
+
+				{if $article->getLocalizedSubtitle()}
+
+					{* if the article has sutitle, check whether user had added a punctuation in the main title before adding a colon *}
+					{assign var=articleTitle value=$article->getLocalizedTitle()|escape|trim}
+
+					{if $articleTitle|regex_replace:"/\p`$smarty.ldelim`P`$smarty.rdelim`\$/":"" === $articleTitle}: {else} {/if}
 
 					<span class="article-details-subtitle">
 						{$article->getLocalizedSubtitle()|escape}
 					</span>
 				{/if}
 			</h1>
+		{/strip}
 
 		{if $section}
 			<div class="article-details-issue-section">{$section->getLocalizedTitle()|escape}</div>
