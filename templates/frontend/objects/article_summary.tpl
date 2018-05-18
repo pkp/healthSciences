@@ -42,23 +42,9 @@
 	{/if}
 
 	<div class="article-summary-title">
-		{strip}
-			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
-				{$article->getLocalizedTitle()|strip_unsafe_html}
-
-				{if $article->getLocalizedSubtitle()}
-
-					{* if the article has sutitle, check whether user had added a punctuation in the main title before adding a colon *}
-					{assign var=articleTitle value=$article->getLocalizedTitle()|escape|trim}
-
-					{if $articleTitle|regex_replace:"/\p`$smarty.ldelim`P`$smarty.rdelim`\$/":"" === $articleTitle}: {else} {/if}
-
-					<span class="article-summary-subtitle">
-						{$article->getLocalizedSubtitle()|escape}
-					</span>
-				{/if}
-			</a>
-		{/strip}
+		<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
+			{$article->getLocalizedFullTitle()|escape}
+		</a>
 	</div>
 
 	{if $showDatePublished && $article->getDatePublished()}
