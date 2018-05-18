@@ -67,7 +67,7 @@
 	</div><!-- .page-header -->
 
 	<div class="row justify-content-md-center">
-		<div class="col-lg-3 order-lg-1">
+		<div class="col-lg-3 order-lg-2">
 			<div class="article-details-sidebar">
 
 				{* Article/Issue cover image *}
@@ -262,12 +262,12 @@
 				{call_hook name="Templates::Article::Details"}
 			</div>
 		</div>
-		<div class="col-lg-9">
+		<div class="col-lg-9 order-lg-1">
 			<div class="article-details-main">
 
 				{* Article Galleys (top) *}
 				{if $primaryGalleys}
-					<div class="article-details-block article-details-galleys article-details-galleys-top">
+					<div class="article-details-block article-details-galleys article-details-galleys-top{if !$article->getLocalizedAbstract()} galleys-without-abstract{/if}">
 						{foreach from=$primaryGalleys item=galley}
 							<div class="article-details-galley">
 								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
@@ -285,7 +285,7 @@
 				{/if}
 
 				{* Article Galleys (bottom) *}
-				{if $primaryGalleys}
+				{if $primaryGalleys && $article->getLocalizedAbstract()}
 					<div class="article-details-block article-details-galleys article-details-galleys-btm">
 						{foreach from=$primaryGalleys item=galley}
 							<div class="article-details-galley">
@@ -338,7 +338,9 @@
 			</div>
 		</div>
 
-		{call_hook name="Templates::Article::Footer::PageFooter"}
+		<div class="col-lg-12 order-lg-3 article-footer-hook">
+			{call_hook name="Templates::Article::Footer::PageFooter"}
+		</div>
 
 	</div>
 </div>
