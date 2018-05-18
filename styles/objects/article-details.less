@@ -152,6 +152,14 @@
 		display: block;
 	}
 
+	.galleys-without-abstract div {
+		display: block;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
 	.article-details-galleys-sidebar {
 		display: none;
 	}
@@ -186,5 +194,51 @@
 		& span:not(:last-child):after {
 			content: ", ";
 		}
+	}
+}
+
+// Recommend author
+#articlesBySameAuthorList {
+	margin-bottom: 40px;
+
+	& ul {
+		list-style: none;
+		padding-left: 32px;
+		margin-top: 25px;
+	}
+}
+
+#articlesBySameAuthorList li {
+	position: relative;
+	margin-bottom: 20px;
+
+	&:before {
+		content: '';
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+		border-left: 10px solid @primary-text;
+		position: absolute;
+		height: 10px;
+		left: -30px;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto
+	}
+}
+
+#articlesBySameAuthorList a {
+	z-index: 2;
+	position: relative;
+}
+
+#articlesBySameAuthorPages {
+	display: flex;
+	margin-top: 40px;
+
+	& a, strong {
+		border: 1px solid #dee2e6;
+		display: block;
+		padding: 5px 8px;
 	}
 }
