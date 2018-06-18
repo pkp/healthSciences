@@ -33,11 +33,14 @@
 {* Determine whether to show a logo of site title *}
 {capture assign="brand"}{strip}
 	{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
-		<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}" {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
+		<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
+		     {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
+		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
 		<span class="navbar-logo-text">{$displayPageHeaderTitle}</span>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}" alt="{$displayPageHeaderTitle.altText|escape}">
+		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}"
+		     alt="{$displayPageHeaderTitle.altText|escape}">
 	{else}
 		<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}">
 	{/if}
@@ -49,35 +52,44 @@
 {include file="frontend/components/headerHead.tpl"}
 <body>
 
-		{* Header *}
-		<header class="main-header">
-			<div class="container">
+{* Header *}
+<header class="main-header">
+	<div class="container">
 
-				<{$siteNameTag} class="sr-only">{$pageTitleTranslated}</{$siteNameTag}>
+		<{$siteNameTag} class="sr-only">{$pageTitleTranslated}</{$siteNameTag}>
 
-	      <div class="navbar-logo">
-					<a href="{$homeUrl}">{$brand}</a>
-	      </div>
+	<div class="navbar-logo">
+		<a href="{$homeUrl}">{$brand}</a>
+	</div>
 
-	      {* Main navigation *}
-	      <nav class="navbar navbar-expand-lg navbar-light">
-					<a class="navbar-brand" href="{$homeUrl}">{$brand}</a>
-	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="{translate|escape key="plugins.themes.healthSciences.nav.toggle"}">
-	          <span class="navbar-toggler-icon"></span>
-	        </button>
+	{* Main navigation *}
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<a class="navbar-brand" href="{$homeUrl}">{$brand}</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+		        aria-controls="main-navbar" aria-expanded="false"
+		        aria-label="{translate|escape key="plugins.themes.healthSciences.nav.toggle"}">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-	        <div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
-						{load_menu name="primary" id="primaryNav" ulClass="navbar-nav" liClass="nav-item"}
-						{load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
-						{include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
-	        </div>
-	      </nav>
+		<div class="collapse navbar-collapse justify-content-md-center" id="main-navbar">
+			{* primary menu *}
+			{capture assign="primaryMenu"}
+				{load_menu name="primary" id="primaryNav" ulClass="navbar-nav" liClass="nav-item"}
+			{/capture}
+			{if !empty(trim($primaryMenu)) || $currentContext}
+				{$primaryMenu}
+			{/if}
+			{* user menu *}
+			{load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
+			{include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
+		</div>
+	</nav>
 
-				{* Repeat the userNav for positioning on large screens *}
-				{load_menu name="user" id="userNav" ulClass="navbar-nav" liClass="nav-item"}
+	{* Repeat the userNav for positioning on large screens *}
+	{load_menu name="user" id="userNav" ulClass="navbar-nav" liClass="nav-item"}
 
-				{* Language switcher *}
-				{include file="frontend/components/languageSwitcher.tpl" id="languageLargeNav"}
+	{* Language switcher *}
+	{include file="frontend/components/languageSwitcher.tpl" id="languageLargeNav"}
 
-			</div>
-		</header>
+	</div>
+</header>
