@@ -119,9 +119,32 @@
 				<input class="form-control" type="password" name="password2" id="password2" password="true" maxlength="32" required>
 			</div>
 		</fieldset>
-
+	</div>
+	<div class="col-lg-12">
 		{* When a user is registering with a specific journal *}
 		{if $currentContext}
+
+			<fieldset class="consent">
+				{* Require the user to agree to the terms of the privacy policy *}
+				<div class="fields">
+					<div class="optin optin-privacy">
+						<label>
+							<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+							{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
+						</label>
+					</div>
+				</div>
+				{* Ask the user to opt into public email notifications *}
+				<div class="fields">
+					<div class="optin optin-email">
+						<label>
+							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+							{translate key="user.register.form.emailConsent"}
+						</label>
+					</div>
+				</div>
+			</fieldset>
 
 			{* Users are opted into the Reader and Author roles in the current
 				 journal/press by default. See RegistrationForm::initData() *}
