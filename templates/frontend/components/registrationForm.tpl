@@ -178,13 +178,25 @@
 						{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 							{if $userGroup->getPermitSelfRegistration()}
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input" name="reviewerGroup[{$userGroup->getId()}]" id="reviewerGroup-{$userGroup->getId()}" value="1"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
+									<input type="checkbox" class="form-check-input if-reviewer-checkbox" name="reviewerGroup[{$userGroup->getId()}]" id="reviewerGroup-{$userGroup->getId()}" value="1"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
 									<label for="reviewerGroup-{$userGroup->getId()}" class="form-check-label">
 										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()}
 									</label>
 								</div>
 							{/if}
 						{/foreach}
+					</div>
+
+					{* review intersts (with modified tag-it library) *}
+					<div id="reviewerInterests" class="reviewer_interests hidden">
+						<div class="label">
+							{translate key="user.interests"}
+						</div>
+						<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
+							{foreach from=$interests item=interest}
+								<li>{$interest|escape}</li>
+							{/foreach}
+						</ul>
 					</div>
 				</fieldset>
 			{/if}

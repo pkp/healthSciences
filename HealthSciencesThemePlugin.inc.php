@@ -84,6 +84,10 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$this->addStyle('stylesheet', 'styles/index.less');
 		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		$this->addScript('main', 'js/main.js');
+		
+		// Add JQuery UI and tag-it libraries for registration page (reviewer's interests)
+		$this->addScript("jquery-ui", "libs/jquery-ui.min.js");
+		$this->addScript("tag-it", "libs/tag-it.min.js");
 
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));
