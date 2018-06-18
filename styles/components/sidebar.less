@@ -20,6 +20,15 @@
 .block_make_submission .block_make_submission_link {
 	.btn;
 	.btn-light;
+	display: inline-block;
+	background-color: white;
+	color: @black;
+	
+	&:focus, &:hover {
+		background-color: @dark-grey;
+		border-color: white;
+		color: white;
+	}
 }
 
 .block_information ul,
