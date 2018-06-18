@@ -15,3 +15,18 @@
 		return false;
 	})
 })(jQuery);
+
+(function ($) {
+	
+	// Show author affiliation in the sidebar on author string click
+	$('.author-string-href').click(function(event) {
+		event.preventDefault();
+		var elementId = $(this).attr('href').replace('#', '');
+		$('.article-details-author').each(function () {
+			$(this).addClass('hideAuthor');
+			if ($(this).attr('id') === elementId) {
+				$(this).removeClass('hideAuthor');
+			}
+		})
+	})
+})(jQuery);
