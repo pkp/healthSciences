@@ -64,6 +64,14 @@
 				{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$article->getDatePublished()|date_format:$dateFormatLong}
 			</div>
 		{/if}
+
+		{if $article->getAuthors()}
+			<div class="authors-string">
+				{foreach from=$article->getAuthors() item=authorString}
+					<span>{$authorString->getLastName()|escape} {$authorString->getInitials()|escape}</span>
+				{/foreach}
+			</div>
+		{/if}
 	</div><!-- .page-header -->
 
 	<div class="row justify-content-md-center">
@@ -265,17 +273,6 @@
 		<div class="col-lg-9 order-lg-1">
 			<div class="article-details-main">
 
-				{* Article Galleys (top) *}
-				{if $primaryGalleys}
-					<div class="article-details-block article-details-galleys article-details-galleys-top{if !$article->getLocalizedAbstract()} galleys-without-abstract{/if}">
-						{foreach from=$primaryGalleys item=galley}
-							<div class="article-details-galley">
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-							</div>
-						{/foreach}
-					</div>
-				{/if}
-
 				{* Abstract *}
 				{if $article->getLocalizedAbstract()}
 					<div class="article-details-block article-details-abstract">
@@ -285,7 +282,7 @@
 				{/if}
 
 				{* Article Galleys (bottom) *}
-				{if $primaryGalleys && $article->getLocalizedAbstract()}
+				{if $primaryGalleys}
 					<div class="article-details-block article-details-galleys article-details-galleys-btm">
 						{foreach from=$primaryGalleys item=galley}
 							<div class="article-details-galley">

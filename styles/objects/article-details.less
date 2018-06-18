@@ -27,6 +27,20 @@
 	color: @mid-grey;
 }
 
+.authors-string {
+	margin-top: 1em;
+	
+	& span:not(:last-child):after {
+		content: ", ";
+	}
+}
+
+@media (max-width: 991px){
+	.authors-string {
+		display: none;
+	}
+}
+
 .article-details-issue-section {
 	text-transform: uppercase;
 }
@@ -104,7 +118,6 @@
 	font-size: 0.9rem;
 }
 
-.article-details-galleys-top,
 .article-details-galleys-btm {
 	display: none;
 }
@@ -146,8 +159,7 @@
 			margin-bottom: 0;
 		}
 	}
-
-	.article-details-galleys-top,
+	
 	.article-details-galleys-btm {
 		display: block;
 	}
