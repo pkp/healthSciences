@@ -179,6 +179,7 @@
 				{* Supplementary galleys *}
 				{if $supplementaryGalleys}
 					<div class="article-details-block article-details-galleys-supplementary">
+						<h2 class="article-details-heading">{translate key="plugins.themes.healthSciences.article.supplementaryFiles"}</h2>
 						{foreach from=$supplementaryGalleys item=galley}
 							<div class="article-details-galley">
 								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
