@@ -67,8 +67,8 @@
 
 		{if $article->getAuthors()}
 			<div class="authors-string">
-				{foreach from=$article->getAuthors() item=authorString}
-					<span>{$authorString->getLastName()|escape} {$authorString->getInitials()|escape}</span>
+				{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
+					<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getLastName()|escape} {$authorString->getInitials()|escape}</a>
 				{/foreach}
 			</div>
 		{/if}
@@ -96,30 +96,21 @@
 					{assign var="authorCount" value=$article->getAuthors()|@count}
 					{assign var="authorBioIndex" value=0}
 					<div class="article-details-block article-details-authors">
-						{foreach from=$article->getAuthors() item=author name="authorLoop"}
-							<div class="article-details-author">
+						{foreach from=$article->getAuthors() item=author key=authorKey}
+							<div class="article-details-author{if $authorKey !== 0} hideAuthor{/if}" id="author-{$authorKey+1}">
 								<div class="article-details-author-name">
 									{$author->getFullName()|escape}
-									{if $authorCount >= 5 && $smarty.foreach.authorLoop.index}
-										{if $author->getOrcid()}
-											<a href="{$author->getOrcid()|escape}" target="_blank">
-												{$orcidIcon}
-											</a>
-										{/if}
-									{/if}
 								</div>
-								{if $authorCount < 5 || !$smarty.foreach.authorLoop.index}
-									{if $author->getLocalizedAffiliation()}
-										<div class="article-details-author-affiliation">{$author->getLocalizedAffiliation()|escape}</div>
-									{/if}
-									{if $author->getOrcid()}
-										<div class="article-details-author-orcid">
-											<a href="{$author->getOrcid()|escape}" target="_blank">
-												{$orcidIcon}
-												{$author->getOrcid()|escape}
-											</a>
-										</div>
-									{/if}
+								{if $author->getLocalizedAffiliation()}
+									<div class="article-details-author-affiliation">{$author->getLocalizedAffiliation()|escape}</div>
+								{/if}
+								{if $author->getOrcid()}
+									<div class="article-details-author-orcid">
+										<a href="{$author->getOrcid()|escape}" target="_blank">
+											{$orcidIcon}
+											{$author->getOrcid()|escape}
+										</a>
+									</div>
 								{/if}
 								{if $author->getLocalizedBiography()}
 									<button type="button" class="article-details-bio-toggle" data-toggle="modal" data-target="#authorBiographyModal{$smarty.foreach.authorLoop.index}">
@@ -179,6 +170,7 @@
 				{* Supplementary galleys *}
 				{if $supplementaryGalleys}
 					<div class="article-details-block article-details-galleys-supplementary">
+						<h2 class="article-details-heading">{translate key="plugins.themes.healthSciences.article.supplementaryFiles"}</h2>
 						{foreach from=$supplementaryGalleys item=galley}
 							<div class="article-details-galley">
 								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}

@@ -27,11 +27,22 @@
 	color: @mid-grey;
 }
 
+// Special treatment for authors blocks (article's header and details)
 .authors-string {
 	margin-top: 1em;
 	
-	& span:not(:last-child):after {
-		content: ", ";
+	& a {
+		display: inline-block;
+		color: @dark-grey;
+		
+		&:not(:last-child):after {
+			content: ", ";
+		}
+		
+		&:hover {
+			text-decoration: none;
+			color: @primary;
+		}
 	}
 }
 
@@ -41,6 +52,13 @@
 	}
 }
 
+@media (min-width: 992px) {
+	.article-details-author.hideAuthor {
+		display: none;
+	}
+}
+
+// Article details section
 .article-details-issue-section {
 	text-transform: uppercase;
 }
@@ -97,6 +115,10 @@
 
 .article-details-galley:not(:last-child) {
 	margin-bottom: 0.5rem;
+}
+
+.article-details-galleys-supplementary .article-details-heading {
+	margin-bottom: 14px;
 }
 
 .article-details-how-to-cite-citation {
