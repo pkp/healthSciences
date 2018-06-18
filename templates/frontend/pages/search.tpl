@@ -69,7 +69,7 @@
 						<label for="authors">
 							{translate key="search.author"}
 						</label>
-						<input type="text" class="form-control" id"authors" name="authors" value="{$authors}">
+						<input type="text" class="form-control" id"authors" name="authors" value="{$authors|escape}">
 					</div>
 					<div class="form-group form-group-date-from">
 						<label for="dateFromYear">
