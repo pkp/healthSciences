@@ -64,6 +64,14 @@
 				{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$article->getDatePublished()|date_format:$dateFormatLong}
 			</div>
 		{/if}
+
+		{if $article->getAuthors()}
+			<div class="authors-string">
+				{foreach from=$article->getAuthors() item=authorString}
+					<span>{$authorString->getLastName()|escape} {$authorString->getInitials()|escape}</span>
+				{/foreach}
+			</div>
+		{/if}
 	</div><!-- .page-header -->
 
 	<div class="row justify-content-md-center">
