@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.0.0
+Current version: healthSciences v1.0.1
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/).
 
@@ -19,13 +19,19 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Version Compatibility
 
-healthSciences theme v1.0.0 is compatible with OJS 3.1.1.
+* healthSciences theme v1.0.0 is compatible with OJS 3.1.1. 
+* HealthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
 
 ## Contribution
 
 This theme was designed by Sophy Ouch (@sssoz) and built by Nate Wright (@NateWr) using [Bootstrap4](https://getbootstrap.com/).
 
 ## Changelog
+
+**healthSciences v1.0.1**  (2018-06-18)
+* Add: Support for OJS 3.1.1-1
+* Add: Support for reviewer interests input
+* Fix: Styling adjustments for article landing page
 
 **healthSciences v1.0.0**  (2018-04-24)
 * Fix: Remove bullet points from feed block plugins
