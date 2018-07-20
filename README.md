@@ -19,8 +19,8 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Version Compatibility
 
-* healthSciences theme v1.0.0 is compatible with OJS 3.1.1. 
-* HealthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
+* healthSciences theme v1.0.0 is compatible with OJS 3.1.1.
+* healthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
 
 ## Contribution
 
@@ -36,7 +36,7 @@ This theme was designed by Sophy Ouch (@sssoz) and built by Nate Wright (@NateWr
 **healthSciences v1.0.0**  (2018-04-24)
 * Fix: Remove bullet points from feed block plugins
 * Fix: Implement information for X pages
-* Fix: site-wide font-size modifications
+* Fix: Site-wide font-size modifications
 
 **Beta** (2018-02-13)
 * Fix: Plugin can't be installed through plugin upload tool (#2)
