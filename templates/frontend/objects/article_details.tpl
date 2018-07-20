@@ -68,7 +68,7 @@
 		{if $article->getAuthors()}
 			<div class="authors-string">
 				{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
-					<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getLastName()|escape} {$authorString->getInitials()|escape}</a>
+					<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getFullName()|escape}</a>
 				{/foreach}
 			</div>
 		{/if}
