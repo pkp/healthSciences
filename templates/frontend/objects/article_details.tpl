@@ -33,18 +33,23 @@
 	<div class="page-header">
 
 		{* Title and issue details *}
-		<div class="article-details-issue-identifier">
+		<div class="article-details-issue-section small-screen">
+			<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
+		</div>
+
+		<div class="article-details-issue-identifier large-screen">
 			<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>
 		</div>
-		<h1>
+
+		<h1 class="article-details-fulltitle">
 			{$article->getLocalizedFullTitle()|escape}
 		</h1>
 
 		{if $section}
-			<div class="article-details-issue-section">{$section->getLocalizedTitle()|escape}</div>
+			<div class="article-details-issue-section large-screen">{$section->getLocalizedTitle()|escape}</div>
 		{/if}
 
-		{* DOI *}
+		{* DOI only for large screens *}
 		{foreach from=$pubIdPlugins item=pubIdPlugin}
 			{if $pubIdPlugin->getPubIdType() != 'doi'}
 				{php}continue;{/php}
@@ -52,7 +57,7 @@
 			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="article-details-doi">
+				<div class="article-details-doi large-screen">
 					<a href="{$doiUrl}">{$doiUrl}</a>
 				</div>
 			{/if}
@@ -74,9 +79,9 @@
 		{/if}
 	</div><!-- .page-header -->
 
-	<div class="row justify-content-md-center">
-		<div class="col-lg-3 order-lg-2">
-			<div class="article-details-sidebar">
+	<div class="row justify-content-md-center" id="mainArticleContent">
+		<div class="col-lg-3 order-lg-2" id="articleDetailsWrapper">
+			<div class="article-details-sidebar" id="articleDetails">
 
 				{* Article/Issue cover image *}
 				{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
@@ -262,8 +267,8 @@
 				{call_hook name="Templates::Article::Details"}
 			</div>
 		</div>
-		<div class="col-lg-9 order-lg-1">
-			<div class="article-details-main">
+		<div class="col-lg-9 order-lg-1" id="articleMainWrapper">
+			<div class="article-details-main" id="articleMain">
 
 				{* Abstract *}
 				{if $article->getLocalizedAbstract()}
@@ -272,6 +277,20 @@
 						{$article->getLocalizedAbstract()|strip_unsafe_html}
 					</div>
 				{/if}
+
+				{* DOI for small screens only *}
+				{foreach from=$pubIdPlugins item=pubIdPlugin}
+					{if $pubIdPlugin->getPubIdType() != 'doi'}
+						{php}continue;{/php}
+					{/if}
+					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+					{if $pubId}
+						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+						<div class="article-details-doi small-screen">
+							<a href="{$doiUrl}">{$doiUrl}</a>
+						</div>
+					{/if}
+				{/foreach}
 
 				{* Article Galleys (bottom) *}
 				{if $primaryGalleys}
@@ -318,7 +337,9 @@
 								</a>
 							{/if}
 						{/if}
-						{$copyright}
+						{if !$licenseUrl}
+							{$copyright}
+						{/if}
 					</div>
 				{/if}
 

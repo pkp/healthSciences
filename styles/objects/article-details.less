@@ -159,7 +159,10 @@
 }
 
 @media (min-width: 992px) {
-
+	.small-screen {
+		display: none;
+	}
+	
 	.article-details-issue-identifier {
 		margin-bottom: 1em;
 		font-size: 1.1em;
@@ -217,6 +220,11 @@
 }
 
 @media (max-width: 991px) {
+	
+	.large-screen {
+		display: none;
+	}
+	
 	.article-details-galley {
 		display: inline-block;
 
@@ -234,6 +242,93 @@
 			content: ", ";
 		}
 	}
+	
+	.data-for-mobiles {
+		
+		flex-direction: column;
+		
+		& > .article-details-cover {
+			display: none;
+		}
+		
+		& > .article-details-authors {
+			order: 1;
+		}
+		
+		& > .article-details-galleys {
+			order: 2;
+		}
+		
+		& > .article-details-galleys-supplementary {
+			order: 3;
+		}
+		
+		& > .article-details-abstract {
+			order: 4;
+		}
+		
+		& > .article-details-doi.small-screen {
+			order: 5;
+		}
+		
+		& > .article-details-pubid {
+			order: 6;
+		}
+		
+		& > .article-details-keywords {
+			order: 7;
+		}
+		
+		& > .article-details-how-to-cite {
+			order: 8;
+		}
+		
+		& > .article-details-references {
+			order: 9;
+		}
+		
+		& > .article-details-license {
+			order: 10;
+		}
+		
+		// Ensure that all elements from the sidebar hook will be appear last.
+		& > * {
+			order: 11;
+			margin-bottom: 40px;
+			margin-top: 0;
+		}
+	}
+	
+	.page-header.page-header {
+		margin-right: -15px;
+		margin-left: -15px;
+		margin-bottom: 10px;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.article-details-issue-section {
+		order: 1;
+		& a {
+			color: @mid-grey;
+		}
+	}
+	
+	.article-details-published {
+		order: 2;
+		margin-top: 0;
+	}
+	
+	.article-details-fulltitle {
+		order: 3;
+		margin-top: 40px;
+	}
+	
+	.article-details-abstract + .article-details-doi {
+		margin-top: -45px;
+	}
+	
+	
 }
 
 // Recommend author
