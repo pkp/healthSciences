@@ -30,53 +30,54 @@
  * @uses $ccLicenseBadge string An image and text with details about the license
  *}
 <div class="article-details">
-	<div class="page-header">
+	<div class="page-header row">
+		<div class="col-lg">
+			{* Title and issue details *}
+			<div class="article-details-issue-section small-screen">
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
+			</div>
 
-		{* Title and issue details *}
-		<div class="article-details-issue-section small-screen">
-			<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
-		</div>
+			<div class="article-details-issue-identifier large-screen">
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>
+			</div>
 
-		<div class="article-details-issue-identifier large-screen">
-			<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>
-		</div>
+			<h1 class="article-details-fulltitle">
+				{$article->getLocalizedFullTitle()|escape}
+			</h1>
 
-		<h1 class="article-details-fulltitle">
-			{$article->getLocalizedFullTitle()|escape}
-		</h1>
-
-		{if $section}
-			<div class="article-details-issue-section large-screen">{$section->getLocalizedTitle()|escape}</div>
-		{/if}
-
-		{* DOI only for large screens *}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{if $pubIdPlugin->getPubIdType() != 'doi'}
-				{php}continue;{/php}
+			{if $section}
+				<div class="article-details-issue-section large-screen">{$section->getLocalizedTitle()|escape}</div>
 			{/if}
-			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="article-details-doi large-screen">
-					<a href="{$doiUrl}">{$doiUrl}</a>
+
+			{* DOI only for large screens *}
+			{foreach from=$pubIdPlugins item=pubIdPlugin}
+				{if $pubIdPlugin->getPubIdType() != 'doi'}
+					{php}continue;{/php}
+				{/if}
+				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+				{if $pubId}
+					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					<div class="article-details-doi large-screen">
+						<a href="{$doiUrl}">{$doiUrl}</a>
+					</div>
+				{/if}
+			{/foreach}
+
+			{* Date published *}
+			{if $article->getDatePublished()}
+				<div class="article-details-published">
+					{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$article->getDatePublished()|date_format:$dateFormatLong}
 				</div>
 			{/if}
-		{/foreach}
 
-		{* Date published *}
-		{if $article->getDatePublished()}
-			<div class="article-details-published">
-				{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$article->getDatePublished()|date_format:$dateFormatLong}
-			</div>
-		{/if}
-
-		{if $article->getAuthors()}
-			<div class="authors-string">
-				{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
-					<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getFullName()|escape}</a>
-				{/foreach}
-			</div>
-		{/if}
+			{if $article->getAuthors()}
+				<div class="authors-string">
+					{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
+						<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getFullName()|escape}</a>
+					{/foreach}
+				</div>
+			{/if}
+		</div>
 	</div><!-- .page-header -->
 
 	<div class="row justify-content-md-center" id="mainArticleContent">
@@ -286,7 +287,7 @@
 					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 					{if $pubId}
 						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-						<div class="article-details-doi small-screen">
+						<div class="article-details-block article-details-doi small-screen">
 							<a href="{$doiUrl}">{$doiUrl}</a>
 						</div>
 					{/if}
