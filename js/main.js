@@ -77,9 +77,13 @@ $(document).ready(function() {
 			articleDetailsChildren.unwrap();
 			articleMainChildren.unwrap();
 			
+			mainArticleContent.children().wrapAll("<div class='col-lg'></div>");
+			
 			mainArticleContent.addClass(dataForMobilesMark);
 			
 		} else if (mainArticleContent && mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth >= 992) {
+			$('#mainArticleContent > *').children().unwrap();
+			
 			articleDetailsChildren.wrapAll(articleDetails);
 			articleMainChildren.wrapAll(articleMain);
 			

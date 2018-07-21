@@ -53,6 +53,20 @@
 		</div>
 	{/if}
 
+	{foreach from=$pubIdPlugins item=pubIdPlugin}
+		{if $pubIdPlugin->getPubIdType() != 'doi'}
+			{php}continue;{/php}
+		{/if}
+		{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+		{if $pubId}
+			{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+			<div class="article-summary-doi">
+				<a href="{$doiUrl}">{$doiUrl}</a>
+			</div>
+		{/if}
+	{/foreach}
+
+
 	{if !$hideGalleys && $article->getGalleys()}
 		<div class="article-summary-galleys">
 			{foreach from=$article->getGalleys() item=galley}
