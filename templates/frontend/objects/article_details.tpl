@@ -31,7 +31,7 @@
  *}
 <div class="article-details">
 	<div class="page-header row">
-		<div class="col-lg">
+		<div class="col-lg article-meta-mobile">
 			{* Title and issue details *}
 			<div class="article-details-issue-section small-screen">
 				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
@@ -73,9 +73,66 @@
 			{if $article->getAuthors()}
 				<div class="authors-string">
 					{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
-						<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getFullName()|escape}</a>
+						<a class="author-string-href" href="#author-{$authorStringKey+1}">{$authorString->getFullName()|escape}<sup class="author-symbol author-plus">&plus;</sup><sup class="author-symbol author-minus hide">&minus;</sup></a>
 					{/foreach}
 				</div>
+
+				{* Authors *}
+				{assign var="authorCount" value=$article->getAuthors()|@count}
+				{assign var="authorBioIndex" value=0}
+				<div class="article-details-authors">
+					{foreach from=$article->getAuthors() item=author key=authorKey}
+						<div class="article-details-author hideAuthor" id="author-{$authorKey+1}">
+							<div class="article-details-author-name small-screen">
+								{$author->getFullName()|escape}
+							</div>
+							{if $author->getLocalizedAffiliation()}
+								<div class="article-details-author-affiliation">{$author->getLocalizedAffiliation()|escape}</div>
+							{/if}
+							{if $author->getOrcid()}
+								<div class="article-details-author-orcid">
+									<a href="{$author->getOrcid()|escape}" target="_blank">
+										{$orcidIcon}
+										{$author->getOrcid()|escape}
+									</a>
+								</div>
+							{/if}
+							{if $author->getLocalizedBiography()}
+								<button type="button" class="article-details-bio-toggle" data-toggle="modal" data-target="#authorBiographyModal{$smarty.foreach.authorLoop.index}">
+									{translate key="plugins.themes.healthSciences.article.authorBio"}
+								</button>
+								{* Store author biographies to print as modals in the footer *}
+								{capture append="authorBiographyModalsTemp"}
+									<div
+											class="modal fade"
+											id="authorBiographyModal{$smarty.foreach.authorLoop.index}"
+											tabindex="-1"
+											role="dialog"
+											aria-labelledby="authorBiographyModalTitle{$smarty.foreach.authorLoop.index}"
+											aria-hidden="true"
+									>
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<div class="modal-title" id="authorBiographyModalTitle{$smarty.foreach.authorLoop.index}">
+														{$author->getFullName()|escape}
+													</div>
+													<button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													{$author->getLocalizedBiography()}
+												</div>
+											</div>
+										</div>
+									</div>
+								{/capture}
+							{/if}
+						</div>
+					{/foreach}
+				</div>
+
 			{/if}
 		</div>
 	</div><!-- .page-header -->
@@ -97,63 +154,6 @@
 					</div>
 				{/if}
 
-				{* Authors *}
-				{if $article->getAuthors()}
-					{assign var="authorCount" value=$article->getAuthors()|@count}
-					{assign var="authorBioIndex" value=0}
-					<div class="article-details-block article-details-authors">
-						{foreach from=$article->getAuthors() item=author key=authorKey}
-							<div class="article-details-author{if $authorKey !== 0} hideAuthor{/if}" id="author-{$authorKey+1}">
-								<div class="article-details-author-name">
-									{$author->getFullName()|escape}
-								</div>
-								{if $author->getLocalizedAffiliation()}
-									<div class="article-details-author-affiliation">{$author->getLocalizedAffiliation()|escape}</div>
-								{/if}
-								{if $author->getOrcid()}
-									<div class="article-details-author-orcid">
-										<a href="{$author->getOrcid()|escape}" target="_blank">
-											{$orcidIcon}
-											{$author->getOrcid()|escape}
-										</a>
-									</div>
-								{/if}
-								{if $author->getLocalizedBiography()}
-									<button type="button" class="article-details-bio-toggle" data-toggle="modal" data-target="#authorBiographyModal{$smarty.foreach.authorLoop.index}">
-										{translate key="plugins.themes.healthSciences.article.authorBio"}
-									</button>
-									{* Store author biographies to print as modals in the footer *}
-									{capture append="authorBiographyModalsTemp"}
-										<div
-											class="modal fade"
-											id="authorBiographyModal{$smarty.foreach.authorLoop.index}"
-											tabindex="-1"
-											role="dialog"
-											aria-labelledby="authorBiographyModalTitle{$smarty.foreach.authorLoop.index}"
-											aria-hidden="true"
-										>
-											<div class="modal-dialog" role="document">
-												<div class="modal-content">
-													<div class="modal-header">
-														<div class="modal-title" id="authorBiographyModalTitle{$smarty.foreach.authorLoop.index}">
-															{$author->getFullName()|escape}
-														</div>
-														<button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													<div class="modal-body">
-														{$author->getLocalizedBiography()}
-													</div>
-												</div>
-											</div>
-										</div>
-									{/capture}
-								{/if}
-							</div>
-						{/foreach}
-					</div>
-				{/if}
 				{* Pass author biographies to a global variable for use in footer.tpl *}
 				{capture name="authorBiographyModals"}
 					{foreach from=$authorBiographyModalsTemp item="modal"}
