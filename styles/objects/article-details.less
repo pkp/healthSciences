@@ -30,6 +30,7 @@
 // Special treatment for authors blocks (article's header and details)
 .authors-string {
 	margin-top: 1em;
+	margin-bottom: 1em;
 	
 	& a {
 		display: inline-block;
@@ -163,6 +164,21 @@
 		display: none;
 	}
 	
+	.author-string-href.active {
+		color: @primary;
+	}
+	
+	.author-symbol {
+		font-family: sans-serif;
+		font-weight: bold;
+		margin-left: 2px;
+		color: @primary;
+		
+		&.hide {
+			display: none;
+		}
+	}
+	
 	.article-details-issue-identifier {
 		margin-bottom: 1em;
 		font-size: 1.1em;
@@ -221,7 +237,7 @@
 
 @media (max-width: 991px) {
 	
-	.large-screen {
+	.large-screen, .author-symbol {
 		display: none;
 	}
 	
@@ -243,60 +259,62 @@
 		}
 	}
 	
-	.data-for-mobiles {
+	.article-blocks-mobile {
 		
+		display: flex;
 		flex-direction: column;
 		
 		& > .article-details-cover {
 			display: none;
 		}
 		
-		& > .article-details-authors {
+		& > .article-details-galleys {
 			order: 1;
 		}
 		
-		& > .article-details-galleys {
+		& > .article-details-galleys-supplementary {
 			order: 2;
 		}
 		
-		& > .article-details-galleys-supplementary {
+		& > .article-details-abstract {
 			order: 3;
 		}
 		
-		& > .article-details-abstract {
+		& > .article-details-doi.small-screen {
 			order: 4;
 		}
 		
-		& > .article-details-doi.small-screen {
+		& > .article-details-pubid {
 			order: 5;
 		}
 		
-		& > .article-details-pubid {
+		& > .article-details-keywords {
 			order: 6;
 		}
 		
-		& > .article-details-keywords {
+		& > .article-details-how-to-cite {
 			order: 7;
 		}
 		
-		& > .article-details-how-to-cite {
+		& > .article-details-references {
 			order: 8;
 		}
 		
-		& > .article-details-references {
-			order: 9;
-		}
-		
 		& > .article-details-license {
-			order: 10;
+			order: 9;
 		}
 		
 		// Ensure that all elements from the sidebar hook will be appear last.
 		& > * {
-			order: 11;
+			order: 10;
 			margin-bottom: 40px;
 			margin-top: 0;
 		}
+	}
+	
+	.article-meta-mobile {
+		display: flex;
+		flex-direction: column;
 	}
 	
 	.article-details-issue-section {
@@ -314,6 +332,10 @@
 	.article-details-fulltitle {
 		order: 3;
 		margin-top: 40px;
+	}
+	
+	.article-details-authors {
+		order: 4;
 	}
 	
 	.article-details-abstract + .article-details-doi {
