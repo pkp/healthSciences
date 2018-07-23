@@ -27,31 +27,6 @@
 	color: @mid-grey;
 }
 
-// Special treatment for authors blocks (article's header and details)
-.authors-string {
-	margin-top: 1em;
-	margin-bottom: 1em;
-	
-	& a {
-		display: inline-block;
-		color: @dark-grey;
-		
-		&:not(:last-child):after {
-			content: ", ";
-		}
-		
-		&:hover {
-			text-decoration: none;
-			color: @primary;
-		}
-	}
-	
-	& a:only-child:hover {
-		color: @dark-grey;
-		cursor: auto;
-	}
-}
-
 @media (max-width: 991px){
 	.authors-string {
 		display: none;
@@ -162,6 +137,36 @@
 @media (min-width: 992px) {
 	.small-screen {
 		display: none;
+	}
+	
+	// Special treatment for authors blocks (article's header and details)
+	.authors-string {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		
+		& li {
+			display: inline;
+			list-style-type: none;
+			
+			&:not(:last-child):after {
+				content: ", ";
+			}
+		}
+		
+		& .author-string-href {
+			color: @dark-grey;
+			cursor: pointer;
+			
+			&:hover {
+				text-decoration: none;
+				color: @primary;
+			}
+		}
+	}
+	
+	.orcidImage {
+		margin-left: 3px;
+		margin-right: 1px;
 	}
 	
 	.author-string-href.active {

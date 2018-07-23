@@ -146,11 +146,14 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			if (Config::getVar('security', 'force_login_ssl')) {
 				$loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
 			}
+			
+			$orcidImage = $this->getPluginPath() . '/templates/images/orcid.png';
 
 			$templateMgr->assign(array(
 				'languageToggleLocales' => $locales,
 				'loginUrl' => $loginUrl,
 				'brandImage' => 'templates/images/ojs_brand_white.png',
+				'orcidImage' => $orcidImage,
 			));
 		}
 	}
