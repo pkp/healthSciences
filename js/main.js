@@ -118,3 +118,32 @@ $(document).ready(function() {
 		reorganizeArticleBlocks();
 	});
 })();
+
+// Functionality of more/less buttons for the journal description (index journal page)
+
+(function () {
+	var journalDescription = document.getElementById('homepageDescription');
+	
+	if (!journalDescription) return false;
+	
+	var moreButton = document.getElementById('homepageDescriptionMore');
+	var lessButton = document.getElementById('homepageDescriptionLess');
+	var descriptionButtons = document.getElementById('homepageDescriptionButtons');
+	
+	if (journalDescription.offsetHeight < journalDescription.scrollHeight) {
+		moreButton.classList.remove('hidden');
+		descriptionButtons.classList.remove('hidden');
+	}
+	
+	moreButton.onclick = function () {
+		journalDescription.classList.remove('long-text');
+		this.classList.add('hidden');
+		lessButton.classList.remove('hidden');
+	};
+	
+	lessButton.onclick = function () {
+		journalDescription.classList.add('long-text');
+		this.classList.add('hidden');
+		moreButton.classList.remove('hidden');
+	};
+})();
