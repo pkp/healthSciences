@@ -9,6 +9,7 @@
  *}
 <footer class="site-footer">
 	<div class="container site-footer-sidebar" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
+		<div class="row">
 			{call_hook name="Templates::Common::Sidebar"}
 		</div>
 	</div>
