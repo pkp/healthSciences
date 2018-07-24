@@ -56,6 +56,21 @@
 	bottom: 2rem;
 }
 
+.homepage-journal-description.long-text {
+	position: relative;
+	overflow-y: hidden;
+	max-height: 210px;
+}
+
+.homepage-description-buttons {
+	margin-top: 30px;
+}
+
+#homepageDescriptionMore, #homepageDescriptionLess {
+	color: #0a7b83;
+	cursor: pointer;
+}
+
 .homepage-issue-galleys {
 	padding-bottom: 2rem;
 }
@@ -168,5 +183,11 @@
 			margin-top: 4.5rem;
 			margin-bottom: 4.5rem;
 		}
+	}
+}
+
+@media (max-width: 991px) {
+	.homepage-description-buttons {
+		margin-bottom: 30px;
 	}
 }

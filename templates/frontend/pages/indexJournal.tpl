@@ -47,14 +47,14 @@
 						</a>
 					</div>
 				{/if}
-				{if $issue->hasDescription() || $issueGalleys}
+				{if $issue->hasDescription() || $journalDescription || $issueGalleys}
 					<div class="col-lg-9">
 						<div class="homepage-issue-description-wrapper">
 							{if $issue->hasDescription()}
 								<div class="homepage-issue-description">
 									<div class="h2">
 										{if $issue->getLocalizedTitle()}
-											{$issue->getLocalizedTitle()}
+											{$issue->getLocalizedTitle()|escape}
 										{else}
 											{translate key="plugins.themes.healthSciences.issueDescription"}
 										{/if}
@@ -63,6 +63,14 @@
 									<div class="homepage-issue-description-more">
 										<a href="{url op="view" page="issue" path=$issue->getBestIssueId()}">{translate key="common.more"}</a>
 									</div>
+								</div>
+							{elseif $journalDescription}
+								<div class="homepage-journal-description long-text" id="homepageDescription">
+									{$journalDescription|strip_unsafe_html}
+								</div>
+								<div class="homepage-description-buttons hidden" id="homepageDescriptionButtons">
+									<a class="homepage-journal-description-more hidden" id="homepageDescriptionMore">{translate key="common.more"}</a>
+									<a class="homepage-journal-description-less hidden" id="homepageDescriptionLess">{translate key="common.less"}</a>
 								</div>
 							{/if}
 							{if $issueGalleys}
