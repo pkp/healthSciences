@@ -12,8 +12,10 @@
 {include file="frontend/components/header.tpl" pageTitle="manager.setup.privacyStatement"}
 
 <div class="container page-privacy">
-	<div class="page-header">
-		<h1>{translate key="manager.setup.privacyStatement"}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1>{translate key="manager.setup.privacyStatement"}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">

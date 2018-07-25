@@ -18,8 +18,10 @@
 {include file="frontend/components/header.tpl" pageTitle="user.subscriptions.mySubscriptions"}
 
 <div class="container page-my-subscriptions">
-	<div class="page-header">
-		<h1>{translate key="user.subscriptions.mySubscriptions"}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1>{translate key="user.subscriptions.mySubscriptions"}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">

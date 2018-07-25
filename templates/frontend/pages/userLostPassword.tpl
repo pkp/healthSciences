@@ -11,8 +11,10 @@
 {include file="frontend/components/header.tpl" pageTitle="user.login.resetPassword"}
 
 <div class="container page-lost-password">
-	<div class="page-header">
-		<h1>{translate key="user.login.resetPassword"}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1 class="text-md-center">{translate key="user.login.resetPassword"}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">

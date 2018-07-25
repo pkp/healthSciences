@@ -9,9 +9,11 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$title}
 
-<div class="container page-about">
-	<div class="page-header">
-		<h1>{$title|escape}</h1>
+<div class="container page-custom">
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1>{$title|escape}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">

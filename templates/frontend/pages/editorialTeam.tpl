@@ -12,8 +12,10 @@
 {include file="frontend/components/header.tpl" pageTitle="about.editorialTeam"}
 
 <div class="container page-editorial-team">
-	<div class="page-header">
-		<h1>{translate key="about.editorialTeam"}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1>{translate key="about.editorialTeam"}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">
