@@ -14,8 +14,10 @@
 {include file="frontend/components/header.tpl" pageTitle="about.aboutThisPublishingSystem"}
 
 <div class="container page-about-publishing-system">
-	<div class="page-header">
-		<h1>{translate key="about.aboutThisPublishingSystem"}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1>{translate key="about.aboutThisPublishingSystem"}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">

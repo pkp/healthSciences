@@ -10,8 +10,10 @@
 {include file="frontend/components/header.tpl"}
 
 <div class="container page-register-complete">
-	<div class="page-header">
-		<h1>{translate key=$pageTitle}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+			<h1>{translate key=$pageTitle}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">

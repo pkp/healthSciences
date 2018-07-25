@@ -12,11 +12,13 @@
 {include file="frontend/components/header.tpl" pageTitleTranslated=$announcement->getLocalizedTitle()}
 
 <article class="container page-announcement">
-	<div class="page-header">
-    <div class="announcement-date">
-      {$announcement->getDatePosted()|date_format:$dateFormatLong}
-    </div>
-		<h1>{$announcement->getLocalizedTitle()}</h1>
+	<div class="row page-header justify-content-md-center">
+		<div class="col-md-8">
+		    <div class="announcement-date">
+		      {$announcement->getDatePosted()|date_format:$dateFormatLong}
+		    </div>
+			<h1>{$announcement->getLocalizedTitle()}</h1>
+		</div>
 	</div>
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">
