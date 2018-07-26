@@ -35,7 +35,7 @@
 					</div>
 				{/if}
 
-				{include file="frontend/components/loginForm.tpl"}
+				{include file="frontend/components/loginForm.tpl" formType = "loginPage"}
 
 			</div>
 		</div>
