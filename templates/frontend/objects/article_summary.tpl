@@ -53,19 +53,29 @@
 		</div>
 	{/if}
 
-	{foreach from=$pubIdPlugins item=pubIdPlugin}
-		{if $pubIdPlugin->getPubIdType() != 'doi'}
-			{php}continue;{/php}
-		{/if}
-		{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-		{if $pubId}
-			{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+	{* Get DOI from DOIPubIdPlugin object *}
+	{if $requestedPage === 'issue'}
+		{foreach from=$pubIdPlugins item=pubIdPlugin}
+			{if $pubIdPlugin->getPubIdType() != 'doi'}
+				{php}continue;{/php}
+			{/if}
+			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+			{if $pubId}
+				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+				<div class="article-summary-doi">
+					<a href="{$doiUrl}">{$doiUr}</a>
+				</div>
+			{/if}
+		{/foreach}
+	{* Get DOI from PublishedArticle object ($pubIdPlugin isn't assigned to indexJournal template) *}
+	{elseif $requestedOp === "index" && $article->getStoredPubId('doi')}
+		{assign var="doiUrl" value=$article->getStoredPubId('doi')|substr_replace:'https://doi.org/':0:0|escape}
+		{if $doiUrl}
 			<div class="article-summary-doi">
 				<a href="{$doiUrl}">{$doiUrl}</a>
 			</div>
 		{/if}
-	{/foreach}
-
+	{/if}
 
 	{if !$hideGalleys && $article->getGalleys()}
 		<div class="article-summary-galleys">
