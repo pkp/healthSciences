@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/cs_CZ/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="cs_CZ" full_name="Čeština">
+	<message key="plugins.themes.healthSciences.name">Téma Lékařské vědy</message>
+	<message key="plugins.themes.healthSciences.description">Téma pro OJS časopisy zaměřené na lékařské časopisy.</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Primární barva</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Vyberte pro časopis primární barvu.</message>
+	<message key="plugins.themes.healthSciences.nav.toggle">Přepnout navigaci</message>
+	<message key="plugins.themes.healthSciences.language.toggle">Změna jazyka. Současný jazyk je:</message>
+	<message key="plugins.themes.healthSciences.currentIssuePublished">Publikováno dne {$date}</message>
+	<message key="plugins.themes.healthSciences.issueDescription">Popis čísla</message>
+	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
+	<message key="plugins.themes.healthSciences.register.haveAccount">Máte již účet?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Přihlašte se zde</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">Nemáte účet?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Zaregistrujte se zde</message>
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Hledat výsledky pro <em>{$query}</em>]]></message>
+	<message key="plugins.themes.healthSciences.search.params">Parametry hledání</message>
+</locale>
