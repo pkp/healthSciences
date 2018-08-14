@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
   * locale/cs_CZ/locale.xml
@@ -12,8 +12,8 @@
   -->
 
 <locale name="cs_CZ" full_name="Čeština">
-	<message key="plugins.themes.healthSciences.name">Téma Lékařské vědy</message>
-	<message key="plugins.themes.healthSciences.description">Téma pro OJS časopisy zaměřené na lékařské časopisy.</message>
+	<message key="plugins.themes.healthSciences.name">Health Sciences Theme</message>
+	<message key="plugins.themes.healthSciences.description">Téma Health Sciences Theme pro OJS časopisy zaměřené na lékařské vědy.</message>
 	<message key="plugins.themes.healthSciences.option.colour.label">Primární barva</message>
 	<message key="plugins.themes.healthSciences.option.colour.description">Vyberte pro časopis primární barvu.</message>
 	<message key="plugins.themes.healthSciences.nav.toggle">Přepnout navigaci</message>
