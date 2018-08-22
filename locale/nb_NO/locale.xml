@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/themes/healthSciences/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="nb_NO" full_name="Norsk bokmål">
+        <message key="plugins.themes.healthSciences.name">Medisintema</message>
+        <message key="plugins.themes.healthSciences.description">Et OJS-tema bygd med fokus på medisinske tidsskrift.</message>
+        <message key="plugins.themes.healthSciences.option.colour.label">Primærfarge</message>
+        <message key="plugins.themes.healthSciences.option.colour.description">Velg primærfarge for ditt tidsskrift.</message>
+
+        <message key="plugins.themes.healthSciences.nav.toggle">Skifte navigasjon</message>
+        <message key="plugins.themes.healthSciences.language.toggle">Bytt språk. Språket nå er:</message>
+        <message key="plugins.themes.healthSciences.currentIssuePublished">Publisert {$date}</message>
+        <message key="plugins.themes.healthSciences.issueDescription">Beskrivelse av nummer</message>
+        <message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+
+        <message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
+
+        <message key="plugins.themes.healthSciences.register.haveAccount">Har du allerede en konto?</message>
+        <message key="plugins.themes.healthSciences.register.loginHere">Logg inn her</message>
+        <message key="plugins.themes.healthSciences.register.noAccount">Ingen konto?</message>
+        <message key="plugins.themes.healthSciences.register.registerHere">Registrer deg her</message>
+
+        <message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Søkeresultat for <em>{$query}</em>]]></message>
+        <message key="plugins.themes.healthSciences.search.params">Søkeparameter</message>
+</locale>
