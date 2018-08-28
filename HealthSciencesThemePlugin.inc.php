@@ -26,12 +26,12 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$this->addOption('baseColour', 'colour', array(
 			'label' => 'plugins.themes.healthSciences.option.colour.label',
 			'description' => 'plugins.themes.healthSciences.option.colour.description',
-			'default' => '#10BECA',
+			'default' => '#ead5ff',
 		));
 
 		// Update colour based on theme option
 		$additionalLessVariables = [];
-		if ($this->getOption('baseColour') !== '#10BECA') {
+		if ($this->getOption('baseColour') !== '#ead5ff') {
 			$additionalLessVariables[] = '@primary:' . $this->getOption('baseColour') . ';';
 			if (!$this->isColourDark($this->getOption('baseColour'))) {
 				$additionalLessVariables[] = '@primary-light: desaturate(lighten(@primary, 41%), 15%);';
