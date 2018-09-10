@@ -24,7 +24,7 @@
         <message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
 
         <message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
-
+        <message key="plugins.themes.healthSciences.article.supplementaryFiles">Tilleggsfiler</message>
         <message key="plugins.themes.healthSciences.register.haveAccount">Har du allerede en konto?</message>
         <message key="plugins.themes.healthSciences.register.loginHere">Logg inn her</message>
         <message key="plugins.themes.healthSciences.register.noAccount">Ingen konto?</message>
