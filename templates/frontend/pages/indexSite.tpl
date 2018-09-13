@@ -33,7 +33,7 @@
 							<div class="site-journal">
 								{if $thumb}
 									<a class="site-journal-img" href="{$url|escape}">
-										<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $altText} alt="{$altText|escape}"{/if}>
+										<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape}"{/if}>
 									</a>
 								{/if}
 								<div class="site-journal-body">
