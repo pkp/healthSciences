@@ -26,9 +26,10 @@
 		<legend>
 			{translate key="user.register.contextsPrompt"}
 		</legend>
-		<div class="list-group">
+		<div class="list-group" id="contextOptinGroup">
 			{foreach from=$contexts item=context}
 				{assign var=contextId value=$context->getId()}
+				{assign var=isSelected value=false}
 				<div class="list-group-item">
 					<div class="list-group-item-heading">
 						{$context->getLocalizedName()}
@@ -37,36 +38,46 @@
 						{translate key="user.register.otherContextRoles"}
 					</p>
 					<div class="form-group">
-						{foreach from=$readerUserGroups[$contextId] item=userGroup}
-							{if $userGroup->getPermitSelfRegistration()}
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" name="readerGroup[{$userGroup->getId()}]"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
-									<label class="form-check-label">
-										{$userGroup->getLocalizedName()}
-									</label>
-								</div>
-							{/if}
-						{/foreach}
-						{foreach from=$authorUserGroups[$contextId] item=userGroup}
-							{if $userGroup->getPermitSelfRegistration()}
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" name="authorGroup[{$userGroup->getId()}]"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
-									<label class="form-check-label">
-										{$userGroup->getLocalizedName()}
-									</label>
-								</div>
-							{/if}
-						{/foreach}
-						{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-							{if $userGroup->getPermitSelfRegistration()}
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" name="reviewerGroup[{$userGroup->getId()}]"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
-									<label class="form-check-label">
-										{$userGroup->getLocalizedName()}
-									</label>
-								</div>
-							{/if}
-						{/foreach}
+						<div class="roles">
+							{foreach from=$readerUserGroups[$contextId] item=userGroup}
+								{if $userGroup->getPermitSelfRegistration()}
+									{assign var="userGroupId" value=$userGroup->getId()}
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="readerGroup[{$userGroupId}]" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+										<label for="readerGroup[{$userGroupId}]">
+											{$userGroup->getLocalizedName()}
+										</label>
+										{if in_array($userGroupId, $userGroupIds)}
+											{assign var=isSelected value=true}
+										{/if}
+									</div>
+								{/if}
+							{/foreach}
+							{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
+								{if $userGroup->getPermitSelfRegistration()}
+									{assign var="userGroupId" value=$userGroup->getId()}
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input" id="reviewerGroup[{$userGroupId}]" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
+										<label for="reviewerGroup[{$userGroupId}]">
+											{$userGroup->getLocalizedName()}
+										</label>
+										{if in_array($userGroupId, $userGroupIds)}
+											{assign var=isSelected value=true}
+										{/if}
+									</div>
+								{/if}
+							{/foreach}
+						</div>
+						{* Require the user to agree to the terms of the context's privacy policy *}
+						{if !$enableSiteWidePrivacyStatement && $context->getSetting('privacyStatement')}
+							<div class="form-check context_privacy{if $isSelected} context_privacy_visible{/if}">
+								<input type="checkbox" class="form-check-input" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>
+								<label for="privacyConsent[{$contextId}]">
+									{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
+									{translate key="user.register.form.privacyConsentThisContext" privacyUrl=$privacyUrl}
+								</label>
+							</div>
+						{/if}
 					</div>
 				</div>
 			{/foreach}
