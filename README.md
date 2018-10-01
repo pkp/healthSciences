@@ -23,7 +23,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Settings 
 
-**Theme Colour** | This theme allows the personalisation of the theme’s main colour. The default colour is a bright turquoise. If you wish to select your own palette (in Settings >  Website), and for optimal results, we recommend selecting bold and vivid tones.
+**Theme Colour** | This theme allows the personalisation of the theme’s main colour. The default colour is a bright turquoise. If you wish to select your own palette (in `Settings` >  `Website`), and for optimal results, we recommend selecting bold and vivid tones.
 
 **Navigation Menu** | For the best user experience, we recommend limiting the number of items in your navigation menus. Research shows that users struggle to find what they are looking for in long lists.
 
@@ -46,7 +46,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 **Issue Cover Image** | Issue cover images should be:
 
 - JPG for photographs or PNG for illustrations without photographs;
-- size: 210x315 pixelsl
+- size: 210x315 pixels;
 - of a larger height than width;
 - used consistently - either give all issues an image or none.
 
