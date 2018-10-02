@@ -13,7 +13,7 @@
 
 <locale name="es_ES" full_name="Español-España">
 	<message key="plugins.themes.healthSciences.name">Tema Health Sciences</message>
-	<message key="plugins.themes.healthSciences.description">Un tema OJS con un enfoque en las revistas de ciencias de la salud.</message>
+	<message key="plugins.themes.healthSciences.description">Un tema para OJS orientado a revistas de ciencias de la salud.</message>
 	<message key="plugins.themes.healthSciences.option.colour.label">Color principal</message>
 	<message key="plugins.themes.healthSciences.option.colour.description">Seleccione el color principal de su revista.</message>
 
