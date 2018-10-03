@@ -8,9 +8,8 @@
  * @brief Display the basic registration form fields
  *
  * @uses $locale string Locale key to use in the affiliate field
- * @uses $firstName string First name input entry if available
- * @uses $middleName string Middle name input entry if available
- * @uses $lastName string Last name input entry if available
+ * @uses $givenName string First name input entry if available
+ * @uses $familyName string Last name input entry if available
  * @uses $countries array List of country options
  * @uses $country string The selected country if available
  * @uses $email string Email input entry if available
@@ -23,30 +22,24 @@
 				{translate key="user.profile"}
 			</legend>
 			<div class="form-group">
-				<label for="firstName">
-					{translate key="user.firstName"}
+				<label for="givenName">
+					{translate key="user.givenName"}
 					<span class="required" aria-hidden="true">*</span>
 					<span class="sr-only">
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
+				<input class="form-control" type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
 			</div>
 			<div class="form-group">
-				<label for="middleName">
-					{translate key="user.middleName"}
-				</label>
-				<input class="form-control" type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
-			</div>
-			<div class="form-group">
-				<label for="lastName">
-					{translate key="user.lastName"}
+				<label for="familyName">
+					{translate key="user.familyName"}
 					<span class="required" aria-hidden="true">*</span>
 					<span class="sr-only">
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
+				<input class="form-control" type="text" name="familyName" id="familyName" value="{$familyName|escape}" maxlength="255" required>
 			</div>
 			<div class="form-group">
 				<label for="affiliation">
@@ -56,7 +49,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
+				<input class="form-control" type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
 			</div>
 			<div class="form-group">
 				<label for="country">

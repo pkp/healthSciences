@@ -80,7 +80,7 @@
 		{if !$disableUserReg}
 			<div class="form-group form-group-register">
 				{translate key="plugins.themes.healthSciences.register.noAccount"}
-				{url|assign:registerUrl page="user" op="register" source=$source}
+				{capture assign=registerUrl}{url page="user" op="register" source=$source}{/capture}
 				<a href="{$registerUrl}">
 					{translate key="plugins.themes.healthSciences.register.registerHere"}
 				</a>

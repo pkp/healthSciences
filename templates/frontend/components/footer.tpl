@@ -33,10 +33,8 @@
 </footer><!-- pkp_structure_footer_wrapper -->
 
 {* Load author biography modals if they exist *}
-{if $smarty.capture.authorBiographyModals|@count}
-	{foreach from=$smarty.capture.authorBiographyModals item="modal"}
-		{$modal}
-	{/foreach}
+{if !empty($smarty.capture.authorBiographyModals|trim)}
+	{$smarty.capture.authorBiographyModals}
 {/if}
 
 {* Login modal *}

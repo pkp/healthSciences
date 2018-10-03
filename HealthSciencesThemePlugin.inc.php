@@ -162,11 +162,11 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$templateMgr = $args[0];
 		$template = $args[1];
 		$request = $this->getRequest();
-
+		
 		// Retun false if not a galley page
-		if ($template != 'plugins/plugins/generic/htmlArticleGalley/generic/htmlArticleGalley:display.tpl') return false;
+		if ($template != 'plugins-plugins-generic-htmlArticleGalley-generic-htmlArticleGalley:display.tpl') return false;
 
-		$articleArrays = $templateMgr->get_template_vars('article');
+		$articleArrays = $templateMgr->getTemplateVars('article');
 
 		$boolEmbeddedCss = false;
 
@@ -180,14 +180,13 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 					$submissionFileDao->getLatestRevisions($submissionFile->getSubmissionId(), SUBMISSION_FILE_PROOF),
 					$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId(), $submissionFile->getSubmissionId(), SUBMISSION_FILE_DEPENDENT)
 				);
-
+				
 				foreach ($embeddableFiles as $embeddableFile) {
 					if ($embeddableFile->getFileType() == 'text/css') {
 						$boolEmbeddedCss = true;
 					}
 				}
 			}
-
 		}
 
 		$templateMgr->assign(array(

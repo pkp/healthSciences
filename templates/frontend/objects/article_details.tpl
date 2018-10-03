@@ -109,23 +109,23 @@
 								</div>
 							{/if}
 							{if $author->getLocalizedBiography()}
-								<button type="button" class="article-details-bio-toggle" data-toggle="modal" data-target="#authorBiographyModal{$smarty.foreach.authorLoop.index}">
+								<button type="button" class="article-details-bio-toggle" data-toggle="modal" data-target="#authorBiographyModal{$authorKey+1}">
 									{translate key="plugins.themes.healthSciences.article.authorBio"}
 								</button>
 								{* Store author biographies to print as modals in the footer *}
 								{capture append="authorBiographyModalsTemp"}
 									<div
 											class="modal fade"
-											id="authorBiographyModal{$smarty.foreach.authorLoop.index}"
+											id="authorBiographyModal{$authorKey+1}"
 											tabindex="-1"
 											role="dialog"
-											aria-labelledby="authorBiographyModalTitle{$smarty.foreach.authorLoop.index}"
+											aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
 											aria-hidden="true"
 									>
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
 												<div class="modal-header">
-													<div class="modal-title" id="authorBiographyModalTitle{$smarty.foreach.authorLoop.index}">
+													<div class="modal-title" id="authorBiographyModalTitle{$authorKey+1}">
 														{$author->getFullName()|escape}
 													</div>
 													<button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
@@ -133,7 +133,7 @@
 													</button>
 												</div>
 												<div class="modal-body">
-													{$author->getLocalizedBiography()}
+													{$author->getLocalizedBiography()|strip_unsafe_html}
 												</div>
 											</div>
 										</div>
