@@ -28,4 +28,5 @@
 	<message key="plugins.themes.healthSciences.register.registerHere">Registrer her</message>
 	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Søgeresultat for <em>{$query}</em>]]></message>
 	<message key="plugins.themes.healthSciences.search.params">Søgeparametre</message>
+	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Supplerende filer</message>
 </locale>
