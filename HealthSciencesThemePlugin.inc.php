@@ -53,7 +53,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			);
 			$this->addStyle(
 				'fontawesome',
-				'https://use.fontawesome.com/releases/v5.2.0/css/all.css',
+				'https://use.fontawesome.com/releases/v5.6.1/css/all.css',
 				array('baseUrl' => '')
 			);
 			$this->addScript(
