@@ -2,9 +2,13 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.0.1
+Current version: healthSciences v1.0.2
 
-This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/).
+This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/). 
+
+## Demonstration 
+
+You can see a demonstration of this theme on the [PKP website](https://demo.publicknowledgeproject.org/ojs3/demo/index.php/health-sciences).
 
 ## Installation
 
@@ -17,16 +21,83 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 3. Login to the admin area of your OJS website. Browse to the `Settings` > `Website` > `Plugins` page and enable the Health Sciences theme.
 4. Browse to the `Settings` > `Website` > `Appearance` page and select Health Sciences from the theme option and save your change.
 
+## Settings 
+
+**Theme Colour** | This theme allows the personalisation of the theme’s main colour. The default colour is a bright turquoise. If you wish to select your own palette (in `Settings` >  `Website`), and for optimal results, we recommend selecting bold and vivid tones.
+
+**Navigation Menu** | For the best user experience, we recommend limiting the number of items in your navigation menus. Research shows that users struggle to find what they are looking for in long lists.
+
+**Logo Image** | This is the image that contains the journal title. Simply using text is also an option here. Logo images should be:
+
+- JPG for photographs or PNG for design marks;
+- of a larger width than height;
+- transparent background.
+
+**Home Page Image** | This is the large operating room image seen in the demonstration linked above:
+
+- should be 2000 x 1000 px in dimension;
+- should be a very high-quality photo with no stretching;
+- light text will be displayed on top of this image, so it should be dark enough to read text on top of the image. It is usually better to avoid images with high contrast (very light and very dark areas) since text may be visible on any part of the image.
+
+**Home Page Additional Content** | Adding content here can often disrupt the clean design of this theme. Ask yourself if this content would be better placed in a custom page with a link from the primary navigation menu instead.
+
+**Page Footer** | We recommend keeping the Page Footer short, limited to your journal identification details, such as journal title and mailing address, as well as any required copyright or affiliation statements.
+
+**Issue Cover Image** | Issue cover images should be:
+
+- JPG for photographs or PNG for illustrations without photographs;
+- size: 210x315 pixels;
+- of a larger height than width;
+- used consistently - either give all issues an image or none.
+
+**Article cover images** should be:
+
+- JPG for photographs or PNG for illustrations without photographs;
+- size: 210x315 pixels;
+- used consistently - either give all articles an image or none.
+
+**Custom Blocks** | This theme places custom blocks in the footer. We recommend minimizing the use of custom blocks to present a cleaner, more professional look. Wherever possible, consider placing what might have gone into a custom block into a custom page, and link to it from the primary navigation menu.
+
+**Journal Thumbnail** | Journal thumbnail images will only appear on a multi-journal OJS installation, on the list of all journals on the site. The image should be:
+
+- JPG for photographs or PNG for illustrations without photographs;
+- of a larger width than height;
+- 160px x 320px pixels in dimension.
+
+**Galleys** | If there isn’t any CSS file attached to the HTML galley, the default theme’s style will be used
+
 ## Version Compatibility
 
 * healthSciences theme v1.0.0 is compatible with OJS 3.1.1.
 * healthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
+* healthSciences theme v1.0.2 is compatible with OJS 3.1.1-2.
 
 ## Contribution
 
-This theme was designed by Sophy Ouch (@sssoz) and built by Nate Wright (@NateWr) using [Bootstrap4](https://getbootstrap.com/).
+This theme was designed by Sophy Ouch (@sssoz) and built by Nate Wright (@NateWr) and Vitalii Bezsheiko (@Vitaliy-1) using [Bootstrap4](https://getbootstrap.com/).
+
+## Contributions
+
+We welcome code contributions from the community at https://github.com/pkp/healthSciences/. Non-technical questions should be directed to the community forum at https://forum.pkp.sfu.ca/.
+
+## Feedback
+Suggestions for improving this guide can be made to support@publicknowledgeproject.org. 
+
+## License
+This theme is released under the GPL license. 
 
 ## Changelog
+**healthSciences v1.0.2**  (2018-07-30)
+* Add: Styling for authors' list on article landing page (#76)
+* Add: Support for pages related to the subscription, authors' search, and several others (#80)
+* Add: Orcid image is shown if author has ORCID ID on article landing page (#73)
+* Add: Reordering of blocks on article landing page for mobiles according to their priorities (#74)
+* Add: Journal description is shown if no issue description is provided (#75)
+* Add: Dependencies update: JQuery, Popper, Bootstrap, Fontawesome (#97)
+* Add: DOI is shown for each article on issue TOC page if provided (#94)
+* Fix: Proper page header aligning for small screens (#87)
+* Fix: Unique ID for modal login forms
+* Fix: Minor theme-wide restyling 
 
 **healthSciences v1.0.1**  (2018-06-18)
 * Add: Support for OJS 3.1.1-1

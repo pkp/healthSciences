@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/es_ES/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="es_ES" full_name="Español-España">
+	<message key="plugins.themes.healthSciences.name">Tema Health Sciences</message>
+	<message key="plugins.themes.healthSciences.description">Un tema para OJS orientado a revistas de ciencias de la salud.</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Color principal</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Seleccione el color principal de su revista.</message>
+
+	<message key="plugins.themes.healthSciences.nav.toggle">Alternar navegación</message>
+	<message key="plugins.themes.healthSciences.language.toggle">Cambiar el idioma. El actual es:</message>
+	<message key="plugins.themes.healthSciences.currentIssuePublished">Publicado {$date}</message>
+	<message key="plugins.themes.healthSciences.issueDescription">Descripción de la edición</message>
+	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+
+	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
+	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Archivos suplementarios</message>
+
+	<message key="plugins.themes.healthSciences.register.haveAccount">¿Ya posee una cuenta?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Ingresar aquí</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">¿Sin cuenta?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Registrarse aquí</message>
+
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Resultados de la búsqueda de <em>{$query}</em>]]></message>
+	<message key="plugins.themes.healthSciences.search.params">Parámetros de búsqueda</message>
+</locale>
