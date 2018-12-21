@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/pt_BR/locale.xml
+  *
+  * 
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="pt_BR" full_name="Português-Brasil">
+	<message key="plugins.themes.healthSciences.name">Tema Health Sciences</message>
+	<message key="plugins.themes.healthSciences.description">Um tema OJS.</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Cor principal</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Selecionar a cor principal da revista.</message>
+
+	<message key="plugins.themes.healthSciences.nav.toggle">Alternar navegação</message>
+	<message key="plugins.themes.healthSciences.language.toggle">Mudar o idioma. O atual é:</message>
+	<message key="plugins.themes.healthSciences.currentIssuePublished">Publicado em {$date}</message>
+	<message key="plugins.themes.healthSciences.issueDescription">Sobre este número</message>
+	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+
+	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
+	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Arquivos suplementares</message>
+
+	<message key="plugins.themes.healthSciences.register.haveAccount">Já possui um registro?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Entrar</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">Não possui registro?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Registrar-se aqui</message>
+
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Resultados da busca por <em>{$query}</em>]]></message>
+	<message key="plugins.themes.healthSciences.search.params">Parâmetros da busca</message>
+</locale>
