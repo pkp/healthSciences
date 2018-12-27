@@ -84,7 +84,14 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$this->addStyle('stylesheet', 'styles/index.less');
 		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		$this->addScript('main', 'js/main.js');
-		
+
+		// Styles for right to left scripts
+		$locale = AppLocale::getLocale();
+		$localeDirection = AppLocale::getLocaleDirection($locale);
+		if ($localeDirection === "rtl") {
+			$this->addStyle('rtl', 'styles/rtl.less');
+		}
+
 		// Add JQuery UI and tag-it libraries for registration page (reviewer's interests)
 		$this->addScript("jquery-ui", "libs/jquery-ui.min.js");
 		$this->addScript("tag-it", "libs/tag-it.min.js");
@@ -146,7 +153,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			if (Config::getVar('security', 'force_login_ssl')) {
 				$loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
 			}
-			
+
 			$orcidImage = $this->getPluginPath() . '/templates/images/orcid.png';
 
 			$templateMgr->assign(array(
