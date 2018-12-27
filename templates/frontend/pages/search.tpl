@@ -22,9 +22,9 @@
 	<div class="page-header">
 		<h1>
 			{if $query}
-				{translate key="plugins.themes.healthSciences.search.resultsFor" query=$query}
+				{translate key="plugins.themes.healthSciences.search.resultsFor" query=$query|escape}
 			{elseif $authors}
-				{translate key="plugins.themes.healthSciences.search.resultsFor" query=$authors}
+				{translate key="plugins.themes.healthSciences.search.resultsFor" query=$authors|escape}
 			{else}
 				{translate key="common.search"}
 			{/if}
