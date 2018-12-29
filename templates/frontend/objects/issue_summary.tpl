@@ -10,6 +10,23 @@
  * @uses $issue Issue The issue
  * @uses $heading string The HTML tag to use for each issue title.
  *}
+{if $issue->getShowTitle() && $issue->getLocalizedTitle()}
+	{assign var="showTitle" value=true}
+{else}
+	{assign var="showTitle" value=false}
+{/if}
+
+
+{capture assign="issueTitle"}
+	{if $issue->getIssueSeries()}
+		{$issue->getIssueSeries()}
+	{elseif $showTitle}
+		{$issue->getLocalizedTitle()}
+	{else}
+		{** probably can occur only in OJS versions prior to 3.1 *}
+		{translate key="issue.issue"}
+	{/if}
+{/capture}
 
 <div class="card issue-summary">
 	{if $issue->getLocalizedCoverImageUrl()}
@@ -20,13 +37,17 @@
 	<div class="card-body">
 		<{$heading} class="card-title issue-summary-series">
 			<a href="{url op="view" path=$issue->getBestIssueId()}">
-				{$issue->getIssueSeries()|escape}
+				{$issueTitle|escape}
 			</a>
 		</{$heading}>
-		{if $issue->getShowTitle() && $issue->getLocalizedTitle()}
+		{if $showTitle || $issue->getDatePublished()}
 			<div class="card-text">
-				<p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
-				<p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
+				{if $issue->getDatePublished()}
+					<p class="issue-summary-date">{$issue->getDatePublished()|date_format:$dateFormatLong}</p>
+				{/if}
+				{if $issue->getIssueSeries() && $showTitle}
+					<p class="issue-summary-title">{$issue->getLocalizedTitle()|escape}</p>
+				{/if}
 			</div>
 		{/if}
 	</div>
