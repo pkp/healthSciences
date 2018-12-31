@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.0.2
+Current version: healthSciences v1.0.3
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/). 
 
@@ -71,6 +71,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 * healthSciences theme v1.0.0 is compatible with OJS 3.1.1.
 * healthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
 * healthSciences theme v1.0.2 is compatible with OJS 3.1.1-2.
+* healthSciences theme v1.0.3 is compatible with OJS 3.1.1-4.
 
 ## Contribution
 
@@ -87,6 +88,17 @@ Suggestions for improving this guide can be made to support@publicknowledgeproje
 This theme is released under the GPL license. 
 
 ## Changelog
+**healthSciences v1.0.3**  (2018-12-31)
+* Add: New localizations (es_ES, cs_CZ, nb_NO, ar_IQ, uk_UA, pt_BR) and updates; special thanks to contributors!
+* Add: Alternative text for the journal thumbnail (#109)
+* Add: Updates for site-wide registration page (#110)
+* Add: Dependencies update: Fontawesome to v. 5.6.1
+* Add: Support for right to left scripts (#122)
+* Fix: Removing redundant code from PDF JS viewer's template (#111)
+* Fix: Modals with authors Biography are now working correctly (#115)
+* Fix: Issue links on the archive page are clickable in all possible cases of user inputs to issue form (#120) 
+* Fix: Security issues
+
 **healthSciences v1.0.2**  (2018-07-30)
 * Add: Styling for authors' list on article landing page (#76)
 * Add: Support for pages related to the subscription, authors' search, and several others (#80)
