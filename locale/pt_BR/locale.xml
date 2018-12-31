@@ -4,7 +4,7 @@
 <!--
   * locale/pt_BR/locale.xml
   *
-  * 
+  *
   * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
   *
   * Localization strings
@@ -12,7 +12,7 @@
 
 <locale name="pt_BR" full_name="Português-Brasil">
 	<message key="plugins.themes.healthSciences.name">Tema Health Sciences</message>
-	<message key="plugins.themes.healthSciences.description">Um tema OJS.</message>
+	<message key="plugins.themes.healthSciences.description">Um tema OJS construido com foco em revistas de ciências da saúde.</message>
 	<message key="plugins.themes.healthSciences.option.colour.label">Cor principal</message>
 	<message key="plugins.themes.healthSciences.option.colour.description">Selecionar a cor principal da revista.</message>
 
