@@ -56,7 +56,7 @@
 <header class="main-header">
 	<div class="container">
 
-		<{$siteNameTag} class="sr-only">{$pageTitleTranslated}</{$siteNameTag}>
+		<{$siteNameTag} class="sr-only">{$pageTitleTranslated|escape}</{$siteNameTag}>
 
 	<div class="navbar-logo">
 		<a href="{$homeUrl}">{$brand}</a>

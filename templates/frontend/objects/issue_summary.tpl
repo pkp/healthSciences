@@ -19,9 +19,9 @@
 
 {capture assign="issueTitle"}
 	{if $issue->getIssueSeries()}
-		{$issue->getIssueSeries()}
+		{$issue->getIssueSeries()|escape}
 	{elseif $showTitle}
-		{$issue->getLocalizedTitle()}
+		{$issue->getLocalizedTitle()|escape}
 	{else}
 		{** probably can occur only in OJS versions prior to 3.1 *}
 		{translate key="issue.issue"}

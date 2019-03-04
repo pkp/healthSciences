@@ -180,7 +180,7 @@
 								<div class="form-check">
 									<input type="checkbox" class="form-check-input if-reviewer-checkbox" name="reviewerGroup[{$userGroup->getId()}]" id="reviewerGroup-{$userGroup->getId()}" value="1"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
 									<label for="reviewerGroup-{$userGroup->getId()}" class="form-check-label">
-										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()}
+										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()|escape}
 									</label>
 								</div>
 							{/if}

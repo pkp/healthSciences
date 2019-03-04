@@ -45,7 +45,7 @@
 									<div class="form-check">
 										<input type="checkbox" class="form-check-input" id="readerGroup[{$userGroupId}]" name="readerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 										<label for="readerGroup[{$userGroupId}]">
-											{$userGroup->getLocalizedName()}
+											{$userGroup->getLocalizedName()|escape}
 										</label>
 										{if in_array($userGroupId, $userGroupIds)}
 											{assign var=isSelected value=true}
@@ -59,7 +59,7 @@
 									<div class="form-check">
 										<input type="checkbox" class="form-check-input" id="reviewerGroup[{$userGroupId}]" name="reviewerGroup[{$userGroupId}]"{if in_array($userGroupId, $userGroupIds)} checked="checked"{/if}>
 										<label for="reviewerGroup[{$userGroupId}]">
-											{$userGroup->getLocalizedName()}
+											{$userGroup->getLocalizedName()|escape}
 										</label>
 										{if in_array($userGroupId, $userGroupIds)}
 											{assign var=isSelected value=true}

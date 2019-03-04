@@ -35,7 +35,7 @@
 						{if $issue->getPublished() && $section && $journal}
 							<li class="author-details-item">
 								<div class="author-details-block author-details-issue">
-									<a href="{url journal=$journal->getPath() page="issue" op="view" path=$issue->getBestIssueId()}">{$journal->getLocalizedName()|escape} {$issue->getIssueIdentification()|strip_unsafe_html|nl2br}</a>
+									<a href="{url journal=$journal->getPath() page="issue" op="view" path=$issue->getBestIssueId()}">{$journal->getLocalizedName()|escape} {$issue->getIssueIdentification()|escape}</a>
 									<span>{$section->getLocalizedTitle()|escape}</span>
 								</div>
 								<div class="author-details-block author-details-article">

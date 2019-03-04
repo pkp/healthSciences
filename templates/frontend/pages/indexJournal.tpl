@@ -31,7 +31,7 @@
 			{translate key="journal.currentIssue"}
 		</h2>
 		<div class="h1 homepage-issue-identifier">
-			{$issue->getIssueSeries()}
+			{$issue->getIssueSeries()|escape}
 		</div>
 		<div class="h6 homepage-issue-published">
 			{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}

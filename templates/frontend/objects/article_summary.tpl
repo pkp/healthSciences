@@ -25,7 +25,7 @@
 	{if $showAuthor && $article->getPages()}
 		<div class="row">
 			<div class="col">
-				<div class="article-summary-authors">{$article->getAuthorString()}</div>
+				<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
 			</div>
 			<div class="col-3 col-md-2 col-lg-1">
 				<div class="article-summary-pages text-right">
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	{elseif $showAuthor}
-		<div class="article-summary-authors">{$article->getAuthorString()}</div>
+		<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
 	{elseif $article->getPages()}
 		<div class="article-summary-pages">
 			{$article->getPages()|escape}

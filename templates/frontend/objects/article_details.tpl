@@ -34,11 +34,11 @@
 		<div class="col-lg article-meta-mobile">
 			{* Title and issue details *}
 			<div class="article-details-issue-section small-screen">
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
 			</div>
 
 			<div class="article-details-issue-identifier large-screen">
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()}</a>
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>
 			</div>
 
 			<h1 class="article-details-fulltitle">
@@ -342,14 +342,13 @@
 							{else}
 								<a href="{$licenseUrl|escape}" class="copyright">
 									{if $copyrightHolder}
-										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
+										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder|escape copyrightYear=$copyrightYear|escape}
 									{else}
 										{translate key="submission.license"}
 									{/if}
 								</a>
 							{/if}
-						{/if}
-						{if !$licenseUrl}
+						{else}
 							{$copyright}
 						{/if}
 					</div>
