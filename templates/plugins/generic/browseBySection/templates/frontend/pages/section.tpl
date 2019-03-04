@@ -44,12 +44,12 @@
 						{/foreach}
 					</div>
 					{if $prevPage > 1}
-						{url|assign:"prevUrl" router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}
+						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
 					{elseif $prevPage === 1}
-						{url|assign:"prevUrl" router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath}
+						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath}{/capture}
 					{/if}
 					{if $nextPage}
-						{url|assign:"nextUrl" router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}
+						{capture assign="nextUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}{/capture}
 					{/if}
 					{include
 						file="frontend/components/pagination.tpl"
