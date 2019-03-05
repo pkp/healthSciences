@@ -23,30 +23,20 @@
 				{translate key="user.profile"}
 			</legend>
 			<div class="form-group">
-				<label for="firstName">
-					{translate key="user.firstName"}
+				<label for="givenName">
+					{translate key="user.givenName"}
 					<span class="required" aria-hidden="true">*</span>
 					<span class="sr-only">
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
+				<input class="form-control" type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
 			</div>
 			<div class="form-group">
-				<label for="middleName">
-					{translate key="user.middleName"}
+				<label for="familyName">
+					{translate key="user.familyName"}
 				</label>
-				<input class="form-control" type="text" name="middleName" value="{$middleName|escape}" maxlength="40">
-			</div>
-			<div class="form-group">
-				<label for="lastName">
-					{translate key="user.lastName"}
-					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
-						{translate key="common.required"}
-					</span>
-				</label>
-				<input class="form-control" type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
+				<input class="form-control" type="text" name="familyName" value="{$familyName|escape}" maxlength="255">
 			</div>
 			<div class="form-group">
 				<label for="affiliation">
@@ -56,7 +46,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
+				<input class="form-control" type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
 			</div>
 			<div class="form-group">
 				<label for="country">
@@ -125,16 +115,18 @@
 		{if $currentContext}
 
 			<fieldset class="consent">
-				{* Require the user to agree to the terms of the privacy policy *}
-				<div class="fields">
-					<div class="optin optin-privacy">
-						<label>
-							<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
-							{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
-							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
-						</label>
+				{if $currentContext->getSetting('privacyStatement')}
+					{* Require the user to agree to the terms of the privacy policy *}
+					<div class="fields">
+						<div class="optin optin-privacy">
+							<label>
+								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
+							</label>
+						</div>
 					</div>
-				</div>
+				{/if}
 				{* Ask the user to opt into public email notifications *}
 				<div class="fields">
 					<div class="optin optin-email">
@@ -146,23 +138,8 @@
 				</div>
 			</fieldset>
 
-			{* Users are opted into the Reader and Author roles in the current
-				 journal/press by default. See RegistrationForm::initData() *}
-			{assign var=contextId value=$currentContext->getId()}
-			{foreach from=$readerUserGroups[$contextId] item=userGroup}
-				{if in_array($userGroup->getId(), $userGroupIds)}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					<input type="hidden" name="readerGroup[{$userGroupId}]" value="1">
-				{/if}
-			{/foreach}
-			{foreach from=$authorUserGroups[$contextId] item=userGroup}
-				{if in_array($userGroup->getId(), $userGroupIds)}
-					{assign var="userGroupId" value=$userGroup->getId()}
-					<input type="hidden" name="authorGroup[{$userGroupId}]" value="1">
-				{/if}
-			{/foreach}
-
 			{* Allow the user to sign up as a reviewer *}
+			{assign var=contextId value=$currentContext->getId()}
 			{assign var=userCanRegisterReviewer value=0}
 			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 				{if $userGroup->getPermitSelfRegistration()}
@@ -171,23 +148,28 @@
 			{/foreach}
 			{if $userCanRegisterReviewer}
 				<fieldset class="reviewer">
-					<legend>
-						{translate key="user.reviewerPrompt"}
-					</legend>
+					{if $userCanRegisterReviewer > 1}
+						<legend>
+							{translate key="user.reviewerPrompt"}
+						</legend>
+						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.userGroup{/capture}
+					{else}
+						{capture assign="checkboxLocaleKey"}user.reviewerPrompt.optin{/capture}
+					{/if}
 					<div id="reviewerOptinGroup" class="form-group">
 						{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
 							{if $userGroup->getPermitSelfRegistration()}
 								<div class="form-check">
 									<input type="checkbox" class="form-check-input if-reviewer-checkbox" name="reviewerGroup[{$userGroup->getId()}]" id="reviewerGroup-{$userGroup->getId()}" value="1"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
 									<label for="reviewerGroup-{$userGroup->getId()}" class="form-check-label">
-										{translate key="user.reviewerPrompt.userGroup" userGroup=$userGroup->getLocalizedName()|escape}
+										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()|escape}
 									</label>
 								</div>
 							{/if}
 						{/foreach}
 					</div>
 
-					{* review intersts (with modified tag-it library) *}
+					{* review interests (with modified tag-it library) *}
 					<div id="reviewerInterests" class="reviewer_interests hidden">
 						<div class="label">
 							{translate key="user.interests"}
