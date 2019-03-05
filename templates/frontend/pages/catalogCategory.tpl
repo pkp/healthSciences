@@ -50,7 +50,7 @@
 		</div>
 	{/if}
 
-	<div class="row">
+	<div class="row{if !$description || !$image} justify-content-center{/if}">
 		<div class="col-12 col-lg-9">
 			{if !$subcategories->wasEmpty()}
 				<nav class="category-subcategories" role="navigation">
