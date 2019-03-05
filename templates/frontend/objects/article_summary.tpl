@@ -27,7 +27,7 @@
 			<div class="col">
 				<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
 			</div>
-			<div class="col-3 col-md-2 col-lg-1">
+			<div class="col-3 col-md-2 col-lg-2">
 				<div class="article-summary-pages text-right">
 					{$article->getPages()|escape}
 				</div>
