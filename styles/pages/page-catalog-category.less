@@ -1,0 +1,64 @@
+/**
+ * @file styles/pages/page-catalog-category.less
+ *
+ * Copyright (c) 2014-2019 Simon Fraser University
+ * Copyright (c) 2003-2019 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles applying to the individual category page
+ * @link templates/frontend/pages/catalogCategory.tpl
+ */
+
+@media (min-width: 992px) {
+
+	.page-category-description-wrapper {
+		padding: 3rem;
+		background: @light-grey;
+	}
+
+	.page-category-cover {
+		box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+		margin: auto;
+	}
+
+	.page-category-count {
+		font-size: 14px;
+		color: @mid-grey;
+		margin-top: 1rem;
+	}
+}
+
+.category-subcategories {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid @faded-grey;
+}
+
+.category-title {
+	margin: 2rem 0;
+	font-family: @font-sans;
+	font-size: 18px;
+	color: @primary;
+}
+
+.category-subcategories-list {
+	padding-left: 0;
+	list-style-type: none;
+
+	li {
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		a {
+			color: @dark-grey;
+			font-size: 1rem;
+			font-family: @font-serif;
+
+			&:hover {
+				text-decoration: none;
+				color: @black;
+			}
+		}
+	}
+}
