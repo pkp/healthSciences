@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.0.3
+Current version: healthSciences v1.0.4
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/). 
 
@@ -72,6 +72,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 * healthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
 * healthSciences theme v1.0.2 is compatible with OJS 3.1.1-2.
 * healthSciences theme v1.0.3 is compatible with OJS 3.1.1-4.
+* healthSciences theme v1.0.4 is compatible with OJS 3.1.2.
 
 ## Contribution
 
@@ -88,6 +89,16 @@ Suggestions for improving this guide can be made to support@publicknowledgeproje
 This theme is released under the GPL license. 
 
 ## Changelog
+**healthSciences v1.0.4**  (2018-03-05)
+* Add: New localizations (fr_CA); special thanks to contributors!
+* Add: Compliance with Smarty 3
+* Add: Update for the default HTML galley styling
+* Add: Update for the registration form to be compliant with OJS 3.1.2
+* Add: Support for the catalog category page
+* Add: Dependencies update: Bootstrap to v. 4.3.1 and Popper JS to 1.14.7
+* Fix: Changed alignment for the issue TOC and issue description
+* Fix: Security issues
+
 **healthSciences v1.0.3**  (2018-12-31)
 * Add: New localizations (es_ES, cs_CZ, nb_NO, ar_IQ, uk_UA, pt_BR) and updates; special thanks to contributors!
 * Add: Alternative text for the journal thumbnail (#109)
