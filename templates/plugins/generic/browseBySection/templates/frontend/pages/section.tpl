@@ -19,7 +19,7 @@
  * @uses $countMaxPage int 10 in `2 of 10 pages`.
  *}
 
-{include file="frontend/components/header.tpl" pageTitleTranslated=$section->getLocalizedTitle()}
+{include file="frontend/components/header.tpl" pageTitleTranslated=$section->getLocalizedTitle()|escape}
 
 <div class="container page-section">
 	<div class="page-header">
@@ -28,7 +28,7 @@
 	<div class="row justify-content-md-center">
 		{if $sectionDescription}
 			<div class="col-lg-4">
-				<div class="section-description">{$sectionDescription}</div>
+				<div class="section-description">{$sectionDescription|strip_unsafe_html}</div>
 			</div>
 		{/if}
 		<div class="col-lg-8">
@@ -44,12 +44,12 @@
 						{/foreach}
 					</div>
 					{if $prevPage > 1}
-						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
+						{capture assign="prevUrl"}{url router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
 					{elseif $prevPage === 1}
-						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath}{/capture}
+						{capture assign="prevUrl"}{url router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath}{/capture}
 					{/if}
 					{if $nextPage}
-						{capture assign="nextUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}{/capture}
+						{capture assign="nextUrl"}{url router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$nextPage}{/capture}
 					{/if}
 					{include
 						file="frontend/components/pagination.tpl"

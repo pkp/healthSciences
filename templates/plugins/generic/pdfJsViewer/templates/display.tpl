@@ -9,7 +9,7 @@
  *}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{capture assign="pageTitleTranslated"}{translate key="article.pageTitle" title=$title}{/capture}
+{capture assign="pageTitleTranslated"}{translate key="article.pageTitle" title=$title|escape}{/capture}
 {include file="frontend/components/headerHead.tpl" pageTitleTranslated=$pageTitleTranslated}
 <body class="page-view-pdf">
 	<div class="pdf-header">
@@ -23,7 +23,7 @@
 						{translate key="article.return"}
 					{/if}
 				</span>
-				{$title}
+				{$title|escape}
 			</a>
 		</div>
 		<div class="pdf-download-button">

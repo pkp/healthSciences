@@ -85,9 +85,6 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
 		$this->addScript('main', 'js/main.js');
 
-		// Styles for HTML galleys
-		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
-
 		// Styles for right to left scripts
 		$locale = AppLocale::getLocale();
 		$localeDirection = AppLocale::getLocaleDirection($locale);

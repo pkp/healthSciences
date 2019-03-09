@@ -57,7 +57,7 @@
 	{if $requestedPage === 'issue'}
 		{foreach from=$pubIdPlugins item=pubIdPlugin}
 			{if $pubIdPlugin->getPubIdType() != 'doi'}
-				{continue}
+				{php}continue;{/php}
 			{/if}
 			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 			{if $pubId}
@@ -83,7 +83,7 @@
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
 					{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
-						{continue}
+						{php}continue;{/php}
 					{/if}
 				{/if}
 				{assign var="hasArticleAccess" value=$hasAccess}

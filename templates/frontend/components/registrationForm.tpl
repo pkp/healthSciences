@@ -23,20 +23,30 @@
 				{translate key="user.profile"}
 			</legend>
 			<div class="form-group">
-				<label for="givenName">
-					{translate key="user.givenName"}
+				<label for="firstName">
+					{translate key="user.firstName"}
 					<span class="required" aria-hidden="true">*</span>
 					<span class="sr-only">
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
+				<input class="form-control" type="text" name="firstName" id="firstName" value="{$firstName|escape}" maxlength="40" required>
 			</div>
 			<div class="form-group">
-				<label for="familyName">
-					{translate key="user.familyName"}
+				<label for="middleName">
+					{translate key="user.middleName"}
 				</label>
-				<input class="form-control" type="text" name="familyName" value="{$familyName|escape}" maxlength="255">
+				<input class="form-control" type="text" name="middleName" id="middleName" value="{$middleName|escape}" maxlength="40">
+			</div>
+			<div class="form-group">
+				<label for="lastName">
+					{translate key="user.lastName"}
+					<span class="required" aria-hidden="true">*</span>
+					<span class="sr-only">
+						{translate key="common.required"}
+					</span>
+				</label>
+				<input class="form-control" type="text" name="lastName" id="lastName" value="{$lastName|escape}" maxlength="40" required>
 			</div>
 			<div class="form-group">
 				<label for="affiliation">
@@ -46,7 +56,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+				<input class="form-control" type="text" name="affiliation[{$primaryLocale|escape}]" id="affiliation" value="{$affiliation.$primaryLocale|escape}" required>
 			</div>
 			<div class="form-group">
 				<label for="country">
