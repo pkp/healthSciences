@@ -31,10 +31,8 @@
 
 	{* No issues have been published *}
 	{if empty($issues)}
-		<div class="row">
-			<div class="col-md-8">
-				<p>{translate key="current.noCurrentIssueDesc"}</p>
-			</div>
+		<div class="page-header page-issue-header">
+			{include file="frontend/components/notification.tpl" messageKey="current.noCurrentIssueDesc"}
 		</div>
 
 	{* List issues *}
