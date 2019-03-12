@@ -24,8 +24,7 @@
 	</div>
 {/if}
 
-<div class="container container-homepage-issue">
-
+<div class="container container-homepage-issue page-content">
 	{if $issue}
 		<h2 class="h5 homepage-issue-current">
 			{translate key="journal.currentIssue"}
@@ -89,6 +88,31 @@
 			</div>
 		{/if}
 
+	{/if}
+
+	{* display announcements before full issue *}
+	{if $announcements}
+	<section class="row homepage-announcements">
+		<h2 class="sr-only">{translate key="announcement.announcementsHome"}</h2>
+		{foreach from=$announcements item=announcement}
+			<article class="col-md-4 homepage-announcement">
+				<h3 class="homepage-announcement-title">{$announcement->getLocalizedTitle()|escape}</h3>
+				<p>{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+					<br>
+					<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+						{capture name="more" assign="more"}{translate key="common.more"}{/capture}
+						{translate key="plugins.themes.healthSciences.more" text=$more}
+					</a>
+				</p>
+				<footer>
+					<small class="homepage-announcement-date">{$announcement->getDatePosted()|date_format:$dateFormatLong}</small>
+				</footer>
+			</article>
+		{/foreach}
+	</section>
+	{/if}
+
+	{if $issue}
 		<div class="row justify-content-center{if $homepageImage && $issue->hasDescription()} issue-full-data{elseif $homepageImage && $issue->getLocalizedCoverImageUrl()} issue-image-cover{elseif $homepageImage} issue-only-image{/if}">
 			<div class="col-12 col-lg-9">
 				{include file="frontend/objects/issue_toc.tpl" sectionHeading="h3"}
