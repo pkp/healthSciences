@@ -22,6 +22,7 @@
 	<message key="plugins.themes.healthSciences.currentIssuePublished">Publicado {$date}</message>
 	<message key="plugins.themes.healthSciences.issueDescription">Descripción de la edición</message>
 	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+	<message key="plugins.themes.healthSciences.more">{$text}…</message>
 
 	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
 	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Archivos suplementarios</message>
