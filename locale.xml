@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * locale/tr_TR/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings.
+  -->
+
+<locale name="tr_TR" full_name="Türkçe">
+	<message key="plugins.themes.healthSciences.name">Sağlık Bilimleri Teması</message>
+	<message key="plugins.themes.healthSciences.description">Sağlık bilimleri dergilerine odaklanan bir OJS teması.</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Birincil Renk</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Derginiz için birincil rengi seçin.</message>
+	<message key="plugins.themes.healthSciences.nav.toggle">Gezinmti Menüsünü Değiştir</message>
+	<message key="plugins.themes.healthSciences.language.toggle">Dili değiştir. Mevcut dil:</message>
+	<message key="plugins.themes.healthSciences.currentIssuePublished">Yayınlanma {$date}</message>
+	<message key="plugins.themes.healthSciences.issueDescription">Sayı Açıklaması</message>
+	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
+	<message key="plugins.themes.healthSciences.register.haveAccount">Hesabınız var mı?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Buradan Giriş Yap</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">Hesabınız Yok mu?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Buradan Kaydol</message>
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[<Em>{$query}</ em> için Arama Sonuçları]]></message>
+	<message key="plugins.themes.healthSciences.search.params">Arama Parametreleri</message>
+</locale>
