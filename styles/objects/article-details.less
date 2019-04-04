@@ -138,53 +138,53 @@
 	.small-screen {
 		display: none;
 	}
-	
+
 	// Special treatment for authors blocks (article's header and details)
 	.authors-string {
 		margin-top: 1em;
 		margin-bottom: 1em;
 		padding-left: 0;
-		
+
 		& li {
 			display: inline;
 			list-style-type: none;
-			
+
 			&:not(:last-child):after {
 				content: ", ";
 			}
 		}
-		
+
 		& .author-string-href {
 			color: @dark-grey;
 			cursor: pointer;
-			
+
 			&:hover {
 				text-decoration: none;
 				color: @primary;
 			}
 		}
 	}
-	
+
 	.orcidImage {
 		margin-left: 3px;
 		margin-right: 1px;
 	}
-	
+
 	.author-string-href.active {
 		color: @primary;
 	}
-	
+
 	.author-symbol {
 		font-family: sans-serif;
 		font-weight: bold;
 		margin-left: 2px;
 		color: @primary;
-		
+
 		&.hide {
 			display: none;
 		}
 	}
-	
+
 	.article-details-issue-identifier {
 		margin-bottom: 1em;
 		font-size: 1.1em;
@@ -211,7 +211,7 @@
 			margin-bottom: 0;
 		}
 	}
-	
+
 	.article-details-galleys-btm {
 		display: block;
 	}
@@ -239,18 +239,18 @@
 	.article-details-references-value {
 		font-size: 0.9rem;
 	}
-	
+
 	.article-footer-hook {
 		margin-top: 40px;
 	}
 }
 
 @media (max-width: 991px) {
-	
+
 	.large-screen, .author-symbol {
 		display: none;
 	}
-	
+
 	.article-details-galley {
 		display: inline-block;
 
@@ -268,52 +268,52 @@
 			content: ", ";
 		}
 	}
-	
+
 	.article-blocks-mobile {
-		
+
 		display: flex;
 		flex-direction: column;
-		
+
 		& > .article-details-cover {
 			display: none;
 		}
-		
+
 		& > .article-details-galleys {
 			order: 1;
 		}
-		
+
 		& > .article-details-galleys-supplementary {
 			order: 2;
 		}
-		
+
 		& > .article-details-abstract {
 			order: 3;
 		}
-		
+
 		& > .article-details-doi.small-screen {
 			order: 4;
 		}
-		
+
 		& > .article-details-pubid {
 			order: 5;
 		}
-		
+
 		& > .article-details-keywords {
 			order: 6;
 		}
-		
+
 		& > .article-details-how-to-cite {
 			order: 7;
 		}
-		
+
 		& > .article-details-references {
 			order: 8;
 		}
-		
+
 		& > .article-details-license {
 			order: 9;
 		}
-		
+
 		// Ensure that all elements from the sidebar hook will be appear last.
 		& > * {
 			order: 10;
@@ -321,39 +321,39 @@
 			margin-top: 0;
 		}
 	}
-	
+
 	.article-meta-mobile {
 		display: flex;
 		flex-direction: column;
 	}
-	
+
 	.article-details-issue-section {
 		order: 1;
 		& a {
 			color: @mid-grey;
 		}
 	}
-	
+
 	.article-details-published {
 		order: 2;
 		margin-top: 0;
 	}
-	
+
 	.article-details-fulltitle {
 		order: 3;
 		margin-top: 40px;
 		margin-bottom: 20px;
 	}
-	
+
 	.article-details-authors {
 		order: 4;
 	}
-	
+
 	.article-details-abstract + .article-details-doi {
 		margin-top: -30px;
 	}
-	
-	
+
+
 }
 
 // Recommend author
@@ -396,7 +396,7 @@
 	margin-top: 40px;
 
 	& a, strong {
-		border: 1px solid #dee2e6;
+		border: 1px solid @mid-grey;
 		display: block;
 		padding: 5px 8px;
 	}
