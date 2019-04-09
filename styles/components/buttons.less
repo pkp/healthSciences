@@ -27,12 +27,13 @@
 .btn-primary {
 	background: @primary;
 	border-color: @primary;
-	color: #fff;
+	color: @dark-grey;
 
 	&:hover,
-	&:focus {
-		background: @primary-light;
-		border-color: @primary-light;
+	&:focus,
+	&:active {
+		background: @primary-text;
+		border-color: @primary-text;
 		color: @dark-grey;
 	}
 }
@@ -42,7 +43,8 @@
 	color: @light-grey;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		background: @light-grey;
 		color: @dark-grey;
 	}
@@ -54,7 +56,8 @@
 	color: @dark-grey;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		background: @light-grey;
 		border-color: @dark-grey;
 		color: @dark-grey;
@@ -67,9 +70,10 @@
 	color: @primary;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		border-color: transparent;
-		color: @primary-light;
+		color: @primary-text;
 	}
 }
 
@@ -78,7 +82,8 @@
 	color: @dark-grey;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		color: @primary;
 	}
 }
