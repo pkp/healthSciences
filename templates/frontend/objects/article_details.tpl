@@ -75,11 +75,15 @@
 					{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
 						{strip}
 							<li>
+								{if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography()}
 								<a class="author-string-href" href="#author-{$authorStringKey+1}">
 									<span>{$authorString->getFullName()|escape}</span>
 									<sup class="author-symbol author-plus">&plus;</sup>
 									<sup class="author-symbol author-minus hide">&minus;</sup>
 								</a>
+								{else}
+								<span>{$authorString->getFullName()|escape}</span>
+								{/if}
 								{if $authorString->getOrcid()}
 									<a class="orcidImage" href="{$authorString->getOrcid()|escape}"><img src="{$baseUrl}/{$orcidImage}"></a>
 								{/if}
