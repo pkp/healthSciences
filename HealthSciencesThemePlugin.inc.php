@@ -85,6 +85,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Styles for HTML galleys
 		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
+                $this->addStyle('htmlFont', 'https://fonts.googleapis.com/css?family=PT+Serif&display=swap', array('baseUrl' => '', 'contexts' => 'htmlGalley'));
 
 		// Styles for right to left scripts
 		$locale = AppLocale::getLocale();
