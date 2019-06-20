@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/themes/healthSciences/locale/en_US/locale.xml
+  * plugins/themes/healthSciences/locale/fr_CA/locale.xml
   *
   * Copyright (c) 2014-2018 Simon Fraser University
   * Copyright (c) 2003-2018 John Willinsky
@@ -11,27 +11,26 @@
   * Localization strings
   -->
 
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.healthSciences.name">Health Sciences Theme</message>
-	<message key="plugins.themes.healthSciences.description">An OJS theme built with a focus on health sciences journals.</message>
-	<message key="plugins.themes.healthSciences.option.colour.label">Primary Colour</message>
-	<message key="plugins.themes.healthSciences.option.colour.description">Select the primary colour for your journal brand.</message>
+<locale name="fr_FR" full_name="Français (France)">
+	<message key="plugins.themes.healthSciences.name">Thème des sciences de la santé</message>
+	<message key="plugins.themes.healthSciences.description">Un thème OJS construit avec un accent sur les revues scientifiques des sciences de la santé.</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Couleur principale</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Choisissez la couleur principale du site de votre journal</message>
 
-	<message key="plugins.themes.healthSciences.nav.toggle">Toggle Navigation</message>
-	<message key="plugins.themes.healthSciences.language.toggle">Change the language. The current language is:</message>
-	<message key="plugins.themes.healthSciences.currentIssuePublished">Published {$date}</message>
-	<message key="plugins.themes.healthSciences.issueDescription">Issue Description</message>
+	<message key="plugins.themes.healthSciences.nav.toggle">Basculer la navigation</message>
+	<message key="plugins.themes.healthSciences.language.toggle">Changer la langue. La langue actuellement utilisée est le :</message>
+	<message key="plugins.themes.healthSciences.currentIssuePublished">Publié le {$date}</message>
+	<message key="plugins.themes.healthSciences.issueDescription">Description du numéro</message>
 	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
-	<message key="plugins.themes.healthSciences.more">{$text}…</message>
 
-	<message key="plugins.themes.healthSciences.article.authorBio">Bio</message>
-	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Supplementary Files</message>
+	<message key="plugins.themes.healthSciences.article.authorBio">Biographie</message>
+	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Fichiers supplémentaires</message>
 
-	<message key="plugins.themes.healthSciences.register.haveAccount">Already have an account?</message>
-	<message key="plugins.themes.healthSciences.register.loginHere">Login here</message>
-	<message key="plugins.themes.healthSciences.register.noAccount">No account?</message>
-	<message key="plugins.themes.healthSciences.register.registerHere">Register here</message>
+	<message key="plugins.themes.healthSciences.register.haveAccount">Avez-vous déjà un compte ?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Connectez-vous ici</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">Vous n’avez pas de compte ?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Inscrivez-vous ici</message>
 
-	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Search Results for <em>{$query}</em>]]></message>
-	<message key="plugins.themes.healthSciences.search.params">Search Parameters</message>
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Résultats de la recherche pour <em>{$query}</em>]]></message>
+	<message key="plugins.themes.healthSciences.search.params">Paramètres de la recherche</message>
 </locale>
