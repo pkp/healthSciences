@@ -39,7 +39,7 @@
 					{if $error}
 						<div class="alert alert-danger" role="alert">{$error|escape}</div>
 					{else}
-						<div class="alert alert-info" role="alert">{translate key="search.noResults"}</div>
+						<div class="alert alert-primary" role="alert">{translate key="search.noResults"}</div>
 					{/if}
 
 				{* Results pagination *}
