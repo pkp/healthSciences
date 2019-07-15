@@ -11,7 +11,8 @@
 	cursor: pointer;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		box-shadow: none;
 		color: @primary;
 		border-color: @primary;
@@ -32,8 +33,8 @@
 	&:hover,
 	&:focus,
 	&:active {
-		background: @primary-text;
-		border-color: @primary-text;
+		background: @primary-text !important;
+		border-color: @primary-text !important;
 		color: @contrast;
 	}
 }
