@@ -113,7 +113,7 @@
 	{/if}
 
 	{if $issue}
-		<div class="row justify-content-center{if $homepageImage && $issue->hasDescription()} issue-full-data{elseif $homepageImage && $issue->getLocalizedCoverImageUrl()} issue-image-cover{elseif $homepageImage} issue-only-image{/if}">
+		<div class="row issue-wrapper{if $homepageImage && $issue->hasDescription()} issue-full-data{elseif $homepageImage && $issue->getLocalizedCoverImageUrl()} issue-image-cover{elseif $homepageImage} issue-only-image{/if}">
 			<div class="col-12 col-lg-9">
 				{include file="frontend/objects/issue_toc.tpl" sectionHeading="h3"}
 			</div>
