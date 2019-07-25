@@ -343,6 +343,9 @@
 						{if $licenseUrl}
 							{if $ccLicenseBadge}
 								{$ccLicenseBadge}
+									{if $copyrightHolder}
+										<p>{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}</p>
+									{/if}
 							{else}
 								<a href="{$licenseUrl|escape}" class="copyright">
 									{if $copyrightHolder}
