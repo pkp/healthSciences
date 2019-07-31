@@ -7,30 +7,28 @@
 }
 
 .alert-primary {
-	background: @primary;
+	background-color: @primary;
 	border-color: @primary;
-	color: #fff;
+	color: @contrast;
 
 	a,
 	a:hover,
-	a:focus {
+	a:focus,
+	a:active {
 		color: #fff;
 		text-decoration: underline;
 	}
 }
 
 .alert-danger {
-	background: @warning;
+	background-color: @warning;
 	color: #fff;
 
 	a,
 	a:hover,
-	a:focus {
+	a:focus,
+	a:active {
 		color: #fff;
 		text-decoration: underline;
 	}
-}
-
-.alert-info {
-	background: @primary-light;
 }

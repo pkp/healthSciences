@@ -98,7 +98,7 @@
 			{/if}
 		</div><!-- .row -->
 
-		<div class="row{if !$issue->getLocalizedDescription() || !$issue->getLocalizedCoverImageUrl()} justify-content-center{/if}">
+		<div class="row{if !$issue->getLocalizedDescription() || !$issue->getLocalizedCoverImageUrl()} issue-wrapper{/if}">
 			<div class="col-12 col-lg-9">
 				{include file="frontend/objects/issue_toc.tpl" sectionHeading="h2"}
 			</div>

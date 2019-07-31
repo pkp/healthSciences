@@ -37,6 +37,13 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			$additionalLessVariables[] = '@primary-text: darken(@primary, 15%);';
 		}
 
+		// Update contrast colour based on primary colour
+		if ($this->isColourDark($this->getOption('baseColour'))) {
+			$additionalLessVariables[] = '
+				@contrast: rgba(255, 255, 255, 0.85);
+			';
+		}
+
 		// Load dependencies from CDN
 		if (Config::getVar('general', 'enable_cdn')) {
 			$this->addStyle(

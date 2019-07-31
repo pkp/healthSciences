@@ -35,14 +35,16 @@
 	{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 		<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
 		     {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
-		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}>
+		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}
+				 class="img-fluid">
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
 		<span class="navbar-logo-text">{$displayPageHeaderTitle}</span>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
 		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}"
-		     alt="{$displayPageHeaderTitle.altText|escape}">
+		     alt="{$displayPageHeaderTitle.altText|escape}"
+				 class="img-fluid">
 	{else}
-		<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}">
+		<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" class="img-fluid">
 	{/if}
 {/strip}{/capture}
 

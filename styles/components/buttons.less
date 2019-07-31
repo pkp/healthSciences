@@ -11,7 +11,8 @@
 	cursor: pointer;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		box-shadow: none;
 		color: @primary;
 		border-color: @primary;
@@ -27,14 +28,14 @@
 .btn-primary {
 	background: @primary;
 	border-color: @primary;
-	color: @dark-grey;
+	color: @contrast;
 
 	&:hover,
 	&:focus,
 	&:active {
-		background: @primary-text;
-		border-color: @primary-text;
-		color: @dark-grey;
+		background: @primary-text !important;
+		border-color: @primary-text !important;
+		color: @contrast;
 	}
 }
 
