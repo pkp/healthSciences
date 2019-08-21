@@ -91,7 +91,7 @@
 	{/if}
 
 	{* display announcements before full issue *}
-	{if $announcements}
+	{if $numAnnouncementsHomepage && $announcements|@count}
 	<section class="row homepage-announcements">
 		<h2 class="sr-only">{translate key="announcement.announcementsHome"}</h2>
 		{foreach from=$announcements item=announcement}
