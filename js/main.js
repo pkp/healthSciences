@@ -51,7 +51,9 @@
 
 // initiating tag-it
 $(document).ready(function() {
-	$("#tagitInput").tagit();
+	$("#tagitInput").tagit({
+		autocomplete: {disabled: true}
+	});
 });
 
 (function () {
