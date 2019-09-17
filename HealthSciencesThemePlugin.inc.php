@@ -33,14 +33,19 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$additionalLessVariables = [];
 		if ($this->getOption('baseColour') !== '#10BECA') {
 			$additionalLessVariables[] = '@primary:' . $this->getOption('baseColour') . ';';
-			$additionalLessVariables[] = '@primary-light: desaturate(lighten(@primary, 41%), 15%);';
-			$additionalLessVariables[] = '@primary-text: darken(@primary, 15%);';
+			$additionalLessVariables[] = '
+				@primary-light: desaturate(lighten(@primary, 41%), 15%);
+				@primary-text: darken(@primary, 15%);
+				@primary-link: darken(@primary, 50%);
+			';
 		}
 
 		// Update contrast colour based on primary colour
 		if ($this->isColourDark($this->getOption('baseColour'))) {
 			$additionalLessVariables[] = '
 				@contrast: rgba(255, 255, 255, 0.85);
+				@primary-text: lighten(@primary, 15%);
+				@primary-link: lighten(@primary, 50%);
 			';
 		}
 
