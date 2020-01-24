@@ -17,21 +17,21 @@
 })(jQuery);
 
 (function ($) {
-
+	
 	// Show author affiliation under authors list (for large screen only)
 	var authorString = $('.author-string-href');
 	$(authorString).click(function(event) {
 		event.preventDefault();
 		var elementId = $(this).attr('href').replace('#', '');
 		$('.article-details-author').each(function () {
-
+			
 			// Show only targeted author's affiliation on click
 			if ($(this).attr('id') === elementId && $(this).hasClass('hideAuthor')) {
 				$(this).removeClass('hideAuthor');
 			} else {
 				$(this).addClass('hideAuthor');
 			}
-
+			
 			// Add specifiers to the clicked author's link
 			$(authorString).each(function () {
 				if ($(this).attr('href') === ('#' + elementId) && !$(this).hasClass('active')){
@@ -91,49 +91,49 @@ $(document).ready(function() {
 // change article's blocks logic for small screens
 
 (function () {
-
+	
 	var mainArticleContent = $("#mainArticleContent");
-
+	
 	if (mainArticleContent.length === 0) return false;
-
+	
 	var articleDetailsWrapper = $("#articleDetailsWrapper");
 	var articleDetails = $("#articleDetails");
 	var articleDetailsChildren = articleDetails.children();
-
+	
 	var articleMainWrapper = $("#articleMainWrapper");
 	var articleMain = $("#articleMain");
 	var articleMainChildren = articleMain.children();
-
+	
 	var dataForMobilesMark = "data-for-mobiles";
-
+	
 	function reorganizeArticleBlocks() {
 		if (mainArticleContent && !mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth < 992) {
 			$("#articleDetails").unwrap();
 			$("#articleMain").unwrap();
-
+			
 			articleDetailsChildren.unwrap();
 			articleMainChildren.unwrap();
-
+			
 			mainArticleContent.children().wrapAll("<div class='col-lg article-blocks-mobile'></div>");
-
+			
 			mainArticleContent.addClass(dataForMobilesMark);
-
+			
 		} else if (mainArticleContent && mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth >= 992) {
 			$('#mainArticleContent > *').children().unwrap();
-
+			
 			articleDetailsChildren.wrapAll(articleDetails);
 			articleMainChildren.wrapAll(articleMain);
-
+			
 			$("#articleDetails").wrap(articleDetailsWrapper);
 			$("#articleMain").wrap(articleMainWrapper);
-
-
+			
+			
 			mainArticleContent.removeClass(dataForMobilesMark);
 		}
 	}
-
+	
 	reorganizeArticleBlocks();
-
+	
 	window.addEventListener("resize", function () {
 		reorganizeArticleBlocks();
 	});
@@ -143,24 +143,24 @@ $(document).ready(function() {
 
 (function () {
 	var journalDescription = document.getElementById('homepageDescription');
-
+	
 	if (!journalDescription) return false;
-
+	
 	var moreButton = document.getElementById('homepageDescriptionMore');
 	var lessButton = document.getElementById('homepageDescriptionLess');
 	var descriptionButtons = document.getElementById('homepageDescriptionButtons');
-
+	
 	if (journalDescription.offsetHeight < journalDescription.scrollHeight) {
 		moreButton.classList.remove('hidden');
 		descriptionButtons.classList.remove('hidden');
 	}
-
+	
 	moreButton.onclick = function () {
 		journalDescription.classList.remove('long-text');
 		this.classList.add('hidden');
 		lessButton.classList.remove('hidden');
 	};
-
+	
 	lessButton.onclick = function () {
 		journalDescription.classList.add('long-text');
 		this.classList.add('hidden');
