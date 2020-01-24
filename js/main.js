@@ -55,7 +55,7 @@ $(document).ready(function() {
 		var autocomplete_url = $(this).data('autocomplete-url');
 		$(this).tagit({
 			fieldName: $(this).data('field-name'),
-			allowSpaces: true,
+			allowSpaces: false,
 			autocomplete: {
 				source: function(request, response) {
 					$.ajax({
