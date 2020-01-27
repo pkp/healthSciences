@@ -57,8 +57,14 @@
 		<div class="col-lg-4 search-col-filters">
 			<div class="search-filters">
 				<h2>{translate key="plugins.themes.healthSciences.search.params"}</h2>
-				<form class="form-search" method="post" action="{url op="search"}">
-					{csrf}
+
+				{capture name="searchFormUrl"}{url op="search" escape=false}{/capture}
+				{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
+				<form class="form-search" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
+					{foreach from=$formUrlParameters key=paramKey item=paramValue}
+						<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
+					{/foreach}
+
 					<div class="form-group form-group-query">
 						<label for="query">
 							{translate key="common.searchQuery"}
