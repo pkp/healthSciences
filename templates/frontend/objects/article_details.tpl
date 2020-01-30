@@ -32,6 +32,17 @@
 <div class="article-details">
 	<div class="page-header row">
 		<div class="col-lg article-meta-mobile">
+			{* Notification that this is an old version *}
+			{if $currentPublication->getId() !== $publication->getId()}
+			<div class="alert alert-primary" role="alert">
+				{capture assign="latestVersionUrl"}{url page="article" op="view" path=$article->getBestId()}{/capture}
+				{translate key="submission.outdatedVersion"
+					datePublished=$publication->getData('datePublished')|date_format:$dateFormatShort
+					urlRecentVersion=$latestVersionUrl|escape
+				}
+			</div>
+			{/if}
+
 			{* Title and issue details *}
 			<div class="article-details-issue-section small-screen">
 				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
