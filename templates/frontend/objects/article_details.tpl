@@ -74,10 +74,17 @@
 				{/if}
 			{/foreach}
 
-			{* Date published *}
-			{if $article->getDatePublished()}
+			{* Date published & updated *}
+			{if $publication->getData('datePublished')}
 				<div class="article-details-published">
-					{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$article->getDatePublished()|date_format:$dateFormatLong}
+					{translate key="submissions.published"}
+					{* If this is the original version *}
+					{if $firstPublication->getID() === $publication->getId()}
+						{$firstPublication->getData('datePublished')|date_format:$dateFormatShort}
+					{* If this is an updated version *}
+					{else}
+						{translate key="submission.updatedOn" datePublished=$firstPublication->getData('datePublished')|date_format:$dateFormatShort dateUpdated=$publication->getData('datePublished')|date_format:$dateFormatShort}
+					{/if}
 				</div>
 			{/if}
 
