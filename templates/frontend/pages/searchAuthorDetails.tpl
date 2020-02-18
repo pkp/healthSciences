@@ -24,7 +24,7 @@
 			<div class="page-content" id="authorDetails">
 				<h3 class="author-details-author text-lg-center">{$lastName|escape}, {$firstName|escape}{if $middleName} {$middleName|escape}{/if}{if $affiliation}, {$affiliation|escape}{/if}{if $country}, {$country|escape}{/if}</h3>
 				<ul class="author-details-articles">
-					{foreach from=$publishedArticles item=article}
+					{foreach from=$submissions item=article}
 						{assign var=issueId value=$article->getIssueId()}
 						{assign var=issue value=$issues[$issueId]}
 						{assign var=issueUnavailable value=$issuesUnavailable.$issueId}
