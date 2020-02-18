@@ -53,7 +53,7 @@
 			</div>
 
 			<h1 class="article-details-fulltitle">
-				{$article->getLocalizedFullTitle()|escape}
+				{$publication->getLocalizedFullTitle()|escape}
 			</h1>
 
 			{if $section}
@@ -88,9 +88,9 @@
 				</div>
 			{/if}
 
-			{if $article->getAuthors()}
+			{if $publication->getData('authors')}
 				<ul class="authors-string">
-					{foreach from=$article->getAuthors() item=authorString key=authorStringKey}
+					{foreach from=$publication->getData('authors') item=authorString key=authorStringKey}
 						{strip}
 							<li>
 								{if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography()}
@@ -111,10 +111,10 @@
 				</ul>
 
 				{* Authors *}
-				{assign var="authorCount" value=$article->getAuthors()|@count}
+				{assign var="authorCount" value=$publication->getData('authors')|@count}
 				{assign var="authorBioIndex" value=0}
 				<div class="article-details-authors">
-					{foreach from=$article->getAuthors() item=author key=authorKey}
+					{foreach from=$publication->getData('authors') item=author key=authorKey}
 						<div class="article-details-author hideAuthor" id="author-{$authorKey+1}">
 							<div class="article-details-author-name small-screen">
 								{$author->getFullName()|escape}
@@ -175,13 +175,22 @@
 			<div class="article-details-sidebar" id="articleDetails">
 
 				{* Article/Issue cover image *}
-				{if $article->getLocalizedCoverImage() || $issue->getLocalizedCoverImage()}
+				{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
 					<div class="article-details-block article-details-cover">
-						{if $article->getLocalizedCoverImage()}
-							<img class="img-fluid" src="{$article->getLocalizedCoverImageUrl()|escape}"{if $article->getLocalizedCoverImageAltText()} alt="{$article->getLocalizedCoverImageAltText()|escape}"{/if}>
+						{if $publication->getLocalizedData('coverImage')}
+							{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
+							<img
+								class="img-fluid"
+								src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
+								alt="{$coverImage.altText|escape|default:''}"
+							>
 						{else}
 							<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-								<img class="img-fluid" src="{$issue->getLocalizedCoverImageUrl()|escape}"{if $issue->getLocalizedCoverImageAltText()} alt="{$issue->getLocalizedCoverImageAltText()|escape}"{/if}>
+								<img
+									class="img-fluid"
+									src="{$issue->getLocalizedCoverImageUrl()|escape}"
+									alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}"
+								>
 							</a>
 						{/if}
 					</div>
@@ -329,10 +338,10 @@
 			<div class="article-details-main" id="articleMain">
 
 				{* Abstract *}
-				{if $article->getLocalizedAbstract()}
+				{if $publication->getLocalizedData('abstract')}
 					<div class="article-details-block article-details-abstract">
 						<h2 class="article-details-heading">{translate key="article.abstract"}</h2>
-						{$article->getLocalizedAbstract()|strip_unsafe_html}
+						{$publication->getLocalizedData('abstract')|strip_unsafe_html}
 					</div>
 				{/if}
 
@@ -372,7 +381,7 @@
 								{foreach from=$parsedCitations item=parsedCitation}
 									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
 								{/foreach}
-							{elseif $article->getCitations()}
+							{else}
 								{$publication->getData('citationsRaw')|nl2br}
 							{/if}
 						</div>
