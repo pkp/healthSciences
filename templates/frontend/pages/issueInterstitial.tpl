@@ -19,7 +19,7 @@
 	{assign var="parentId" value=$parent->getBestIssueId()}
 	{url op="view" path=$parentId}
 {else}
-	{assign var="parentId" value=$parent->getBestArticleId()}
+	{assign var="parentId" value=$parent->getBestId()}
 	{url page="article" op="view" path=$parentId}
 {/if}
 {/capture}

@@ -150,7 +150,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 	 */
 	public function loadTemplateData($hookName, $args) {
 		$templateMgr = $args[0];
-		$request = Application::getRequest();
+		$request = Application::get()->getRequest();
 		$context = $request->getContext();
 
 		if (!defined('SESSION_DISABLE_INIT')) {

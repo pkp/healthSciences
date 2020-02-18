@@ -45,7 +45,7 @@
 				{* Results pagination *}
 				{else}
 					{iterate from=results item=result}
-						{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle journal=$result.journal showDatePublished=true hideGalleys=true}
+						{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true}
 					{/iterate}
 					<div class="pagination">
 						{page_info iterator=$results}
