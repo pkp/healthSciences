@@ -23,9 +23,19 @@
 						{translate key="article.return"}
 					{/if}
 				</span>
-				{$title}
+				{if $isLatestPublication}
+					{$title|escape}
+				{/if}
 			</a>
 		</div>
+		{if !$isLatestPublication}
+		<div class="alert alert-primary" role="alert">
+			{translate key="submission.outdatedVersion"
+				datePublished=$galleyPublication->getData('datePublished')|date_format:$dateFormatLong
+				urlRecentVersion=$parentUrl
+			}
+		</div>
+		{/if}
 		<div class="pdf-download-button">
 			<a href="{$pdfUrl}" class="btn" download>
 				<span class="label">
