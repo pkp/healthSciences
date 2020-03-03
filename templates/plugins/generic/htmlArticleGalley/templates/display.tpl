@@ -17,27 +17,35 @@
 {* Header wrapper *}
 <header class="header_view">
 
-	<a href="{url page="article" op="view" path=$article->getBestId()}" class="return">
+	{capture assign="articleUrl"}{url page="article" op="view" path=$article->getBestId()}{/capture}
+
+	<a href="{$articleUrl}" class="return">
 		<span class="pkp_screen_reader">
 			{translate key="article.return"}
 		</span>
 	</a>
 	{if !$isLatestPublication}
-	<div class="title" role="alert">
-		{translate key="submission.outdatedVersion"
-			datePublished=$galleyPublication->getData('datePublished')|date_format:$dateFormatLong
-			urlRecentVersion=$parentUrl
-		}
-	</div>
+		<div class="title" role="alert">
+			{translate key="submission.outdatedVersion"
+				datePublished=$galleyPublication->getData('datePublished')|date_format:$dateFormatLong
+				urlRecentVersion=$articleUrl
+			}
+		</div>
+		{capture assign="htmlUrl"}
+			{url page="article" op="download" path=$article->getBestId()|to_array:'version':$galleyPublication->getId():$galley->getBestGalleyId() inline=true}
+		{/capture}
 	{else}
-	<a href="{url page="article" op="view" path=$article->getBestId()}" class="title">
-		{$galleyPublication->getLocalizedTitle()|escape}
-	</a>
+		<a href="{url page="article" op="view" path=$article->getBestId()}" class="title">
+			{$galleyPublication->getLocalizedTitle()|escape}
+		</a>
+		{capture assign="htmlUrl"}
+			{url page="article" op="download" path=$article->getBestId()|to_array:$galley->getBestGalleyId() inline=true}
+		{/capture}
 	{/if}
 </header>
 
 <div id="htmlContainer" class="galley_view" style="overflow:visible;-webkit-overflow-scrolling:touch">
-	<iframe id="htmlGalleyFrame" name="htmlFrame" src="{url page="article" op="download" path=$article->getBestId()|to_array:$galley->getBestGalleyId() inline=true}" allowfullscreen webkitallowfullscreen></iframe>
+	<iframe id="htmlGalleyFrame" name="htmlFrame" src="{$htmlUrl}" allowfullscreen webkitallowfullscreen></iframe>
 </div>
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </body>
