@@ -331,7 +331,7 @@
 									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
 								{/iterate}
 							{elseif $article->getCitations()}
-								{$article->getCitations()|nl2br}
+								{$article->getCitations()|escape|nl2br}
 							{/if}
 						</div>
 					</div>
