@@ -382,7 +382,7 @@
 									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
 								{/foreach}
 							{else}
-								{$publication->getData('citationsRaw')|nl2br}
+								{$publication->getData('citationsRaw')|escape|nl2br}
 							{/if}
 						</div>
 					</div>
