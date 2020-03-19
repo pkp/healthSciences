@@ -115,9 +115,6 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Get extra data for templates
 		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
-
-		// Check if CSS embedded to the HTML galley
-		HookRegistry::register('TemplateManager::display', array($this, 'hasEmbeddedCSS'));
 	}
 
 	/**
@@ -177,43 +174,5 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 				'orcidImage' => $orcidImage,
 			));
 		}
-	}
-
-	public function hasEmbeddedCSS($hookName, $args) {
-		$templateMgr = $args[0];
-		$template = $args[1];
-		$request = $this->getRequest();
-
-		// Retun false if not a galley page
-		if ($template != 'plugins/plugins/generic/htmlArticleGalley/generic/htmlArticleGalley:display.tpl') return false;
-
-		$articleArrays = $templateMgr->get_template_vars('article');
-
-		$boolEmbeddedCss = false;
-
-		foreach ($articleArrays->getGalleys() as $galley) {
-			if ($galley->getFileType() === 'text/html') {
-				$submissionFile = $galley->getFile();
-
-				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-				import('lib.pkp.classes.submission.SubmissionFile'); // Constants
-				$embeddableFiles = array_merge(
-					$submissionFileDao->getLatestRevisions($submissionFile->getSubmissionId(), SUBMISSION_FILE_PROOF),
-					$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId(), $submissionFile->getSubmissionId(), SUBMISSION_FILE_DEPENDENT)
-				);
-
-				foreach ($embeddableFiles as $embeddableFile) {
-					if ($embeddableFile->getFileType() == 'text/css') {
-						$boolEmbeddedCss = true;
-					}
-				}
-			}
-
-		}
-
-		$templateMgr->assign(array(
-			'boolEmbeddedCss' => $boolEmbeddedCss,
-			'themePath' => $request->getBaseUrl() . "/" . $this->getPluginPath(),
-		));
 	}
 }
