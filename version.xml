@@ -28,8 +28,8 @@
 	<!-- The date of the latest version -->
 	<date>2020-03-20</date>
 
-	<!-- This should always be 0 -->
-	<lazy-load>0</lazy-load>
+	<!-- This should always be 1 -->
+	<lazy-load>1</lazy-load>
 
 	<!-- The class name of the plugin. See index.php -->
 	<class>HealthSciencesThemePlugin</class>
