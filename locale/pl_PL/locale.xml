@@ -13,7 +13,7 @@
 
 <locale name="pl_PL" full_name="Język polski">
 	<message key="plugins.themes.healthSciences.name">Szablon OJS dla nauk medycznych</message>
-	<message key="plugins.themes.healthSciences.description">Szablon graficzny dla OJS przezanczony dla czasopism z dziedziny nauk medycznych</message>
+	<message key="plugins.themes.healthSciences.description">Szablon graficzny dla OJS przeznaczony dla czasopism z dziedziny nauk medycznych</message>
 	<message key="plugins.themes.healthSciences.option.colour.label">Kolor główny</message>
 	<message key="plugins.themes.healthSciences.option.colour.description">Wybierz główny kolor dla Twojego szablonu.</message>
 
@@ -32,6 +32,6 @@
 	<message key="plugins.themes.healthSciences.register.noAccount">Brak konta?</message>
 	<message key="plugins.themes.healthSciences.register.registerHere">Zarejestruj się</message>
 
-	<message key="plugins.themes.healthSciences.search.resultsFor">Wyniki wyszukiwania dla <em>{$query}</em></message>
+	<message key="plugins.themes.healthSciences.search.resultsFor"><![CDATA[Wyniki wyszukiwania dla <em>{$query}</em>]]></message>
 	<message key="plugins.themes.healthSciences.search.params">Parametry wyszukiwania</message>
 </locale>
