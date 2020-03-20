@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.0.5
+Current version: healthSciences v1.0.6-1
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/). 
 
@@ -68,12 +68,14 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Version Compatibility
 
-* healthSciences theme v1.0.0 is compatible with OJS 3.1.1.
-* healthSciences theme v1.0.1 is compatible with OJS 3.1.1-1.
-* healthSciences theme v1.0.2 is compatible with OJS 3.1.1-2.
-* healthSciences theme v1.0.3 is compatible with OJS 3.1.1-4.
-* healthSciences theme v1.0.4 is compatible with OJS 3.1.2.
-* healthSciences theme v1.0.5 is compatible with OJS 3.1.2-1.
+* Health Sciences theme v1.0.0 is compatible with OJS 3.1.1.
+* Health Sciences theme v1.0.1 is compatible with OJS 3.1.1-1.
+* Health Sciences theme v1.0.2 is compatible with OJS 3.1.1-2.
+* Health Sciences theme v1.0.3 is compatible with OJS 3.1.1-4.
+* Health Sciences theme v1.0.4 is compatible with OJS 3.1.2.
+* Health Sciences theme v1.0.5 is compatible with OJS 3.1.2-1.
+* Health Sciences theme v1.0.6 is compatible with OJS 3.2.0.
+* Health Sciences theme v1.0.6-1 is compatible with OJS 3.2.0.
 
 ## Contribution
 
@@ -90,6 +92,14 @@ Suggestions for improving this guide can be made to support@publicknowledgeproje
 This theme is released under the GPL license. 
 
 ## Changelog
+**healthSciences v1.0.6-1** (2020-03-20)
+* Fix: View HTML and PDF galleys of article's old versions
+* Fix: Escape raw citations on article page
+* Fix: Retain reviewer interests data from the registration form 
+
+**healthSciences v1.0.6** (2020-02-27)
+* Compatibility with OJS 3.2
+
 **healthSciences v1.0.5** (2019-11-15)
 * Add: New localizations (fr_FR); special thanks to contributors!
 * Add: Announcements are added for the journal landing page
