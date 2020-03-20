@@ -93,6 +93,7 @@ This theme is released under the GPL license.
 
 ## Changelog
 **healthSciences v1.0.6-1** (2020-03-20)
+* Add: New localizations (pl_PL) and (it_IT); special thanks to contributors!
 * Fix: View HTML and PDF galleys of article's old versions
 * Fix: Escape raw citations on article page
 * Fix: Retain reviewer interests data from the registration form 
