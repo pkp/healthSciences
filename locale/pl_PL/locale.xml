@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
+
+<!--
+  * plugins/themes/healthSciences/locale/en_US/locale.xml
+  *
+  * Copyright (c) 2014-2018 Simon Fraser University
+  * Copyright (c) 2003-2018 John Willinsky
+  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+  *
+  * Localization strings
+  -->
+
+<locale name="pl_PL" full_name="Język polski">
+	<message key="plugins.themes.healthSciences.name">Szablon OJS dla nauk medycznych</message>
+	<message key="plugins.themes.healthSciences.description">Szablon graficzny dla OJS przezanczony dla czasopism z dziedziny nauk medycznych</message>
+	<message key="plugins.themes.healthSciences.option.colour.label">Kolor główny</message>
+	<message key="plugins.themes.healthSciences.option.colour.description">Wybierz główny kolor dla Twojego szablonu.</message>
+
+	<message key="plugins.themes.healthSciences.nav.toggle">Pokaż nawigację</message>
+	<message key="plugins.themes.healthSciences.language.toggle">Zmień język, obecnie wybrany to:</message>
+	<message key="plugins.themes.healthSciences.currentIssuePublished">Opublikowany {$date}</message>
+	<message key="plugins.themes.healthSciences.issueDescription">Opis numeru</message>
+	<message key="plugins.themes.healthSciences.issuePubId">{$pubIdType}: {$pubId}</message>
+	<message key="plugins.themes.healthSciences.more">{$text}…</message>
+
+	<message key="plugins.themes.healthSciences.article.authorBio">Biogram</message>
+	<message key="plugins.themes.healthSciences.article.supplementaryFiles">Pliki dodatkowe</message>
+
+	<message key="plugins.themes.healthSciences.register.haveAccount">Masz już konto?</message>
+	<message key="plugins.themes.healthSciences.register.loginHere">Logowanie</message>
+	<message key="plugins.themes.healthSciences.register.noAccount">Brak konta?</message>
+	<message key="plugins.themes.healthSciences.register.registerHere">Zarejestruj się</message>
+
+	<message key="plugins.themes.healthSciences.search.resultsFor">Wyniki wyszukiwania dla <em>{$query}</em></message>
+	<message key="plugins.themes.healthSciences.search.params">Parametry wyszukiwania</message>
+</locale>
