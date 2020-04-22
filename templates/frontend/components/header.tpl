@@ -38,7 +38,7 @@
 		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}
 				 class="img-fluid">
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
-		<span class="navbar-logo-text">{$displayPageHeaderTitle}</span>
+		<span class="navbar-logo-text">{$displayPageHeaderTitle|escape}</span>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
 		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}"
 		     alt="{$displayPageHeaderTitle.altText|escape}"
