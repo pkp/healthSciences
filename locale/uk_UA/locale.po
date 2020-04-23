@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-23T10:25:07+00:00\n"
+"PO-Revision-Date: 2020-04-23T10:25:07+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Health Sciences Theme"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "Тема OJS, побудована з акцентом на журнали з медичною тематикою."
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Основний колір"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Оберіть основний колір для Вашого журналу."
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Показати навігацію"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Змінити мову. Поточною мовою є:"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "Опубліковано {$date}"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Опис випуску"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Відомості про автора"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Додаткові файли"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Вже маєте обліковий запис?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Увійти"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "Немає облікового запису?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Зареєструватися"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "Результати пошуку по запиту <em>{$query}</em>"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Параметри пошуку"

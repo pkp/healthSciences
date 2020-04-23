@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-23T10:23:45+00:00\n"
+"PO-Revision-Date: 2020-04-23T10:23:45+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Health Sciences Theme"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "An OJS theme built with a focus on health sciences journals."
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Primary Colour"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Select the primary colour for your journal brand."
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Toggle Navigation"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Change the language. The current language is:"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "Published {$date}"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Issue Description"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.more"
+msgstr "{$text}…"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Bio"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Supplementary Files"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Already have an account?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Login here"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "No account?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Register here"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "Search Results for <em>{$query}</em>"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Search Parameters"

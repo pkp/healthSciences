@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-23T10:24:12+00:00\n"
+"PO-Revision-Date: 2020-04-23T10:24:12+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Thème des sciences de la santé"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "Un thème OJS construit avec un accent sur les revues scientifiques des sciences de la santé."
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Couleur principale"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Choisissez la couleur principale du site de votre journal"
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Basculer la navigation"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Changer la langue. La langue actuellement utilisée est le :"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "Publié le {$date}"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Description du numéro"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Biographie"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Fichiers supplémentaires"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Avez-vous déjà un compte ?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Connectez-vous ici"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "Vous n’avez pas de compte ?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Inscrivez-vous ici"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "Résultats de la recherche pour <em>{$query}</em>"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Paramètres de la recherche"

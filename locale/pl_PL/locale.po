@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-23T10:24:44+00:00\n"
+"PO-Revision-Date: 2020-04-23T10:24:44+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Szablon OJS dla nauk medycznych"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "Szablon graficzny dla OJS przeznaczony dla czasopism z dziedziny nauk medycznych"
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Kolor główny"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Wybierz główny kolor dla Twojego szablonu."
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Pokaż nawigację"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Zmień język, obecnie wybrany to:"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "Opublikowany {$date}"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Opis numeru"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.more"
+msgstr "{$text}…"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Biogram"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Pliki dodatkowe"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Masz już konto?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Logowanie"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "Brak konta?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Zarejestruj się"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "Wyniki wyszukiwania dla <em>{$query}</em>"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Parametry wyszukiwania"

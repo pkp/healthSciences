@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-23T10:25:01+00:00\n"
+"PO-Revision-Date: 2020-04-23T10:25:01+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Tema Health Sciences"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "Um tema OJS construido com foco em revistas de ciências da saúde."
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Cor principal"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Selecionar a cor principal da revista."
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Alternar navegação"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Mudar o idioma. O atual é:"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "Publicado em {$date}"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Sobre este número"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Bio"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Arquivos suplementares"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Já possui um registro?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Entrar"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "Não possui registro?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Registrar-se aqui"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "Resultados da busca por <em>{$query}</em>"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Parâmetros da busca"
