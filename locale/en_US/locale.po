@@ -12,10 +12,10 @@ msgstr ""
 "Language: \n"
 
 msgid "plugins.themes.healthSciences.name"
-msgstr "Health Sciences Theme"
+msgstr "Health Sciences"
 
 msgid "plugins.themes.healthSciences.description"
-msgstr "An OJS theme built with a focus on health sciences journals."
+msgstr "An OJS theme designed with a focus on text legibility and content clarity as well as an understated palette of light greys and white."
 
 msgid "plugins.themes.healthSciences.option.colour.label"
 msgstr "Primary Colour"
