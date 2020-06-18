@@ -3,12 +3,6 @@
 	"devDependencies": {
 		"bootstrap": "^4.5.0",
 		"gulp": "^4.0.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-concat-css": "^3.1.0",
-		"gulp-csso": "^3.0.1",
-		"gulp-minify": "^3.1.0",
-		"gulp-sass": "^4.0.1",
-		"gulp-sourcemaps": "^2.6.4",
 		"jquery": "^3.5.1",
 		"jquery-ui-dist": "^1.12.1",
 		"popper.js": "^1.16.0",
