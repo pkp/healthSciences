@@ -36,7 +36,7 @@
 	{elseif $showAuthor}
 		<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
 	{elseif $article->getPages()}
-		<div class="article-summary-pages">
+		<div class="article-summary-pages text-right">
 			{$article->getPages()|escape}
 		</div>
 	{/if}
