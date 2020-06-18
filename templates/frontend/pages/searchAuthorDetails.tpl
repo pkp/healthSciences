@@ -22,14 +22,14 @@
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">
 			<div class="page-content" id="authorDetails">
-				<h3 class="author-details-author text-lg-center">{$lastName|escape}, {$firstName|escape}{if $middleName} {$middleName|escape}{/if}{if $affiliation}, {$affiliation|escape}{/if}{if $country}, {$country|escape}{/if}</h3>
+				<h3 class="author-details-author text-lg-center">{$authorName|escape}{if $affiliation}, {$affiliation|escape}{/if}{if $country}, {$country|escape}{/if}</h3>
 				<ul class="author-details-articles">
 					{foreach from=$submissions item=article}
-						{assign var=issueId value=$article->getIssueId()}
+						{assign var=issueId value=$article->getCurrentPublication()->getData('issueId')}
 						{assign var=issue value=$issues[$issueId]}
 						{assign var=issueUnavailable value=$issuesUnavailable.$issueId}
-						{assign var=sectionId value=$article->getSectionId()}
-						{assign var=journalId value=$article->getJournalId()}
+						{assign var=sectionId value=$article->getCurrentPublication()->getData('sectionId')}
+						{assign var=journalId value=$article->getData('contextId')}
 						{assign var=journal value=$journals[$journalId]}
 						{assign var=section value=$sections[$sectionId]}
 						{if $issue->getPublished() && $section && $journal}
@@ -41,7 +41,7 @@
 								<div class="author-details-block author-details-article">
 									<a href="{url journal=$journal->getPath() page="article" op="view" path=$article->getBestId()}">{$article->getLocalizedTitle()|strip_unsafe_html}</a>
 								</div>
-								{if (!$issueUnavailable || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN)}
+								{if (!$issueUnavailable || $article->getCurrentPublication()->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN)}
 									<div class="author-details-block author-details-galleys">
 										{foreach from=$article->getGalleys() item=galley name=galleyList}
 											<a href="{url journal=$journal->getPath() page="article" op="view" path=$article->getBestId()|to_array:$galley->getBestGalleyId()}"
