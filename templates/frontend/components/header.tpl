@@ -15,11 +15,7 @@
 {/if}
 
 {capture assign="homeUrl"}
-	{if $currentJournal && $multipleContexts}
-		{url page="index" router=$smarty.const.ROUTE_PAGE}
-	{else}
-		{url context="index" router=$smarty.const.ROUTE_PAGE}
-	{/if}
+	{url page="index" router=$smarty.const.ROUTE_PAGE}
 {/capture}
 
 {* Logo or site title. Only use <h1> heading on the homepage.
