@@ -31,20 +31,19 @@
 			} else {
 				$(this).addClass('hideAuthor');
 			}
-
-			// Add specifiers to the clicked author's link
-			$(authorString).each(function () {
-				if ($(this).attr('href') === ('#' + elementId) && !$(this).hasClass('active')){
-					$(this).addClass('active');
-					$(this).children('.author-plus').addClass('hide');
-					$(this).children('.author-minus').removeClass('hide');
-				} else if ($(this).attr('href') !== ('#' + elementId) || $(this).hasClass('active')) {
-					$(this).removeClass('active');
-					$(this).children('.author-plus').removeClass('hide');
-					$(this).children('.author-minus').addClass('hide');
-				}
-			});
-		})
+		});
+		// Add specifiers to the clicked author's link
+		$(authorString).each(function () {
+			if ($(this).attr('href') === ('#' + elementId) && !$(this).hasClass('active')){
+				$(this).addClass('active');
+				$(this).children('.author-plus').addClass('hide');
+				$(this).children('.author-minus').removeClass('hide');
+			} else if ($(this).attr('href') !== ('#' + elementId) || $(this).hasClass('active')) {
+				$(this).removeClass('active');
+				$(this).children('.author-plus').removeClass('hide');
+				$(this).children('.author-minus').addClass('hide');
+			}
+		});
 	})
 })(jQuery);
 
