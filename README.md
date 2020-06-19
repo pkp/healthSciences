@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.0.6-1
+Current version: healthSciences v1.0.7.0
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/). 
 
@@ -76,6 +76,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 * Health Sciences theme v1.0.5 is compatible with OJS 3.1.2-1.
 * Health Sciences theme v1.0.6 is compatible with OJS 3.2.0.
 * Health Sciences theme v1.0.6-1 is compatible with OJS 3.2.0.
+* Health Sciences theme v1.0.7.0 is compatible with OJS 3.2.0 and 3.2.1.
 
 ## Contribution
 
@@ -92,6 +93,18 @@ Suggestions for improving this guide can be made to support@publicknowledgeproje
 This theme is released under the GPL license. 
 
 ## Changelog
+**healthSciences v1.0.7.0** (2020-06-19)
+* Fix: Page numbers are aligned right in TOC when author names are omitted (#149)
+* Fix: Text align for right-to-left scripts (#182)
+* Fix: Proper escaping for page header title
+* Add: Localization files are converted for Weblate
+* Fix: Typo in search author details template
+* Fix: Correct home URL in logo/title when logged in as author (#188)
+* Add: Use Smarty's mailto and javascript encoding for emails (#189)
+* Fix: Adapt author details and author index page to variables and method calls in OJS 3.2 (#186)
+* Fix: Show minus symbol on expanding author's details on article landing page when 2 or more authors (#187)
+* Add: Management of dependencies with npm and gulp (#190)
+
 **healthSciences v1.0.6-1** (2020-03-20)
 * Add: New localizations (pl_PL) and (it_IT); special thanks to contributors!
 * Fix: View HTML and PDF galleys of article's old versions
