@@ -35,7 +35,7 @@
 									<span class="required" aria-hidden="true">*</span>
 									<span class="sr-only">{translate key="common.required"}</span>
 								</label>
-								<input type="text" class="form-control" name="email" id="email" value="{$email|escape}" required>
+								<input type="email" class="form-control" name="email" id="email" value="{$email|escape}" required>
 							</div>
 							<div class="form-group form-group-buttons">
 								<button class="btn btn-primary" type="submit">
