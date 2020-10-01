@@ -395,7 +395,7 @@
 				{assign 'licenseUrl' $publication->getData('licenseUrl')}
 				{assign 'copyrightYear' $publication->getData('copyrightYear')}
 
-				{if $copyright || $licenseUrl}
+				{if $licenseTerms || $licenseUrl}
 					<div class="article-details-block article-details-license">
 						{if $licenseUrl}
 							{if $ccLicenseBadge}
@@ -413,7 +413,7 @@
 								</a>
 							{/if}
 						{else}
-							{$copyright}
+							{$licenseTerms}
 						{/if}
 					</div>
 				{/if}
