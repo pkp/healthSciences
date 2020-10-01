@@ -15,16 +15,18 @@
  * Templates::Article::Details
  *
  * @uses $article Article This article
+ * @uses $publication Publication The publication being displayed
+ * @uses $firstPublication Publication The first published version of this article
+ * @uses $currentPublication Publication The most recently published version of this article
  * @uses $issue Issue The issue this article is assigned to
  * @uses $section Section The journal section this article is assigned to
  * @uses $primaryGalleys array List of article galleys that are not supplementary or dependent
  * @uses $supplementaryGalleys array List of article galleys that are supplementary
  * @uses $keywords array List of keywords assigned to this article
  * @uses $pubIdPlugins Array of pubId plugins which this article may be assigned
- * @uses $copyright string Copyright notice. Only assigned if statement should
- *   be included with published articles.
- * @uses $copyrightHolder string Name of copyright holder
+ * @uses $copyrightHolder array List of localized names of copyright holder
  * @uses $copyrightYear string Year of copyright
+ * @uses $licenseTerms string License terms.
  * @uses $licenseUrl string URL to license. Only assigned if license should be
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
@@ -387,6 +389,12 @@
 				{/if}
 
 				{* Licensing info *}
+				{assign 'licenseTerms' $currentContext->getLocalizedData('licenseTerms')}
+				{assign 'copyrightHolder' $publication->getLocalizedData('copyrightHolder')}
+				{* overwriting deprecated variables *}
+				{assign 'licenseUrl' $publication->getData('licenseUrl')}
+				{assign 'copyrightYear' $publication->getData('copyrightYear')}
+
 				{if $copyright || $licenseUrl}
 					<div class="article-details-block article-details-license">
 						{if $licenseUrl}
@@ -398,7 +406,7 @@
 							{else}
 								<a href="{$licenseUrl|escape}" class="copyright">
 									{if $copyrightHolder}
-										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder|escape copyrightYear=$copyrightYear|escape}
+										{translate key="submission.copyrightStatement" copyrightHolder=$copyrightHolder copyrightYear=$copyrightYear}
 									{else}
 										{translate key="submission.license"}
 									{/if}
