@@ -41,7 +41,7 @@
 					<div class="submissions-checklist">
 						<h2>
 							{translate key="about.submissionPreparationChecklist"}
-							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
+							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.submissionPreparationChecklist"}
 						</h2>
 						{translate key="about.submissionPreparationChecklist.description"}
 						<ul>
@@ -54,33 +54,33 @@
 					</div>
 				{/if}
 
-				{if $currentContext->getLocalizedSetting('authorGuidelines')}
+				{if $currentContext->getLocalizedData('authorGuidelines')}
 					<div class="submissions-author-guidelines">
 						<h2>
 							{translate key="about.authorGuidelines"}
-							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.authorGuidelines"}
+							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission" sectionTitleKey="about.authorGuidelines"}
 						</h2>
-						{$currentContext->getLocalizedSetting('authorGuidelines')}
+						{$currentContext->getLocalizedData('authorGuidelines')}
 					</div>
 				{/if}
 
-				{if $currentContext->getLocalizedSetting('copyrightNotice')}
+				{if $currentContext->getLocalizedData('copyrightNotice')}
 					<div class="submissions-copyright-notice">
 						<h2>
 							{translate key="about.copyrightNotice"}
-							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="permissions" sectionTitleKey="about.copyrightNotice"}
+							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="distribution" anchor="license" sectionTitleKey="about.copyrightNotice"}
 						</h2>
-						{$currentContext->getLocalizedSetting('copyrightNotice')}
+						{$currentContext->getLocalizedData('copyrightNotice')}
 					</div>
 				{/if}
 
-				{if $currentContext->getLocalizedSetting('privacyStatement')}
+				{if $currentContext->getLocalizedData('privacyStatement')}
 					<div class="submissions-privacy-statement">
 						<h2>
 							{translate key="about.privacyStatement"}
-							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.privacyStatement"}
+							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup" sectionTitleKey="about.privacyStatement"}
 						</h2>
-						{$currentContext->getLocalizedSetting('privacyStatement')}
+						{$currentContext->getLocalizedData('privacyStatement')}
 					</div>
 				{/if}
 			</div>
