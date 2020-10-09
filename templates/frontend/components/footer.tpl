@@ -22,7 +22,7 @@
 				</div>
 			{/if}
 
-			<div class="col-md col-md-2 align-self-center text-right">
+			<div class="col-md col-md-2 align-self-center text-right" role="complementary">
 				<a href="{url page="about" op="aboutThisPublishingSystem"}">
 					<img class="footer-brand-image" alt="{translate key="about.aboutThisPublishingSystem"}"
 					     src="{$baseUrl}/{$brandImage}">

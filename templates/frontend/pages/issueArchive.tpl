@@ -26,7 +26,7 @@
 <div class="container page-archives">
 
 	<div class="page-header page-archives-header">
-		<h1>{$pageTitle}</h1>
+		<h1>{$pageTitle|escape}</h1>
 	</div>
 
 	{* No issues have been published *}

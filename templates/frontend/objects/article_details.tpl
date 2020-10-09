@@ -235,7 +235,7 @@
 					<div class="article-details-block article-details-galleys article-details-galleys-sidebar">
 						{foreach from=$primaryGalleys item=galley}
 							<div class="article-details-galley">
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+								{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication galley=$galley purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
 							</div>
 						{/foreach}
 					</div>
@@ -247,7 +247,7 @@
 						<h2 class="article-details-heading">{translate key="plugins.themes.healthSciences.article.supplementaryFiles"}</h2>
 						{foreach from=$supplementaryGalleys item=galley}
 							<div class="article-details-galley">
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley isSupplementary="1"}
+								{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication galley=$galley isSupplementary="1"}
 							</div>
 						{/foreach}
 					</div>
@@ -319,9 +319,10 @@
 								{$pubIdPlugin->getPubIdDisplayType()|escape}
 							</h2>
 							<div class="article-details-pubid-value">
+								{assign var="pubIdUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 								{if $pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-									<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}">
-										{$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+									<a id="pub-id::{$pubIdPlugin->getPubIdType()|escape}" href="{$pubIdUrl}">
+										{$pubIdUrl}
 									</a>
 								{else}
 									{$pubId|escape}
@@ -364,7 +365,7 @@
 					<div class="article-details-block article-details-galleys article-details-galleys-btm">
 						{foreach from=$primaryGalleys item=galley}
 							<div class="article-details-galley">
-								{include file="frontend/objects/galley_link.tpl" parent=$article galley=$galley purchaseFee=$currentJournal->getSetting('purchaseArticleFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+								{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication galley=$galley purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
 							</div>
 						{/foreach}
 					</div>

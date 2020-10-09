@@ -27,7 +27,7 @@
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 		<p class="announcement-summary-more">
 			<a class="btn" href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-				<span aria-hidden="true">{translate key="common.readMore"}</span>
+				<span aria-hidden="true" role="presentation">{translate key="common.readMore"}</span>
 
 				{* Screen readers need more context *}
 				<span class="sr-only">
