@@ -30,13 +30,13 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="givenName" id="givenName" value="{$givenName|escape}" maxlength="255" required>
+				<input class="form-control" type="text" name="givenName" id="givenName" autocomplete="given-name" value="{$givenName|escape}" maxlength="255" required>
 			</div>
 			<div class="form-group">
 				<label for="familyName">
 					{translate key="user.familyName"}
 				</label>
-				<input class="form-control" type="text" name="familyName" value="{$familyName|escape}" maxlength="255">
+				<input class="form-control" type="text" name="familyName" id="familyName" autocomplete="family-name" value="{$familyName|escape}" maxlength="255">
 			</div>
 			<div class="form-group">
 				<label for="affiliation">
@@ -76,7 +76,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="email" name="email" id="email" value="{$email|escape}" maxlength="90" required>
+				<input class="form-control" type="email" name="email" id="email" value="{$email|escape}" maxlength="90" autocomplete="email" required>
 			</div>
 			<div class="form-group">
 				<label for="username">
@@ -86,7 +86,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="username" id="username" value="{$username|escape}" maxlength="32" required>
+				<input class="form-control" type="text" name="username" id="username" value="{$username|escape}" maxlength="32" autocomplete="username" required>
 			</div>
 			<div class="form-group">
 				<label for="password">
