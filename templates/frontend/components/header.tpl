@@ -10,7 +10,7 @@
 
 {* Determine whether a logo or title string is being displayed *}
 {assign var="showingLogo" value=true}
-{if $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+{if !$displayPageHeaderLogo}
 	{assign var="showingLogo" value=false}
 {/if}
 
@@ -28,17 +28,13 @@
 
 {* Determine whether to show a logo of site title *}
 {capture assign="brand"}{strip}
-	{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
+	{if $displayPageHeaderLogo}
 		<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
 		     {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
 		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}
 				 class="img-fluid">
-	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
+	{elseif $displayPageHeaderTitle}
 		<span class="navbar-logo-text">{$displayPageHeaderTitle|escape}</span>
-	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
-		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}"
-		     alt="{$displayPageHeaderTitle.altText|escape}"
-				 class="img-fluid">
 	{else}
 		<img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}" class="img-fluid">
 	{/if}
