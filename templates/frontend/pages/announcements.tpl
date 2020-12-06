@@ -22,7 +22,7 @@
 		<div class="col-md-8">
 			<div class="page-content">
 		        {$announcementsIntroduction|strip_unsafe_html}
-		        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="announcements" sectionTitleKey="announcement.announcements"}
+		        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="announcements" anchor="announcements" sectionTitleKey="announcement.announcements"}
 		        {foreach from=$announcements item=announcement}
 		                {include file="frontend/objects/announcement_summary.tpl"}
 		        {/foreach}

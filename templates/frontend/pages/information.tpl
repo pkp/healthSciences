@@ -23,7 +23,7 @@
 			<div class="page-content">
 				{$content}
 				<p>
-					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="information" sectionTitleKey="manager.website.information"}
+					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/information" sectionTitleKey="manager.website.information"}
 				</p>
 			</div>
 		</div>
