@@ -58,7 +58,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			);
 			$this->addStyle(
 				'bootstrap',
-				'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css',
+				'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
 				array('baseUrl' => '')
 			);
 			$this->addStyle(
@@ -73,12 +73,12 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			);
 			$this->addScript(
 				'popper',
-				'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js',
+				'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',
 				array('baseUrl' => '')
 			);
 			$this->addScript(
 				'bootstrap',
-				'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js',
+				'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js',
 				array('baseUrl' => '')
 			);
 
