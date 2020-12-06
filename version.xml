@@ -23,10 +23,10 @@
 	    Valid: 1.0.2.3, 0.1.4.0
 		Invalid: 1.0, v1.0.4, 1.0.0.0b
 	-->
-	<release>1.0.7.0</release>
+	<release>1.1.0.0</release>
 
 	<!-- The date of the latest version -->
-	<date>2020-06-19</date>
+	<date>2020-12-06</date>
 
 	<!-- This should always be 1 -->
 	<lazy-load>1</lazy-load>
