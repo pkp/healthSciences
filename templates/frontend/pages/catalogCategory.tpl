@@ -52,19 +52,19 @@
 
 	<div class="row{if !$description || !$image} justify-content-center{/if}">
 		<div class="col-12 col-lg-9">
-			{if !$subcategories->wasEmpty()}
+			{if $subcategories|@count}
 				<nav class="category-subcategories" role="navigation">
 					<h2 class="category-title">
 						{translate key="catalog.category.subcategories"}
 					</h2>
 					<ul class="category-subcategories-list">
-						{iterate from=subcategories item=subcategory}
+						{foreach from=$subcategories item=subcategory}
 							<li>
 								<a href="{url op="category" path=$subcategory->getPath()}">
 									{$subcategory->getLocalizedTitle()|escape}
 								</a>
 							</li>
-						{/iterate}
+						{/foreach}
 					</ul>
 				</nav>
 			{/if}

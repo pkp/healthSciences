@@ -22,11 +22,11 @@
 			</div>
 			<div class="site-journals">
 				<h2 class="sr-only">{translate key="journal.journals"}</h2>
-				{if $journals->wasEmpty()}
+				{if !$journals|@count}
 					<p>{translate key="site.noJournals"}</p>
 				{else}
 					<div class="site-journals-list">
-						{iterate from=journals item=journal}
+						{foreach from=$journals item=journal}
 							{capture assign="url"}{url journal=$journal->getPath()}{/capture}
 							{assign var="thumb" value=$journal->getLocalizedSetting('journalThumbnail')}
 							{assign var="description" value=$journal->getLocalizedDescription()}
@@ -53,7 +53,7 @@
 									</p>
 								</div>
 							</div>
-						{/iterate}
+						{/foreach}
 					</div>
 				{/if}
 			</div>
