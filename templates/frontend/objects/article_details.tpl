@@ -278,6 +278,19 @@
 					</div>
 				{/if}
 
+				{if $categories}
+					<div class="article-details-block article-details-categories">
+						<h2 class="article-details-heading">
+							{translate key="category.category"}
+						</h2>
+						<ul class="article-details-categories-value">
+							{foreach from=$categories item=category}
+								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|escape}</a></li>
+							{/foreach}
+						</ul>
+					</div>
+				{/if}
+
 				{* How to cite *}
 				{if $citation}
 					<div class="article-details-block article-details-how-to-cite">
