@@ -128,7 +128,12 @@
 								{$author->getFullName()|escape}
 							</div>
 							{if $author->getLocalizedAffiliation()}
-								<div class="article-details-author-affiliation">{$author->getLocalizedAffiliation()|escape}</div>
+								<div class="article-details-author-affiliation">
+									{$author->getLocalizedAffiliation()|escape}
+									{if $author->getData('rorId')}
+										<a class="rorImage" href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
+									{/if}
+								</div>
 							{/if}
 							{if $author->getOrcid()}
 								<div class="article-details-author-orcid">
