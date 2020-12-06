@@ -105,7 +105,13 @@
 								<span>{$authorString->getFullName()|escape}</span>
 								{/if}
 								{if $authorString->getOrcid()}
-									<a class="orcidImage" href="{$authorString->getOrcid()|escape}"><img src="{$baseUrl}/{$orcidImage}"></a>
+									<a class="orcidImage" href="{$authorString->getOrcid()|escape}">
+										{if $orcidIcon}
+											{$orcidIcon}
+										{else}
+											<img src="{$baseUrl}/{$orcidImage}">
+										{/if}
+									</a>
 								{/if}
 							</li>
 						{/strip}
