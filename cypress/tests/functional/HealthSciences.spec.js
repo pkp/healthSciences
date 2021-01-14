@@ -151,7 +151,8 @@ describe('Theme plugin tests', function() {
 		cy.get('input[name="authors"]').type('Vajiheh Karbasizaed', {delay: 0});
 		cy.get('button[type="submit"]').contains('Search').click();
 		cy.get('.search-results').children().should('have.length', 2);
-		cy.get('.article-summary-title').first().click();
+		cy.get('.article-summary-title a').first().click();
+		cy.wait(200);
 		cy.url().should('include', 'article/view/1');
 	});
 
