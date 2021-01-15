@@ -1,0 +1,34 @@
+# @file
+# .travis.yml - PKP Plugins Integration
+
+language: php
+
+addons:
+  apt:
+    update: true
+
+sudo: required
+
+php:
+  - 7.3
+  - 7.4
+env:
+  - APPLICATION=ojs BRANCH=master TEST=mysql
+  - APPLICATION=ojs BRANCH=master TEST=pgsql
+
+install:
+  # Prepare OJS environment
+  - git clone -b ${BRANCH} https://github.com/pkp/${APPLICATION} ~/${APPLICATION}
+  - cd ~/${APPLICATION}
+  - git submodule update --init --recursive
+  - source lib/pkp/tools/travis/prepare-tests.sh
+  - lib/pkp/tools/travis/prepare-webserver.sh
+  # Build/install dependencies
+  - lib/pkp/tools/travis/install-composer-dependencies.sh
+  - npm i g -npm && npm install && npm run build
+  - ln -s ${TRAVIS_BUILD_DIR} ~/${APPLICATION}/plugins/themes/healthSciences
+  # Install OJS & prep data environment
+  - $(npm bin)/cypress run --spec "cypress/tests/data/*.spec.js,cypress/tests/data/60-content/VkarbasizaedSubmission.spec.js"
+
+script:
+  - $(npm bin)/cypress run --config integrationFolder=plugins/themes/healthSciences/cypress/tests/functional
