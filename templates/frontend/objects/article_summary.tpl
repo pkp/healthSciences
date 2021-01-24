@@ -63,7 +63,7 @@
 			{if $pubId}
 				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 				<div class="article-summary-doi">
-					<a href="{$doiUrl}">{$doiUr}</a>
+					<a href="{$doiUrl}">{$doiUrl}</a>
 				</div>
 			{/if}
 		{/foreach}
