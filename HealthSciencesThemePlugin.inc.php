@@ -49,55 +49,19 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			';
 		}
 
-		// Load dependencies from CDN
-		if (Config::getVar('general', 'enable_cdn')) {
-			$this->addStyle(
-				'fonts',
-				'https://fonts.googleapis.com/css?family=Droid+Serif:200,200i,400,400i|Fira+Sans:300,300i,400,400i,700,700i',
-				array('baseUrl' => '')
-			);
-			$this->addStyle(
-				'bootstrap',
-				'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',
-				array('baseUrl' => '')
-			);
-			$this->addStyle(
-				'fontawesome',
-				'https://use.fontawesome.com/releases/v5.6.1/css/all.css',
-				array('baseUrl' => '')
-			);
-			$this->addScript(
-				'jquery',
-				'https://code.jquery.com/jquery-3.5.1.min.js',
-				array('baseUrl' => '')
-			);
-			$this->addScript(
-				'popper',
-				'https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js',
-				array('baseUrl' => '')
-			);
-			$this->addScript(
-				'bootstrap',
-				'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js',
-				array('baseUrl' => '')
-			);
-
-		// Load local copies of dependencies if CDNs are not allowed
-		} else {
-			$this->addStyle('bootstrap', 'libs/bootstrap.min.css');
-			$this->addScript('jquery', 'libs/jquery.min.js');
-			$this->addScript('popper', 'libs/popper.min.js');
-			$this->addScript('bootstrap', 'libs/bootstrap.min.js');
-		}
+		$this->addStyle('bootstrap', 'libs/bootstrap.min.css');
+		$this->addScript('jquery', 'libs/jquery.min.js');
+		$this->addScript('popper', 'libs/popper.min.js');
+		$this->addScript('bootstrap', 'libs/bootstrap.min.js');
 
 		// Load theme stylesheet and script
 		$this->addStyle('stylesheet', 'styles/index.less');
-		$this->modifyStyle('stylesheet', array('addLessVariables' => join($additionalLessVariables)));
+		$this->modifyStyle('stylesheet', array('addLessVariables' => join("\n", $additionalLessVariables)));
 		$this->addScript('main', 'js/main.js');
 
 		// Styles for HTML galleys
+		$this->addStyle('htmlFont', 'styles/htmlGalley.less', array('contexts' => 'htmlGalley'));
 		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
-                $this->addStyle('htmlFont', 'https://fonts.googleapis.com/css?family=PT+Serif&display=swap', array('baseUrl' => '', 'contexts' => 'htmlGalley'));
 
 		// Styles for right to left scripts
 		$locale = AppLocale::getLocale();
