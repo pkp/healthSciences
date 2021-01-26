@@ -93,6 +93,9 @@ Suggestions for improving this guide can be made to support@publicknowledgeproje
 ## License
 This theme is released under the GPL license.
 
+The PT Serif and Fira Sans fonts are distributed under the terms of the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+
+
 ## Changelog
 **healthSciences v1.1.0.0** (2020-12-06)
 * Add: Compatibility with OJS 3.3.0, see [changelog](https://github.com/pkp/pkp-lib/issues/6400)
