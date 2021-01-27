@@ -87,8 +87,8 @@ describe('Theme plugin tests', function() {
 		cy.get('#masthead [role="status"]').contains('Saved');
 
 		// Check if applied
-		cy.get('header a').contains('Journal of Public Knowledge').click();
-		cy.get('.btn-primary').first().should('have.css', 'background-color', 'rgb(170, 170, 170)');
+		cy.visit(path + '/issue/view/1');
+		cy.get('.btn-primary').contains('PDF').should('have.css', 'background-color', 'rgb(170, 170, 170)');
 	});
 
 	it('Checks category pages & publication versioning', function() {
