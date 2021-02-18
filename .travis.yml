@@ -13,8 +13,8 @@ php:
   - 7.3
   - 7.4
 env:
-  - APPLICATION=ojs BRANCH=master TEST=mysql
-  - APPLICATION=ojs BRANCH=master TEST=pgsql
+  - APPLICATION=ojs BRANCH=main TEST=mysql
+  - APPLICATION=ojs BRANCH=main TEST=pgsql
 
 install:
   # Prepare OJS environment
