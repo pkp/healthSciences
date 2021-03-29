@@ -37,7 +37,7 @@
 				</span>
 			</label>
 			<input type="text" class="form-control" name="username" id="{$usernameId}" value="{$username|escape}"
-			       maxlength="32" required>
+			       maxlength="32" autocomplete="username" required>
 		</div>
 		<div class="form-group form-group-password">
 			<label for="{$passwordId}">
@@ -48,7 +48,7 @@
 				</span>
 			</label>
 			<input type="password" class="form-control" name="password" id="{$passwordId}" value="{$password|escape}"
-			       maxlength="32" required>
+			       maxlength="32" autocomplete="current-password" required>
 		</div>
 		<div class="row">
 			<div class="col-md-6">

@@ -46,7 +46,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="text" name="affiliation" id="affiliation" value="{$affiliation|escape}" required>
+				<input class="form-control" type="text" name="affiliation" id="affiliation" autocomplete="organization" value="{$affiliation|escape}" required>
 			</div>
 			<div class="form-group">
 				<label for="country">
@@ -56,7 +56,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<select class="form-control" name="country" id="country" required>
+				<select class="form-control" name="country" id="country" autocomplete="country-name" required>
 					<option></option>
 					{html_options options=$countries selected=$country}
 				</select>
@@ -96,7 +96,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="password" name="password" id="password" password="true" maxlength="32" required>
+				<input class="form-control" type="password" name="password" id="password" password="true" maxlength="32" autocomplete="new-password" required>
 			</div>
 			<div class="form-group">
 				<label for="password2">
@@ -106,7 +106,7 @@
 						{translate key="common.required"}
 					</span>
 				</label>
-				<input class="form-control" type="password" name="password2" id="password2" password="true" maxlength="32" required>
+				<input class="form-control" type="password" name="password2" id="password2" password="true" maxlength="32" autocomplete="new-password" required>
 			</div>
 		</fieldset>
 	</div>
