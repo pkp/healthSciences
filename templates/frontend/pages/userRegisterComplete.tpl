@@ -22,7 +22,7 @@
 					{translate key="user.login.registrationComplete.instructions"}
 				</p>
 				<ul class="registration-complete-actions">
-					{if array_intersect(array(ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR, ROLE_ID_ASSISTANT, ROLE_ID_REVIEWER), (array)$userRoles)}
+					{if array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR, \PKP\security\Role::ROLE_ID_ASSISTANT, \PKP\security\Role::ROLE_ID_REVIEWER), (array)$userRoles)}
 						<li>
 							<a href="{url page="submissions"}">
 								{translate key="user.login.registrationComplete.manageSubmissions"}
@@ -37,7 +37,7 @@
 						</li>
 					{/if}
 					<li>
-						<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="profile"}">
+						<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}">
 							{translate key="user.editMyProfile"}
 						</a>
 					</li>

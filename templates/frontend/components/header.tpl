@@ -16,9 +16,9 @@
 
 {capture assign="homeUrl"}
 	{if $currentJournal && $multipleContexts}
-		{url page="index" router=$smarty.const.ROUTE_PAGE}
+		{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
 	{else}
-		{url context="index" router=$smarty.const.ROUTE_PAGE}
+		{url context="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
 	{/if}
 {/capture}
 
@@ -38,7 +38,7 @@
 		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}
 				 class="img-fluid">
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_string($displayPageHeaderTitle)}
-		<span class="navbar-logo-text">{$displayPageHeaderTitle}</span>
+		<span class="navbar-logo-text">{$displayPageHeaderTitle|escape}</span>
 	{elseif $displayPageHeaderTitle && !$displayPageHeaderLogo && is_array($displayPageHeaderTitle)}
 		<img src="{$publicFilesDir}/{$displayPageHeaderTitle.uploadName|escape:"url"}"
 		     alt="{$displayPageHeaderTitle.altText|escape}"

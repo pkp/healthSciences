@@ -13,7 +13,9 @@
  * @brief Health Sciences theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
+use PKP\submission\SubmissionFile;
+use PKP\plugins\ThemePlugin;
+
 class HealthSciencesThemePlugin extends ThemePlugin {
 
 	/**
@@ -187,7 +189,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		// Retun false if not a galley page
 		if ($template != 'plugins/plugins/generic/htmlArticleGalley/generic/htmlArticleGalley:display.tpl') return false;
 
-		$articleArrays = $templateMgr->get_template_vars('article');
+		$articleArrays = $templateMgr->getTemplateVars('article');
 
 		$boolEmbeddedCss = false;
 
@@ -196,10 +198,9 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 				$submissionFile = $galley->getFile();
 
 				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
-				import('lib.pkp.classes.submission.SubmissionFile'); // Constants
 				$embeddableFiles = array_merge(
-					$submissionFileDao->getLatestRevisions($submissionFile->getSubmissionId(), SUBMISSION_FILE_PROOF),
-					$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId(), $submissionFile->getSubmissionId(), SUBMISSION_FILE_DEPENDENT)
+					$submissionFileDao->getLatestRevisions($submissionFile->getSubmissionId(), SubmissionFile::SUBMISSION_FILE_PROOF),
+					$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId(), $submissionFile->getSubmissionId(), SubmissionFile::SUBMISSION_FILE_DEPENDENT)
 				);
 
 				foreach ($embeddableFiles as $embeddableFile) {

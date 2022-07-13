@@ -73,7 +73,7 @@
 							<div class="form-check context_privacy{if $isSelected} context_privacy_visible{/if}">
 								<input type="checkbox" class="form-check-input" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>
 								<label for="privacyConsent[{$contextId}]">
-									{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
+									{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
 									{translate key="user.register.form.privacyConsentThisContext" privacyUrl=$privacyUrl}
 								</label>
 							</div>
@@ -93,7 +93,7 @@
 		<div class="fields">
 			<div class="reviewer_nocontext_interests">
 				{* See comment for .tag-it above *}
-				<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
+				<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=\PKP\core\PKPApplication::ROUTE_PAGE page='user' op='getInterests'}">
 					{foreach from=$interests item=interest}
 						<li>{$interest|escape}</li>
 					{/foreach}
@@ -107,8 +107,8 @@
 		<div class="fields">
 			<div class="optin optin-privacy">
 				<label>
-					<input type="checkbox" name="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" id="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[$smarty.const.CONTEXT_ID_NONE]} checked="checked"{/if}>
-					{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+					<input type="checkbox" name="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" id="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[\PKP\core\PKPApplication::CONTEXT_ID_NONE]} checked="checked"{/if}>
+					{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 					{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 				</label>
 			</div>

@@ -42,8 +42,8 @@
 			{/if}
 			{if $image}
 				<div class="col-lg-3">
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}">
-						<img class="img-fluid page-category-cover" src="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}" alt="{$category->getLocalizedTitle()|escape}" />
+					<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}">
+						<img class="img-fluid page-category-cover" src="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}" alt="{$category->getLocalizedTitle()|escape}" />
 					</a>
 				</div>
 			{/if}
@@ -52,19 +52,19 @@
 
 	<div class="row{if !$description || !$image} justify-content-center{/if}">
 		<div class="col-12 col-lg-9">
-			{if !$subcategories->wasEmpty()}
+			{if $subcategories|@count}
 				<nav class="category-subcategories" role="navigation">
 					<h2 class="category-title">
 						{translate key="catalog.category.subcategories"}
 					</h2>
 					<ul class="category-subcategories-list">
-						{iterate from=subcategories item=subcategory}
+						{foreach from=$subcategories item=subcategory}
 							<li>
 								<a href="{url op="category" path=$subcategory->getPath()}">
 									{$subcategory->getLocalizedTitle()|escape}
 								</a>
 							</li>
-						{/iterate}
+						{/foreach}
 					</ul>
 				</nav>
 			{/if}
@@ -85,12 +85,12 @@
 
 				{* Pagination *}
 				{if $prevPage > 1}
-					{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$prevPage}{/capture}
+					{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$prevPage}{/capture}
 				{elseif $prevPage === 1}
-					{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()}{/capture}
+					{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()}{/capture}
 				{/if}
 				{if $nextPage}
-					{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$nextPage}{/capture}
+					{capture assign=nextUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$nextPage}{/capture}
 				{/if}
 				{include
 					file="frontend/components/pagination.tpl"

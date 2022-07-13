@@ -16,7 +16,7 @@
  *}
 {assign var=articlePath value=$article->getBestId()}
 
-{if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -25,7 +25,7 @@
 	{if $showAuthor && $article->getPages()}
 		<div class="row">
 			<div class="col">
-				<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
+				<div class="article-summary-authors">{$article->getCurrentPublication()->getAuthorString()|escape}</div>
 			</div>
 			<div class="col-3 col-md-2 col-lg-2">
 				<div class="article-summary-pages text-right">
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	{elseif $showAuthor}
-		<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
+		<div class="article-summary-authors">{$article->getCurrentPublication()->getAuthorString()|escape}</div>
 	{elseif $article->getPages()}
 		<div class="article-summary-pages">
 			{$article->getPages()|escape}
@@ -87,7 +87,7 @@
 					{/if}
 				{/if}
 				{assign var="hasArticleAccess" value=$hasAccess}
-				{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $article->getCurrentPublication()->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
+				{if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $article->getCurrentPublication()->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
 					{assign var="hasArticleAccess" value=1}
 				{/if}
 				{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}

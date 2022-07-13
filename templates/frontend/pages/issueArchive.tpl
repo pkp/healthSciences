@@ -57,14 +57,14 @@
 		{* Pagination *}
 		{capture assign="prevUrl"}
 			{if $prevPage > 1}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}
+				{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$prevPage}
 			{elseif $prevPage === 1}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}
+				{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}
 			{/if}
 		{/capture}
 		{capture assign="nextUrl"}
 			{if $nextPage}
-				{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}
+				{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$nextPage}
 			{/if}
 		{/capture}
 		{include

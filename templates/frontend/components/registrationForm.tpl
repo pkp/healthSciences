@@ -121,7 +121,7 @@
 						<div class="optin optin-privacy">
 							<label>
 								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
-								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+								{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
 						</div>
@@ -174,7 +174,7 @@
 						<div class="label">
 							{translate key="user.interests"}
 						</div>
-						<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
+						<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=\PKP\core\PKPApplication::ROUTE_PAGE page='user' op='getInterests'}">
 							{foreach from=$interests item=interest}
 								<li>{$interest|escape}</li>
 							{/foreach}
