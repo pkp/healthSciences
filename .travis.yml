@@ -1,17 +1,20 @@
 # @file
 # .travis.yml - PKP Plugins Integration
 
+dist: bionic
+os: linux
 language: php
 
 addons:
+  postgresql: "9.5"
   apt:
     update: true
 
 sudo: required
 
 php:
-  - 7.3
-  - 7.4
+  - 8.0
+  - 8.1.0
 env:
   - APPLICATION=ojs BRANCH=main TEST=mysql
   - APPLICATION=ojs BRANCH=main TEST=pgsql
@@ -32,3 +35,8 @@ install:
 
 script:
   - $(npm bin)/cypress run --config integrationFolder=plugins/themes/healthSciences/cypress/tests/functional
+
+after_failure:
+  - cat error.log
+  - sudo apt-get install sharutils
+  - tar cz cypress/screenshots | uuencode /dev/stdout
