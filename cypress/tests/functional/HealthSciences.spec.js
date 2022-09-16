@@ -67,7 +67,6 @@ describe('Theme plugin tests', function() {
 		cy.visit(path + '/information/readers');
 		cy.visit(path + '/information/authors');
 		cy.visit(path + '/information/librarians');
-		cy.visit(path + '/search/authors');
 	});
 
 	it('Checks theme options', function() {

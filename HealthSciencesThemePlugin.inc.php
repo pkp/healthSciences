@@ -13,7 +13,10 @@
  * @brief Health Sciences theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
+use PKP\plugins\ThemePlugin;
+use PKP\facades\Locale;
+use PKP\core\PKPString;
+
 class HealthSciencesThemePlugin extends ThemePlugin {
 
 	/**
@@ -64,9 +67,8 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
 
 		// Styles for right to left scripts
-		$locale = AppLocale::getLocale();
-		$localeDirection = AppLocale::getLocaleDirection($locale);
-		if ($localeDirection === "rtl") {
+		$locale = Locale::getLocale();
+		if (Locale::getMetadata($locale)->isRightToLeft()) {
 			$this->addStyle('rtl', 'styles/rtl.less');
 		}
 
@@ -78,7 +80,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		$this->addMenuArea(array('primary', 'user'));
 
 		// Get extra data for templates
-		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
+		HookRegistry::add('TemplateManager::display', array($this, 'loadTemplateData'));
 	}
 
 	/**
