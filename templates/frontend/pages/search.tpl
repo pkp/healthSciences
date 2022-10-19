@@ -59,6 +59,7 @@
 				<h2>{translate key="plugins.themes.healthSciences.search.params"}</h2>
 
 				{capture name="searchFormUrl"}{url escape=false}{/capture}
+				{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
 				{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
 				<form class="form-search" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
 					{foreach from=$formUrlParameters key=paramKey item=paramValue}
