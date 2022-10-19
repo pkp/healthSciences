@@ -33,16 +33,24 @@
 		{/if}
 		<div class="col-lg-8">
 			<div class="page-content">
-				{if !$articles|@count}
+				{if !$articleGroups|@count}
 					<div class="alert alert-danger">
 						{translate key="plugins.generic.browseBySection.emptySection"}
 					</div>
 				{else}
-					<div class="section-articles">
-						{foreach from=$articles item=article}
-							{include file="frontend/objects/article_summary.tpl" section=null showDatePublished=true hideGalleys=true}
-						{/foreach}
-					</div>
+					{foreach from=$articleGroups item=group}
+						{if $group.key}
+							<div class="cmp_article_header mb-2 mt-2" id="browse_by_section_group_{$group.key|escape}">
+								{$group.key|escape}
+							</div>
+						{/if}
+						<div class="section-articles">
+							{foreach from=$group.articles item=article}
+								{include file="frontend/objects/article_summary.tpl" section=null showDatePublished=true hideGalleys=true}
+							{/foreach}
+						</div>
+					{/foreach}
+					{* Pagination *}
 					{if $prevPage > 1}
 						{capture assign="prevUrl"}{url|escape router=$smarty.const.ROUTE_PAGE page="section" op="view" path=$sectionPath|to_array:$prevPage}{/capture}
 					{elseif $prevPage === 1}
