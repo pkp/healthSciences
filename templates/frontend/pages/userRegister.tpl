@@ -23,7 +23,7 @@
 
 				<form class="form-register" id="register" method="post" action="{url op="register"}">
 					{csrf}
-					<input type="hidden" name="source" value="{$source|escape}" />
+					<input type="hidden" name="source" value="{$source|default:""|escape}" />
 
 					{include file="common/formErrors.tpl"}
 
