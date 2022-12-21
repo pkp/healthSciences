@@ -102,7 +102,7 @@ describe('Theme plugin tests', function() {
 			cy.setTinyMceContent(node.attr('id'), categoryDescription);
 		});
 		cy.get('#categoryDetails [id^="submitFormButton"]').click();
-		cy.visit(path + '/workflow/index/1/5#publication');
+		cy.visit(path + '/workflow/index/1/5');
 		cy.get('button').contains('Publication').click();
 		cy.get('.pkpButton').contains('Create New Version').click();
 		cy.get('#modals-container .pkpButton').contains('Yes').click();
