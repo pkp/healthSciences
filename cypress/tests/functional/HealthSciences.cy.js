@@ -162,7 +162,7 @@ describe('Theme plugin tests', function() {
 		cy.visit(path + '/' + 'login/signOut');
 		cy.url().should('include', 'login');
 
-		// Register; 'cy.register()' command won't work for this theme because privacyConsent label overlays input checkbox
+		// Register; 'cy.register()' command won't work for this theme because points to the wrong Register nav link
 		cy.get('#userNav a').contains('Register').click();
 		cy.url().should('include', '/user/register');
 		cy.get('#givenName').type(user.givenName, {delay: 0});
@@ -176,7 +176,7 @@ describe('Theme plugin tests', function() {
 		cy.get('input[name="privacyConsent"]').check();
 		cy.get('.reviewer .form-check-label').click();
 		cy.get('#tagitInput input').type('psychotherapy,neuroscience,neurobiology', {delay: 0});
-		cy.get('#register button[type="submit"]').contains('Register').click(); // Cypress expects 2 clicks to submit the form
+		cy.get('#register button[type="submit"]').contains('Register').click();
 		cy.get('a').contains('View Submissions').click();
 		cy.url().should('include', 'submissions');
 	});
