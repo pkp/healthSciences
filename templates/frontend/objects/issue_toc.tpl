@@ -23,7 +23,7 @@
 		<div class="issue-toc-section">
 			{if $section.articles}
 				{if $section.title}
-					<{$sectionHeading} class="issue-toc-section-title">{$section.title|escape}</{$sectionHeading}>
+					<div class="issue-toc-section-title">{$section.title|escape}</div>
 				{/if}
 				{foreach from=$section.articles item=article}
 					{include file="frontend/objects/article_summary.tpl"}
