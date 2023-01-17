@@ -32,7 +32,7 @@
 		<span aria-hidden="true">{translate key="common.edit"}</span>
 
 		{* Screen readers need more context *}
-		<span class="sr-only">
+		<span class="visually-hidden">
 			{translate key="help.goToEditPage" sectionTitle=$sectionTitle}
 		</span>
 	</a>

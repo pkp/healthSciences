@@ -81,7 +81,7 @@ describe('Theme plugin tests', function() {
 		// Populate journal summary
 		cy.get('.app__navItem').contains('Journal').click();
 		cy.get('#masthead-button').click();
-		cy.get('#masthead-description-control-en_US').type(journalDescription);
+		cy.get('#masthead-description-control-en_US_ifr').type(journalDescription);
 		cy.get('#masthead button').contains('Save').click();
 		cy.get('#masthead [role="status"]').contains('Saved');
 
@@ -96,13 +96,22 @@ describe('Theme plugin tests', function() {
 		cy.get('button').contains('Categories').click();
 		cy.get('#categoriesContainer a').contains('Add Category').click();
 		cy.waitJQuery();
-		cy.get('input[name="name[en_US]"]').type('First category', {delay: 0});
-		cy.get('input[name="path"]').type('first-category', {delay: 0});
-		cy.get('textarea[name="description[en_US]"]').then(node => {
-			cy.setTinyMceContent(node.attr('id'), categoryDescription);
+		cy.get('#categoryDetails').within(() => {
+			cy.get('input[name="name[en_US]"]').click().type('First category', {delay: 0});
+			cy.get('input[name="path"]').type('first-category', {delay: 0});
+			cy.get('textarea[name="description[en_US]"]').then(node => {
+				cy.setTinyMceContent(node.attr('id'), categoryDescription);
+			});
+			cy.get('button').contains('OK').click();
 		});
-		cy.get('#categoryDetails [id^="submitFormButton"]').click();
-		cy.visit(path + '/workflow/index/1/5');
+		cy.waitJQuery();
+		cy.get('nav a').contains('Submissions').click();
+		cy.get('button').contains('Archived').click();
+		cy.get('.listPanel__item').first().within(() => {
+			cy.get('.listPanel__item--submission__id').contains('1');
+			cy.get('a span').contains('View').click();
+		});
+		cy.waitJQuery();
 		cy.get('button').contains('Publication').click();
 		cy.get('.pkpButton').contains('Create New Version').click();
 		cy.get('#modals-container .pkpButton').contains('Yes').click();
@@ -175,7 +184,7 @@ describe('Theme plugin tests', function() {
 		cy.get('#password2').type(user.username + user.username, {delay: 0});
 		cy.get('input[name="privacyConsent"]').check();
 		cy.get('.reviewer .form-check-label').click();
-		cy.get('#tagitInput input').type('psychotherapy,neuroscience,neurobiology', {delay: 0});
+		cy.get('#reviewerInterests input').type('psychotherapy,neuroscience,neurobiology', {delay: 0});
 		cy.get('#register button[type="submit"]').contains('Register').click();
 		cy.get('a').contains('View Submissions').click();
 		cy.url().should('include', 'submissions');

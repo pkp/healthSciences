@@ -19,3 +19,16 @@ legend {
 	border-radius: 0;
 	-webkit-appearance: none;
 }
+
+.form-check-input:checked {
+	background-color: @primary;
+	border-color: @primary-link;
+
+	&[type="checkbox"] {
+		background-image: @check-image-url;
+	}
+}
+
+.form-check {
+	line-height: 1.5rem;
+}

@@ -32,7 +32,7 @@
 			<label for="{$usernameId}">
 				{translate key="user.username"}
 				<span class="required" aria-hidden="true">*</span>
-				<span class="sr-only">
+				<span class="visually-hidden">
 					{translate key="common.required"}
 				</span>
 			</label>
@@ -43,7 +43,7 @@
 			<label for="{$passwordId}">
 				{translate key="user.password"}
 				<span class="required" aria-hidden="true">*</span>
-				<span class="sr-only">
+				<span class="visually-hidden">
 					{translate key="common.required"}
 				</span>
 			</label>

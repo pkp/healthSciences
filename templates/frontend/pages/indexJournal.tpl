@@ -93,7 +93,7 @@
 	{* display announcements before full issue *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
 	<section class="row homepage-announcements">
-		<h2 class="sr-only">{translate key="announcement.announcementsHome"}</h2>
+		<h2 class="visually-hidden">{translate key="announcement.announcementsHome"}</h2>
 		{foreach from=$announcements item=announcement}
 			<article class="col-md-4 homepage-announcement">
 				<h3 class="homepage-announcement-title">{$announcement->getLocalizedTitle()|escape}</h3>

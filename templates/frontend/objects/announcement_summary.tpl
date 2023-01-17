@@ -30,7 +30,7 @@
 				<span aria-hidden="true" role="presentation">{translate key="common.readMore"}</span>
 
 				{* Screen readers need more context *}
-				<span class="sr-only">
+				<span class="visually-hidden">
 					{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
 				</span>
 			</a>

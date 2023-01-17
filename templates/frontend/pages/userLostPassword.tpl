@@ -33,7 +33,7 @@
 								<label for="email">
 									{translate key="user.login.registeredEmail"}
 									<span class="required" aria-hidden="true">*</span>
-									<span class="sr-only">{translate key="common.required"}</span>
+									<span class="visually-hidden">{translate key="common.required"}</span>
 								</label>
 								<input type="email" class="form-control" name="email" id="email" value="{$email|escape}" required>
 							</div>
