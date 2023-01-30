@@ -1,12 +1,47 @@
-const {src, dest, task} = require('gulp');
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const minifyCSS = require('gulp-csso');
+const sourcemaps = require('gulp-sourcemaps');
+const minify = require('gulp-minify');
 
-task('copy-dependencies', function () {
-	return src([
-		'node_modules/bootstrap/dist/css/bootstrap.min.css',
-		'node_modules/jquery/dist/jquery.min.js',
-		'node_modules/jquery-ui-dist/jquery-ui.min.js',
-		'node_modules/popper.js/dist/umd/popper.min.js',
-		'node_modules/bootstrap/dist/js/bootstrap.min.js'
+gulp.task('sass', function() {
+	return gulp
+		.src(['node_modules/bootstrap/scss/bootstrap.scss'])
+		.pipe(sass())
+		.pipe(concat('app.min.css'))
+		.pipe(minifyCSS())
+		.pipe(gulp.dest('libs'));
+});
+
+gulp.task('scripts', function() {
+	return gulp
+		.src([
+			'node_modules/@popperjs/core/dist/umd/popper.js',
+			'node_modules/bootstrap/dist/js/bootstrap.js',
+			'js/main.js'
 		])
-		.pipe(dest('libs'));
+		.pipe(sourcemaps.init())
+		.pipe(concat('app.js'))
+		.pipe(sourcemaps.write())
+		.pipe(gulp.dest('libs'));
+});
+
+gulp.task('compress', function() {
+	return gulp
+		.src('libs/app.js')
+		.pipe(
+			minify({
+				ext: {
+					min: '.min.js'
+				}
+			})
+		)
+		.pipe(gulp.dest('libs'));
+});
+
+gulp.task('build', gulp.series('sass', 'scripts', 'compress'));
+
+gulp.task('watch', function() {
+	return gulp.watch('js/*.js', gulp.series('scripts', 'compress'));
 });

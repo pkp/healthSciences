@@ -16,7 +16,7 @@
 		<div class="pdf-return-article">
 			<a href="{$parentUrl}" class="btn btn-text">
 				←
-				<span class="sr-only">
+				<span class="visually-hidden">
 					{if $parent instanceOf Issue}
 						{translate key="issue.return"}
 					{else}

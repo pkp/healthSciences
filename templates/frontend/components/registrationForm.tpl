@@ -26,7 +26,7 @@
 				<label for="givenName">
 					{translate key="user.givenName"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -42,7 +42,7 @@
 				<label for="affiliation">
 					{translate key="user.affiliation"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -52,7 +52,7 @@
 				<label for="country">
 					{translate key="common.country"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -72,7 +72,7 @@
 				<label for="email">
 					{translate key="user.email"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -82,7 +82,7 @@
 				<label for="username">
 					{translate key="user.username"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -92,7 +92,7 @@
 				<label for="password">
 					{translate key="user.password"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -102,7 +102,7 @@
 				<label for="password2">
 					{translate key="user.repeatPassword"}
 					<span class="required" aria-hidden="true">*</span>
-					<span class="sr-only">
+					<span class="visually-hidden">
 						{translate key="common.required"}
 					</span>
 				</label>
@@ -118,9 +118,9 @@
 				{if $currentContext->getSetting('privacyStatement')}
 					{* Require the user to agree to the terms of the privacy policy *}
 					<div class="fields">
-						<div class="optin optin-privacy">
-							<label>
-								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+						<div class="optin optin-privacy form-check">
+							<input type="checkbox" class="form-check-input" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+							<label for="privacyConsent" class="form-check-label">
 								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
@@ -129,9 +129,9 @@
 				{/if}
 				{* Ask the user to opt into public email notifications *}
 				<div class="fields">
-					<div class="optin optin-email">
-						<label>
-							<input type="checkbox" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+					<div class="optin optin-email form-check">
+						<input type="checkbox" class="form-check-input" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+						<label for="emailConsent" class="form-check-label">
 							{translate key="user.register.form.emailConsent"}
 						</label>
 					</div>
@@ -174,11 +174,7 @@
 						<div class="label">
 							{translate key="user.interests"}
 						</div>
-						<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
-							{foreach from=$interests item=interest}
-								<li>{$interest|escape}</li>
-							{/foreach}
-						</ul>
+						<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 					</div>
 				</fieldset>
 			{/if}

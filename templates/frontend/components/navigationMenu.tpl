@@ -28,7 +28,7 @@
 					class="nav-link{if $hasChildren} dropdown-toggle{/if}"
 					{if $hasChildren}
 						id="{'navMenuDropdown'|concat:$field}"
-						data-toggle="dropdown"
+						data-bs-toggle="dropdown"
 						aria-haspopup="true"
 						aria-expanded="false"
 					{/if}

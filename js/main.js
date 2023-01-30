@@ -1,95 +1,70 @@
 /**
  * @file /js/main.js
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2017 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Handle JavaScript functionality unique to this theme.
  */
-(function($) {
+(function () {
 
 	// Open login modal when nav menu links clicked
-	$('.nmi_type_user_login').click(function() {
-		$('#loginModal').modal();
-		return false;
-	})
-})(jQuery);
-
-(function ($) {
-
-	// Show author affiliation under authors list (for large screen only)
-	var authorString = $('.author-string-href');
-	$(authorString).click(function(event) {
-		event.preventDefault();
-		var elementId = $(this).attr('href').replace('#', '');
-		$('.article-details-author').each(function () {
-
-			// Show only targeted author's affiliation on click
-			if ($(this).attr('id') === elementId && $(this).hasClass('hideAuthor')) {
-				$(this).removeClass('hideAuthor');
-			} else {
-				$(this).addClass('hideAuthor');
-			}
-		});
-		// Add specifiers to the clicked author's link
-		$(authorString).each(function () {
-			if ($(this).attr('href') === ('#' + elementId) && !$(this).hasClass('active')){
-				$(this).addClass('active');
-				$(this).children('.author-plus').addClass('hide');
-				$(this).children('.author-minus').removeClass('hide');
-			} else if ($(this).attr('href') !== ('#' + elementId) || $(this).hasClass('active')) {
-				$(this).removeClass('active');
-				$(this).children('.author-plus').removeClass('hide');
-				$(this).children('.author-minus').addClass('hide');
-			}
-		});
-	})
-})(jQuery);
-
-
-// initiating tag-it
-$(document).ready(function() {
-	$('#tagitInput').each(function() {
-		var autocomplete_url = $(this).data('autocomplete-url');
-		$(this).tagit({
-			fieldName: $(this).data('field-name'),
-			allowSpaces: false,
-			autocomplete: {
-				source: function(request, response) {
-					$.ajax({
-						url: autocomplete_url,
-						data: {term: request.term},
-						dataType: 'json',
-						success: function(jsonData) {
-							if (jsonData.status == true) {
-								response(jsonData.content);
-							}
-						}
-					});
-				},
-			},
+	document.querySelectorAll('.nmi_type_user_login').forEach((userLogin) => {
+		userLogin.addEventListener('click', function (event) {
+			event.preventDefault();
+			const loginModal = new bootstrap.Modal('#loginModal');
+			loginModal.show();
 		});
 	});
-});
+})();
 
 (function () {
-	/**
-	 * Determine if the user has opted to register as a reviewer
-	 *
-	 * @see: /templates/frontend/pages/userRegister.tpl
-	 */
-	function isReviewerSelected() {
-		var group = $('#reviewerOptinGroup').find('input');
-		var is_checked = false;
-		group.each(function() {
-			if ($(this).is(':checked')) {
-				is_checked = true;
-				return false;
-			}
-		});
+	const pageArticle = document.querySelector('.page-article');
+	if (!pageArticle) {
+		return;
+	}
 
-		return is_checked;
+	// Show author affiliation under authors list (for large screen only)
+	const authorLinks = document.querySelectorAll('.author-string-href');
+	authorLinks.forEach(function (authorLink) {
+		authorLink.addEventListener('click', function (event) {
+			event.preventDefault();
+			const elementId = this.getAttribute('href').replace('#', '');
+			document.querySelectorAll('.article-details-author').forEach((details) => {
+
+				// Show only targeted author's affiliation on click
+				if (details.getAttribute('id') === elementId && details.classList.contains('hideAuthor')) {
+					details.classList.remove('hideAuthor');
+				} else {
+					details.classList.add('hideAuthor');
+				}
+			});
+
+			// Add specifiers to the clicked author's link
+			authorLinks.forEach((sibling) => {
+				if (authorLink === sibling && !sibling.classList.contains('active')) {
+					sibling.classList.add('active');
+					sibling.querySelector('.author-plus').classList.add('hidden');
+					sibling.querySelector('.author-minus').classList.remove('hidden');
+				} else {
+					sibling.classList.remove('active');
+					sibling.querySelector('.author-plus').classList.remove('hidden');
+					sibling.querySelector('.author-minus').classList.add('hidden');
+				}
+			});
+		});
+	});
+})();
+
+(function() {
+	if (!document.querySelector('.page-register')) {
+		return;
+	}
+
+	const checkboxReviewerInterests = document.querySelector('#reviewerOptinGroup input[type="checkbox"]');
+	if (!checkboxReviewerInterests) {
+		return;
 	}
 
 	/**
@@ -99,60 +74,67 @@ $(document).ready(function() {
 	 * @see: /templates/frontend/pages/userRegister.tpl
 	 */
 	function reviewerInterestsToggle() {
-		var is_checked = isReviewerSelected();
-		if (is_checked) {
-			$('#reviewerInterests').removeClass('hidden');
+		if (checkboxReviewerInterests.checked) {
+			document.getElementById('reviewerInterests').classList.remove('hidden');
 		} else {
-			$('#reviewerInterests').addClass('hidden');
+			document.getElementById('reviewerInterests').classList.add('hidden');
 		}
 	}
 
 	// Update interests on page load and when the toggled is toggled
 	reviewerInterestsToggle();
-	$('#reviewerOptinGroup input').click(reviewerInterestsToggle);
+	checkboxReviewerInterests.addEventListener('click', reviewerInterestsToggle);
 })();
 
 // change article's blocks logic for small screens
 
 (function () {
 
-	var mainArticleContent = $("#mainArticleContent");
+	const mainArticleContent = document.getElementById('mainArticleContent');
+	if (!mainArticleContent) {
+		return;
+	}
 
-	if (mainArticleContent.length === 0) return false;
+	const articleDetailsWrapper = document.getElementById('articleDetailsWrapper');
+	const articleDetails = document.getElementById('articleDetails');
+	let articleDetailsChildren = articleDetails.children;
 
-	var articleDetailsWrapper = $("#articleDetailsWrapper");
-	var articleDetails = $("#articleDetails");
-	var articleDetailsChildren = articleDetails.children();
+	const articleMainWrapper = document.getElementById('articleMainWrapper');
+	const articleMain = document.getElementById('articleMain');
+	let articleMainChildren = articleMain.children;
 
-	var articleMainWrapper = $("#articleMainWrapper");
-	var articleMain = $("#articleMain");
-	var articleMainChildren = articleMain.children();
-
-	var dataForMobilesMark = "data-for-mobiles";
+	const dataForMobilesMark = "data-for-mobiles";
 
 	function reorganizeArticleBlocks() {
-		if (mainArticleContent && !mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth < 992) {
-			$("#articleDetails").unwrap();
-			$("#articleMain").unwrap();
+		if (mainArticleContent && !mainArticleContent.classList.contains(dataForMobilesMark) && window.innerWidth < 992) {
+			const detailsClone = [].concat(...articleDetailsChildren);
+			const mainClone = [].concat(...articleMainChildren);
+			const articleBlockMobile = document.createElement('div');
+			articleBlockMobile.classList.add('col-lg', 'article-blocks-mobile');
+			articleBlockMobile.append(...articleDetailsChildren, ...articleMainChildren);
 
-			articleDetailsChildren.unwrap();
-			articleMainChildren.unwrap();
+			while (mainArticleContent.lastElementChild) {
+				mainArticleContent.removeChild(mainArticleContent.lastElementChild);
+			}
+			mainArticleContent.appendChild(articleBlockMobile);
 
-			mainArticleContent.children().wrapAll("<div class='col-lg article-blocks-mobile'></div>");
+			articleDetailsChildren = detailsClone;
+			articleMainChildren = mainClone;
+			mainArticleContent.classList.add(dataForMobilesMark);
+		} else if (mainArticleContent && mainArticleContent.classList.contains(dataForMobilesMark) && window.innerWidth >= 992) {
+			while (mainArticleContent.lastElementChild) {
+				mainArticleContent.removeChild(mainArticleContent.lastElementChild);
+			}
 
-			mainArticleContent.addClass(dataForMobilesMark);
+			mainArticleContent.appendChild(articleDetailsWrapper);
+			articleDetailsWrapper.appendChild(articleDetails);
+			articleDetails.append(...articleDetailsChildren);
 
-		} else if (mainArticleContent && mainArticleContent.hasClass(dataForMobilesMark) && window.innerWidth >= 992) {
-			$('#mainArticleContent > *').children().unwrap();
+			mainArticleContent.appendChild(articleMainWrapper);
+			articleMainWrapper.appendChild(articleMain);
+			articleMain.append(...articleMainChildren);
 
-			articleDetailsChildren.wrapAll(articleDetails);
-			articleMainChildren.wrapAll(articleMain);
-
-			$("#articleDetails").wrap(articleDetailsWrapper);
-			$("#articleMain").wrap(articleMainWrapper);
-
-
-			mainArticleContent.removeClass(dataForMobilesMark);
+			mainArticleContent.classList.remove(dataForMobilesMark);
 		}
 	}
 
@@ -193,15 +175,42 @@ $(document).ready(function() {
 })();
 
 // Toggle display of consent checkboxes in site-wide registration
-var $contextOptinGroup = $('#contextOptinGroup');
-if ($contextOptinGroup.length) {
-	var $roles = $contextOptinGroup.find('.roles :checkbox');
-	$roles.change(function() {
-		var $thisRoles = $(this).closest('.roles');
-		if ($thisRoles.find(':checked').length) {
-			$thisRoles.siblings('.context_privacy').addClass('context_privacy_visible');
-		} else {
-			$thisRoles.siblings('.context_privacy').removeClass('context_privacy_visible');
-		}
+(function () {
+	const contextOptinGroup = document.getElementById('contextOptinGroup');
+	if (!contextOptinGroup) {
+		return;
+	}
+
+	const privacyVisible = 'context_privacy_visible';
+
+	contextOptinGroup.querySelectorAll(':scope .list-group-item').forEach((context) => {
+		const roleInputs = context.querySelectorAll(':scope .roles input[type=checkbox]');
+		roleInputs.forEach((roleInput) => {
+			roleInput.addEventListener('change', function () {
+				const contextPrivacy = context.querySelector('.context_privacy');
+				if (!contextPrivacy) {
+					return;
+				}
+
+				if (this.checked) {
+					if (!contextPrivacy.classList.contains(privacyVisible)) {
+						contextPrivacy.classList.add(privacyVisible);
+						return;
+					}
+				}
+
+				for (let i = 0; i < roleInputs.length; i++) {
+					const sibling = roleInputs[i];
+					if (sibling === roleInput) {
+						continue;
+					}
+					if (sibling.checked) {
+						return;
+					}
+				}
+
+				contextPrivacy.classList.remove(privacyVisible);
+			});
+		});
 	});
-}
+})();

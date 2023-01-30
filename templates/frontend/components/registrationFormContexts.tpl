@@ -92,12 +92,7 @@
 		</div>
 		<div class="fields">
 			<div class="reviewer_nocontext_interests">
-				{* See comment for .tag-it above *}
-				<ul id="tagitInput" class="interests tag-it" data-field-name="interests[]" data-autocomplete-url="{url|escape router=$smarty.const.ROUTE_PAGE page='user' op='getInterests'}">
-					{foreach from=$interests item=interest}
-						<li>{$interest|escape}</li>
-					{/foreach}
-				</ul>
+				<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 			</div>
 		</div>
 	</fieldset>

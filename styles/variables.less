@@ -19,8 +19,10 @@
 @primary-light:     #BEE;
 @primary:           #10BECA;
 @primary-text:      #0A818A;
+@primary-link:      lighten(@primary, 50%);
 @warning:           #ca1031;
-@contrast: 					#000;
+@contrast:          #000;
+@btn-border-colour: @primary-link;
 
 // Typefaces
 @font-sans:         'Fira Sans', sans-serif;
@@ -29,3 +31,6 @@
 // Font sizes
 @page-header-size:   1.5rem;
 @link-size: 1rem;
+
+// value to be added by the theme main class, corresponds Bootstrap's $form-check-input-checked-bg-image SCSS variable
+@check-image-url:    '';

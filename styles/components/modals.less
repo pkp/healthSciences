@@ -12,8 +12,10 @@
 	color: @contrast;
 
 	.close {
-		color: @contrast;
+		background-color: @contrast;
+		color: @primary;
 		text-shadow: none;
+		border: 0;
 		opacity: 1;
 	}
 
@@ -43,9 +45,13 @@
 	}
 
 	.form-control {
-	  background: transparent;
-	  border-color: @contrast;
+		background: transparent;
+		border-color: @contrast;
 		color: @contrast;
+	}
+
+	.form-check-input:checked {
+		border-color: @contrast;
 	}
 
 	@media (min-width: 992px) {

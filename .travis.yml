@@ -31,7 +31,7 @@ install:
   - npm i g -npm && npm install && npm run build
   - ln -s ${TRAVIS_BUILD_DIR} ~/${APPLICATION}/plugins/themes/healthSciences
   # Install OJS & prep data environment
-  - $(npm bin)/cypress run --spec "cypress/tests/data/*.cy.js,cypress/tests/data/60-content/VkarbasizaedSubmission.cy.js"
+  - $(npm bin)/cypress run --spec "cypress/tests/data/10-ApplicationSetup/*.cy.js,cypress/tests/data/60-content/VkarbasizaedSubmission.cy.js"
 
 script:
   - $(npm bin)/cypress run --config specPattern=plugins/themes/healthSciences/cypress/tests/functional

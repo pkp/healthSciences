@@ -3,8 +3,8 @@
 /**
  * @file plugins/themes/healthSciences/HealthSciencesThemePlugin.inc.php
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @class HealthSciencesThemePlugin
@@ -44,23 +44,35 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		}
 
 		// Update contrast colour based on primary colour
+		$checkMarkColour = '000';
 		if ($this->isColourDark($this->getOption('baseColour'))) {
+			$checkMarkColour = 'FFF';
 			$additionalLessVariables[] = '
 				@contrast: rgba(255, 255, 255, 0.85);
 				@primary-text: lighten(@primary, 15%);
 				@primary-link: lighten(@primary, 50%);
+				@btn-border-colour: @primary;
 			';
 		}
 
-		$this->addStyle('bootstrap', 'libs/bootstrap.min.css');
-		$this->addScript('jquery', 'libs/jquery.min.js');
-		$this->addScript('popper', 'libs/popper.min.js');
-		$this->addScript('bootstrap', 'libs/bootstrap.min.js');
+		/**
+		 * Change the check mark image colour for better contrast,
+		 * the URL is from bootstrap5/scss/_variables.scss => $form-check-input-checked-bg-image
+		 */
+		$checkImageUrl = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"> ' .
+			'<path fill="none" stroke="#' . $checkMarkColour .'" stroke-linecap="round" stroke-linejoin="round" ' .
+			'stroke-width="3" d="M6 10l3 3l6-6"/></svg>';
+
+		$additionalLessVariables[] = '
+			@check-image-url: url(\'' . str_replace(['<', '>', '#'], ['%3c', '%3e', '%23'], $checkImageUrl) . '\');
+		';
+
+		$this->addScript('app-js', 'libs/app.min.js');
 
 		// Load theme stylesheet and script
+		$this->addStyle('app-css', 'libs/app.min.css');
 		$this->addStyle('stylesheet', 'styles/index.less');
 		$this->modifyStyle('stylesheet', array('addLessVariables' => join("\n", $additionalLessVariables)));
-		$this->addScript('main', 'js/main.js');
 
 		// Styles for HTML galleys
 		$this->addStyle('htmlFont', 'styles/htmlGalley.less', array('contexts' => 'htmlGalley'));
@@ -71,10 +83,6 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 		if (Locale::getMetadata($locale)->isRightToLeft()) {
 			$this->addStyle('rtl', 'styles/rtl.less');
 		}
-
-		// Add JQuery UI and tag-it libraries for registration page (reviewer's interests)
-		$this->addScript("jquery-ui", "libs/jquery-ui.min.js");
-		$this->addScript("tag-it", "libs/tag-it.min.js");
 
 		// Add navigation menu areas for this theme
 		$this->addMenuArea(array('primary', 'user'));

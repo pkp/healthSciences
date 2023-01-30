@@ -99,7 +99,7 @@
 								<a class="author-string-href" href="#author-{$authorStringKey+1}">
 									<span>{$authorString->getFullName()|escape}</span>
 									<sup class="author-symbol author-plus">&plus;</sup>
-									<sup class="author-symbol author-minus hide">&minus;</sup>
+									<sup class="author-symbol author-minus hidden">&minus;</sup>
 								</a>
 								{else}
 								<span>{$authorString->getFullName()|escape}</span>
@@ -144,7 +144,7 @@
 								</div>
 							{/if}
 							{if $author->getLocalizedBiography()}
-								<button type="button" class="article-details-bio-toggle" data-toggle="modal" data-target="#authorBiographyModal{$authorKey+1}">
+								<button type="button" class="article-details-bio-toggle" data-bs-toggle="modal" data-bs-target="#authorBiographyModal{$authorKey+1}">
 									{translate key="plugins.themes.healthSciences.article.authorBio"}
 								</button>
 								{* Store author biographies to print as modals in the footer *}
@@ -163,7 +163,7 @@
 													<div class="modal-title" id="authorBiographyModalTitle{$authorKey+1}">
 														{$author->getFullName()|escape}
 													</div>
-													<button type="button" class="close" data-dismiss="modal" aria-label="{translate|escape key="common.close"}">
+													<button type="button" class="close" data-bs-dismiss="modal" aria-label="{translate|escape key="common.close"}">
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
@@ -301,7 +301,7 @@
 							{$citation}
 						</div>
 						<div class="dropdown">
-							<button class="btn dropdown-toggle" type="button" id="cslCitationFormatsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-csl-dropdown="true">
+							<button class="btn dropdown-toggle" type="button" id="cslCitationFormatsButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-csl-dropdown="true">
 								{translate key="submission.howToCite.citationFormats"}
 							</button>
 							<div class="dropdown-menu" aria-labelledby="cslCitationFormatsButton">

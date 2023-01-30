@@ -21,7 +21,7 @@
 				{/if}
 			</div>
 			<div class="site-journals">
-				<h2 class="sr-only">{translate key="journal.journals"}</h2>
+				<h2 class="visually-hidden">{translate key="journal.journals"}</h2>
 				{if !$journals|@count}
 					<p>{translate key="site.noJournals"}</p>
 				{else}
