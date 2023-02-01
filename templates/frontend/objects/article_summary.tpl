@@ -8,6 +8,7 @@
  * @brief View of an Article summary which is shown within a list of articles.
  *
  * @uses $article Article The article
+ * @uses $authorUserGroups Traversible The set of author user groups
  * @uses $hasAccess bool Can this user access galleys for this context? The
  *       context may be an issue or an article
  * @uses $showDatePublished bool Show the date this article was published?
@@ -25,7 +26,7 @@
 	{if $showAuthor && $article->getPages()}
 		<div class="row">
 			<div class="col">
-				<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
+				<div class="article-summary-authors">{$article->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}</div>
 			</div>
 			<div class="col-3 col-md-2 col-lg-2">
 				<div class="article-summary-pages text-right">
@@ -34,7 +35,7 @@
 			</div>
 		</div>
 	{elseif $showAuthor}
-		<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
+		<div class="article-summary-authors">{$article->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}</div>
 	{elseif $article->getPages()}
 		<div class="article-summary-pages text-right">
 			{$article->getPages()|escape}
