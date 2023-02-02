@@ -6,9 +6,13 @@ os: linux
 language: php
 
 addons:
+  chrome: beta
   postgresql: "9.5"
   apt:
     update: true
+    packages:
+      - libvulkan1
+      - libu2f-udev
 
 sudo: required
 
