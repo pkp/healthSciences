@@ -32,6 +32,27 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 			'default' => '#10BECA',
 		));
 
+		// Add usage stats display options
+		$this->addOption('displayStats', 'FieldOptions', [
+			'type' => 'radio',
+			'label' => __('plugins.themes.healthSciences.option.displayStats.label'),
+			'options' => [
+				[
+					'value' => 'none',
+					'label' => __('plugins.themes.healthSciences.option.displayStats.none'),
+				],
+				[
+					'value' => 'bar',
+					'label' => __('plugins.themes.healthSciences.option.displayStats.bar'),
+				],
+				[
+					'value' => 'line',
+					'label' => __('plugins.themes.healthSciences.option.displayStats.line'),
+				],
+			],
+			'default' => 'none',
+		]);
+
 		// Update colour based on theme option
 		$additionalLessVariables = [];
 		if ($this->getOption('baseColour') !== '#10BECA') {
