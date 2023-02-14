@@ -64,3 +64,24 @@ msgstr "Search Results for <em>{$query}</em>"
 
 msgid "plugins.themes.healthSciences.search.params"
 msgstr "Search Parameters"
+
+msgid "plugins.themes.healthSciences.option.displayStats.label"
+msgstr "Usage statistics display options"
+
+msgid "plugins.themes.healthSciences.option.displayStats.none"
+msgstr "Do not display submission usage statistics chart for reader."
+
+msgid "plugins.themes.healthSciences.option.displayStats.bar"
+msgstr "Use bar type of the chart for usage statistics display."
+
+msgid "plugins.themes.healthSciences.option.displayStats.line"
+msgstr "Use line type of the chart for usage statistics display."
+
+msgid "plugins.themes.healthSciences.displayStats.monthInitials"
+msgstr "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+
+msgid "plugins.themes.healthSciences.displayStats.downloads"
+msgstr "Downloads"
+
+msgid "plugins.themes.healthSciences.displayStats.noStats"
+msgstr "Download data is not yet available."
