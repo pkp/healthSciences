@@ -1,8 +1,8 @@
 /**
  * @file cypress/tests/functional/HealthSciences.spec.js
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2000-2020 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  */
@@ -81,7 +81,7 @@ describe('Theme plugin tests', function() {
 		// Populate journal summary
 		cy.get('.app__navItem').contains('Journal').click();
 		cy.get('#masthead-button').click();
-		cy.get('#masthead-description-control-en_US_ifr').type(journalDescription);
+		cy.get('#masthead-description-control-en_ifr').type(journalDescription);
 		cy.get('#masthead button').contains('Save').click();
 		cy.get('#masthead [role="status"]').contains('Saved');
 
@@ -97,9 +97,9 @@ describe('Theme plugin tests', function() {
 		cy.get('#categoriesContainer a').contains('Add Category').click();
 		cy.waitJQuery();
 		cy.get('#categoryDetails').within(() => {
-			cy.get('input[name="name[en_US]"]').click().type('First category', {delay: 0});
-			cy.get('input[name="path"]').type('first-category', {delay: 0});
-			cy.get('textarea[name="description[en_US]"]').then(node => {
+			cy.get('input[name="name[en]"]').click().type('First category', {delay: 0});
+			cy.get('input[name="path"]').click().type('first-category', {delay: 0});
+			cy.get('textarea[name="description[en]"]').then(node => {
 				cy.setTinyMceContent(node.attr('id'), categoryDescription);
 			});
 			cy.get('button').contains('OK').click();
@@ -123,7 +123,9 @@ describe('Theme plugin tests', function() {
 		cy.get('#issue [role="status"]').contains('Saved');
 
 		cy.get('#titleAbstract-button').click();
-		cy.get('#titleAbstract-title-control-en_US').type(' - version 2');
+		cy.getTinyMceContent('titleAbstract-title-control-en').then((content) => {
+			cy.setTinyMceContent('titleAbstract-title-control-en', content + ' - version 2');
+		});
 		cy.get('#titleAbstract .pkpButton').contains('Save').click();
 		cy.get('#titleAbstract [role="status"]').contains('Saved');
 		cy.get('#publication .pkpButton').contains('Publish').click();

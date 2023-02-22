@@ -79,7 +79,7 @@
 			{else}
 				<div class="category-toc">
 					{foreach from=$publishedSubmissions item=article}
-						{include file="frontend/objects/article_summary.tpl"}
+						{include file="frontend/objects/article_summary.tpl" article=$article hideGalleys=true}
 					{/foreach}
 				</div>
 
