@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-23T10:25:01+00:00\n"
+"PO-Revision-Date: 2020-04-23T10:25:01+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Sağlık Bilimleri Teması"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "Metin okunabilirliği ve içerik netliğinin yanı sıra açık gri ve beyazın abartısız bir paletine odaklanarak tasarlanmış bir OJS teması."
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Ana Renk"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Dergi markanız için ana rengi seçin."
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Navigasyonu Değiştir"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Dili değiştirin. Mevcut dil:"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "{$date} tarihinde yayınlandı"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Sayı Açıklaması"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.more"
+msgstr "{$text}…"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Bio"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Ek Dosyalar"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Zaten bir hesabınız var mı?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Buradan oturum açın"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "Hesabınız yok mu?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Buradan kaydolun"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "<em>{$query}</em> için Arama Sonuçları"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Arama Parametreleri"
