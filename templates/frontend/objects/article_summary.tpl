@@ -15,42 +15,45 @@
  * @uses $hideGalleys bool Hide the article galleys for this article?
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  *}
-{assign var=articlePath value=$article->getBestId()}
+{assign var="articlePath" value=$article->getBestId()}
+{assign var="publication" value=$article->getCurrentPublication()}
 
-{if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
 <div class="article-summary">
 
-	{if $showAuthor && $article->getPages()}
+	{assign var="submissionPages" value=$publication->getData('pages')}
+	{assign var="submissionDatePublished" value=$publication->getData('datePublished')}
+	{if $showAuthor && $submissionPages}
 		<div class="row">
 			<div class="col">
-				<div class="article-summary-authors">{$article->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}</div>
+				<div class="article-summary-authors">{$publication->getAuthorString($authorUserGroups)|escape}</div>
 			</div>
 			<div class="col-3 col-md-2 col-lg-2">
 				<div class="article-summary-pages text-right">
-					{$article->getPages()|escape}
+					{$submissionPages|escape}
 				</div>
 			</div>
 		</div>
 	{elseif $showAuthor}
-		<div class="article-summary-authors">{$article->getCurrentPublication()->getAuthorString($authorUserGroups)|escape}</div>
-	{elseif $article->getPages()}
+		<div class="article-summary-authors">{$publication->getAuthorString($authorUserGroups)|escape}</div>
+	{elseif $submissionPages}
 		<div class="article-summary-pages text-right">
-			{$article->getPages()|escape}
+			{$submissionPages|escape}
 		</div>
 	{/if}
 
 	<div class="article-summary-title">
 		<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
-			{$article->getLocalizedFullTitle()|escape}
+			{$publication->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
 		</a>
 	</div>
 
-	{if $showDatePublished && $article->getDatePublished()}
+	{if $showDatePublished && $submissionDatePublished}
 		<div class="article-summary-date">
-			{$article->getDatePublished()|date_format:$dateFormatLong}
+			{$submissionDatePublished|date_format:$dateFormatLong}
 		</div>
 	{/if}
 
@@ -78,9 +81,10 @@
 		{/if}
 	{/if}
 
-	{if !$hideGalleys && $article->getGalleys()}
+	{assign var="galleys" value=$article->getGalleys()}
+	{if !$hideGalleys && $galleys}
 		<div class="article-summary-galleys">
-			{foreach from=$article->getGalleys() item=galley}
+			{foreach from=$galleys item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
 					{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
@@ -88,10 +92,10 @@
 					{/if}
 				{/if}
 				{assign var="hasArticleAccess" value=$hasAccess}
-				{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $article->getCurrentPublication()->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
+				{if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
 					{assign var="hasArticleAccess" value=1}
 				{/if}
-				{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
+				{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication hasAccess=$hasArticleAccess}
 			{/foreach}
 		</div>
 	{/if}

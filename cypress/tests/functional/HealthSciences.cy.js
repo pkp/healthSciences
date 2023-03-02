@@ -81,7 +81,7 @@ describe('Theme plugin tests', function() {
 		// Populate journal summary
 		cy.get('.app__navItem').contains('Journal').click();
 		cy.get('#masthead-button').click();
-		cy.get('#masthead-description-control-en_ifr').type(journalDescription);
+		cy.setTinyMceContent('masthead-description-control-en', journalDescription);
 		cy.get('#masthead button').contains('Save').click();
 		cy.get('#masthead [role="status"]').contains('Saved');
 

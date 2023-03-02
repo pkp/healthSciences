@@ -55,7 +55,7 @@
 			</div>
 
 			<h1 class="article-details-fulltitle">
-				{$publication->getLocalizedFullTitle()|escape}
+				{$publication->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
 			</h1>
 
 			{if $section}
