@@ -40,7 +40,7 @@
 		<div class="article-summary-authors">{$article->getAuthorString()|escape}</div>
 	{elseif $submissionPages}
 		<div class="article-summary-pages text-right">
-			{submissionPages|escape}
+			{$submissionPages|escape}
 		</div>
 	{/if}
 
