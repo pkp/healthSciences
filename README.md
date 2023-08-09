@@ -2,7 +2,7 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.1.2
+Current version: healthSciences v1.1.2-1
 
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/).
 
@@ -80,6 +80,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 * Health Sciences theme v1.1.0.0 is compatible with OJS 3.3.0.
 * Health Sciences theme v1.1.1 is compatible with OJS 3.3.0.
 * Health Sciences theme v1.1.2 is compatible with OJS 3.4.0.
+* Health Sciences theme v1.1.2-1 is compatible with OJS 3.4.0.
 
 ## Contribution
 
@@ -99,6 +100,9 @@ The PT Serif and Fira Sans fonts are distributed under the terms of the [Open Fo
 
 
 ## Changelog
+**healthSciences v1.1.2-1** (2023-08-09)
+* Fix: compatibility issues with Citation Style Language plugin
+
 **healthSciences v1.1.2** (2023-03-02)
 * Support of HTML text formatting in the article title (https://github.com/pkp/pkp-lib/issues/2564)
 * Migration to Bootstrap 5
