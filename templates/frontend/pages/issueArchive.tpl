@@ -37,22 +37,27 @@
 
 	{* List issues *}
 	{else}
-		{foreach from=$issues item="issue" key="i"}
-			{if $i % 4 == 0 && $i > 0}
-				</div>
-				{assign var="open" value=false}
-			{/if}
-			{if $i % 4 == 0}
+		{foreach $issues as $issue}
+			{* @iteration starts from 1 *}
+			{if ($issue@iteration) % 4 == 1}
 				<div class="row justify-content-around">
-				{assign var="open" value=true}
 			{/if}
 			<div class="col-md-3 col-lg-2">
 				{include file="frontend/objects/issue_summary.tpl" heading="h2"}
 			</div>
+			{* Insert empty columns to keep columns aligned even on the last row *}
+			{if $issue@last && ($issue@iteration) % 4 != 0}
+				{assign var="emptyCols" value=4 - ($issue@iteration) % 4}
+				{section name="empty" start=0 loop=$emptyCols}
+					<div class="col-md-3 col-lg-2"></div>
+				{/section}
+    		{/if}
+			{* Either end of row or last issue *}
+			{if ($issue@iteration) % 4 == 0 || $issue@last}
+				</div>
+			{/if}
+
 		{/foreach}
-		{if $open}
-			</div>{* Close an open row *}
-		{/if}
 
 		{* Pagination *}
 		{capture assign="prevUrl"}
