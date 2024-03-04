@@ -23,7 +23,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Settings
 
-**Theme Colour** | This theme allows the personalisation of the theme’s main colour. The default colour is a bright turquoise. If you wish to select your own palette (in `Settings` >  `Website`), and for optimal results, we recommend selecting bold and vivid tones.
+**Theme Colour** | This theme allows the personalisation of the theme’s main colour. The default colour is a bright turquoise. If you wish to select your own palette (in `Settings` > `Website`), and for optimal results, we recommend selecting bold and vivid tones.
 
 **Navigation Menu** | For the best user experience, we recommend limiting the number of items in your navigation menus. Research shows that users struggle to find what they are looking for in long lists.
 
@@ -68,19 +68,20 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 
 ## Version Compatibility
 
-* Health Sciences theme v1.0.0 is compatible with OJS 3.1.1.
-* Health Sciences theme v1.0.1 is compatible with OJS 3.1.1-1.
-* Health Sciences theme v1.0.2 is compatible with OJS 3.1.1-2.
-* Health Sciences theme v1.0.3 is compatible with OJS 3.1.1-4.
-* Health Sciences theme v1.0.4 is compatible with OJS 3.1.2.
-* Health Sciences theme v1.0.5 is compatible with OJS 3.1.2-1.
-* Health Sciences theme v1.0.6 is compatible with OJS 3.2.0.
-* Health Sciences theme v1.0.6-1 is compatible with OJS 3.2.0.
-* Health Sciences theme v1.0.7.0 is compatible with OJS 3.2.0 and 3.2.1.
-* Health Sciences theme v1.1.0.0 is compatible with OJS 3.3.0.
-* Health Sciences theme v1.1.1 is compatible with OJS 3.3.0.
-* Health Sciences theme v1.1.2 is compatible with OJS 3.4.0.
-* Health Sciences theme v1.1.2-1 is compatible with OJS 3.4.0.
+- Health Sciences theme v1.0.0 is compatible with OJS 3.1.1.
+- Health Sciences theme v1.0.1 is compatible with OJS 3.1.1-1.
+- Health Sciences theme v1.0.2 is compatible with OJS 3.1.1-2.
+- Health Sciences theme v1.0.3 is compatible with OJS 3.1.1-4.
+- Health Sciences theme v1.0.4 is compatible with OJS 3.1.2.
+- Health Sciences theme v1.0.5 is compatible with OJS 3.1.2-1.
+- Health Sciences theme v1.0.6 is compatible with OJS 3.2.0.
+- Health Sciences theme v1.0.6-1 is compatible with OJS 3.2.0.
+- Health Sciences theme v1.0.7.0 is compatible with OJS 3.2.0 and 3.2.1.
+- Health Sciences theme v1.1.0.0 is compatible with OJS 3.3.0.
+- Health Sciences theme v1.1.1 is compatible with OJS 3.3.0.
+- Health Sciences theme v1.1.2 is compatible with OJS 3.4.0.
+- Health Sciences theme v1.1.2-1 is compatible with OJS 3.4.0.
+- Health Sciences theme v1.1.2-2 is compatible with OJS 3.4.0.
 
 ## Contribution
 
@@ -91,111 +92,132 @@ This theme was designed by Sophy Ouch (@sssoz) and built by Nate Wright (@NateWr
 We welcome code contributions from the community at https://github.com/pkp/healthSciences/. Non-technical questions should be directed to the community forum at https://forum.pkp.sfu.ca/.
 
 ## Feedback
+
 Suggestions for improving this guide can be made to support@publicknowledgeproject.org.
 
 ## License
+
 This theme is released under the GPL license.
 
 The PT Serif and Fira Sans fonts are distributed under the terms of the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
-
 ## Changelog
+
+**healthSciences v1.1.2-2** (2024-02-26)
+
+- Fix: issue archive layout misalignment addressed (https://github.com/pkp/healthSciences/issues/237)
+
 **healthSciences v1.1.2-1** (2023-08-09)
-* Fix: compatibility issues with Citation Style Language plugin
+
+- Fix: compatibility issues with Citation Style Language plugin
 
 **healthSciences v1.1.2** (2023-03-02)
-* Support of HTML text formatting in the article title (https://github.com/pkp/pkp-lib/issues/2564)
-* Migration to Bootstrap 5
-* Removed: jQuery, jQueryUI and tag-it
-* Reduce calls to the database to improve performance (https://github.com/pkp/pkp-lib/issues/7304)
+
+- Support of HTML text formatting in the article title (https://github.com/pkp/pkp-lib/issues/2564)
+- Migration to Bootstrap 5
+- Removed: jQuery, jQueryUI and tag-it
+- Reduce calls to the database to improve performance (https://github.com/pkp/pkp-lib/issues/7304)
 
 **healthSciences v1.1.1** (2022-10-28)
-* Compatibility with PHP 8.1
+
+- Compatibility with PHP 8.1
 
 **healthSciences v1.1.0.0** (2020-12-06)
-* Add: Compatibility with OJS 3.3.0, see [changelog](https://github.com/pkp/pkp-lib/issues/6400)
-* Fix: Correct display of multilingual keywords
-* Add: Add section policy to the submissions page
+
+- Add: Compatibility with OJS 3.3.0, see [changelog](https://github.com/pkp/pkp-lib/issues/6400)
+- Fix: Correct display of multilingual keywords
+- Add: Add section policy to the submissions page
 
 **healthSciences v1.0.7.0** (2020-06-19)
-* Fix: Page numbers are aligned right in TOC when author names are omitted (#149)
-* Fix: Text align for right-to-left scripts (#182)
-* Fix: Proper escaping for page header title
-* Add: Localization files are converted for Weblate
-* Fix: Typo in search author details template
-* Fix: Correct home URL in logo/title when logged in as author (#188)
-* Add: Use Smarty's mailto and javascript encoding for emails (#189)
-* Fix: Adapt author details and author index page to variables and method calls in OJS 3.2 (#186)
-* Fix: Show minus symbol on expanding author's details on article landing page when 2 or more authors (#187)
-* Add: Management of dependencies with npm and gulp (#190)
+
+- Fix: Page numbers are aligned right in TOC when author names are omitted (#149)
+- Fix: Text align for right-to-left scripts (#182)
+- Fix: Proper escaping for page header title
+- Add: Localization files are converted for Weblate
+- Fix: Typo in search author details template
+- Fix: Correct home URL in logo/title when logged in as author (#188)
+- Add: Use Smarty's mailto and javascript encoding for emails (#189)
+- Fix: Adapt author details and author index page to variables and method calls in OJS 3.2 (#186)
+- Fix: Show minus symbol on expanding author's details on article landing page when 2 or more authors (#187)
+- Add: Management of dependencies with npm and gulp (#190)
 
 **healthSciences v1.0.6-1** (2020-03-20)
-* Add: New localizations (pl_PL) and (it_IT); special thanks to contributors!
-* Fix: View HTML and PDF galleys of article's old versions
-* Fix: Escape raw citations on article page
-* Fix: Retain reviewer interests data from the registration form
+
+- Add: New localizations (pl_PL) and (it_IT); special thanks to contributors!
+- Fix: View HTML and PDF galleys of article's old versions
+- Fix: Escape raw citations on article page
+- Fix: Retain reviewer interests data from the registration form
 
 **healthSciences v1.0.6** (2020-02-27)
-* Compatibility with OJS 3.2
+
+- Compatibility with OJS 3.2
 
 **healthSciences v1.0.5** (2019-11-15)
-* Add: New localizations (fr_FR); special thanks to contributors!
-* Add: Announcements are added for the journal landing page
-* Add: Better contrast for colors
-* Fix: HTML galley scrolling for iOS devices
-* Fix: Show copyright holder on article lading page
-* Fix: Various minor styling changes
-* Fix: Enhance the check if journal list is empty (site index page)
 
-**healthSciences v1.0.4**  (2019-03-05)
-* Add: New localizations (fr_CA); special thanks to contributors!
-* Add: Compliance with Smarty 3
-* Add: Update for the default HTML galley styling
-* Add: Update for the registration form to be compliant with OJS 3.1.2
-* Add: Support for the catalog category page
-* Add: Dependencies update: Bootstrap to v. 4.3.1 and Popper JS to 1.14.7
-* Fix: Changed alignment for the issue TOC and issue description
-* Fix: Security issues
+- Add: New localizations (fr_FR); special thanks to contributors!
+- Add: Announcements are added for the journal landing page
+- Add: Better contrast for colors
+- Fix: HTML galley scrolling for iOS devices
+- Fix: Show copyright holder on article lading page
+- Fix: Various minor styling changes
+- Fix: Enhance the check if journal list is empty (site index page)
 
-**healthSciences v1.0.3**  (2018-12-31)
-* Add: New localizations (es_ES, cs_CZ, nb_NO, ar_IQ, uk_UA, pt_BR) and updates; special thanks to contributors!
-* Add: Alternative text for the journal thumbnail (#109)
-* Add: Updates for site-wide registration page (#110)
-* Add: Dependencies update: Fontawesome to v. 5.6.1
-* Add: Support for right to left scripts (#122)
-* Fix: Removing redundant code from PDF JS viewer's template (#111)
-* Fix: Modals with authors Biography are now working correctly (#115)
-* Fix: Issue links on the archive page are clickable in all possible cases of user inputs to issue form (#120)
-* Fix: Security issues
+**healthSciences v1.0.4** (2019-03-05)
 
-**healthSciences v1.0.2**  (2018-07-30)
-* Add: Styling for authors' list on article landing page (#76)
-* Add: Support for pages related to the subscription, authors' search, and several others (#80)
-* Add: Orcid image is shown if author has ORCID ID on article landing page (#73)
-* Add: Reordering of blocks on article landing page for mobiles according to their priorities (#74)
-* Add: Journal description is shown if no issue description is provided (#75)
-* Add: Dependencies update: JQuery, Popper, Bootstrap, Fontawesome (#97)
-* Add: DOI is shown for each article on issue TOC page if provided (#94)
-* Fix: Proper page header aligning for small screens (#87)
-* Fix: Unique ID for modal login forms
-* Fix: Minor theme-wide restyling
+- Add: New localizations (fr_CA); special thanks to contributors!
+- Add: Compliance with Smarty 3
+- Add: Update for the default HTML galley styling
+- Add: Update for the registration form to be compliant with OJS 3.1.2
+- Add: Support for the catalog category page
+- Add: Dependencies update: Bootstrap to v. 4.3.1 and Popper JS to 1.14.7
+- Fix: Changed alignment for the issue TOC and issue description
+- Fix: Security issues
 
-**healthSciences v1.0.1**  (2018-06-18)
-* Add: Support for OJS 3.1.1-1
-* Add: Support for reviewer interests input
-* Fix: Styling adjustments for article landing page
+**healthSciences v1.0.3** (2018-12-31)
 
-**healthSciences v1.0.0**  (2018-04-24)
-* Fix: Remove bullet points from feed block plugins
-* Fix: Implement information for X pages
-* Fix: Site-wide font-size modifications
+- Add: New localizations (es_ES, cs_CZ, nb_NO, ar_IQ, uk_UA, pt_BR) and updates; special thanks to contributors!
+- Add: Alternative text for the journal thumbnail (#109)
+- Add: Updates for site-wide registration page (#110)
+- Add: Dependencies update: Fontawesome to v. 5.6.1
+- Add: Support for right to left scripts (#122)
+- Fix: Removing redundant code from PDF JS viewer's template (#111)
+- Fix: Modals with authors Biography are now working correctly (#115)
+- Fix: Issue links on the archive page are clickable in all possible cases of user inputs to issue form (#120)
+- Fix: Security issues
+
+**healthSciences v1.0.2** (2018-07-30)
+
+- Add: Styling for authors' list on article landing page (#76)
+- Add: Support for pages related to the subscription, authors' search, and several others (#80)
+- Add: Orcid image is shown if author has ORCID ID on article landing page (#73)
+- Add: Reordering of blocks on article landing page for mobiles according to their priorities (#74)
+- Add: Journal description is shown if no issue description is provided (#75)
+- Add: Dependencies update: JQuery, Popper, Bootstrap, Fontawesome (#97)
+- Add: DOI is shown for each article on issue TOC page if provided (#94)
+- Fix: Proper page header aligning for small screens (#87)
+- Fix: Unique ID for modal login forms
+- Fix: Minor theme-wide restyling
+
+**healthSciences v1.0.1** (2018-06-18)
+
+- Add: Support for OJS 3.1.1-1
+- Add: Support for reviewer interests input
+- Fix: Styling adjustments for article landing page
+
+**healthSciences v1.0.0** (2018-04-24)
+
+- Fix: Remove bullet points from feed block plugins
+- Fix: Implement information for X pages
+- Fix: Site-wide font-size modifications
 
 **Beta** (2018-02-13)
-* Fix: Plugin can't be installed through plugin upload tool (#2)
-* Fix: Issue description box appears when no description exists (#3)
-* Fix: Language selector appears when no other languages exist (#4)
-* Fix: Login form in modal doesn't work (#6, #7)
-* Add: HTML/PDF galley views (#1)
+
+- Fix: Plugin can't be installed through plugin upload tool (#2)
+- Fix: Issue description box appears when no description exists (#3)
+- Fix: Language selector appears when no other languages exist (#4)
+- Fix: Login form in modal doesn't work (#6, #7)
+- Add: HTML/PDF galley views (#1)
 
 **Alpha1** (2018-01-18)
-* Initial release for testing
+
+- Initial release for testing
