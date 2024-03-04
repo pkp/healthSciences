@@ -15,7 +15,7 @@
  * @uses $section Section The journal section this article is assigned to
  * @uses $journal Journal The journal currently being viewed.
  *}
-{include file="frontend/components/header.tpl" pageTitleTranslated=$article->getLocalizedTitle()|escape}
+{include file="frontend/components/header.tpl" pageTitleTranslated=$article->getCurrentPublication()->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
 
 <div class="container page-article">
 	{include file="frontend/objects/article_details.tpl"}
