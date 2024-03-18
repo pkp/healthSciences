@@ -20,8 +20,8 @@ php:
   - 8.1.0
   - 8.2.0
 env:
-  - APPLICATION=ojs BRANCH=main TEST=mysql
-  - APPLICATION=ojs BRANCH=main TEST=pgsql
+  - APPLICATION=ojs BRANCH=stable-3_4_0 TEST=mysql
+  - APPLICATION=ojs BRANCH=stable-3_4_0 TEST=pgsql
 
 install:
   # Prepare OJS environment
