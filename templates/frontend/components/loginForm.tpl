@@ -1,11 +1,11 @@
 {**
- * templates/frontend/components/registrationForm.tpl
+ * templates/frontend/components/loginForm.tpl
  *
  * Copyright (c) 2014-2020 Simon Fraser University
  * Copyright (c) 2003-2020 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
- * @brief Display the basic registration form fields
+ * @brief Display the basic login form fields
  *
  * @uses $loginUrl string URL to post the login request
  * @uses $source string Optional URL to redirect to after successful login
@@ -72,6 +72,19 @@
 				</div>
 			</div>
 		</div>
+
+		{* recaptcha spam blocker *}
+		{if $recaptchaPublicKey}
+			<fieldset class="recaptcha_wrapper">
+				<div class="fields">
+					<div class="recaptcha">
+						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+						</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
+					</div>
+				</div>
+			</fieldset>
+		{/if}
+
 		<div class="form-group form-group-buttons">
 			<button class="btn btn-primary" type="submit">
 				{translate key="user.login"}
