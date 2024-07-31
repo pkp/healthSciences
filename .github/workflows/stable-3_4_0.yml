@@ -1,0 +1,37 @@
+on: [push, pull_request]
+name: healthSciences
+jobs:
+  healthSciences:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - application: ojs
+            php-version: 8.1
+            database: mysql
+          - application: ojs
+            php-version: 8.2
+            database: mysql
+          - application: ojs
+            php-version: 8.2
+            database: pgsql
+          - application: ojs
+            php-version: 8.2
+            database: pgsql
+
+    name: healthSciences
+    steps:
+      - uses: pkp/pkp-github-actions@v1
+        with:
+         node_version: 16
+         branch: stable-3_4_0
+         repository: pkp
+         plugin: true
+
+
+
+
+
+
+     
