@@ -1,5 +1,9 @@
 # Health Sciences Theme
 
+| main        |3.4.0   |  3.3.0    |
+|--------- |  --- | ---- |
+| [![healthSciences](https://github.com/pkp/healthSciences/actions/workflows/main.yml/badge.svg)](https://github.com/pkp/healthSciences/actions/workflows/main.yml) | [![healthSciences](https://github.com/pkp/healthSciences/actions/workflows/stable-3_4_0.yml/badge.svg)](https://github.com/pkp/healthSciences/actions/workflows/stable-3_4_0.yml) | [![healthSciences](https://github.com/pkp/healthSciences/actions/workflows/stable-3_3_0.yml/badge.svg)](https://github.com/pkp/healthSciences/actions/workflows/stable-3_3_0.yml) |
+
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
 Current version: healthSciences v1.1.2-1
