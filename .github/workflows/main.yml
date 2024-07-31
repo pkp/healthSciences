@@ -1,0 +1,31 @@
+on: [push]
+name: healthSciences
+jobs:
+  healthSciences:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - application: ojs
+            php-version: 8.3
+            database: mysql
+          - application: ojs
+            php-version: 8.2
+            database: mysql
+          - application: ojs
+            php-version: 8.3
+            database: pgsql
+          - application: ojs
+            php-version: 8.2
+            database: pgsql
+
+    name: healthSciences
+    steps:
+      - uses: xmlFlow/pkp-github-actions@v1
+        with:
+         node_version: 20
+         branch: main
+         repository: pkp
+         plugin: true
+
