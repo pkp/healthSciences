@@ -1,8 +1,8 @@
 {**
  * templates/frontend/components/registrationForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief Display the basic registration form fields
@@ -119,7 +119,7 @@
 					{* Require the user to agree to the terms of the privacy policy *}
 					<div class="fields">
 						<div class="optin optin-privacy form-check">
-							<input type="checkbox" class="form-check-input" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+							<input type="checkbox" class="form-check-input" name="privacyConsent" id="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
 							<label for="privacyConsent" class="form-check-label">
 								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
@@ -130,7 +130,7 @@
 				{* Ask the user to opt into public email notifications *}
 				<div class="fields">
 					<div class="optin optin-email form-check">
-						<input type="checkbox" class="form-check-input" name="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
+						<input type="checkbox" class="form-check-input" name="emailConsent" id="emailConsent" value="1"{if $emailConsent} checked="checked"{/if}>
 						<label for="emailConsent" class="form-check-label">
 							{translate key="user.register.form.emailConsent"}
 						</label>
@@ -172,7 +172,9 @@
 					{* review interests (with modified tag-it library) *}
 					<div id="reviewerInterests" class="reviewer_interests hidden">
 						<div class="label">
-							{translate key="user.interests"}
+							<label for="interests">
+								{translate key="user.interests"}
+							</label>
 						</div>
 						<input type="text" name="interests" id="interests" value="{$interests|default:""|escape}">
 					</div>
