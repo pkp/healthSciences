@@ -6,8 +6,6 @@
 
 An official theme for [OJS 3.1.1+](https://pkp.sfu.ca/ojs/) designed for health science journals or any journal that wants a clean, modern appearance.
 
-Current version: healthSciences v1.1.2-1
-
 This theme was commissioned and is maintained by the [Public Knowledge Project](https://pkp.sfu.ca/). For all non-technical questions, please visit the [PKP Forum](https://forum.pkp.sfu.ca/).
 
 ## Demonstration
@@ -86,6 +84,7 @@ If you'd like to use unreleased packages, you can clone this repository or follo
 - Health Sciences theme v1.1.2 is compatible with OJS 3.4.0.
 - Health Sciences theme v1.1.2-1 is compatible with OJS 3.4.0.
 - Health Sciences theme v1.1.2-2 is compatible with OJS 3.4.0.
+- Health Sciences theme v1.1.2-3 is compatible with OJS 3.4.0.
 
 ## Contribution
 
@@ -106,6 +105,11 @@ This theme is released under the GPL license.
 The PT Serif and Fira Sans fonts are distributed under the terms of the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
 ## Changelog
+
+**healthSciences v1.1.2-3** (2024-08-12)
+
+- Fix: Missing ids for checkboxes on user registration form (https://github.com/pkp/healthSciences/issues/249)
+- Fix: Missing captchas in registration and login (https://github.com/pkp/healthSciences/issues/239)
 
 **healthSciences v1.1.2-2** (2024-02-26)
 
