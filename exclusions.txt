@@ -1,0 +1,10 @@
+healthSciences/.gitignore
+healthSciences/.github
+healthSciences/cypress
+healthSciences/exclusions.txt
+healthSciences/gulpfile.js
+healthSciences/js
+healthSciences/libs/app.js
+healthSciences/node_modules
+healthSciences/package.json
+healthSciences/package-lock.json
