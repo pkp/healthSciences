@@ -33,7 +33,7 @@
 </footer><!-- pkp_structure_footer_wrapper -->
 
 {* Load author biography modals if they exist *}
-{if !empty($smarty.capture.authorBiographyModals|trim)}
+{if !empty($smarty.capture.authorBiographyModals|default:""|trim)}
 	{$smarty.capture.authorBiographyModals}
 {/if}
 
