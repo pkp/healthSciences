@@ -104,12 +104,14 @@
 								{else}
 								<span>{$authorString->getFullName()|escape}</span>
 								{/if}
-								{if $authorString->getOrcid()}
-									<a class="orcidImage" href="{$authorString->getOrcid()|escape}">
-										{if $orcidIcon}
-											{$orcidIcon}
-										{else}
-											<img src="{$baseUrl}/{$orcidImage}">
+								{if $authorString->getData('orcid')}
+									<a class="orcidImage" href="{$authorString->getData('orcid')|escape}">
+										{if $authorString->getData('orcidAccessToken')}
+											{if $orcidIcon}
+												{$orcidIcon}
+											{else}
+												<img src="{$baseUrl}/{$orcidImage}">
+											{/if}
 										{/if}
 									</a>
 								{/if}
@@ -135,11 +137,13 @@
 									{/if}
 								</div>
 							{/if}
-							{if $author->getOrcid()}
+							{if $author->getData('orcid')}
 								<div class="article-details-author-orcid">
-									<a href="{$author->getOrcid()|escape}" target="_blank">
-										{$orcidIcon}
-										{$author->getOrcid()|escape}
+									<a href="{$author->getData('orcid')|escape}" target="_blank">
+										{if $author->getData('orcidAccessToken')}
+											{$orcidIcon}
+										{/if}
+										{$author->getData('orcid')|escape}
 									</a>
 								</div>
 							{/if}
@@ -150,12 +154,12 @@
 								{* Store author biographies to print as modals in the footer *}
 								{capture append="authorBiographyModalsTemp"}
 									<div
-											class="modal fade"
-											id="authorBiographyModal{$authorKey+1}"
-											tabindex="-1"
-											role="dialog"
-											aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
-											aria-hidden="true"
+										class="modal fade"
+										id="authorBiographyModal{$authorKey+1}"
+										tabindex="-1"
+										role="dialog"
+										aria-labelledby="authorBiographyModalTitle{$authorKey+1}"
+										aria-hidden="true"
 									>
 										<div class="modal-dialog" role="document">
 											<div class="modal-content">
