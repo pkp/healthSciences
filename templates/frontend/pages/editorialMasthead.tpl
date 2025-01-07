@@ -19,10 +19,10 @@
 		<div class="col-md-6">
 			<div class="page-content">
 				{foreach from=$mastheadRoles item="mastheadRole"}
-					{if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
-						<h2>{$mastheadRole->getLocalizedName()|escape}</h2>
+					{if array_key_exists($mastheadRole->id, $mastheadUsers)}
+						<h2>{$mastheadRole->getLocalizedData('name')|escape}</h2>
 						<ul class="user_listing" role="list">
-						{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
+						{foreach from=$mastheadUsers[$mastheadRole->id] item="mastheadUser"}
 							<li>
 								{strip}
 									<span class="date_start">{translate key="common.fromUntil" from=$mastheadUser['dateStart'] until=""}</span>

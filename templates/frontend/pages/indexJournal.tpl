@@ -96,16 +96,16 @@
 		<h2 class="visually-hidden">{translate key="announcement.announcementsHome"}</h2>
 		{foreach from=$announcements item=announcement}
 			<article class="col-md-4 homepage-announcement">
-				<h3 class="homepage-announcement-title">{$announcement->getLocalizedTitle()|escape}</h3>
-				<p>{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+				<h3 class="homepage-announcement-title">{$announcement->getLocalizedData('title')|escape}</h3>
+				<p>{$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
 					<br>
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+					<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
 						{capture name="more" assign="more"}{translate key="common.more"}{/capture}
 						{translate key="plugins.themes.healthSciences.more" text=$more}
 					</a>
 				</p>
 				<footer>
-					<small class="homepage-announcement-date">{$announcement->getDatePosted()|date_format:$dateFormatLong}</small>
+					<small class="homepage-announcement-date">{$announcement->datePosted|date_format:$dateFormatLong}</small>
 				</footer>
 			</article>
 		{/foreach}

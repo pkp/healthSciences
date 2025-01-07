@@ -28,7 +28,7 @@
 					<div class="site-journals-list">
 						{foreach from=$journals item=journal}
 							{capture assign="url"}{url journal=$journal->getPath()}{/capture}
-							{assign var="thumb" value=$journal->getLocalizedSetting('journalThumbnail')}
+							{assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
 							{assign var="description" value=$journal->getLocalizedDescription()}
 							<div class="site-journal">
 								{if $thumb}

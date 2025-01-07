@@ -32,7 +32,7 @@
 						{translate key="orcid.about.howAndWhyMemberAPI"}
 					</p>
 				{else}
-					<p>
+					<p class="description">
 						{translate key="orcid.about.howAndWhyPublicAPI"}
 					</p>
 				{/if}
