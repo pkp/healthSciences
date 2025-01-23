@@ -37,7 +37,7 @@
 		</div>
 
 		{* make the entire block conditional if there aren't any additional issue data *}
-		{if  $issue->getLocalizedCoverImageUrl() || $issue->hasDescription() || $issueGalleys}
+		{if $issue->getLocalizedCoverImageUrl() || $issue->hasDescription() || $issueGalleys}
 			<div class="row justify-content-center homepage-issue-header">
 				{if $issue->getLocalizedCoverImageUrl()}
 					<div class="col-lg-3">
