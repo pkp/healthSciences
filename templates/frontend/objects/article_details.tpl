@@ -103,7 +103,7 @@
 									<sup class="author-symbol author-minus hidden">&minus;</sup>
 								</a>
 								{else}
-								<span>{$authorString->getFullName()|escape}</span>
+									<span>{$authorString->getFullName()|escape}</span>
 								{/if}
 								{if $authorString->getData('orcid')}
 									<a class="orcidImage" href="{$authorString->getData('orcid')|escape}">
