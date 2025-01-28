@@ -96,7 +96,7 @@
 					{foreach from=$publication->getData('authors') item=authorString key=authorStringKey}
 						{strip}
 							<li>
-								{if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography()}
+								{if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography() or $authorString->getData('orcid')}
 								<a class="author-string-href" href="#author-{$authorStringKey+1}">
 									<span>{$authorString->getFullName()|escape}</span>
 									<sup class="author-symbol author-plus">&plus;</sup>
@@ -107,12 +107,10 @@
 								{/if}
 								{if $authorString->getData('orcid')}
 									<a class="orcidImage" href="{$authorString->getData('orcid')|escape}">
-										{if $authorString->getData('orcidAccessToken')}
-											{if $orcidIcon}
-												{$orcidIcon}
-											{else}
-												<img src="{$baseUrl}/{$orcidImage}">
-											{/if}
+										{if $authorString->hasVerifiedOrcid()}
+											{$orcidIcon}
+										{else}
+											{$orcidUnauthenticatedIcon}
 										{/if}
 									</a>
 								{/if}
@@ -141,10 +139,12 @@
 							{if $author->getData('orcid')}
 								<div class="article-details-author-orcid">
 									<a href="{$author->getData('orcid')|escape}" target="_blank">
-										{if $author->getData('orcidAccessToken')}
+										{if $author->hasVerifiedOrcid()}
 											{$orcidIcon}
+										{else}
+											{$orcidUnauthenticatedIcon}
 										{/if}
-										{$author->getData('orcid')|escape}
+										{$author->getOrcidDisplayValue()|escape}
 									</a>
 								</div>
 							{/if}
