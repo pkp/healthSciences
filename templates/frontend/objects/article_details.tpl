@@ -48,7 +48,7 @@
 
 			{* Title and issue details *}
 			<div class="article-details-issue-section small-screen">
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
+				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>{if $section}{translate key="common.commaListSeparator"}<span>{$section->getLocalizedTitle()|escape}</span>{/if}
 			</div>
 
 			<div class="article-details-issue-identifier large-screen">
