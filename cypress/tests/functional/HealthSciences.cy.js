@@ -1,8 +1,8 @@
 /**
  * @file cypress/tests/functional/HealthSciences.spec.js
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2000-2025 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  */
@@ -10,7 +10,7 @@
 describe('Theme plugin tests', function() {
 	const journalPath = 'publicknowledge';
 	const index = 'index.php';
-	const path = '/' + index + '/' + journalPath;
+	const path = '/' + index + '/' + journalPath + '/en';
 
 	const date = new Date();
 	const day = date.getDate() + '';
@@ -37,7 +37,9 @@ describe('Theme plugin tests', function() {
 	it('Enables and selects the theme', function() {
 		cy.login('admin', 'admin', 'publicknowledge');
 
-		cy.get('.app__nav a').contains('Website').click();
+		cy.get('nav').contains('Settings').click();
+		// Ensure submenu item click despite animation
+		cy.get('nav').contains('Website').click({ force: true });
 		cy.get('button[id="plugins-button"]').click();
 
 		// Find and enable the plugin
@@ -45,7 +47,7 @@ describe('Theme plugin tests', function() {
 		cy.get('div:contains(\'The plugin "Health Sciences Theme" has been enabled.\')');
 		cy.reload();
 
-		// Select the Classic theme
+		// Select the Health Sciences theme
 		cy.get('button[id="appearance-button"]').click();
 		cy.get('select[id="theme-themePluginPath-control"]').select('healthSciences');
 		cy.get('#theme button').contains('Save').click();
@@ -53,14 +55,14 @@ describe('Theme plugin tests', function() {
 	});
 
 	it('Visits front-end theme pages', function() {
-		cy.visit(' ');
+		cy.visit(path);
 		cy.visit(path + '/issue/current');
 		cy.visit(path + '/issue/archive');
 		cy.visit(path + '/issue/view/1');
 		cy.visit(path + '/article/view/1');
 		cy.visit(path + '/article/view/1/1');
 		cy.visit(path + '/about');
-		cy.visit(path + '/about/editorialTeam');
+		cy.visit(path + '/about/editorialMasthead');
 		cy.visit(path + '/about/submissions');
 		cy.visit(path + '/about/contact');
 		cy.visit(path + '/about/privacy');
@@ -79,7 +81,7 @@ describe('Theme plugin tests', function() {
 		cy.get('#theme [role="status"]').contains('Saved');
 
 		// Populate journal summary
-		cy.get('.app__navItem').contains('Journal').click();
+		cy.get('nav').contains('Journal').click();
 		cy.get('#masthead-button').click();
 		cy.setTinyMceContent('masthead-description-control-en', journalDescription);
 		cy.get('#masthead button').contains('Save').click();
@@ -105,31 +107,22 @@ describe('Theme plugin tests', function() {
 			cy.get('button').contains('OK').click();
 		});
 		cy.waitJQuery();
-		cy.get('nav a').contains('Submissions').click();
-		cy.get('button').contains('Archived').click();
-		cy.get('.listPanel__item').first().within(() => {
-			cy.get('.listPanel__item--submission__id').contains('1');
-			cy.get('a span').contains('View').click();
-		});
+		cy.visit('/index.php/publicknowledge/workflow/access/1');
 		cy.waitJQuery();
-		cy.get('button').contains('Publication').click();
-		cy.get('.pkpButton').contains('Create New Version').click();
-		cy.get('#modals-container .pkpButton').contains('Yes').click();
-		cy.wait(2000); // wait for a new version init
+		cy.get(`[data-cy="active-modal"] nav a:contains('Issue')`).click();
 
-		cy.get('#issue-button').click();
 		cy.get('.pkpFormField--options__optionLabel').contains('First category').click();
-		cy.get('#issue button').contains('Save').click();
-		cy.get('#issue [role="status"]').contains('Saved');
+		cy.get('button').contains('Save').click();
+		cy.get('[role="status"]').contains('Saved');
 
-		cy.get('#titleAbstract-button').click();
+		cy.get(`[data-cy="active-modal"] nav a:contains('Title & Abstract')`).click();
 		cy.getTinyMceContent('titleAbstract-title-control-en').then((content) => {
 			cy.setTinyMceContent('titleAbstract-title-control-en', content + ' - version 2');
 		});
-		cy.get('#titleAbstract .pkpButton').contains('Save').click();
-		cy.get('#titleAbstract [role="status"]').contains('Saved');
-		cy.get('#publication .pkpButton').contains('Publish').click();
-		cy.get('.pkp_modal .pkpButton').contains('Publish').click();
+		cy.get('button').contains('Save').click();
+		cy.get('[role="status"]').contains('Saved');
+		cy.get('button').contains('Publish').click();
+		cy.get('.pkpWorkflow__publishModal button').contains('Publish').click();
 		cy.wait(2000);
 
 		// Visit front-end pages
@@ -189,16 +182,16 @@ describe('Theme plugin tests', function() {
 		cy.get('#reviewerInterests input').type('psychotherapy,neuroscience,neurobiology', {delay: 0});
 		cy.get('#register button[type="submit"]').contains('Register').click();
 		cy.get('a').contains('View Submissions').click();
-		cy.url().should('include', 'submissions');
+		cy.url().should('include', 'dashboard');
 	});
 
-	it('Log in/Log out', function() {
+	it('Log out/Log in', function() {
 		// Sign out
 		cy.visit(path + '/' + 'login/signOut');
 		cy.url().should('include', 'login');
-		cy.get('#username').type(user.username, {delay: 0});
-		cy.get('#password').type(user.username + user.username);
+		cy.get('#username').type('dbarnes', {delay: 0});
+		cy.get('#password').type('dbarnesdbarnes');
 		cy.get('button[type="submit"]').contains('Login').click();
-		cy.url().should('include', 'submissions');
+		cy.url().should('include', 'dashboard');
 	});
 });
