@@ -96,7 +96,7 @@
 					{foreach from=$publication->getData('authors') item=authorString key=authorStringKey}
 						{strip}
 							<li>
-								{if $authorString->getLocalizedAffiliation() or $authorString->getLocalizedBiography() or $authorString->getData('orcid')}
+								{if count($authorString->getAffiliations()) > 0 or $authorString->getLocalizedBiography() or $authorString->getData('orcid')}
 								<a class="author-string-href" href="#author-{$authorStringKey+1}">
 									<span>{$authorString->getFullName()|escape}</span>
 									<sup class="author-symbol author-plus">&plus;</sup>
@@ -128,13 +128,15 @@
 							<div class="article-details-author-name small-screen">
 								{$author->getFullName()|escape}
 							</div>
-							{if $author->getLocalizedAffiliation()}
-								<div class="article-details-author-affiliation">
-									{$author->getLocalizedAffiliation()|escape}
-									{if $author->getData('rorId')}
-										<a class="rorImage" href="{$author->getData('rorId')|escape}">{$rorIdIcon}</a>
-									{/if}
-								</div>
+							{if count($author->getAffiliations()) > 0}
+								{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
+									<div class="article-details-author-affiliation">
+										{$affiliation->getLocalizedName()|escape}
+										{if $affiliation->getRor()}
+											<a class="rorImage" href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>
+										{/if}
+									</div>
+								{/foreach}
 							{/if}
 							{if $author->getData('orcid')}
 								<div class="article-details-author-orcid">
