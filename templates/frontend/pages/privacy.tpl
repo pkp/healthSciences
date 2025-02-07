@@ -20,7 +20,7 @@
 	<div class="row justify-content-md-center">
 		<div class="col-md-8">
 			<div class="page-content">
-				{$currentContext->getLocalizedSetting('privacyStatement')}
+				{$currentContext->getLocalizedData('privacyStatement')}
 			</div>
 		</div>
 	</div>

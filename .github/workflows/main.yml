@@ -28,4 +28,4 @@ jobs:
          branch: main
          repository: pkp
          plugin: true
-
+         dataset_inject: true

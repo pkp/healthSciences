@@ -1,10 +1,6 @@
 <?php
 
 /**
- * @defgroup plugins_themes_healthSciences Theme plugin for base Bootstrap 3 theme
- */
-
-/**
  * @file plugins/themes/healthSciences/index.php
  *
  * Copyright (c) 2014-2020 Simon Fraser University
@@ -19,5 +15,3 @@
 require_once('HealthSciencesThemePlugin.inc.php');
 
 return new HealthSciencesThemePlugin();
-
-?>

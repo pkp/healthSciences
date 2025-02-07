@@ -142,7 +142,7 @@
 			{assign var=contextId value=$currentContext->getId()}
 			{assign var=userCanRegisterReviewer value=0}
 			{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-				{if $userGroup->getPermitSelfRegistration()}
+				{if $userGroup->permitSelfRegistration}
 					{assign var=userCanRegisterReviewer value=$userCanRegisterReviewer+1}
 				{/if}
 			{/foreach}
@@ -158,11 +158,11 @@
 					{/if}
 					<div id="reviewerOptinGroup" class="form-group">
 						{foreach from=$reviewerUserGroups[$contextId] item=userGroup}
-							{if $userGroup->getPermitSelfRegistration()}
+							{if $userGroup->permitSelfRegistration}
 								<div class="form-check">
-									<input type="checkbox" class="form-check-input if-reviewer-checkbox" name="reviewerGroup[{$userGroup->getId()}]" id="reviewerGroup-{$userGroup->getId()}" value="1"{if in_array($userGroup->getId(), $userGroupIds)} checked="checked"{/if}>
-									<label for="reviewerGroup-{$userGroup->getId()}" class="form-check-label">
-										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedName()|escape}
+									<input type="checkbox" class="form-check-input if-reviewer-checkbox" name="reviewerGroup[{$userGroup->id}]" id="reviewerGroup-{$userGroup->id}" value="1"{if in_array($userGroup->id, $userGroupIds)} checked="checked"{/if}>
+									<label for="reviewerGroup-{$userGroup->id}" class="form-check-label">
+										{translate key=$checkboxLocaleKey userGroup=$userGroup->getLocalizedData('name')|escape}
 									</label>
 								</div>
 							{/if}

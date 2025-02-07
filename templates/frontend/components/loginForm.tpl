@@ -75,12 +75,23 @@
 
 		{* recaptcha spam blocker *}
 		{if $recaptchaPublicKey}
-			<fieldset class="recaptcha_wrapper">
-				<div class="fields">
-					<div class="recaptcha">
-						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
-						</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
+			<div class="form-group">
+				<fieldset class="recaptcha_wrapper">
+					<div class="fields">
+						<div class="recaptcha">
+							<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+							</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
+						</div>
 					</div>
+				</fieldset>
+			</div>
+		{/if}
+
+		{* altcha spam blocker *}
+		{if $altchaEnabled}
+			<fieldset class="altcha_wrapper">
+				<div class="fields">
+					<altcha-widget challengejson='{$altchaChallenge|@json_encode}' floating></altcha-widget>
 				</div>
 			</fieldset>
 		{/if}
