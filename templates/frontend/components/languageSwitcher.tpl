@@ -1,8 +1,8 @@
 {**
  * templates/frontend/components/languageSwitcher.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2025 Simon Fraser University
+ * Copyright (c) 2003-2025 John Willinsky
  * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
  *
  * @brief A re-usable template for displaying a language switcher dropdown.
@@ -20,7 +20,7 @@
 		<div class="dropdown-menu" aria-labelledby="languageToggleMenu{$id|escape}">
 			{foreach from=$languageToggleLocales item="localeName" key="localeKey"}
 				{if $localeKey !== $currentLocale}
-					<a class="dropdown-item" href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey source=$smarty.server.REQUEST_URI}">
+					<a class="dropdown-item" href="{url router=$smarty.const.ROUTE_PAGE page="user" op="setLocale" path=$localeKey}">
 						{$localeName}
 					</a>
 				{/if}
