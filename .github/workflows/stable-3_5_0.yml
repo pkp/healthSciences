@@ -19,13 +19,12 @@ jobs:
           - application: ojs
             php-version: 8.2
             database: pgsql
-
     name: healthSciences
     steps:
       - uses: pkp/pkp-github-actions@v1
         with:
-         node_version: 20
-         branch: main
-         repository: pkp
-         plugin: true
-         dataset_inject: true
+          node_version: 20
+          branch: 'stable-3_5_0'
+          repository: pkp
+          plugin: true
+          dataset_inject: true
