@@ -46,13 +46,22 @@
 			{/if}
 
 			{* Title and issue details *}
-			<div class="article-details-issue-section small-screen">
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>{if $section}, <span>{$section->getLocalizedTitle()|escape}</span>{/if}
-			</div>
+			{if $issue || $section}
+				<div class="article-details-issue-section small-screen">
+					{if $issue}
+						<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>{if $section}{translate key="common.commaListSeparator"}{/if}
+					{/if}
+					{if $section}
+						<span>{$section->getLocalizedTitle()|escape}</span>
+					{/if}
+				</div>
+			{/if}
 
-			<div class="article-details-issue-identifier large-screen">
-				<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>
-			</div>
+			{if $issue}
+				<div class="article-details-issue-identifier large-screen">
+					<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">{$issue->getIssueSeries()|escape}</a>
+				</div>
+			{/if}
 
 			<h1 class="article-details-fulltitle">
 				{$publication->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
