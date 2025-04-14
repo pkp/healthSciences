@@ -3,7 +3,7 @@
 	"devDependencies": {
 		"bootstrap": "^5.2.0",
 		"@popperjs/core": "^2.11.6",
-		"gulp": "^4.0.2",
+		"gulp": "^5.0.0",
 		"gulp-concat": "^2.6.1",
 		"gulp-concat-css": "^3.1.0",
 		"gulp-csso": "^3.0.1",
