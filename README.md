@@ -100,7 +100,7 @@ Suggestions for improving this guide can be made to support@publicknowledgeproje
 
 ## License
 
-This theme is released under the GPL license.
+This plugin is licensed under the GNU General Public License. See the file LICENSE for the complete terms of this license.
 
 The PT Serif and Fira Sans fonts are distributed under the terms of the [Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
