@@ -38,6 +38,18 @@
 								<input type="email" class="form-control" name="email" id="email" value="{$email|escape}" required>
 							</div>
 
+							{* recaptcha spam blocker *}
+							{if $recaptchaPublicKey}
+								<fieldset class="recaptcha_wrapper">
+									<div class="fields">
+										<div class="recaptcha">
+											<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+											</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
+										</div>
+									</div>
+								</fieldset>
+							{/if}
+
 							{* altcha spam blocker *}
 							{if $altchaEnabled}
 								<fieldset class="altcha_wrapper">
