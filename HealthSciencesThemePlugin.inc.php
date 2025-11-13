@@ -55,8 +55,10 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Update colour based on theme option
 		$additionalLessVariables = [];
-		if ($this->getOption('baseColour') !== '#10BECA') {
-			$additionalLessVariables[] = '@primary:' . $this->getOption('baseColour') . ';';
+		$baseColour = $this->getOption('baseColour');
+		if (!preg_match('/^#[0-9a-fA-F]{1,6}$/', (string) $baseColour)) $baseColour = '#10BECA'; // pkp/pkp-lib#11974
+		if ($baseColour !== '#10BECA') {
+			$additionalLessVariables[] = '@primary:' . $baseColour . ';';
 			$additionalLessVariables[] = '
 				@primary-light: desaturate(lighten(@primary, 41%), 15%);
 				@primary-text: darken(@primary, 15%);
@@ -66,7 +68,7 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Update contrast colour based on primary colour
 		$checkMarkColour = '000';
-		if ($this->isColourDark($this->getOption('baseColour'))) {
+		if ($this->isColourDark($baseColour)) {
 			$checkMarkColour = 'FFF';
 			$additionalLessVariables[] = '
 				@contrast: rgba(255, 255, 255, 0.85);
@@ -110,6 +112,13 @@ class HealthSciencesThemePlugin extends ThemePlugin {
 
 		// Get extra data for templates
 		HookRegistry::add('TemplateManager::display', array($this, 'loadTemplateData'));
+	}
+
+	/** @see ThemePlugin::saveOption */
+	public function saveOption($name, $value, $contextId = null) {
+		// Validate the base colour setting value.
+		if ($name == 'baseColour' && !preg_match('/^#[0-9a-fA-F]{1,6}$/', $value)) $value = null; // pkp/pkp-lib#11974
+		parent::saveOption($name, $value, $contextId);
 	}
 
 	/**
