@@ -1,8 +1,8 @@
 {**
  * templates/frontend/objects/article_details.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Article which displays all details about the article.
@@ -31,10 +31,21 @@
  * @uses $licenseUrl string URL to license. Only assigned if license should be
  *   included with published articles.
  * @uses $ccLicenseBadge string An image and text with details about the license
+ *
+ * @hook Templates::Article::Main []
+ * @hook Templates::Article::Details []
+ * @hook Templates::Article::Details::Reference []
  *}
 <div class="article-details">
 	<div class="page-header row">
 		<div class="col-lg article-meta-mobile">
+			{* Indicate if this is only a preview *}
+			{if $publication->getData('status') !== PKP\submission\PKPSubmission::STATUS_PUBLISHED}
+				<div class="alert alert-primary" role="alert">
+					{capture assign="submissionUrl"}{url page="dashboard" op="editorial" workflowSubmissionId=$article->getId()}{/capture}
+					{translate key="submission.viewingPreview" url=$submissionUrl}
+				</div>
+			{/if}
 			{* Notification that this is an old version *}
 			{if $currentPublication->getId() !== $publication->getId()}
 			<div class="alert alert-primary" role="alert">
@@ -288,7 +299,7 @@
 						</h2>
 						<div class="article-details-keywords-value">
 							{foreach name=keywords from=$publication->getLocalizedData('keywords') item=keyword}
-								<span>{$keyword|escape}</span>{if !$smarty.foreach.keywords.last}<br>{/if}
+								<span>{$keyword.name|escape}</span>{if !$smarty.foreach.keywords.last}<br>{/if}
 							{/foreach}
 						</div>
 					</div>
@@ -304,6 +315,19 @@
 								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|escape}</a></li>
 							{/foreach}
 						</ul>
+					</div>
+				{/if}
+
+				{* Data Availability Statement *}
+				{assign 'dataAvailability' $publication->getLocalizedData('dataAvailability')}
+				{if $dataAvailability}
+					<div class="article-details-block article-details-dataAvailability">
+						<h2 class="article-details-heading">
+							{translate key="submission.dataAvailability"}
+						</h2>
+						<p>
+							{$dataAvailability|strip_unsafe_html}
+						</p>
 					</div>
 				{/if}
 
@@ -372,13 +396,13 @@
 				{/if}
 
 				{* References *}
-				{if $parsedCitations || $publication->getData('citationsRaw')}
+				{if count($parsedCitations) || (string) $publication->getData('citationsRaw')}
 					<div class="article-details-block article-details-references">
 						<h2 class="article-details-heading">
 							{translate key="submission.citations"}
 						</h2>
 						<div class="article-details-references-value">
-							{if $parsedCitations}
+							{if count($parsedCitations)}
 								{foreach from=$parsedCitations item=parsedCitation}
 									<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html}</p>
 								{/foreach}
