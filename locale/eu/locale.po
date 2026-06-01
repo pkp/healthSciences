@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-23T10:23:45+00:00\n"
+"PO-Revision-Date: 2026-05-26 15:33+0200\n"
+"Last-Translator: Emilio Delgado <e.delgado@ueu.eus>\n"
+"Language-Team: \n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+msgid "plugins.themes.healthSciences.name"
+msgstr "Health Sciences itxura"
+
+msgid "plugins.themes.healthSciences.description"
+msgstr "OJS itxura bat, testuaren irakurgarritasunari eta edukiaren argitasunari begira diseinatua. Osasun zientzitako aldizkariei begirako itxura"
+
+msgid "plugins.themes.healthSciences.option.colour.label"
+msgstr "Kolore nagusia"
+
+msgid "plugins.themes.healthSciences.option.colour.description"
+msgstr "Haukeratu zure aldizkariaren kolore nagusia."
+
+msgid "plugins.themes.healthSciences.nav.toggle"
+msgstr "Gaitu/ezgaitu nabigazioa"
+
+msgid "plugins.themes.healthSciences.language.toggle"
+msgstr "Aldatu hizkuntza. Uneko hizkuntza:"
+
+msgid "plugins.themes.healthSciences.currentIssuePublished"
+msgstr "{$date} datan argitaratua"
+
+msgid "plugins.themes.healthSciences.issueDescription"
+msgstr "Zenbakiaren deskribapena"
+
+msgid "plugins.themes.healthSciences.issuePubId"
+msgstr "{$pubIdType}: {$pubId}"
+
+msgid "plugins.themes.healthSciences.more"
+msgstr "{$text}…"
+
+msgid "plugins.themes.healthSciences.article.authorBio"
+msgstr "Bio"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Fitxategi gehigarriak"
+
+msgid "plugins.themes.healthSciences.register.haveAccount"
+msgstr "Dagoeneko kontu bat duzu?"
+
+msgid "plugins.themes.healthSciences.register.loginHere"
+msgstr "Saioa hasi hemen"
+
+msgid "plugins.themes.healthSciences.register.noAccount"
+msgstr "Konturik ez?"
+
+msgid "plugins.themes.healthSciences.register.registerHere"
+msgstr "Erregistratu hemen"
+
+msgid "plugins.themes.healthSciences.search.resultsFor"
+msgstr "Bilaketa emaitzak <em>{$query}</em> bilakerarako"
+
+msgid "plugins.themes.healthSciences.search.params"
+msgstr "Bilaketa-parametroak"
+
+msgid "plugins.themes.healthSciences.option.displayStats.label"
+msgstr "Erabilera-estatistikak bistaratzeko aukerak"
+
+msgid "plugins.themes.healthSciences.option.displayStats.none"
+msgstr "Ez erakutsi bidalketako erabilera estatistikak grafikak erabiltzaileentzat."
+
+msgid "plugins.themes.healthSciences.option.displayStats.bar"
+msgstr "Erabili diagramaren barra mota erabilera-estatistikak bistaratzeko."
+
+msgid "plugins.themes.healthSciences.option.displayStats.line"
+msgstr "Erabili diagramaren lerro mota erabilera-estatistikak bistaratzeko. "
+
+msgid "plugins.themes.healthSciences.displayStats.monthInitials"
+msgstr "Urt Ots Mar Api Maiatza Eka Uzt Abu Ira Urr Aza Abe"
+
+msgid "plugins.themes.healthSciences.displayStats.downloads"
+msgstr "Deskargak"
+
+msgid "plugins.themes.healthSciences.displayStats.noStats"
+msgstr "Deskargen datuak ez daude oraindik eskuragarri."
