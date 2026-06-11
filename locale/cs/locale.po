@@ -38,8 +38,14 @@ msgstr "Popis čísla"
 msgid "plugins.themes.healthSciences.issuePubId"
 msgstr "{$pubIdType}: {$pubId}"
 
+msgid "plugins.themes.healthSciences.more"
+msgstr "{$text}…"
+
 msgid "plugins.themes.healthSciences.article.authorBio"
 msgstr "Bio"
+
+msgid "plugins.themes.healthSciences.article.supplementaryFiles"
+msgstr "Doplňkové soubory"
 
 msgid "plugins.themes.healthSciences.register.haveAccount"
 msgstr "Máte již účet?"
@@ -58,3 +64,24 @@ msgstr "Hledat výsledky pro <em>{$query}</em>"
 
 msgid "plugins.themes.healthSciences.search.params"
 msgstr "Parametry hledání"
+
+msgid "plugins.themes.healthSciences.option.displayStats.label"
+msgstr "Možnosti zobrazení statistik"
+
+msgid "plugins.themes.healthSciences.option.displayStats.none"
+msgstr "Nezobrazovat čtenáři graf statistik příspěvku."
+
+msgid "plugins.themes.healthSciences.option.displayStats.bar"
+msgstr "Zobrazovat statistiky využití jako sloupcový graf."
+
+msgid "plugins.themes.healthSciences.option.displayStats.line"
+msgstr "Zobrazovat statistiky využití jako spojnicový graf."
+
+msgid "plugins.themes.healthSciences.displayStats.monthInitials"
+msgstr "Led Úno Bře Dub Kvě Čvn Čvc Srp Zář Říj Lis Pro"
+
+msgid "plugins.themes.healthSciences.displayStats.downloads"
+msgstr "Stažení"
+
+msgid "plugins.themes.healthSciences.displayStats.noStats"
+msgstr "Data o stažení zatím nejsou k dispozici."
