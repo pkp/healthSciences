@@ -609,8 +609,8 @@ a:focus {
 .container-homepage-issue {
 	background: #fff;
 	color: var(--ajlii-text);
-	padding-top: 1.5rem;
-	padding-bottom: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1.35rem;
 }
 
 .container-homepage-issue {
@@ -634,18 +634,18 @@ a:focus {
 .page-lost-password {
 	background: #fff;
 	color: var(--ajlii-text);
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-	padding: 0 1rem 2rem;
+	margin-top: 1.35rem;
+	margin-bottom: 1.35rem;
+	padding: 0 1rem 1.5rem;
 	max-width: 100%;
 	overflow-x: hidden;
 	overflow-x: clip;
 }
 
 .page-header {
-	padding: 1.25rem 0 0.75rem;
+	padding: 0.85rem 0 0.55rem;
 	border-bottom: 1px solid var(--ajlii-line);
-	margin-bottom: 1.1rem;
+	margin-bottom: 0.95rem;
 }
 
 .page-header h1,
@@ -657,7 +657,8 @@ a:focus {
 .page-submissions h1,
 .page-article h1 {
 	color: var(--ajlii-ink) !important;
-	font-weight: 700;
+	font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+	font-weight: 600;
 	line-height: 1.25;
 	letter-spacing: 0;
 }
@@ -690,7 +691,8 @@ a:focus {
 .section_policy h2,
 .submissions-privacy-statement h2 {
 	color: var(--ajlii-ink) !important;
-	font-weight: 700;
+	font-size: clamp(1.08rem, 1.5vw, 1.35rem);
+	font-weight: 600;
 	letter-spacing: 0;
 }
 
@@ -706,23 +708,23 @@ a:focus {
 .issue-toc p,
 .article-summary p,
 .obj_article_summary p {
-	max-width: 72ch;
-	line-height: 1.58;
+	max-width: 68ch;
+	line-height: 1.6;
 }
 
 .article-summary,
 .obj_article_summary {
-	padding: 0.95rem 0;
+	padding: 0.75rem 0;
 	border-bottom: 1px solid #e5e5e5;
 	background: transparent;
 }
 
 .article-summary-title,
 .obj_article_summary .title {
-	margin: 0.25rem 0;
-	font-size: clamp(1rem, 1.05vw, 1.18rem);
-	font-weight: 700;
-	line-height: 1.36;
+	margin: 0.2rem 0;
+	font-size: clamp(0.98rem, 1vw, 1.1rem);
+	font-weight: 600;
+	line-height: 1.38;
 }
 
 .article-summary-title a,
@@ -747,7 +749,7 @@ a:focus {
 .obj_article_summary .pages,
 .obj_article_summary .date {
 	color: var(--ajlii-muted) !important;
-	font-size: 0.92rem;
+	font-size: 0.9rem;
 	line-height: 1.45;
 }
 
@@ -782,9 +784,9 @@ a:focus {
 .pkp_page_search .cmp_form {
 	position: sticky;
 	top: 1rem;
-	padding: 1rem;
+	padding: 0.85rem;
 	border: 1px solid var(--ajlii-line);
-	border-top: 3px solid #b7b7b7;
+	border-top: 2px solid #b7b7b7;
 	border-radius: 8px;
 	background: #fff;
 	color: var(--ajlii-text);
@@ -794,17 +796,17 @@ a:focus {
 .search-filters h2,
 .pkp_page_search .page_search > h1,
 .pkp_page_search .search_advanced legend {
-	margin: 0 0 0.85rem;
+	margin: 0 0 0.65rem;
 	color: var(--ajlii-ink) !important;
-	font-size: 1.1rem;
-	font-weight: 800;
+	font-size: 1rem;
+	font-weight: 600;
 	line-height: 1.25;
 }
 
 .form-search,
 .pkp_page_search .cmp_form {
 	display: grid;
-	gap: 0.9rem;
+	gap: 0.75rem;
 }
 
 .form-search .form-group,
@@ -822,7 +824,7 @@ a:focus {
 	margin-bottom: 0.35rem;
 	color: var(--ajlii-ink);
 	font-size: 0.92rem;
-	font-weight: 800;
+	font-weight: 600;
 }
 
 .form-search input,
@@ -887,7 +889,7 @@ a:focus {
 .search-results,
 .pkp_page_search .search_results {
 	display: grid;
-	gap: 0.85rem;
+	gap: 0.7rem;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -895,13 +897,13 @@ a:focus {
 
 .search-results-list {
 	display: grid;
-	gap: 0.85rem;
+	gap: 0.7rem;
 }
 
 .search-results .article-summary,
 .pkp_page_search .search_results > li,
 .pkp_page_search .obj_article_summary {
-	padding: 1rem;
+	padding: 0.85rem;
 	border: 1px solid var(--ajlii-line);
 	border-radius: 8px;
 	background: #fff;
@@ -919,9 +921,9 @@ a:focus {
 }
 
 .pkp_page_search .obj_article_summary .title {
-	margin: 0 0 0.45rem;
-	font-size: clamp(1.05rem, 1.15vw, 1.22rem);
-	line-height: 1.32;
+	margin: 0 0 0.35rem;
+	font-size: clamp(1rem, 1.05vw, 1.14rem);
+	line-height: 1.35;
 }
 
 .pkp_page_search .obj_article_summary .subtitle {
@@ -1000,8 +1002,8 @@ a:focus {
 }
 
 .ajlii-masthead-role {
-	margin-top: 1.25rem;
-	padding-top: 1.25rem;
+	margin-top: 1rem;
+	padding-top: 1rem;
 	border-top: 1px solid var(--ajlii-line);
 }
 
@@ -1009,7 +1011,8 @@ a:focus {
 .ajlii-masthead-role h3 {
 	margin: 0 0 0.85rem;
 	color: var(--ajlii-ink) !important;
-	font-size: 1.2rem;
+	font-size: 1.08rem;
+	font-weight: 600;
 }
 
 .ajlii-editorial-managed-history {
@@ -1110,16 +1113,17 @@ a:focus {
 
 .ajlii-login-card {
 	min-width: 0;
-	padding: clamp(0.9rem, 2vw, 1.25rem);
+	padding: 1rem;
 	border: 1px solid var(--ajlii-line);
 	border-radius: 8px;
 	box-shadow: none;
 }
 
 .ajlii-login-card h2 {
-	margin: 0 0 1rem;
+	margin: 0 0 0.75rem;
 	color: var(--ajlii-ink);
-	font-size: 1.35rem;
+	font-size: 1.08rem;
+	font-weight: 600;
 }
 
 .form-login fieldset {
@@ -1384,8 +1388,8 @@ a:focus {
 
 .page-register-options {
 	display: grid;
-	gap: 0.75rem;
-	padding: 0.9rem 1rem;
+	gap: 0.65rem;
+	padding: 0.8rem 0.9rem;
 	background: #fff;
 	border: 1px solid var(--ajlii-line);
 	border-left: 4px solid #4f7d1f;
@@ -1397,7 +1401,7 @@ a:focus {
 	margin: 0;
 	color: var(--ajlii-ink);
 	font-size: 1rem;
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .page-register-options-list {
@@ -1418,7 +1422,7 @@ a:focus {
 	border-radius: 6px;
 	background: #fff;
 	color: #244a09 !important;
-	font-weight: 700;
+	font-weight: 600;
 	text-decoration: none;
 }
 
@@ -1467,7 +1471,7 @@ a:focus {
 	border-radius: 6px;
 	background: #fff;
 	color: var(--ajlii-ink) !important;
-	font-weight: 700;
+	font-weight: 600;
 	text-decoration: none;
 }
 
@@ -1487,32 +1491,32 @@ a:focus {
 	border: 1px solid var(--ajlii-line);
 	border-radius: 8px;
 	box-shadow: none;
-	padding: clamp(1rem, 2.4vw, 1.5rem);
+	padding: 1rem;
 }
 
 .form-register fieldset {
 	min-width: 0;
-	margin: 0 0 1rem;
-	padding: 1rem;
+	margin: 0 0 0.85rem;
+	padding: 0.85rem;
 	border: 1px solid var(--ajlii-line);
 	border-radius: 8px;
-	background: #f8fbfd;
+	background: #fff;
 }
 
 .form-register legend {
 	float: none;
 	width: auto;
-	margin: 0 0 0.85rem;
+	margin: 0 0 0.65rem;
 	padding: 0;
 	color: var(--ajlii-ink);
-	font-size: 1.05rem;
-	font-weight: 800;
+	font-size: 1rem;
+	font-weight: 600;
 	line-height: 1.2;
 }
 
 .form-register .form-group,
 .form-register .fields {
-	margin-bottom: 1rem;
+	margin-bottom: 0.8rem;
 }
 
 .form-register label,
@@ -1520,7 +1524,7 @@ a:focus {
 	display: block;
 	margin-bottom: 0.35rem;
 	color: var(--ajlii-ink);
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .form-register .required {
@@ -1588,7 +1592,7 @@ a:focus {
 
 .form-register .list-group-item-heading {
 	color: var(--ajlii-ink);
-	font-weight: 800;
+	font-weight: 600;
 }
 
 .form-register .form-group-buttons,
@@ -1635,19 +1639,19 @@ a:focus {
 }
 
 .page_openid_login > h1 {
-	margin: 0 0 1rem;
-	padding-bottom: 0.75rem;
+	margin: 0 0 0.85rem;
+	padding-bottom: 0.6rem;
 	border-bottom: 1px solid var(--ajlii-line);
 	color: var(--ajlii-ink);
-	font-size: clamp(1.75rem, 3vw, 2.35rem);
+	font-size: clamp(1.45rem, 2.5vw, 2.05rem);
 	line-height: 1.15;
-	font-weight: 700;
+	font-weight: 600;
 }
 
 #openid-provider-list {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
-	gap: 1rem;
+	gap: 0.85rem;
 	align-items: start;
 	margin: 0;
 	padding: 0;
@@ -1663,7 +1667,7 @@ a:focus {
 	grid-column: 1 / -1;
 	margin: 0;
 	color: var(--ajlii-ink);
-	font-size: 1rem;
+	font-size: 0.96rem;
 }
 
 #openid-provider-list > li.margin-top-30 + .page_login {
@@ -1671,7 +1675,7 @@ a:focus {
 }
 
 #openid-provider-list .page_login {
-	padding: clamp(0.9rem, 2vw, 1.25rem);
+	padding: 1rem;
 	border: 1px solid var(--ajlii-line);
 	border-radius: 8px;
 	background: #fff;
@@ -1687,7 +1691,7 @@ a:focus {
 #openid-provider-list .cmp_form .username,
 #openid-provider-list .cmp_form .password,
 #openid-provider-list .cmp_form .remember {
-	margin-bottom: 1rem;
+	margin-bottom: 0.8rem;
 }
 
 #openid-provider-list .cmp_form label,
@@ -1695,7 +1699,7 @@ a:focus {
 	display: block;
 	margin-bottom: 0.35rem;
 	color: var(--ajlii-ink);
-	font-weight: 700;
+	font-weight: 600;
 }
 
 #openid-provider-list .cmp_form input[type="text"],
@@ -1728,7 +1732,7 @@ a:focus {
 	align-items: center;
 	min-height: var(--ajlii-touch-target);
 	color: var(--ajlii-text);
-	font-weight: 600;
+	font-weight: 500;
 }
 
 #openid-provider-list .cmp_form input[type="checkbox"] {
@@ -1748,7 +1752,7 @@ a:focus {
 	justify-content: center;
 	min-height: var(--ajlii-touch-target);
 	border-radius: 6px;
-	font-weight: 700;
+	font-weight: 600;
 	text-decoration: none;
 }
 
@@ -1798,21 +1802,22 @@ a:focus {
 
 .page-information {
 	margin-top: 2rem;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 	color: var(--ajlii-text);
 }
 
 .page-information-header {
-	margin-bottom: 1.25rem;
-	padding-bottom: 0.75rem;
+	margin-bottom: 1rem;
+	padding-bottom: 0.6rem;
 	border-bottom: 1px solid var(--ajlii-line);
 }
 
 .page-information-header h1 {
 	margin: 0;
 	color: var(--ajlii-ink);
-	font-size: clamp(1.75rem, 3vw, 2.35rem);
-	line-height: 1.1;
+	font-size: clamp(1.45rem, 2.5vw, 2.05rem);
+	font-weight: 600;
+	line-height: 1.18;
 }
 
 .page-information-header p {
@@ -1824,22 +1829,23 @@ a:focus {
 .ajlii-information-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1rem;
+	gap: 0.85rem;
 }
 
 .ajlii-information-card {
 	min-width: 0;
 	min-height: 0;
-	padding: 1rem;
+	padding: 0.85rem;
 	border: 1px solid #c8d8e3;
 	background: #fff;
 	color: var(--ajlii-text);
 }
 
 .ajlii-information-card h2 {
-	margin: 0 0 0.85rem;
+	margin: 0 0 0.65rem;
 	color: var(--ajlii-ink);
-	font-size: 1.12rem;
+	font-size: 1rem;
+	font-weight: 600;
 	line-height: 1.25;
 }
 
@@ -1852,12 +1858,12 @@ a:focus {
 	content: ">";
 	margin-left: 0.45rem;
 	color: var(--ajlii-sky-dark);
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .ajlii-information-card ul {
 	display: grid;
-	gap: 0.55rem;
+	gap: 0.4rem;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -1901,8 +1907,8 @@ a:focus {
 	border: 1px solid var(--ajlii-line);
 	border-radius: 8px;
 	background: #fff;
-	padding: 1rem;
-	margin: 1rem 0;
+	padding: 0.85rem;
+	margin: 0.85rem 0;
 	color: var(--ajlii-text);
 }
 
@@ -1914,20 +1920,18 @@ a:focus {
 .article-details > .page-header.row {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
-	margin: 0 0 1.5rem;
-	padding: clamp(1.2rem, 3vw, 2.2rem);
+	margin: 0 0 1.1rem;
+	padding: clamp(0.95rem, 2.2vw, 1.5rem);
 	border: 1px solid var(--ajlii-line);
-	border-left: 5px solid var(--ajlii-gold);
+	border-left: 4px solid var(--ajlii-gold);
 	border-radius: 8px;
-	background:
-		linear-gradient(135deg, rgba(255, 205, 0, 0.08), rgba(206, 17, 38, 0.04)),
-		#fff;
+	background: #fff;
 	box-shadow: none;
 }
 
 .article-details .article-meta-mobile {
 	display: grid;
-	gap: 0.85rem;
+	gap: 0.65rem;
 	min-width: 0;
 }
 
@@ -1943,8 +1947,8 @@ a:focus {
 .article-details-issue-section {
 	margin: 0;
 	color: var(--ajlii-muted) !important;
-	font-size: 0.95rem;
-	font-weight: 700;
+	font-size: 0.9rem;
+	font-weight: 600;
 	line-height: 1.45;
 	text-transform: none;
 }
@@ -1952,7 +1956,7 @@ a:focus {
 .article-details-issue-identifier a,
 .article-details-issue-section a {
 	color: var(--ajlii-link) !important;
-	font-weight: 700;
+	font-weight: 600;
 	text-decoration: underline;
 	text-underline-offset: 0.18em;
 }
@@ -1962,22 +1966,22 @@ a:focus {
 	display: inline-flex;
 	align-items: center;
 	min-height: 2rem;
-	padding: 0.2rem 0.65rem;
+	padding: 0.15rem 0.55rem;
 	border: 1px solid var(--ajlii-line);
 	border-radius: 999px;
 	background: #fff;
 	color: var(--ajlii-ink) !important;
-	font-size: 0.86rem;
-	font-weight: 800;
+	font-size: 0.82rem;
+	font-weight: 600;
 }
 
 .article-details-fulltitle {
-	max-width: 48ch;
+	max-width: 54ch;
 	margin: 0;
 	color: var(--ajlii-ink) !important;
-	font-size: clamp(1.75rem, 3vw, 2.85rem);
-	font-weight: 800;
-	line-height: 1.12;
+	font-size: clamp(1.45rem, 2.45vw, 2.2rem);
+	font-weight: 600;
+	line-height: 1.18;
 	letter-spacing: 0;
 	overflow-wrap: anywhere;
 }
@@ -1985,7 +1989,7 @@ a:focus {
 .ajlii-article-tools {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.55rem;
+	gap: 0.45rem;
 	align-items: center;
 	margin: 0.2rem 0;
 }
@@ -1993,7 +1997,7 @@ a:focus {
 .ajlii-article-tools .btn {
 	min-height: var(--ajlii-touch-target);
 	border-radius: 6px;
-	font-weight: 800;
+	font-weight: 600;
 }
 
 .article-details-published {
@@ -2007,8 +2011,8 @@ a:focus {
 	border-radius: 999px;
 	background: #fff;
 	color: var(--ajlii-text) !important;
-	font-size: 0.92rem;
-	font-weight: 700;
+	font-size: 0.88rem;
+	font-weight: 600;
 	line-height: 1.45;
 }
 
