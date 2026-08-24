@@ -99,8 +99,6 @@
 {/if}
 
 <div class="container container-homepage-issue page-content">
-	<div class="ajlii-home-content-grid">
-		<div class="ajlii-home-content-main">
 	{if $issue}
 		<section class="ajlii-current-issue-showcase" aria-labelledby="ajliiCurrentIssueTitle">
 			<div class="ajlii-current-issue-cover-card">
@@ -176,7 +174,7 @@
 
 	{if $issue}
 		<div class="row issue-wrapper{if $homepageImage && $issue->hasDescription()} issue-full-data{elseif $homepageImage && $issue->getLocalizedCoverImageUrl()} issue-image-cover{elseif $homepageImage} issue-only-image{/if}">
-			<div class="col-12 col-lg-9">
+			<div class="col-12">
 				{include file="frontend/objects/issue_toc.tpl" sectionHeading="h3"}
 			</div>
 		</div>
@@ -194,44 +192,6 @@
 			<div class="col-lg-9">{$additionalHomeContent}</div>
 		</div>
 	{/if}
-		</div>
-		<aside class="ajlii-home-utility-panel" aria-label="{translate|escape key="plugins.themes.ajlii.homeTools.title"}">
-			<section>
-				<h2>{translate key="plugins.themes.ajlii.homeTools.latestPublications"}</h2>
-				<div class="ajlii-feed-links">
-					<a href="{url page="gateway" op="plugin" path="WebFeedGatewayPlugin"}/atom" rel="alternate" type="application/atom+xml"><span aria-hidden="true">Atom</span>{translate key="plugins.themes.ajlii.homeTools.atom"}</a>
-					<a href="{url page="gateway" op="plugin" path="WebFeedGatewayPlugin"}/rss2" rel="alternate" type="application/rss+xml"><span aria-hidden="true">RSS2</span>{translate key="plugins.themes.ajlii.homeTools.rss2"}</a>
-					<a href="{url page="gateway" op="plugin" path="WebFeedGatewayPlugin"}/rss" rel="alternate" type="application/rss+xml"><span aria-hidden="true">RSS1</span>{translate key="plugins.themes.ajlii.homeTools.rss1"}</a>
-				</div>
-			</section>
-			<section>
-				<h2>{translate key="plugins.themes.ajlii.homeTools.information"}</h2>
-				<a href="{url page="information" op="readers"}">{translate key="plugins.themes.ajlii.footer.forReaders"}</a>
-				<a href="{url page="information" op="authors"}">{translate key="plugins.themes.ajlii.footer.forAuthors"}</a>
-				<a href="{url page="information" op="librarians"}">{translate key="plugins.themes.ajlii.footer.forLibrarians"}</a>
-			</section>
-			<section>
-				<h2>{translate key="plugins.themes.ajlii.homeTools.makeSubmission"}</h2>
-				<a class="ajlii-home-submit-link" href="{url page="about" op="submissions"}">{translate key="plugins.themes.ajlii.homeTools.makeSubmission"}</a>
-			</section>
-			<section>
-				<h2>{translate key="plugins.themes.ajlii.footer.journalLinks"}</h2>
-				<a href="{url page="about"}">{translate key="plugins.themes.ajlii.footer.aboutJournal"}</a>
-				<a href="{url page="about" op="editorialMasthead"}">{translate key="plugins.themes.ajlii.footer.editorialBoard"}</a>
-				<a href="{url page="about" op="submissions"}">{translate key="plugins.themes.ajlii.footer.authorGuidelines"}</a>
-				<a href="{url page="issue" op="archive"}">{translate key="journal.archives"}</a>
-				<a href="{url page="announcements"}">{translate key="announcement.announcements"}</a>
-			</section>
-			<section>
-				<h2>{translate key="plugins.themes.ajlii.footer.publisherLinks"}</h2>
-				<a href="{url page="about" op="contact"}">{translate key="plugins.themes.ajlii.footer.contactPage"}</a>
-				<a href="{url page="search"}">{translate key="common.search"}</a>
-				<a href="{url page="information" op="authors"}">{translate key="plugins.themes.ajlii.footer.forAuthors"}</a>
-				<a href="{url page="information" op="readers"}">{translate key="plugins.themes.ajlii.footer.forReaders"}</a>
-				<a href="{url page="information" op="librarians"}">{translate key="plugins.themes.ajlii.footer.forLibrarians"}</a>
-			</section>
-		</aside>
-	</div>
 </div><!-- .container -->
 
 {include file="frontend/components/footer.tpl"}

@@ -98,6 +98,40 @@
 			{if !empty(trim($primaryMenu)) || $currentContext}
 				{$primaryMenu}
 			{/if}
+			{if $currentContext}
+			<ul class="navbar-nav ajlii-resource-nav">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{url page="information"}" id="ajliiResourceMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{translate key="plugins.themes.ajlii.homeTools.title"}
+					</a>
+					<div class="dropdown-menu ajlii-resource-menu" aria-labelledby="ajliiResourceMenu">
+						<span class="dropdown-header">{translate key="plugins.themes.ajlii.homeTools.latestPublications"}</span>
+						<a class="dropdown-item" href="{url page="gateway" op="plugin" path="WebFeedGatewayPlugin"}/atom" rel="alternate" type="application/atom+xml">{translate key="plugins.themes.ajlii.homeTools.atom"}</a>
+						<a class="dropdown-item" href="{url page="gateway" op="plugin" path="WebFeedGatewayPlugin"}/rss2" rel="alternate" type="application/rss+xml">{translate key="plugins.themes.ajlii.homeTools.rss2"}</a>
+						<a class="dropdown-item" href="{url page="gateway" op="plugin" path="WebFeedGatewayPlugin"}/rss" rel="alternate" type="application/rss+xml">{translate key="plugins.themes.ajlii.homeTools.rss1"}</a>
+
+						<span class="dropdown-header">{translate key="plugins.themes.ajlii.homeTools.information"}</span>
+						<a class="dropdown-item" href="{url page="information" op="readers"}">{translate key="plugins.themes.ajlii.footer.forReaders"}</a>
+						<a class="dropdown-item" href="{url page="information" op="authors"}">{translate key="plugins.themes.ajlii.footer.forAuthors"}</a>
+						<a class="dropdown-item" href="{url page="information" op="librarians"}">{translate key="plugins.themes.ajlii.footer.forLibrarians"}</a>
+
+						<span class="dropdown-header">{translate key="plugins.themes.ajlii.homeTools.makeSubmission"}</span>
+						<a class="dropdown-item" href="{url page="about" op="submissions"}">{translate key="plugins.themes.ajlii.homeTools.makeSubmission"}</a>
+
+						<span class="dropdown-header">{translate key="plugins.themes.ajlii.footer.journalLinks"}</span>
+						<a class="dropdown-item" href="{url page="about"}">{translate key="plugins.themes.ajlii.footer.aboutJournal"}</a>
+						<a class="dropdown-item" href="{url page="about" op="editorialMasthead"}">{translate key="plugins.themes.ajlii.footer.editorialBoard"}</a>
+						<a class="dropdown-item" href="{url page="about" op="submissions"}">{translate key="plugins.themes.ajlii.footer.authorGuidelines"}</a>
+						<a class="dropdown-item" href="{url page="issue" op="archive"}">{translate key="journal.archives"}</a>
+						<a class="dropdown-item" href="{url page="announcements"}">{translate key="announcement.announcements"}</a>
+
+						<span class="dropdown-header">{translate key="plugins.themes.ajlii.footer.publisherLinks"}</span>
+						<a class="dropdown-item" href="{url page="about" op="contact"}">{translate key="plugins.themes.ajlii.footer.contactPage"}</a>
+						<a class="dropdown-item" href="{url page="search"}">{translate key="common.search"}</a>
+					</div>
+				</li>
+			</ul>
+			{/if}
 			{* user menu *}
 			{load_menu name="user" id="primaryNav-userNav" ulClass="navbar-nav" liClass="nav-item"}
 			{include file="frontend/components/languageSwitcher.tpl" id="languageSmallNav"}
