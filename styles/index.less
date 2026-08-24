@@ -133,3 +133,37 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: @contrast;
 	color: @primary-text;
 }
+
+// Simple neutral presentation for the public theme.
+.ajlii-journal-band {
+	background: @contrast;
+	border-bottom: 1px solid @faded-grey;
+}
+
+.ajlii-journal-title a {
+	border-color: @faded-grey;
+}
+
+.ajlii-home-slider,
+.ajlii-home-slide,
+.site-footer-secondary {
+	background: @contrast;
+	color: @primary-text;
+}
+
+.site-footer-secondary::before {
+	display: none;
+}
+
+.site-footer-secondary-grid {
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.site-footer-brand-block {
+	grid-column: auto;
+}
+
+.site-footer-publisher-logo {
+	border: 1px solid @faded-grey;
+	box-shadow: none;
+}

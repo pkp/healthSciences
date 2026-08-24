@@ -36,10 +36,6 @@
 					<p>{translate key="plugins.themes.ajlii.footer.legalNoticeText"}</p>
 				</details>
 			</nav>
-			<div class="site-footer-statement">
-				<h2>{translate key="plugins.themes.ajlii.footer.publisherStatementTitle"}</h2>
-				<p>{translate key="plugins.themes.ajlii.footer.publisherStatement"}</p>
-			</div>
 			<div class="site-footer-brand-block">
 				<a class="site-footer-publisher-mark" href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}" aria-label="{translate|escape key="plugins.themes.ajlii.footer.cuulPublishing"}">
 					<span class="site-footer-publisher-logo" aria-hidden="true">
@@ -53,8 +49,6 @@
 					</span>
 					<span>{translate key="plugins.themes.ajlii.footer.cuulPublishing"}</span>
 				</a>
-				<p>{translate key="plugins.themes.ajlii.footer.scope"}</p>
-				<p>{translate key="plugins.themes.ajlii.footer.openAccessStatement"}</p>
 			</div>
 			{if $ajliiAuthorityLinks}
 				<nav class="site-footer-link-column ajlii-authority-links" aria-label="{translate|escape key="plugins.themes.ajlii.authority.title"}">

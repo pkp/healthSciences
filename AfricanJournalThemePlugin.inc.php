@@ -191,22 +191,6 @@ class AfricanJournalThemePlugin extends ThemePlugin
             }
         }
 
-        for ($cardIndex = 1; $cardIndex <= 4; $cardIndex++) {
-            foreach ([
-                'ImageUrl' => __('plugins.themes.ajlii.option.homeFeatureImageUrl.description'),
-                'Title' => __('plugins.themes.ajlii.option.homeFeatureTitle.description'),
-                'Description' => __('plugins.themes.ajlii.option.homeFeatureDescription.description'),
-                'Url' => __('plugins.themes.ajlii.option.homeFeatureUrl.description'),
-                'Label' => __('plugins.themes.ajlii.option.homeFeatureLabel.description'),
-            ] as $fieldName => $description) {
-                $this->addOption('homeFeature' . $cardIndex . $fieldName, 'FieldText', [
-                    'label' => __('plugins.themes.ajlii.option.homeFeature.label', ['number' => $cardIndex]) . ' ' . __('plugins.themes.ajlii.option.homeFeature' . $fieldName . '.label'),
-                    'description' => $description,
-                    'default' => '',
-                ]);
-            }
-        }
-
         foreach ([
             'authorityWebsiteUrl',
             'authorityOrcidUrl',
@@ -290,7 +274,7 @@ class AfricanJournalThemePlugin extends ThemePlugin
         // Validate the base colour setting value.
         if ($name == 'baseColour' && !preg_match('/^#[0-9a-fA-F]{1,6}$/', $value)) $value = null; // pkp/pkp-lib#11974
         if (($name == 'aiProxyUrl' || $name == 'citationMonitorUrl' || $name == 'orcidRedirectUri' || preg_match('/^authority.*Url$/', $name)) && $value && !preg_match('/^https?:\/\//i', $value)) $value = null;
-        if (preg_match('/^(heroSlide|homeFeature)\d+(ImageUrl|Url)$/', $name) && $value && !preg_match('/^(https?:\/\/|\/)[^\s"\'<>]+$/i', $value)) $value = null;
+        if (preg_match('/^heroSlide\d+(ImageUrl|Url)$/', $name) && $value && !preg_match('/^(https?:\/\/|\/)[^\s"\'<>]+$/i', $value)) $value = null;
         if ($name == 'orcidClientId' && $value && !preg_match('/^[A-Za-z0-9._:-]+$/', $value)) $value = null;
         if ($name == 'orcidScope' && $value && !preg_match('/^[A-Za-z0-9_\/ .:-]+$/', $value)) $value = '/authenticate';
         parent::saveOption($name, $value, $contextId);
@@ -371,7 +355,6 @@ class AfricanJournalThemePlugin extends ThemePlugin
                 'ajliiHomepageSliderEnabled' => $this->getOption('heroSliderEnabled') !== '0',
                 'ajliiHomepageSliderAutoplay' => $this->getOption('heroSliderAutoplay') !== '0',
                 'ajliiHomepageSliderSlides' => $this->getHeroSliderSlides(),
-                'ajliiHomepageFeatureCards' => $this->getHomeFeatureCards($request),
                 'ajliiAiProvider' => $this->getOption('aiProvider') ?: 'openai',
                 'ajliiAiModel' => $this->getOption('aiModel') ?: '',
                 'ajliiAiProxyUrl' => $this->getOption('aiProxyUrl') ?: '',
@@ -435,58 +418,4 @@ class AfricanJournalThemePlugin extends ThemePlugin
         return $slides;
     }
 
-    private function getHomeFeatureCards($request): array
-    {
-        $defaults = [
-            [
-                'title' => __('plugins.themes.ajlii.homeLinks.publishDealsTitle'),
-                'description' => __('plugins.themes.ajlii.homeLinks.publishDealsText'),
-                'url' => $request->url(null, 'about', 'submissions'),
-                'label' => __('plugins.themes.ajlii.homeLinks.publishDealsLink'),
-                'visualClass' => 'ajlii-home-link-visual-open',
-            ],
-            [
-                'title' => __('plugins.themes.ajlii.homeLinks.editorsTitle'),
-                'description' => __('plugins.themes.ajlii.homeLinks.editorsText'),
-                'url' => $request->url(null, 'about', 'editorialMasthead'),
-                'label' => __('plugins.themes.ajlii.homeLinks.editorsLink'),
-                'visualClass' => 'ajlii-home-link-visual-editors',
-            ],
-            [
-                'title' => __('plugins.themes.ajlii.homeLinks.aboutTitle'),
-                'description' => __('plugins.themes.ajlii.homeLinks.aboutText'),
-                'url' => $request->url(null, 'about'),
-                'label' => __('plugins.themes.ajlii.homeLinks.aboutLink'),
-                'visualClass' => 'ajlii-home-link-visual-about',
-            ],
-            [
-                'title' => __('plugins.themes.ajlii.homeLinks.whyPublishTitle'),
-                'description' => __('plugins.themes.ajlii.homeLinks.whyPublishText'),
-                'url' => $request->url(null, 'about', 'submissions'),
-                'label' => __('plugins.themes.ajlii.homeLinks.whyPublishLink'),
-                'visualClass' => 'ajlii-home-link-visual-submit',
-            ],
-        ];
-
-        $cards = [];
-        for ($cardIndex = 1; $cardIndex <= 4; $cardIndex++) {
-            $default = $defaults[$cardIndex - 1];
-            $title = trim((string) $this->getOption('homeFeature' . $cardIndex . 'Title'));
-            $imageUrl = trim((string) $this->getOption('homeFeature' . $cardIndex . 'ImageUrl'));
-            $description = trim((string) $this->getOption('homeFeature' . $cardIndex . 'Description'));
-            $url = trim((string) $this->getOption('homeFeature' . $cardIndex . 'Url'));
-            $label = trim((string) $this->getOption('homeFeature' . $cardIndex . 'Label'));
-
-            $cards[] = [
-                'title' => $title ?: $default['title'],
-                'imageUrl' => $imageUrl,
-                'description' => $description ?: $default['description'],
-                'url' => $url ?: $default['url'],
-                'label' => $label ?: $default['label'],
-                'visualClass' => $default['visualClass'],
-            ];
-        }
-
-        return $cards;
-    }
 }

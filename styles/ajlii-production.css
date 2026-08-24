@@ -1,16 +1,16 @@
 :root {
-	--ajlii-sky: #2ca9df;
-	--ajlii-sky-dark: #006da8;
+	--ajlii-sky: #333333;
+	--ajlii-sky-dark: #222222;
 	--ajlii-ink: #111111;
 	--ajlii-text: #242424;
 	--ajlii-muted: #5f6368;
 	--ajlii-line: #dedede;
-	--ajlii-link: #005f86;
+	--ajlii-link: #222222;
 	--ajlii-panel: #ffffff;
-	--ajlii-soft: #f6f6f4;
-	--ajlii-gold: #ffcd00;
-	--ajlii-red: #ce1126;
-	--ajlii-focus: #006da8;
+	--ajlii-soft: #fafafa;
+	--ajlii-gold: #777777;
+	--ajlii-red: #555555;
+	--ajlii-focus: #333333;
 	--ajlii-touch-target: 48px;
 }
 
@@ -28,7 +28,7 @@ html {
 
 body {
 	margin: 0;
-	background: var(--ajlii-soft);
+	background: #fff;
 	color: var(--ajlii-text);
 	font-family: "Fira Sans", Arial, Helvetica, sans-serif;
 	font-size: 16px;
@@ -4372,4 +4372,82 @@ body.ajlii-wcag-bigCursor * {
 	.ajlii-discovery-dialog {
 		max-height: -webkit-fill-available;
 	}
+}
+
+/* Final neutral layer: keep the interface light and free of decorative colour. */
+.ajlii-journal-band,
+.ajlii-home-slider,
+.ajlii-home-slide,
+.ajlii-home-slide-no-image,
+.ajlii-home-slide-content,
+.site-footer,
+.site-footer-secondary {
+	background: #fff;
+	color: var(--ajlii-text);
+}
+
+.ajlii-journal-band {
+	border-bottom: 1px solid var(--ajlii-line);
+}
+
+.ajlii-journal-title a,
+.ajlii-home-slide-content {
+	border-color: var(--ajlii-line);
+}
+
+.ajlii-home-slide-content h3,
+.ajlii-home-slide-content p,
+.ajlii-home-slide-kicker {
+	color: var(--ajlii-text);
+}
+
+.ajlii-home-slide-content,
+.container-homepage-issue,
+.ajlii-current-issue-cover-card,
+.ajlii-current-issue-summary,
+.ajlii-home-utility-panel,
+.ajlii-plugin-blocks > *,
+.ajlii-plugin-blocks .block,
+.ajlii-plugin-blocks .pkp_block,
+.card,
+.page-content {
+	background: #fff;
+	box-shadow: none;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus,
+.navbar-nav a:hover,
+.navbar-nav a:focus,
+.navbar-nav .dropdown-menu .dropdown-item:hover,
+.navbar-nav .dropdown-menu .dropdown-item:focus,
+.navbar-nav .dropdown-menu a:hover,
+.navbar-nav .dropdown-menu a:focus,
+.ajlii-feed-links span {
+	background: #f2f2f2;
+}
+
+.btn-primary,
+.ajlii-home-submit-link {
+	background: #222;
+	border-color: #222;
+	color: #fff;
+}
+
+.site-footer-secondary::before {
+	display: none;
+}
+
+.site-footer-secondary-grid {
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.site-footer-brand-block {
+	grid-column: auto;
+	justify-self: start;
+}
+
+.site-footer-publisher-logo {
+	border: 1px solid var(--ajlii-line);
+	box-shadow: none;
 }

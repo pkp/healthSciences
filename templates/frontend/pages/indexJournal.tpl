@@ -234,20 +234,4 @@
 	</div>
 </div><!-- .container -->
 
-<section class="ajlii-home-links-section" aria-labelledby="ajliiHomeLinksTitle">
-	<div class="container">
-		<h2 id="ajliiHomeLinksTitle" class="visually-hidden">{translate key="plugins.themes.ajlii.homeLinks.title"}</h2>
-		<div class="ajlii-home-links-grid">
-			{foreach from=$ajliiHomepageFeatureCards item=homeFeature}
-				<article class="ajlii-home-link-card">
-					<a class="ajlii-home-link-visual {$homeFeature.visualClass|escape}{if $homeFeature.imageUrl} ajlii-home-link-visual-managed-image{/if}" href="{$homeFeature.url|escape}" aria-hidden="true" tabindex="-1"{if $homeFeature.imageUrl} style="background-image: url('{$homeFeature.imageUrl|escape}');"{/if}></a>
-					<h3>{$homeFeature.title|escape}</h3>
-					<p>{$homeFeature.description|escape}</p>
-					<a href="{$homeFeature.url|escape}">{$homeFeature.label|escape}</a>
-				</article>
-			{/foreach}
-		</div>
-	</div>
-</section>
-
 {include file="frontend/components/footer.tpl"}
