@@ -171,10 +171,15 @@ class HealthSciencesThemePlugin extends ThemePlugin
                 $loginUrl = preg_replace('/^http:/u', 'https:', $loginUrl);
             }
 
+            // The login modal can't display the captcha, which is only loaded on the login page
+            $isLoginCaptchaEnabled = (Config::getVar('captcha', 'recaptcha') && Config::getVar('captcha', 'captcha_on_login'))
+                || (Config::getVar('captcha', 'altcha') && Config::getVar('captcha', 'altcha_on_login'));
+
             $templateMgr->assign([
                 'languageToggleLocales' => $locales,
                 'loginUrl' => $loginUrl,
                 'brandImage' => 'templates/images/ojs_brand_white.png',
+                'isLoginCaptchaEnabled' => $isLoginCaptchaEnabled,
             ]);
         }
     }

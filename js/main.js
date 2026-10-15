@@ -10,6 +10,9 @@
 (function () {
 
 	// Open login modal when nav menu links clicked
+	if (!document.getElementById('loginModal')) {
+		return;
+	}
 	document.querySelectorAll('.nmi_type_user_login').forEach((userLogin) => {
 		userLogin.addEventListener('click', function (event) {
 			event.preventDefault();
