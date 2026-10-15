@@ -37,7 +37,8 @@
 	{$smarty.capture.authorBiographyModals}
 {/if}
 
-{* Login modal *}
+{* Login modal, not used when a captcha is required to log in *}
+{if !$isLoginCaptchaEnabled}
 <div id="loginModal" class="modal fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -50,6 +51,7 @@
 		</div>
 	</div>
 </div>
+{/if}
 
 {load_script context="frontend" scripts=$scripts}
 
