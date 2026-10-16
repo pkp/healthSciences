@@ -21,7 +21,7 @@
 				{/if}
 			</div>
 			<div class="site-journals">
-				<h2 class="visually-hidden">{translate key="journal.journals"}</h2>
+				<h2 class="visually-hidden">{translate key="context.contexts"}</h2>
 				{if !$journals|@count}
 					<p>{translate key="site.noJournals"}</p>
 				{else}
@@ -39,7 +39,7 @@
 								<div class="site-journal-body">
 									<h3 class="site-journal-title">
 										<a href="{$url|escape}" rel="bookmark">
-											{$journal->getLocalizedName()}
+											{$journal->getLocalizedName()|escape}
 										</a>
 									</h3>
 									<div class="site-journal-description">{$description|nl2br}</div>

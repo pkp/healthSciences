@@ -121,7 +121,7 @@
 						<div class="optin optin-privacy form-check">
 							<input type="checkbox" class="form-check-input" name="privacyConsent" id="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
 							<label for="privacyConsent" class="form-check-label">
-								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+								{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
 						</div>

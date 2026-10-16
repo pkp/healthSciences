@@ -22,7 +22,7 @@
 				<p>{translate key="user.login.resetPasswordInstructions"}</p>
 				{if $error}
 					<div class="alert alert-danger">
-						{translate key=$error}
+						{translate key=$error reason=$reason}
 					</div>
 				{/if}
 				<div class="row justify-content-md-center mt-5">

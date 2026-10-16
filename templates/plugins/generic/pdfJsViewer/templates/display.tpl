@@ -9,7 +9,7 @@
  *}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{capture assign="pageTitleTranslated"}{translate key="article.pageTitle" title=$title}{/capture}
+{capture assign="pageTitleTranslated"}{if $isTitleHtml}{translate key="article.pageTitle" title=$title|strip_tags|escape}{else}{translate key="article.pageTitle" title=$title|escape}{/if}{/capture}
 {include file="frontend/components/headerHead.tpl" pageTitleTranslated=$pageTitleTranslated}
 <body class="page-view-pdf">
 	<div class="pdf-header">
@@ -17,14 +17,18 @@
 			<a href="{$parentUrl}" class="btn btn-text">
 				←
 				<span class="visually-hidden">
-					{if $parent instanceOf Issue}
+					{if $issue}
 						{translate key="issue.return"}
 					{else}
 						{translate key="article.return"}
 					{/if}
 				</span>
 				{if $isLatestPublication}
-					{$title|escape}
+					{if $isTitleHtml}
+						{$title|strip_unsafe_html}
+					{else}
+						{$title|escape}
+					{/if}
 				{/if}
 			</a>
 		</div>
@@ -45,8 +49,17 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		// Creating iframe's src in JS instead of Smarty so that EZProxy-using sites can find our domain in $pdfUrl and do their rewrites on it.
+		document.addEventListener('DOMContentLoaded', function() {ldelim}
+			var urlBase = "{$pluginUrl}/pdf.js/web/viewer.html?file=";
+			var pdfUrl = {$pdfUrl|json_encode:JSON_UNESCAPED_SLASHES};
+			document.querySelector("#pdfCanvasContainer > iframe").setAttribute("src", urlBase + encodeURIComponent(pdfUrl));
+		{rdelim});
+	</script>
+
 	<div id="pdfCanvasContainer" class="pdf-frame">
-		<iframe src="{$pluginUrl}/pdf.js/web/viewer.html?file={$pdfUrl|escape:"url"}" width="100%" height="100%" style="min-height: 500px;" allowfullscreen webkitallowfullscreen></iframe>
+		<iframe src="" width="100%" height="100%" style="min-height: 500px;" title="{$galleyTitle|escape}" allowfullscreen webkitallowfullscreen></iframe>
 	</div>
 	{call_hook name="Templates::Common::Footer::PageFooter"}
 </body>

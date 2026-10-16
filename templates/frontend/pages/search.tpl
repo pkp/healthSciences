@@ -15,6 +15,9 @@
  *  Value is a single string: YYYY-MM-DD HH:MM:SS
  * @uses $yearStart Earliest year that can be used in from/to filters
  * @uses $yearEnd Latest year that can be used in from/to filters
+ *
+ * @hook Templates::Search::SearchResults::AdditionalFilters []
+ * @hook Templates::Search::SearchResults::PreResults []
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.search"}
 
@@ -33,6 +36,8 @@
 	<div class="row justify-content-lg-center">
 		<div class="col-lg-8 search-col-results">
 			<div class="search-results">
+
+				{call_hook name="Templates::Search::SearchResults::PreResults"}
 
 				{* No results found *}
 				{if $results->wasEmpty()}
@@ -60,7 +65,7 @@
 
 				{capture name="searchFormUrl"}{url escape=false}{/capture}
 				{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
-				{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
+				{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
 				<form class="form-search" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
 					{foreach from=$formUrlParameters key=paramKey item=paramValue}
 						<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
@@ -78,6 +83,21 @@
 						</label>
 						<input type="text" class="form-control" id="authors" name="authors" value="{$authors|escape}">
 					</div>
+					{if $searchableContexts}
+						<div class="form-group form-group-contexts">
+							<label for="searchJournal">
+								{translate key="search.journal"}
+							</label>
+							<select class="form-control" name="searchJournal" id="searchJournal">
+								<option></option>
+								{foreach from=$searchableContexts item="searchableContext"}
+									<option value="{$searchableContext->id}" {if $searchJournal == $searchableContext->id}selected{/if}>
+										{$searchableContext->name|escape}
+									</option>
+								{/foreach}
+							</select>
+						</div>
+					{/if}
 					<div class="form-group form-group-date-from">
 						<label for="dateFromYear">
 							{translate key="search.dateFrom"}
@@ -94,6 +114,7 @@
 							{html_select_date class="form-control" prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
 						</div>
 					</div>
+					{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
 					<div class="form-group form-group-buttons">
 						<button class="btn btn-primary" type="submit">{translate key="common.search"}</button>
 					</div>

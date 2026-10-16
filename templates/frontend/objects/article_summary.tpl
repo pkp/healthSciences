@@ -18,7 +18,7 @@
 {assign var="articlePath" value=$article->getBestId()}
 {assign var="publication" value=$article->getCurrentPublication()}
 
-{if (!$section.hideAuthor && $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $publication->getData('hideAuthor') == APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -46,7 +46,7 @@
 	{/if}
 
 	<div class="article-summary-title">
-		<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
+		<a {if $journal}href="{url router=PKP\core\PKPApplication::ROUTE_PAGE journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="article" op="view" path=$articlePath}"{/if}>
 			{$publication->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
 		</a>
 	</div>
@@ -57,28 +57,13 @@
 		</div>
 	{/if}
 
-	{* Get DOI from DOIPubIdPlugin object *}
-	{if $requestedPage === 'issue'}
-		{foreach from=$pubIdPlugins item=pubIdPlugin}
-			{if $pubIdPlugin->getPubIdType() != 'doi'}
-				{continue}
-			{/if}
-			{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-			{if $pubId}
-				{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-				<div class="article-summary-doi">
-					<a href="{$doiUrl}">{$doiUrl}</a>
-				</div>
-			{/if}
-		{/foreach}
-	{* Get DOI from PublishedArticle object ($pubIdPlugin isn't assigned to indexJournal template) *}
-	{elseif ($requestedPage === "search" || $requestedPage === "catalog") && $article->getStoredPubId('doi')}
-		{assign var="doiUrl" value=$article->getStoredPubId('doi')|substr_replace:'https://doi.org/':0:0|escape}
-		{if $doiUrl}
-			<div class="article-summary-doi">
-				<a href="{$doiUrl}">{$doiUrl}</a>
-			</div>
-		{/if}
+	{* DOI *}
+	{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
+	{if $doiObject}
+		{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+		<div class="article-summary-doi">
+			<a href="{$doiUrl}">{$doiUrl}</a>
+		</div>
 	{/if}
 
 	{assign var="galleys" value=$article->getGalleys()}
@@ -92,7 +77,7 @@
 					{/if}
 				{/if}
 				{assign var="hasArticleAccess" value=$hasAccess}
-				{if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
+				{if $currentContext->getSetting('publishingMode') == APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == APP\submission\Submission::ARTICLE_ACCESS_OPEN}
 					{assign var="hasArticleAccess" value=1}
 				{/if}
 				{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication hasAccess=$hasArticleAccess}

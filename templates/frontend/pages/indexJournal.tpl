@@ -99,7 +99,7 @@
 				<h3 class="homepage-announcement-title">{$announcement->getLocalizedData('title')|escape}</h3>
 				<p>{$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
 					<br>
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
 						{capture name="more" assign="more"}{translate key="common.more"}{/capture}
 						{translate key="plugins.themes.healthSciences.more" text=$more}
 					</a>
@@ -120,7 +120,7 @@
 		</div>
 
 		<div class="text-center">
-			<a class="btn" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
+			<a class="btn" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}">
 				{translate key="journal.viewAllIssues"}
 			</a>
 		</div>

@@ -32,7 +32,7 @@
 {/if}
 
 {* Get page and parentId for URL *}
-{if $parent instanceOf Issue}
+{if $parent instanceOf APP\issue\Issue}
 	{assign var="page" value="issue"}
 	{assign var="parentId" value=$parent->getBestIssueId()}
 	{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
@@ -49,7 +49,7 @@
 
 {* Get user access flag *}
 {if !$hasAccess}
-	{if $restrictOnlyPdf && type=="pdf"}
+	{if $restrictOnlyPdf && $type=="pdf"}
 		{assign var=restricted value="1"}
 	{elseif !$restrictOnlyPdf}
 		{assign var=restricted value="1"}
@@ -57,7 +57,7 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="btn{if !$isSupplementary} btn-primary{/if}" href="{url page=$page op="view" path=$path}">
+<a class="btn{if !$isSupplementary} btn-primary{/if}" href="{if $currentJournal}{url router=PKP\core\PKPApplication::ROUTE_PAGE journal=$currentJournal->getPath() page=$page op="view" path=$path}{else}{url router=PKP\core\PKPApplication::ROUTE_PAGE page=$page op="view" path=$path}{/if}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
