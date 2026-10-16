@@ -73,7 +73,7 @@
 							<div class="form-check context_privacy{if $isSelected} context_privacy_visible{/if}">
 								<input type="checkbox" class="form-check-input" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>
 								<label for="privacyConsent[{$contextId}]">
-									{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
+									{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
 									{translate key="user.register.form.privacyConsentThisContext" privacyUrl=$privacyUrl}
 								</label>
 							</div>
@@ -99,11 +99,12 @@
 
 	{* Require the user to agree to the terms of the privacy policy *}
 	{if $siteWidePrivacyStatement}
+		{assign var="siteContextId" value=PKP\core\PKPApplication::SITE_CONTEXT_ID|intval}
 		<div class="fields">
 			<div class="optin optin-privacy">
 				<label>
-					<input type="checkbox" name="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" id="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[$smarty.const.CONTEXT_ID_NONE]} checked="checked"{/if}>
-					{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+					<input type="checkbox" name="privacyConsent[{$siteContextId}]" id="privacyConsent[{$siteContextId}]" value="1"{if $privacyConsent[$siteContextId]} checked="checked"{/if}>
+					{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 					{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 				</label>
 			</div>

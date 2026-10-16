@@ -37,24 +37,34 @@
 				{translate key="plugins.themes.healthSciences.currentIssuePublished" date=$issue->getDatePublished()|date_format:$dateFormatLong}
 			</div>
 
-			{* PUb IDs (eg - DOI) *}
+			{* DOI *}
+			{assign var=doiObject value=$issue->getData('doiObject')}
+			{if $doiObject}
+				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+				<div class="page-issue-doi">
+					<a href="{$doiUrl}">
+						{$doiUrl}
+					</a>
+				</div>
+			{/if}
+
+			{* Pub IDs (other than DOI; requires plugins) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}
+				{if $pubIdPlugin->getPubIdType() == 'doi'}
+					{continue}
+				{/if}
 				{assign var=pubId value=$issue->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
-					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					{if $doiUrl}
+					{assign var="pubIdUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
+					{if $pubIdUrl}
 						{capture assign="pubId"}
-							<a href="{$doiUrl}">
-								{$doiUrl}
+							<a href="{$pubIdUrl}">
+								{$pubIdUrl}
 							</a>
 						{/capture}
 					{/if}
 					<div class="page-issue-doi">
-						{if $pubIdPlugin->getPubIdType() == 'doi'}
-							{$pubId}
-						{else}
-							{translate key="plugins.themes.healthSciences.issuePubId" pubIdType=$pubIdPlugin->getPubIdDisplayType()|escape pubId=$pubId}
-						{/if}
+						{translate key="plugins.themes.healthSciences.issuePubId" pubIdType=$pubIdPlugin->getPubIdDisplayType()|escape pubId=$pubId}
 					</div>
 				{/if}
 			{/foreach}
@@ -68,7 +78,7 @@
 							<div class="page-issue-description">
 								<div class="h2">
 									{if $issue->getLocalizedTitle()}
-										{$issue->getLocalizedTitle()}
+										{$issue->getLocalizedTitle()|escape}
 									{else}
 										{translate key="plugins.themes.healthSciences.issueDescription"}
 									{/if}

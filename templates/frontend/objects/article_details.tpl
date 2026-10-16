@@ -84,18 +84,13 @@
 			{/if}
 
 			{* DOI only for large screens *}
-			{foreach from=$pubIdPlugins item=pubIdPlugin}
-				{if $pubIdPlugin->getPubIdType() != 'doi'}
-					{continue}
-				{/if}
-				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-				{if $pubId}
-					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-					<div class="article-details-doi large-screen">
-						<a href="{$doiUrl}">{$doiUrl}</a>
-					</div>
-				{/if}
-			{/foreach}
+			{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
+			{if $doiObject}
+				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+				<div class="article-details-doi large-screen">
+					<a href="{$doiUrl}">{$doiUrl}</a>
+				</div>
+			{/if}
 
 			{* Date published & updated *}
 			{if $publication->getData('datePublished')}
@@ -150,12 +145,16 @@
 							</div>
 							{if count($author->getAffiliations()) > 0}
 								{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
-									<div class="article-details-author-affiliation">
-										{$affiliation->getLocalizedName()|escape}
-										{if $affiliation->getRor()}
-											<a class="rorImage" href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>
-										{/if}
-									</div>
+									{if $affiliation->getLocalizedName() || $affiliation->getRor()}
+										<div class="article-details-author-affiliation">
+											{if $affiliation->getLocalizedName()}
+												{$affiliation->getLocalizedName()|escape}
+											{/if}
+											{if $affiliation->getRor()}
+												<a class="rorImage" href="{$affiliation->getRor()|escape}">{$rorIdIcon|trim}</a>
+											{/if}
+										</div>
+									{/if}
 								{/foreach}
 							{/if}
 							{if $author->getData('orcid')}
@@ -312,7 +311,7 @@
 						</h2>
 						<ul class="article-details-categories-value">
 							{foreach from=$categories item=category}
-								<li><a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|escape}</a></li>
+								<li><a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|escape}">{$category->getLocalizedTitle()|escape}</a></li>
 							{/foreach}
 						</ul>
 					</div>
@@ -321,13 +320,11 @@
 				{* Data Availability Statement *}
 				{assign 'dataAvailability' $publication->getLocalizedData('dataAvailability')}
 				{if $dataAvailability}
-					<div class="article-details-block article-details-dataAvailability">
+					<div class="article-details-block article-details-dataAvailability" id="data-availability-statement">
 						<h2 class="article-details-heading">
 							{translate key="submission.dataAvailability"}
 						</h2>
-						<p>
-							{$dataAvailability|strip_unsafe_html}
-						</p>
+						{$dataAvailability|strip_unsafe_html}
 					</div>
 				{/if}
 
@@ -336,7 +333,7 @@
 					{if $pubIdPlugin->getPubIdType() == 'doi'}
 						{continue}
 					{/if}
-					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
+					{assign var=pubId value=$publication->getStoredPubId($pubIdPlugin->getPubIdType())}
 					{if $pubId}
 						<div class="article-details-block article-details-pubid">
 							<h2 class="article-details-heading">
@@ -371,18 +368,13 @@
 				{/if}
 
 				{* DOI for small screens only *}
-				{foreach from=$pubIdPlugins item=pubIdPlugin}
-					{if $pubIdPlugin->getPubIdType() != 'doi'}
-						{continue}
-					{/if}
-					{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
-					{if $pubId}
-						{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
-						<div class="article-details-block article-details-doi small-screen">
-							<a href="{$doiUrl}">{$doiUrl}</a>
-						</div>
-					{/if}
-				{/foreach}
+				{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
+				{if $doiObject}
+					{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
+					<div class="article-details-block article-details-doi small-screen">
+						<a href="{$doiUrl}">{$doiUrl}</a>
+					</div>
+				{/if}
 
 				{* Article Galleys (bottom) *}
 				{if $primaryGalleys}

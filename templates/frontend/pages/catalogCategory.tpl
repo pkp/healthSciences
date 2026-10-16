@@ -36,14 +36,14 @@
 			{if $description}
 				<div class="col-lg-9">
 					<div class="page-category-description-wrapper">
-						{$description}
+						{$description|strip_unsafe_html}
 					</div>
 				</div>
 			{/if}
 			{if $image}
 				<div class="col-lg-3">
-					<a href="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}">
-						<img class="img-fluid page-category-cover" src="{url router=$smarty.const.ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}" alt="{$category->getLocalizedTitle()|escape}" />
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}">
+						<img class="img-fluid page-category-cover" src="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="fullSize" type="category" id=$category->getId()}" alt="{$category->getLocalizedTitle()|escape}" />
 					</a>
 				</div>
 			{/if}
@@ -85,12 +85,12 @@
 
 				{* Pagination *}
 				{if $prevPage > 1}
-					{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$prevPage}{/capture}
+					{capture assign=prevUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$prevPage}{/capture}
 				{elseif $prevPage === 1}
-					{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()}{/capture}
+					{capture assign=prevUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()}{/capture}
 				{/if}
 				{if $nextPage}
-					{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$nextPage}{/capture}
+					{capture assign=nextUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="catalog" op="category" path=$category->getPath()|to_array:$nextPage}{/capture}
 				{/if}
 				{include
 					file="frontend/components/pagination.tpl"

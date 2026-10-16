@@ -16,7 +16,7 @@
 
 <article class="announcement-summary">
 	<{$heading}>
-		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
+		<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
 			{$announcement->getLocalizedData('title')|escape}
 		</a>
 	</{$heading}>
@@ -26,7 +26,7 @@
 	<div class="announcement-summary-description">
 		{$announcement->getLocalizedData('descriptionShort')|strip_unsafe_html}
 		<p class="announcement-summary-more">
-			<a class="btn" href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
+			<a class="btn" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->id}">
 				<span aria-hidden="true" role="presentation">{translate key="common.readMore"}</span>
 
 				{* Screen readers need more context *}
