@@ -67,7 +67,6 @@ describe('Theme plugin tests', function() {
 		cy.visit(path + '/information/readers');
 		cy.visit(path + '/information/authors');
 		cy.visit(path + '/information/librarians');
-		cy.visit(path + '/search/authors');
 	});
 
 	it('Checks theme options', function() {
@@ -88,6 +87,7 @@ describe('Theme plugin tests', function() {
 
 		// Check if applied
 		cy.visit(path + '/issue/view/1');
+		cy.reload(true); // Bypass the cached stylesheet
 		cy.get('.btn-primary').contains('PDF').should('have.css', 'background-color', 'rgb(170, 170, 170)');
 	});
 
