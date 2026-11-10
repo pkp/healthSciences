@@ -18,12 +18,16 @@
 	{assign var=usernameId value="username"}
 	{assign var=passwordId value="password"}
 	{assign var=rememberId value="remember"}
+	{assign var=formId value="login"}
 {elseif $formType && $formType === "loginModal"}
 	{assign var=usernameId value="usernameModal"}
 	{assign var=passwordId value="passwordModal"}
 	{assign var=rememberId value="rememberModal"}
+	{assign var=formId value="loginModalForm"}
+{else}
+	{assign var=formId value="login"}
 {/if}
-<form class="form-login" method="post" action="{$loginUrl}">
+<form class="form-login" id="{$formId}" method="post" action="{$loginUrl}">
 	{csrf}
 	<input type="hidden" name="source" value="{$source|strip_unsafe_html|escape}"/>
 
