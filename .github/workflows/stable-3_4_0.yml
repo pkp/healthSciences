@@ -27,6 +27,7 @@ jobs:
           branch: 'stable-3_4_0'
           repository: pkp
           plugin: true
+          dataset_inject: true
 
 
 
