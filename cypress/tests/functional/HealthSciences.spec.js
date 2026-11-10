@@ -87,7 +87,6 @@ describe('Theme plugin tests', function() {
 
 		// Check if applied
 		cy.visit(path + '/issue/view/1');
-		cy.reload(true); // Bypass the cached stylesheet
 		cy.get('.btn-primary').contains('PDF').should('have.css', 'background-color', 'rgb(170, 170, 170)');
 	});
 
@@ -103,9 +102,6 @@ describe('Theme plugin tests', function() {
 		});
 		cy.get('#categoryDetails [id^="submitFormButton"]').click();
 		cy.visit(path + '/workflow/index/1/5#publication');
-		cy.get('.pkpButton').contains('Create New Version').click();
-		cy.get('#modals-container .pkpButton').contains('Yes').click();
-		cy.wait(2000); // wait for a new version init
 
 		cy.get('#issue-button').click();
 		cy.get('.pkpFormField--options__optionLabel').contains('First category').click();
