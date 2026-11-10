@@ -2,7 +2,7 @@ on: [push, pull_request]
 name: healthSciences
 jobs:
   healthSciences:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -27,6 +27,7 @@ jobs:
           branch: 'stable-3_4_0'
           repository: pkp
           plugin: true
+          dataset_inject: true
 
 
 

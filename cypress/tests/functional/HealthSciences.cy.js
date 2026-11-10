@@ -105,17 +105,9 @@ describe('Theme plugin tests', function() {
 			cy.get('button').contains('OK').click();
 		});
 		cy.waitJQuery();
-		cy.get('nav a').contains('Submissions').click();
-		cy.get('button').contains('Archived').click();
-		cy.get('.listPanel__item').first().within(() => {
-			cy.get('.listPanel__item--submission__id').contains('1');
-			cy.get('a span').contains('View').click();
-		});
+		cy.visit('/index.php/publicknowledge/workflow/access/1');
 		cy.waitJQuery();
 		cy.get('button').contains('Publication').click();
-		cy.get('.pkpButton').contains('Create New Version').click();
-		cy.get('#modals-container .pkpButton').contains('Yes').click();
-		cy.wait(2000); // wait for a new version init
 
 		cy.get('#issue-button').click();
 		cy.get('.pkpFormField--options__optionLabel').contains('First category').click();
