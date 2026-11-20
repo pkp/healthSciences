@@ -82,14 +82,14 @@
 					<div class="submissions-copyright-notice">
 						<h2>
 							{translate key="about.copyrightNotice"}
-							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.copyrightNotice"}
+							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.copyrightNotice"}
 						</h2>
 						{$currentContext->getLocalizedData('copyrightNotice')}
 					</div>
 				{/if}
 
 				{if $currentContext->getLocalizedData('privacyStatement')}
-					<div class="submissions-privacy-statement">
+					<div class="submissions-privacy-statement" id="privacyStatement">
 						<h2>
 							{translate key="about.privacyStatement"}
 							{include file="frontend/components/editLink.tpl" page="management" op="settings" path="website" anchor="setup/privacy" sectionTitleKey="about.privacyStatement"}
