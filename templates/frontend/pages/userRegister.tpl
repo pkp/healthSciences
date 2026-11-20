@@ -22,6 +22,12 @@
 			<div class="page-content">
 
 				<form class="form-register" id="register" method="post" action="{url op="register"}">
+					{if $orcidEnabled}
+						<div class="form-register-orcid">
+							{include file="form/orcidProfile.tpl"}
+						</div>
+					{/if}
+
 					{csrf}
 					<input type="hidden" name="source" value="{$source|default:""|escape}" />
 

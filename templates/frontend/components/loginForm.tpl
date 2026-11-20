@@ -34,14 +34,14 @@
 	<fieldset>
 		<div class="form-group form-group-username">
 			<label for="{$usernameId}">
-				{translate key="user.username"}
+				{translate key="user.usernameOrEmail"}
 				<span class="required" aria-hidden="true">*</span>
 				<span class="visually-hidden">
 					{translate key="common.required"}
 				</span>
 			</label>
 			<input type="text" class="form-control" name="username" id="{$usernameId}" value="{$username|default:""|escape}"
-			       maxlength="32" autocomplete="username" required>
+			       autocomplete="username" required>
 		</div>
 		<div class="form-group form-group-password">
 			<label for="{$passwordId}">

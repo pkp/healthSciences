@@ -10,7 +10,7 @@
  *}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
-{capture assign="pageTitleTranslated"}{translate key="article.pageTitle" title=$article->getCurrentPublication()->getLocalizedTitle()|escape}{/capture}
+{capture assign="pageTitleTranslated"}{translate key="article.pageTitle" title=$article->getCurrentPublication()->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}{/capture}
 {include file="frontend/components/headerHead.tpl"}
 <body class="pkp_page_{$requestedPage|escape} pkp_op_{$requestedOp|escape}">
 
@@ -32,20 +32,20 @@
 			}
 		</div>
 		{capture assign="htmlUrl"}
-			{url page="article" op="download" path=$article->getBestId()|to_array:'version':$galleyPublication->getId():$galley->getBestGalleyId() inline=true}
+			{url page="article" op="download" path=$article->getBestId()|to_array:'version':$galleyPublication->getId():$galley->getBestGalleyId():$submissionFile->getId() inline=true}
 		{/capture}
 	{else}
-		<a href="{url page="article" op="view" path=$article->getBestId()}" class="title">
-			{$galleyPublication->getLocalizedTitle()|escape}
+		<a href="{$articleUrl}" class="title">
+			{$article->getCurrentPublication()->getLocalizedTitle(null, 'html')|strip_unsafe_html}
 		</a>
 		{capture assign="htmlUrl"}
-			{url page="article" op="download" path=$article->getBestId()|to_array:$galley->getBestGalleyId() inline=true}
+			{url page="article" op="download" path=$article->getBestId()|to_array:$galley->getBestGalleyId():$submissionFile->getId() inline=true}
 		{/capture}
 	{/if}
 </header>
 
 <div id="htmlContainer" class="galley_view" style="overflow:visible;-webkit-overflow-scrolling:touch">
-	<iframe id="htmlGalleyFrame" name="htmlFrame" src="{$htmlUrl}" allowfullscreen webkitallowfullscreen></iframe>
+	<iframe id="htmlGalleyFrame" name="htmlFrame" src="{$htmlUrl}" title="{translate key="submission.representationOfTitle" representation=$galley->getLabel()|escape title=$galleyPublication->getLocalizedFullTitle(null)|escape}" allowfullscreen webkitallowfullscreen></iframe>
 </div>
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </body>

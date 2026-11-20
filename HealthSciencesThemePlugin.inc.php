@@ -3,8 +3,8 @@
 /**
  * @file plugins/themes/healthSciences/HealthSciencesThemePlugin.inc.php
  *
- * Copyright (c) 2014-2025 Simon Fraser University
- * Copyright (c) 2003-2025 John Willinsky
+ * Copyright (c) 2014-2026 Simon Fraser University
+ * Copyright (c) 2003-2026 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class HealthSciencesThemePlugin
@@ -16,6 +16,7 @@
 use APP\core\Application;
 use PKP\config\Config;
 use PKP\facades\Locale;
+use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
 
 class HealthSciencesThemePlugin extends ThemePlugin
@@ -28,9 +29,9 @@ class HealthSciencesThemePlugin extends ThemePlugin
     {
 
         // Add theme options
-        $this->addOption('baseColour', 'colour', [
-            'label' => 'plugins.themes.healthSciences.option.colour.label',
-            'description' => 'plugins.themes.healthSciences.option.colour.description',
+        $this->addOption('baseColour', 'FieldColor', [
+            'label' => __('plugins.themes.healthSciences.option.colour.label'),
+            'description' => __('plugins.themes.healthSciences.option.colour.description'),
             'default' => '#10BECA',
         ]);
 
@@ -113,7 +114,7 @@ class HealthSciencesThemePlugin extends ThemePlugin
         $this->addMenuArea(['primary', 'user']);
 
         // Get extra data for templates
-        HookRegistry::add('TemplateManager::display', [$this, 'loadTemplateData']);
+        Hook::add('TemplateManager::display', [$this, 'loadTemplateData']);
     }
 
     /** @see ThemePlugin::saveOption */

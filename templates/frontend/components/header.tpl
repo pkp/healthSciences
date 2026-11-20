@@ -15,7 +15,7 @@
 {/if}
 
 {capture assign="homeUrl"}
-	{url page="index" router=$smarty.const.ROUTE_PAGE}
+	{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}
 {/capture}
 
 {* Logo or site title. Only use <h1> heading on the homepage.
@@ -30,8 +30,7 @@
 {capture assign="brand"}{strip}
 	{if $displayPageHeaderLogo}
 		<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
-		     {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
-		     {else}alt="{translate key="common.pageHeaderLogo.altText"}"{/if}
+		     {if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"{/if}
 				 class="img-fluid">
 	{elseif $displayPageHeaderTitle}
 		<span class="navbar-logo-text">{$displayPageHeaderTitle|escape}</span>
