@@ -84,7 +84,6 @@
 			{/if}
 
 			{* DOI only for large screens *}
-			{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
 			{if $doiObject}
 				{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
 				<div class="article-details-doi large-screen">
@@ -368,7 +367,6 @@
 				{/if}
 
 				{* DOI for small screens only *}
-				{assign var=doiObject value=$article->getCurrentPublication()->getData('doiObject')}
 				{if $doiObject}
 					{assign var="doiUrl" value=$doiObject->getData('resolvingUrl')|escape}
 					<div class="article-details-block article-details-doi small-screen">
