@@ -15,7 +15,7 @@
 
 {* Get the Id of the parent object *}
 {capture assign="parentUrl"}
-{if $parent instanceOf Issue}
+{if $parent instanceOf APP\issue\Issue}
 	{assign var="parentId" value=$parent->getBestIssueId()}
 	{url op="view" path=$parentId}
 {else}
@@ -41,7 +41,7 @@
 
 		<a href="{$parentUrl}">
 			<span>
-				{if $parent instanceOf Issue}
+				{if $parent instanceOf APP\issue\Issue}
 					{translate key="issue.return"}
 				{else}
 					{translate key="article.return"}
